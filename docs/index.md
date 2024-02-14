@@ -15,7 +15,15 @@ CoCoS.ai is enabling the following features:
 - In-enclave agent, netowrking controller and other system software
 - Encrypted asynchronous data transfer and result delivery
 - API for programmable platform manipulation
-- Billing and accounting
+
+## Prism
+
+Prism is a web based SAAS that is intended for use by the end user, to allow for a user in an organization to benefit from the entire CoCoS AI system. Prism adds a layer of security and user management to the CoCoS AI system by providing functionality such as:
+
+- User and Consortium (organization) creation and management
+- Policy creation and management (between users, organizations, and computations)
+- Billing and payment management
+- Computation creation and management
 
 ## License
 

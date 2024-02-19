@@ -2,6 +2,10 @@
 
 The billing service allows the organization to pay for the services used in the CoCoS system such as total number of computations, total users, and the use rate. Once a billing customer is created, the billing service allows the user to select a plan out of the ones created by the admin and make payments for these plans based on the selected plan.
 
+## Billing Metrics
+
+Currently, billing plans are only based on the maximum number of computations that an organization or user can have in the system. When an admin creates a plan, they limit the amount of computations that an organization can have based on the amount paid by the user. This is still a work in progress and the actual metrics that should be limited will be changed based on internal discussions.
+
 ## Admin functions
 
 ### Create Plan

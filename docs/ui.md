@@ -38,4 +38,19 @@ On the computations page, the user has the ability to view invitations that have
 
 The computation policies page gives the user the ability to create new computation policies. The user can also view the computation policies they have created and the computation policies that are a part of the organization they are in. The user can also update the information of the computation policies they have created. A computation policy is used to determine the roles that are assigned to the different users that are a part of the computation, such as editor, viewer, or admin.
 
-![Computation Policy](../img/computation-page.png)
+![Computation Policy](../img/computation-policies.png)
+
+## Billing
+
+Billing service allows the organization and users to pay for the services they use. The first step in billing is to create a billing customer, which you create as the first step when you access the organization settings page.
+
+![Billing Customer](../img/billing-customer.png)
+
+Once the customer is created, the user can select one of the plans created by the admin and subscribe to it. This leads the user to the payment page, where the user can enter their credit card details and subscribe to the plan.
+
+![Subscription Select](../img/subscriptions.png)
+
+Once selected, the user will be prompted to make the payment. Once the payment is successful, the user will be subscribed to the plan and the billing will be active.
+
+
+![Payment Page](../img/payment.png)

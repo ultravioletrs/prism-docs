@@ -29,3 +29,4 @@ nav:
   - UI: ui.md
   - Computation Policies: policies.md
   - Certs: certs.md
+  - Backends: backends.md

@@ -1,6 +1,6 @@
 # UI
 
-The Prism UI gives is the easiest way to use the CoCoS system, giving the ability to use the entire prism system without interacting with the command line. It provides a convenient way to log in to the CoCoS system, creation of users, organizations, computations, computation policies, computation invitations, organization billing and updating of all this information.
+The Prism UI gives is the easiest way to use the CoCoS system, giving the ability to use the entire prism system without interacting with the command line. It provides a convenient way to log in to the CoCoS system, creation of users, organizations, computations, computation policies, computation invitations, certs, backends, organization billing and updating of all this information.
 
 ## Getting Started
 

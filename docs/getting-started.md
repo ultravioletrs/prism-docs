@@ -1,35 +1,12 @@
 # Getting Started
 
-## Users
+## Sign Up
+Create a user on the ui as shown below:
 
-For user management, we use Magistrarla Users micorservice. By default, this service will be running on the port `9003`.
-
-### Create User
-
-In order to create user, we need to provide identity and secret. The `USER_TOKEN` is optional and is used for ownership:
+or using curl as below:
 
 ```bash
-curl -sSiX POST http://localhost/users -H "Content-Type: application/json" [-H "Authorization: Bearer <user_token>"] -d @- <<EOF
-{
-  "name": "[name]",
-  "credentials": {
-    "identity": "<identity>",
-    "secret": "<secret>"
-  },
-  "tags": [
-    "[tag_1]", ..., "[tag_N]"
-  ],
-  "owner": "[owner_id]",
-  "metadata": {},
-  "status": "[status]"
-}
-EOF
-```
-
-Example:
-
-```bash
-curl -sSiX POST http://localhost/users -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST http://localhost:9003/users -H "Content-Type: application/json" -d @- <<EOF
 {
   "name": "John Doe",
   "credentials": {
@@ -40,45 +17,25 @@ curl -sSiX POST http://localhost/users -H "Content-Type: application/json" -d @-
 EOF
 ```
 
-Response:
+the response is follows:
 
 ```bash
 HTTP/1.1 201 Created
-Content-Length: 211
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:24:57 GMT
-Location: /users/1b849a99-cef7-42f5-a7f4-e00b1f439e08
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Location: /users/b88b42b3-b4a4-4003-a777-6bab443385c9
+Date: Tue, 30 Apr 2024 12:40:32 GMT
+Content-Length: 213
 
-{
-  "id": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-  "name": "John Doe",
-  "credentials": { "identity": "john.doe@example.com" },
-  "created_at": "2023-08-10T07:24:57.33876Z",
-  "updated_at": "0001-01-01T00:00:00Z",
-  "status": "enabled"
-}
-
+{"id":"b88b42b3-b4a4-4003-a777-6bab443385c9","name":"John Doe","credentials":{"identity":"john.doe@example.com"},"created_at":"2024-04-30T12:40:32.116252Z","updated_at":"0001-01-01T00:00:00Z","status":"enabled"}
 ```
 
-### Login User
+For more user related actions see: [magistrala users](https://docs.magistrala.abstractmachines.fr/api/#users)
 
+## Login User
 In order to login user, we need to provide username and password:
 
 ```bash
-curl -sSiX POST http://localhost/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
-{
-  "identity": "<identity>",
-  "secret": "<secret>"
-}
-EOF
-```
-
-Example:
-
-```bash
-curl -sSiX POST http://localhost/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST http://localhost:9003/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
 {
   "identity": "john.doe@example.com",
   "secret": "12345678"
@@ -86,85 +43,40 @@ curl -sSiX POST http://localhost/users/tokens/issue -H "Content-Type: applicatio
 EOF
 ```
 
-Response:
-
+response:
 ```bash
 HTTP/1.1 201 Created
-Content-Length: 715
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:25:06 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Tue, 30 Apr 2024 12:48:18 GMT
+Content-Length: 647
 
-{
-  "access_token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE2NTQxMDYsImlhdCI6MTY5MTY1MjMwNiwiaWRlbnRpdHkiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlzcyI6ImNsaWVudHMuYXV0aCIsInN1YiI6IjFiODQ5YTk5LWNlZjctNDJmNS1hN2Y0LWUwMGIxZjQzOWUwOCIsInR5cGUiOiJhY2Nlc3MifQ.FRaSjJT7wZVPSW6w-O3jyQa9WekLUzp6WcdakrZuvFgTsPvo29tbCNsX71ktJkwKeQUK1CPwRQrWrEu8tAOKFg",
-  "refresh_token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE3Mzg3MDYsImlhdCI6MTY5MTY1MjMwNiwiaWRlbnRpdHkiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlzcyI6ImNsaWVudHMuYXV0aCIsInN1YiI6IjFiODQ5YTk5LWNlZjctNDJmNS1hN2Y0LWUwMGIxZjQzOWUwOCIsInR5cGUiOiJyZWZyZXNoIn0.iGpKn5FrTknYeuxqIxMd8x40MnExgaUJ1iWJ9Vg5szoShM-M6hu-Q1bNMcZQJoS4wxswGc50JzOjd7JSIYnucg",
-  "access_type": "Bearer"
-}
-
+{"access_token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiIiLCJleHAiOjE3MTQ0ODQ4OTgsImlhdCI6MTcxNDQ4MTI5OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiIiwidHlwZSI6MCwidXNlciI6IjBkY2UyMmM2LTFhOTQtNGE4ZS1hNzAxLTE4NWE0YzM3ZGY1OCJ9.osXITQXqGHV_aewrnz0bmFzfwIjxMuPZnsSkcYxmJJrNlO9JYEVXrZHLZuS8wejGNUzHur33desq_X3REISBaA","refresh_token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiIiLCJleHAiOjE3MTQ1Njc2OTgsImlhdCI6MTcxNDQ4MTI5OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiIiwidHlwZSI6MSwidXNlciI6IjBkY2UyMmM2LTFhOTQtNGE4ZS1hNzAxLTE4NWE0YzM3ZGY1OCJ9.KRWH0TTfrORMrjCsfxKw4P6TO4z0Pr3DXilLttwQCiMF6kKy-8sbNz5n2VNjkAIonm-LgIN-qz64l6--a78NjQ"}
 ```
+
+This can also be done using UI as below:
+![UI login](../img/ui/login.png)
 
 ### Create an organization
 
 ```bash
-curl -sSiX POST http://localhost/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
-{
-  "name": "<domain_name>",
-  "metadata": {
-    "key": "value"
-  },
-  "tags": ["tag1", "tag2"],
-  "alias": "<alias>",
-  "status": "<status>",
-  "permission": "<permission>",
-  "created_by": "<created_by_id>",
-  "permissions": ["permission1", "permission2"]
-}
-EOF
-```
-
-For example:
-
-```bash
-curl -sSiX POST http://localhost/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST http://localhost:8189/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
-  "description": "organization providing data",
-  "metadata": {
-    "meeting": "every monday",
-    "location": "room 101"
-  }
-  "tags": ["data", "algo"],
-  "alias": "org1",
-  "status": "active",
+  "alias": "org1"
 }
 EOF
 
-HTTP/1.1 200 Ok
-Content-Length: 331
+HTTP/1.1 200 OK
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 08:03:34 GMT
-Location: /organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Tue, 30 Apr 2024 13:17:33 GMT
+Content-Length: 235
 
-{
-  "id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
-  "name": "organization 1",
-  "description": "organization providing data",
-  "metadata": { 
-    "location": "room 101", 
-    "meeting": "every monday" 
-  },
-  "tags": ["data", "algo"],
-  "alias": "org1",
-  "created_at": "2023-08-10T08:03:34.204862Z",
-  "created_by": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-  "updated_at": "0001-01-01T00:00:00Z",  
-  "status": "active",
-}
-
+{"id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c","name":"organization 1","alias":"org1","status":"enabled","created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58","created_at":"2024-04-30T13:17:32.884558Z","updated_at":"0001-01-01T00:00:00Z"}
 ```
+
+On the ui the steps are as follows:
+![Organization page](../img/ui/neworg.png)
+![Organization Creation](../img/ui/orgcreate.png)
 
 ### Organization Login
 
@@ -205,82 +117,132 @@ X-Xss-Protection: 1; mode=block
 }
 ```
 
-### Get All Users
+For the UI click enter to login to organization with will bring you to the dashboard.
+![Organization login](../img/ui/orglogin.png)
 
-In order to get all of the users:
+## Backends
+For backends management, on the Backends microservice. This service runs on port `9011`.
+
+### Creating a backend
+Backends are used to run computations. We need to create one and start it before we are able to create and run a computation.
+
+![Create Backend](../img/ui/new%20backend.png)
 
 ```bash
-curl -sSiX GET http://localhost/users -H "Authorization: Bearer <admin_token>"
+curl -sSiX POST http://localhost:9011/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+{
+  "name": "my dell server",
+  "description": "",
+  "address": "192.168.100.4"
+}
+EOF
 ```
 
-Example:
+response
 
 ```bash
-curl -sSiX GET http://localhost/users -H "Authorization: Bearer <admin_token>"
+HTTP/1.1 201 Created
+Content-Type: application/json
+Location: /backends/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5
+Date: Thu, 02 May 2024 10:15:35 GMT
+Content-Length: 0
 ```
 
-Response:
+### Issuing a Certificate
+Backends connect via gRPC secured with mTLS. For this we will issue a certificate from certs service.
+
+![Issue Certificate](../img/ui/issue%20cert.png)
+
+```bash
+curl -sSiX POST http://localhost:9010/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+{
+  "ip_addresses": []
+}
+EOF
+```
+
+example:
+```bash
+curl -sSiX POST http://localhost:9010/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+{
+  "ip_addresses": ["192.168.100.4"]
+}
+EOF
+```
+
+response:
+```bash
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Thu, 02 May 2024 11:35:37 GMT
+Content-Length: 59
+
+{"serial_number":"75709155906162784911683514578929321876"}
+```
+
+### Download Certificate
+First we'll request a download token:
+
+```bash
+curl -sSiX GET http://localhost:9010/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
+```
+
+![Request Download](../img/ui/request%20download.png)
+
+response:
 
 ```bash
 HTTP/1.1 200 OK
-Content-Length: 478
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:25:36 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Thu, 02 May 2024 11:46:11 GMT
+Content-Length: 164
 
-{
-  "limit": 10,
-  "total": 2,
-  "users": [
-    {
-      "id": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-      "name": "John Doe",
-      "credentials": { "identity": "john.doe@example.com" },
-      "created_at": "2023-08-10T07:24:57.33876Z",
-      "updated_at": "0001-01-01T00:00:00Z",
-      "status": "enabled"
-    }
-  ]
-}
-
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTA2NzEsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.4njH2KAz-qxzuaFkVx3WLQNuRTUdoKBTvlbG11oM7Yg"}
 ```
 
-### Get Specific User
-
-Getting one particular user, by ID:
+With the token we can then download the cert. Please note that the token is short lived and must be used before expiry.
 
 ```bash
-curl -sSiX GET http://localhost/users/<user_id> -H "Authorization: Bearer <user_token>"
+curl -L -X GET http://localhost:9010/<serial_number>/download -G -d "token=<download_token>" --output <filename>.zip
 ```
 
-Example:
+example:
+```bash
+curl -L -X GET http://localhost:9010/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
+```
+
+![Download Certificate](../img/ui/download%20cert.png)
+
+This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
+
+
+### Connect backend
+To connect a backend we need to start manager. Follow the getting started [guide](https://docs.cocos.ultraviolet.rs/getting-started/) on cocos to get up to speed.
+We'll then run manager to connect the backend.
+
+example:
+```bash
+MANAGER_GRPC_URL=192.168.100.4:7011 MANAGER_LOG_LEVEL=debug MANAGER_QEMU_USE_SUDO=false  MANAGER_QEMU_ENABLE_SEV=false MANAGER_QEMU_SEV_CBITPOS=51 MANAGER_QEMU_OVMF_CODE_FILE=/usr/share/edk2/x64/OVMF_CODE.fd MANAGER_QEMU_OVMF_VARS_FILE=/usr/share/edk2/x64/OVMF_VARS.fd MANAGER_QEMU_ENABLE_SEV_SNP=false MANAGER_GRPC_CLIENT_CERT=cert.pem MANAGER_GRPC_CLIENT_KEY=key.pem MANAGER_GRPC_SERVER_CA_CERTS=ca.pem go run main.go
+```
+
+Once manager is connected we should notice the associated backend marked as active:
+This can be viewed by:
 
 ```bash
-curl -sSiX GET http://localhost/users/1b849a99-cef7-42f5-a7f4-e00b1f439e08 -H "Authorization: Bearer <user_token>"
+curl -sSiX GET http://localhost:9011/<backend_id> -H "Authorization: Bearer <user_token>"
 ```
-
-Response:
+response:
 
 ```bash
 HTTP/1.1 200 OK
-Content-Length: 211
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:26:44 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Thu, 02 May 2024 12:59:15 GMT
+Content-Length: 110
 
-{
-  "id": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-  "name": "John Doe",
-  "credentials": { "identity": "john.doe@example.com" },
-  "created_at": "2023-08-10T07:24:57.33876Z",
-  "updated_at": "0001-01-01T00:00:00Z",
-  "status": "enabled"
-}
+{"id":"fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5","name":"my dell server","address":"192.168.100.4","active":true}
 ```
 
-For more information, please refer to [Users Docs](./users.md).
+![Active Backend](../img/ui/active%20backend.png)
 
 ## Computations
 
@@ -291,24 +253,14 @@ For computation management, we use Computations micorservice. By default, this s
 In order to create computation, we can to provide the following content:
 
 ```bash
-curl -sSiX POST http://localhost/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST http://localhost:9000 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "[name]",
   "description": "[description]",
   "datasets": [
     "<dataset_1>", ..., "[dataset_n]"
   ],
-  "algorithms": [
-    "<algorithm_1>", ..., "[algorithm_n]"
-  ],
-  "datasetProviders": [
-    "<dataset_provider_1>", ..., "[dataset_provider_n]"
-  ],
-  "algorithmProviders": [
-    "<algorithm_provider_1>", ..., "[algorithm_provider_n]"
-  ],
-  "ttl": [ttl],
-  "metadata": {}
+  "algorithm": {"id":<id>, "provider":<provider>, "hash":<hash>},
 }
 EOF
 ```
@@ -316,31 +268,26 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST http://localhost:9000/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on machine data",
-  "datasets": [
-    "Sensor Data Logs", "Machine Health Records", "Maintenance Reports"
-  ],
-  "algorithms": [
-    "Support Vector Machines"
-  ],
-  "dataset_providers": [
-    "SensorTech Solutions", "Machinery Data Systems"
-  ],
-  "algorithm_providers": [
-    "AlgoAI Research Labs", "TechBots Innovations", "IntelliCompute Technologies"
-  ],
+  "datasets": [{
+    "id": "Sensor Data Logs",
+    "provider": "b88b42b3-b4a4-4003-a777-6bab443385c9",
+    "hash": "a9a96ff672cde7f6b2badcc4eb13b95afe59255650abfcbd9f73d34fc61480ad"
+  }],
+  "algorithm": {
+    "id": "AlgoAI Research Labs",
+    "provider": "b88b42b3-b4a4-4003-a777-6bab443385c9",
+    "hash": "ef501e9225f2c132d75425c32a62bf32588da88494ed5cf73b239f9c02537d86"
+  },
   "result_consumers": [
     "Machine Maintenance Department", "Predictive Analytics Team", "Industrial Automation Division"
   ],
-  "ttl": 48,
-  "metadata": {
-    "machine_type": "Automated Assembly Line",
-    "industry": "Manufacturing",
-    "data_frequency": "Hourly",
-    "analysis_purpose": "Optimize machine performance and prevent downtime"
+  "backend_id": "fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5",
+  "agent_config": {
+    "log_level": "debug"
   }
 }
 EOF
@@ -350,78 +297,34 @@ Response:
 
 ```bash
 HTTP/1.1 201 Created
-Content-Length: 0
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:27:14 GMT
-Location: /computations/8c0ad21d-9f57-4b02-89f2-f1030413b260
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Location: /computations/240be921-5758-4ffa-9ed3-97e6e72e97ea
+Date: Thu, 02 May 2024 14:29:22 GMT
+Content-Length: 0
 ```
 
-### Get All Computations
+![New computation](../img/ui/new%20computation.png)
 
-In order to get all computations:
+### Run Computation
+Next we'll run the computation:
 
 ```bash
-curl -sSiX GET http://localhost/computations -H "Authorization: Bearer <user_token>"
+curl -sSiX POST http://localhost:9000/computations/<computation_id>/run -H "Authorization: Bearer <user_token>"
 ```
 
-Example:
-
-```bash
-curl -sSiX GET http://localhost/computations -H "Authorization: Bearer <user_token>"
-```
-
-Response:
-
+response:
 ```bash
 HTTP/1.1 200 OK
-Content-Length: 925
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:27:28 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
-
-{
-  "total": 1,
-  "limit": 10,
-  "computations": [
-    {
-      "id": "8c0ad21d-9f57-4b02-89f2-f1030413b260",
-      "name": "Machine Diagnostics Analysis",
-      "description": "Performing diagnostics analysis on machine data",
-      "status": "executable",
-      "owner": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-      "start_time": "2023-08-10T07:27:14.85809Z",
-      "end_time": "0001-01-01T00:00:00Z",
-      "datasets": [
-        "Sensor Data Logs",
-        "Machine Health Records",
-        "Maintenance Reports"
-      ],
-      "algorithms": ["Support Vector Machines"],
-      "dataset_providers": ["SensorTech Solutions", "Machinery Data Systems"],
-      "algorithm_providers": [
-        "AlgoAI Research Labs",
-        "TechBots Innovations",
-        "IntelliCompute Technologies"
-      ],
-      "result_consumers": [
-        "Machine Maintenance Department",
-        "Predictive Analytics Team",
-        "Industrial Automation Division"
-      ],
-      "ttl": 48,
-      "metadata": {
-        "analysis_purpose": "Optimize machine performance and prevent downtime",
-        "data_frequency": "Hourly",
-        "industry": "Manufacturing",
-        "machine_type": "Automated Assembly Line"
-      }
-    }
-  ]
-}
+Date: Fri, 03 May 2024 08:37:24 GMT
+Content-Length: 0
 ```
+
+![Run computation](../img/ui/run%20computation.png)
+
+This will result in events and logs from agent and manager visible on the ui.
+![Events and Logs](../img/ui/logsEvents.png)
+
 
 ### Get One Computation
 
@@ -431,79 +334,17 @@ In order to get one specific computation, by ID:
 curl -sSiX GET http://localhost/computations/<computation_id> -H "Authorization: Bearer <user_token>"
 ```
 
-Example:
-
-```bash
-curl -sSiX GET http://localhost/computations/8c0ad21d-9f57-4b02-89f2-f1030413b260 -H "Authorization: Bearer <user_token>"
-```
-
 Response:
 
 ```bash
 HTTP/1.1 200 OK
-Content-Length: 885
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:27:57 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Fri, 03 May 2024 09:22:30 GMT
+Content-Length: 872
 
-{
-  "id": "8c0ad21d-9f57-4b02-89f2-f1030413b260",
-  "name": "Machine Diagnostics Analysis",
-  "description": "Performing diagnostics analysis on machine data",
-  "status": "executable",
-  "owner": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-  "start_time": "2023-08-10T07:27:14.85809Z",
-  "end_time": "0001-01-01T00:00:00Z",
-  "datasets": [
-    "Sensor Data Logs",
-    "Machine Health Records",
-    "Maintenance Reports"
-  ],
-  "algorithms": ["Support Vector Machines"],
-  "dataset_providers": ["SensorTech Solutions", "Machinery Data Systems"],
-  "algorithm_providers": [
-    "AlgoAI Research Labs",
-    "TechBots Innovations",
-    "IntelliCompute Technologies"
-  ],
-  "result_consumers": [
-    "Machine Maintenance Department",
-    "Predictive Analytics Team",
-    "Industrial Automation Division"
-  ],
-  "ttl": 48,
-  "metadata": {
-    "analysis_purpose": "Optimize machine performance and prevent downtime",
-    "data_frequency": "Hourly",
-    "industry": "Manufacturing",
-    "machine_type": "Automated Assembly Line"
-  }
-}
+{"id":"bc31f512-106c-4705-8f6f-a83b58c2f609","name":"Machine Diagnostics Analysis","description":"Performing diagnostics analysis on machine data","status":"executable","start_time":"2024-05-02T15:05:30.868972Z","end_time":"0001-01-01T00:00:00Z","datasets":[{"provider":"b88b42b3-b4a4-4003-a777-6bab443385c9","id":"Sensor Data Logs","hash":"a9a96ff672cde7f6b2badcc4eb13b95afe59255650abfcbd9f73d34fc61480ad"}],"algorithm":{"provider":"b88b42b3-b4a4-4003-a777-6bab443385c9","id":"AlgoAI Research Labs","hash":"ef501e9225f2c132d75425c32a62bf32588da88494ed5cf73b239f9c02537d86"},"result_consumers":["Machine Maintenance Department","Predictive Analytics Team","Industrial Automation Division"],"agent_config":{"log_level":"debug","cert_file":"","server_key":"","server_ca_file":"","client_ca_file":""},"agent_port":"37721","backend_id":"fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5"}
 ```
 
-### Delete Computation
+![Agent Address on UI](../img/ui/agentAdress.png)
 
-In order to delete computation:
-
-```bash
-curl -sSiX DELETE http://localhost/computations/<computation_id> -H "Authorization: Bearer <user_token>"
-```
-
-Example:
-
-```bash
-curl -sSiX DELETE http://localhost/computations/8c0ad21d-9f57-4b02-89f2-f1030413b260 -H "Authorization: Bearer <user_token>"
-```
-
-Response:
-
-```bash
-HTTP/1.1 204 No Content
-Content-Type: application/json
-Date: Thu, 10 Aug 2023 07:28:14 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
-```
-
-For more information, please refer to [Computations Docs](./computations.md).
+You should be able to see the agent port which can be used for further computation actions using [agent CLI](https://docs.cocos.ultraviolet.rs/cli/).

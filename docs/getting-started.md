@@ -32,7 +32,7 @@ Content-Length: 213
 For more user related actions see: [magistrala users](https://docs.magistrala.abstractmachines.fr/api/#users)
 
 ## Login User
-In order to login user, we need to provide username and password:
+In order to login user we need to provide username and password:
 
 ```bash
 curl -sSiX POST http://localhost:9003/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF

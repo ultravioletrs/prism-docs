@@ -7,7 +7,7 @@
 _Only_ admin or the owner of the computation can use `/policies` endpoint.
 
 ```bash
-curl -sSiX POST http://localhost/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "user": "<user_id>",
   "computation": "<computation_id>",
@@ -19,7 +19,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "user": "47887629-7b4c-4bf5-b414-35bb2a5f5f23",
   "computation": "306d5348-4865-42df-91e3-b292cc94387f",
@@ -40,7 +40,7 @@ X-Xss-Protection: 1; mode=block
 The admin or the owner of the computation can update the policy.
 
 ```bash
-curl -sSiX PUT http://localhost/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "user": "<user_id>",
   "computation": "<computation_id>",
@@ -52,7 +52,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PUT http://localhost/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "user": "47887629-7b4c-4bf5-b414-35bb2a5f5f23",
   "computation": "306d5348-4865-42df-91e3-b292cc94387f",
@@ -73,13 +73,13 @@ X-Xss-Protection: 1; mode=block
 As an admin, you can list all the policies, while as a user you can only list your own policies.
 
 ```bash
-curl -isSX GET http://localhost/computations/policies -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/computations/policies -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX GET http://localhost/computations/policies -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/computations/policies -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 344
@@ -110,13 +110,13 @@ X-Xss-Protection: 1; mode=block
 The admin or the owner of the computation can delete the policy.
 
 ```bash
-curl -isSX DELETE http://localhost/computations/policies/<user_id>/<computation_id> -H "Accept: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX DELETE https://prism.ultraviolet.rs/computations/policies/<user_id>/<computation_id> -H "Accept: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX DELETE http://localhost/computations/policies/50569d27-060d-42aa-87a8-11b596ef0e68/306d5348-4865-42df-91e3-b292cc94387f -H "Accept: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX DELETE https://prism.ultraviolet.rs/computations/policies/50569d27-060d-42aa-87a8-11b596ef0e68/306d5348-4865-42df-91e3-b292cc94387f -H "Accept: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 204 No Content
 Content-Type: application/json

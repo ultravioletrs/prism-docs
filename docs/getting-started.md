@@ -6,7 +6,7 @@ Create a user on the ui as shown below:
 or using curl as below:
 
 ```bash
-curl -sSiX POST http://localhost:9003/users -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users/users -H "Content-Type: application/json" -d @- <<EOF
 {
   "name": "John Doe",
   "credentials": {
@@ -35,7 +35,7 @@ For more user related actions see: [magistrala users](https://docs.magistrala.ab
 In order to login user we need to provide username and password:
 
 ```bash
-curl -sSiX POST http://localhost:9003/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
 {
   "identity": "john.doe@example.com",
   "secret": "12345678"
@@ -59,7 +59,7 @@ This can also be done using UI as below:
 ### Create an organization
 
 ```bash
-curl -sSiX POST http://localhost:8189/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs:8189/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
   "alias": "org1"
@@ -83,7 +83,7 @@ On the ui the steps are as follows:
 To log in to an organization:
 
 ```bash
-curl -sSiX POST http://localhost/organizations/tokens/issue -H "Content-Type: application/json" -H "Authorization : Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/issue -H "Content-Type: application/json" -H "Authorization : Bearer <user_token>" -d @- << EOF
 {
   "orgID": "<organization_id>"
 }
@@ -93,7 +93,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/organizations/tokens/issue -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/issue -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "orgID": "b19c8738-0efa-400e-aaf0-610ef42f1ee1"
 }
@@ -129,7 +129,7 @@ Backends are used to run computations. We need to create one and start it before
 ![Create Backend](../img/ui/new%20backend.png)
 
 ```bash
-curl -sSiX POST http://localhost:9011/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "my dell server",
   "description": "",
@@ -154,7 +154,7 @@ Backends connect via gRPC secured with mTLS. For this we will issue a certificat
 ![Issue Certificate](../img/ui/issue%20cert.png)
 
 ```bash
-curl -sSiX POST http://localhost:9010/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "ip_addresses": []
 }
@@ -163,7 +163,7 @@ EOF
 
 example:
 ```bash
-curl -sSiX POST http://localhost:9010/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "ip_addresses": ["192.168.100.4"]
 }
@@ -184,7 +184,7 @@ Content-Length: 59
 First we'll request a download token:
 
 ```bash
-curl -sSiX GET http://localhost:9010/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/certs/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
 ```
 
 ![Request Download](../img/ui/request%20download.png)
@@ -203,12 +203,12 @@ Content-Length: 164
 With the token we can then download the cert. Please note that the token is short lived and must be used before expiry.
 
 ```bash
-curl -L -X GET http://localhost:9010/<serial_number>/download -G -d "token=<download_token>" --output <filename>.zip
+curl -L -X GET https://prism.ultraviolet.rs/certs/<serial_number>/download -G -d "token=<download_token>" --output <filename>.zip
 ```
 
 example:
 ```bash
-curl -L -X GET http://localhost:9010/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
+curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
 ```
 
 ![Download Certificate](../img/ui/download%20cert.png)
@@ -229,7 +229,7 @@ Once manager is connected we should notice the associated backend marked as acti
 This can be viewed by:
 
 ```bash
-curl -sSiX GET http://localhost:9011/<backend_id> -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/backends/<backend_id> -H "Authorization: Bearer <user_token>"
 ```
 response:
 
@@ -253,7 +253,7 @@ For computation management, we use Computations micorservice. By default, this s
 In order to create computation, we can to provide the following content:
 
 ```bash
-curl -sSiX POST http://localhost:9000 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "[name]",
   "description": "[description]",
@@ -268,7 +268,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost:9000/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on machine data",
@@ -309,7 +309,7 @@ Content-Length: 0
 Next we'll run the computation:
 
 ```bash
-curl -sSiX POST http://localhost:9000/computations/<computation_id>/run -H "Authorization: Bearer <user_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/computations/computations/<computation_id>/run -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -331,7 +331,7 @@ This will result in events and logs from agent and manager visible on the ui.
 In order to get one specific computation, by ID:
 
 ```bash
-curl -sSiX GET http://localhost/computations/<computation_id> -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computations/<computation_id> -H "Authorization: Bearer <user_token>"
 ```
 
 Response:

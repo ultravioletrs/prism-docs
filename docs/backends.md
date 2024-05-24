@@ -11,7 +11,7 @@ This can be done on the user interface as below:
 
 or by running:
 ```bash
-curl -sSiX POST http://localhost:9011/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "my dell server",
   "description": "",
@@ -36,7 +36,7 @@ This can be done on the user interface:
 
 or on curl:
 ```bash
-curl -sSiX PUT http://localhost:9011/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/backends/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "my dell server",
   "description": "new description",
@@ -57,7 +57,7 @@ Content-Length: 0
 List of backends is viewable on the ui, they can also be accessed using curl as below:
 
 ```bash
-curl -sSiX GET http://localhost:9011/backends -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/backends/backends -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -74,7 +74,7 @@ Content-Length: 165
 ## View Backend
 
 ```bash
-curl -sSiX GET http://localhost:9011/<backend_id> -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/backends/<backend_id> -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -93,7 +93,7 @@ This is used to disconnect and close the associated backend connection. This is 
 Please note that this action will stop all ongoing computations and stop manager and any running agent.
 
 ```bash
-curl -sSiX GET http://localhost:9011/terminate/<backend_id>/<termination_type> -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/backends/terminate/<backend_id>/<termination_type> -H "Authorization: Bearer <user_token>"
 ```
 
 Termination trype is an integer:
@@ -117,7 +117,7 @@ On manager the logs will be as follows:
 This removes the backend from the database.
 
 ```bash
-curl -sSiX DELETE http://localhost:9011/<backend_id> -H "Authorization: Bearer <user_token>"
+curl -sSiX DELETE https://prism.ultraviolet.rs/backends/<backend_id> -H "Authorization: Bearer <user_token>"
 ```
 
 Response:

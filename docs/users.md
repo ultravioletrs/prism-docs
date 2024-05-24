@@ -5,7 +5,7 @@
 > Identity, which can be email-address (this must be unique as it identifies the user) and secret (password must contain at least 8 characters)
 
 ```bash
-curl -sSiX POST http://localhost/users -H "Content-Type: application/json" [-H "Authorization: Bearer <user_token>"] -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users -H "Content-Type: application/json" [-H "Authorization: Bearer <user_token>"] -d @- <<EOF
 {
   "name": "[name]",
   "credentials": {
@@ -26,7 +26,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/users -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users -H "Content-Type: application/json" -d @- <<EOF
 {
   "name": "John Doe",
   "credentials": {
@@ -57,7 +57,7 @@ X-Xss-Protection: 1; mode=block
 You can also use `<user_token>` so that the owner of the new user is the one identified by the `<user_token>` for example:
 
 ```bash
-curl -sSiX POST http://localhost/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "name": "John Doe",
   "credentials": {
@@ -91,7 +91,7 @@ X-Xss-Protection: 1; mode=block
 To log in to the Mainflux system, you need to create a `user_token`.
 
 ```bash
-curl -sSiX POST http://localhost/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
 {
   "identity": "<user_identity>",
   "secret": "<user_secret>"
@@ -102,7 +102,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
 {
   "identity": "john.doe@email.com",
   "secret": "12345678"
@@ -128,13 +128,13 @@ X-Xss-Protection: 1; mode=block
 To issue another `access_token` after getting expired, you need to use a `refresh_token`.
 
 ```bash
-curl -sSiX POST http://localhost/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <refresh_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <refresh_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <refresh_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <refresh_token>"
 
 
 HTTP/1.1 201 Created
@@ -154,13 +154,13 @@ X-Xss-Protection: 1; mode=block
 ## Get User Profile
 
 ```bash
-curl -sSiX GET http://localhost/users/profile -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/profile -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX GET http://localhost/users/profile -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/profile -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 209
@@ -182,13 +182,13 @@ X-Xss-Protection: 1; mode=block
 ## Get User
 
 ```bash
-curl -sSiX GET http://localhost/users/<user_id> -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/<user_id> -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX GET http://localhost/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283 -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283 -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 209
@@ -212,13 +212,13 @@ X-Xss-Protection: 1; mode=block
 You can get all users in the database by querying `/users` endpoint.
 
 ```bash
-curl -sSiX GET http://localhost/users -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX GET http://localhost/users -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 291
@@ -247,13 +247,13 @@ X-Xss-Protection: 1; mode=block
 To paginate the results, use `offset`, `limit`, `metadata`, `name`, `identity`, `tag`, `status` and `visbility` as query parameters.
 
 ```bash
-curl -sSiX GET -H "Authorization: Bearer <user_token>" http://localhost/users?offset=[offset]&limit=[limit]&identity=[identity]
+curl -sSiX GET -H "Authorization: Bearer <user_token>" https://prism.ultraviolet.rs/users?offset=[offset]&limit=[limit]&identity=[identity]
 ```
 
 For example:
 
 ```bash
-curl -sSiX GET -H "Authorization: Bearer <user_token>" http://localhost/users?offset=0&limit=5&identity=john.doe2@email.com
+curl -sSiX GET -H "Authorization: Bearer <user_token>" https://prism.ultraviolet.rs/users?offset=0&limit=5&identity=john.doe2@email.com
 
 HTTP/1.1 200 OK
 Content-Length: 290
@@ -284,7 +284,7 @@ X-Xss-Protection: 1; mode=block
 Updating user's name and/or metadata
 
 ```bash
-curl -sSiX PATCH  http://localhost/users/<user_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH  https://prism.ultraviolet.rs/users/<user_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "name": "[name]",
   "metadata": {}
@@ -295,7 +295,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PATCH http://localhost/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "name": "new name",
   "metadata": {
@@ -330,7 +330,7 @@ X-Xss-Protection: 1; mode=block
 Updating user's tags
 
 ```bash
-curl -sSiX PATCH http://localhost/users/<user_id>/tags -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/<user_id>/tags -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "tags": ["<tag_1>", ..., "tag_N"]
 }
@@ -340,7 +340,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PATCH http://localhost/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/tags -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/tags -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "tags": ["manager", "developer"]
 }
@@ -371,7 +371,7 @@ X-Xss-Protection: 1; mode=block
 Updating user's owner
 
 ```bash
-curl -sSiX PATCH http://localhost/users/<user_id>/owner -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/<user_id>/owner -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "owner": "<owner_id>"
 }
@@ -381,7 +381,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PATCH http://localhost/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/owner -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/owner -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "owner": "532311a4-c13b-4061-b991-98dcae7a934e"
 }
@@ -414,7 +414,7 @@ Access-Control-Expose-Headers: Location
 Updating user's identity
 
 ```bash
-curl -sSiX PATCH http://localhost/users/<user_id>/identity -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/<user_id>/identity -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "identity": "<identity>"
 }
@@ -424,7 +424,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PATCH http://localhost/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/identity -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/identity -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "identity": "jane.doe@email.com"
 }
@@ -455,7 +455,7 @@ X-Xss-Protection: 1; mode=block
 Changing the user secret can be done by calling the update secret function
 
 ```bash
-curl -sSiX PATCH http://localhost/users/secret -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/secret -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "old_secret": "<old_secret>",
   "new_secret": "<new_secret>"
@@ -466,7 +466,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PATCH http://localhost/users/secret -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/users/secret -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "old_secret": "12345678",
   "new_secret": "123456789"
@@ -498,13 +498,13 @@ X-Xss-Protection: 1; mode=block
 Changing the user status to enabled can be done by calling the enable user function
 
 ```bash
-curl -sSiX GET http://localhost/users/<user_id>/enable -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/<user_id>/enable -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/enable -H "Authorization: Bearer <user_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/enable -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 350
@@ -531,13 +531,13 @@ X-Xss-Protection: 1; mode=block
 Changing the user status to disabled can be done by calling the disable user function
 
 ```bash
-curl -sSiX GET http://localhost/users/<user_id>/disable -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/<user_id>/disable -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/disable -H "Authorization: Bearer <user_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c679efbf283/disable -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 351
@@ -568,13 +568,13 @@ To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `p
 > Must take into consideration the user identified by the `user_token` needs to be assigned to the same group with `c_list` action or is the owner of the user identified by the `user_id`.
 
 ```bash
-curl -sSiX GET http://localhost/users/<user_id>/memberships  -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/<user_id>/memberships  -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX GET http://localhost/users/47887629-7b4c-4bf5-b414-35bb2a5f5f23/memberships  -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/users/47887629-7b4c-4bf5-b414-35bb2a5f5f23/memberships  -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 445

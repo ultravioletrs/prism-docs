@@ -13,7 +13,7 @@ Currently, billing plans are only based on the maximum number of computations th
 Only an admin can create a billing plan which will be viewed by the organizations permitted to view it. In order to create a billing plan, the following steps need to be followed:
 
 ```bash
-curl -sSiX POST http://localhost/createplan -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/createplan -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
     "plan": {
         "id": <id>,
@@ -31,7 +31,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/createplan -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/createplan -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
     "plan": {
         "id": <id>,
@@ -86,13 +86,13 @@ X-Xss-Protection: 1; mode=block
 To delete a plan, the following information is needed:
 
 ```bash
-curl -sSiX GET http://localhost/deleteplan/<plan-id> -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/deleteplan/<plan-id> -H "Authorization: Bearer <user_token>"
 ``` 
 
 Example:
 
 ```bash
-curl -sSiX GET http://localhost/deleteplan/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/deleteplan/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Authorization: Bearer <user_token>"
 ``` 
 
 Response:
@@ -111,7 +111,7 @@ X-Xss-Protection: 1; mode=block
 To update a plan, the following information is needed:
 
 ```bash
-curl -sSiX POST http://localhost/updateplan/<plan-id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/updateplan/<plan-id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
     "plan": {
         "name": <name>,
@@ -128,7 +128,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/updateplan/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/updateplan/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
     "plan": {
         "name": "Updated Bronze Plan",
@@ -183,7 +183,7 @@ X-Xss-Protection: 1; mode=block
 This function allows for the creation of a new customer account with the billing service.
 
 ```bash
-curl -sSiX POST http://localhost/<org-id>/createcustomer \
+curl -sSiX POST https://prism.ultraviolet.rs/<org-id>/createcustomer \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
@@ -205,7 +205,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/8b131663-058d-4e8f-8ccb-cc83c3f9e694/createcustomer \
+curl -sSiX POST https://prism.ultraviolet.rs/8b131663-058d-4e8f-8ccb-cc83c3f9e694/createcustomer \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d '{
@@ -255,7 +255,7 @@ This function updates the details of an existing customer account.
 
 ```bash
 Copy code
-curl -sSiX POST http://localhost/organization/<org-id>/updatecustomer \
+curl -sSiX POST https://prism.ultraviolet.rs/organization/<org-id>/updatecustomer \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
@@ -276,7 +276,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/updatecustomer \
+curl -sSiX POST https://prism.ultraviolet.rs/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/updatecustomer \
 -H "Content-Type: application/json" \
 -H "Authorization : Bearer <user_token>" \
 -d @- << EOF
@@ -331,7 +331,7 @@ Create a new subscription for a customer.
 Command:
 
 ```bash
-curl -sSiX POST http://localhost/organization/<org-id>/subscribe \
+curl -sSiX POST https://prism.ultraviolet.rs/organization/<org-id>/subscribe \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
 {
@@ -345,7 +345,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/subscribe \
+curl -sSiX POST https://prism.ultraviolet.rs/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/subscribe \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
 {
@@ -413,14 +413,14 @@ This function allows the customer to checkout and make payment for the selected 
 Command:
 
 ```bash
-curl -sSiX GET http://localhost/organization/<org-id>/checkout \
+curl -sSiX GET https://prism.ultraviolet.rs/organization/<org-id>/checkout \
 -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX GET http://localhost/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/checkout \
+curl -sSiX GET https://prism.ultraviolet.rs/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/checkout \
 -H "Authorization: Bearer <user_token>"
 ```
 

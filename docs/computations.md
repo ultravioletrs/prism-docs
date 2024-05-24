@@ -7,7 +7,7 @@ The computations service provides a means to manage computations, with functions
 In order to create computation, we can to provide the following content:
 
 ```bash
-curl -sSiX POST http://localhost/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "<name>",
   "description": "<description>",
@@ -34,7 +34,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on machine data",
@@ -81,13 +81,13 @@ X-Xss-Protection: 1; mode=block
 In order to get all computations:
 
 ```bash
-curl -sSiX GET http://localhost/computations -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computations -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX GET http://localhost/computations -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computations -H "Authorization: Bearer <user_token>"
 ```
 
 Response:
@@ -146,13 +146,13 @@ X-Xss-Protection: 1; mode=block
 In order to get one specific computation, by ID:
 
 ```bash
-curl -sSiX GET http://localhost/computations/<computation_id> -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computations/<computation_id> -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX GET http://localhost/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Authorization: Bearer <user_token>"
 ```
 
 Response:
@@ -205,7 +205,7 @@ X-Xss-Protection: 1; mode=block
 In order to update computation:
 
 ```bash
-curl -sSiX PUT http://localhost/computations/<computation_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/computations/<computation_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "name": "[computation_name]",
   "description": "[computation_description]",
@@ -222,7 +222,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX PUT http://localhost/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- <<EOF
 {
   "name": "CNC Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on CNC machine data",
@@ -283,13 +283,13 @@ X-Xss-Protection: 1; mode=block
 In order to get one pspecific computation, by ID:
 
 ```bash
-curl -sSiX POST http://localhost/computations/<computation_id>/run -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/computations/<computation_id>/run -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694/run -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694/run -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 Response:
@@ -312,13 +312,13 @@ X-Xss-Protection: 1; mode=block
 In order to delete computation:
 
 ```bash
-curl -sSiX DELETE "http://localhost/computations/<computation_id>" -H "Authorization: Bearer <user_token>"
+curl -sSiX DELETE "https://prism.ultraviolet.rs/computations/<computation_id>" -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX DELETE "http://localhost/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694" -H "Authorization: Bearer <user_token>"
+curl -sSiX DELETE "https://prism.ultraviolet.rs/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694" -H "Authorization: Bearer <user_token>"
 ```
 
 Response:

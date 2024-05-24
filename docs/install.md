@@ -41,5 +41,5 @@ This will build and bring up the docker composition that is used to run the UI.
 
 The User Interface can now be accesible from [https://prism.ultraviolet.rs/ui](https://prism.ultraviolet.rs/ui).
 
-> [https://prism.ultraviolet.rs/ui](https://prism.ultraviolet.rs/9095/ui) is for internal use only, and is not intended to be used by the end-user.
-> Only port `80` is exposed to the outside world via NginX proxy.
+> [https://prism.ultraviolet.rs/ui](https://prism.ultraviolet.rs/ui) is for internal use only, and is not intended to be used by the end-user.
+> Only port `80` is exposed to the outside world via Traefik proxy.

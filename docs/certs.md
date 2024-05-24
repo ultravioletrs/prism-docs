@@ -9,7 +9,7 @@ This can be done on the UI on the specific backend page, by clicking on issue ce
 
 This can be done on curl using:
 ```bash
-curl -sSiX POST http://localhost:9010/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "ip_addresses": []
 }
@@ -18,7 +18,7 @@ EOF
 
 example:
 ```bash
-curl -sSiX POST http://localhost:9010/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "ip_addresses": ["192.168.100.4"]
 }
@@ -41,7 +41,7 @@ This is a two step process. First we'll obtain a short lived token. Then using t
 First we'll request a download token:
 
 ```bash
-curl -sSiX GET http://localhost:9010/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/certs/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -58,12 +58,12 @@ Content-Length: 164
 With the token we can then download the cert. Please note that the token is short lived and must be used before expiry.
 
 ```bash
-curl -L -X GET http://localhost:9010/<serial_number>/download -G -d "token=<download_token>" --output <filename>.zip
+curl -L -X GET https://prism.ultraviolet.rs/certs/<serial_number>/download -G -d "token=<download_token>" --output <filename>.zip
 ```
 
 example:
 ```bash
-curl -L -X GET http://localhost:9010/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
+curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
 ```
 
 On the UI we'll click on request download button, followed by download certs to obtain the certs. 
@@ -80,7 +80,7 @@ Certificates can be renewed before they expire. This will move their expiry date
 ![Renew Certificate](../img/ui/renew.png)
 
 ```bash
-curl -sSiX PATCH http://localhost:9010/<serial_number>/renew -H "Authorization: Bearer <user_token>"
+curl -sSiX PATCH https://prism.ultraviolet.rs/certs/<serial_number>/renew -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -97,7 +97,7 @@ Certificates can be revoked, which means they can no longer be used for connecti
 ![Renew Certificate](../img/ui/revoke.png)
 
 ```bash
-curl -sSiX PATCH http://localhost:9010/<serial_number>/revoke -H "Authorization: Bearer <user_token>"
+curl -sSiX PATCH https://prism.ultraviolet.rs/certs/<serial_number>/revoke -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -111,7 +111,7 @@ Content-Length: 0
 ## List Certificates
 
 ```bash
-curl -sSiX GET http://localhost:9010/certs -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/certs/certs -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -125,6 +125,6 @@ Content-Length: 269
 ```
 
 ## Online Certificate Status Protocal
-The certs service also provides an endpoint on `localhost:9010/ocsp` which allows verification of certificates issued by this service.
+The certs service also provides an endpoint on `localhost/certs/ocsp` which allows verification of certificates issued by this service.
 
 

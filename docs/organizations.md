@@ -9,7 +9,7 @@ For any user to access the CoCoS system, they must be part of an organization, a
 ## Create an organization
 
 ```bash
-curl -sSiX POST http://localhost/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "<domain_name>",
   "metadata": {
@@ -28,7 +28,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
   "description": "organization providing data",
@@ -72,7 +72,7 @@ X-Xss-Protection: 1; mode=block
 Update organization
 
 ```bash
-curl -sSiX PUT http://localhost/organizations/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/organizations/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "<organization_name>",
   "metadata": {
@@ -91,7 +91,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "updated confidential computing",
   "description": "updated confidential computing organization",
@@ -129,13 +129,13 @@ X-Xss-Protection: 1; mode=block
 ## Get organization
 
 ```bash
-curl -isSX GET http://localhost/organizations/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/organizations/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX GET http://localhost/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 331
@@ -164,13 +164,13 @@ X-Xss-Protection: 1; mode=block
 To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `parentID`, `ownerID`, `tree` and `dir` as query parameters.
 
 ```bash
-curl -isSX GET http://localhost/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX GET http://localhost/organizations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/organizations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 768
@@ -214,7 +214,7 @@ X-Xss-Protection: 1; mode=block
 Assign user to an organization
 
 ```bash
-curl -sSiX POST http://localhost/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "subject": "<user_id>",
   "object": "<organization_id>",
@@ -226,7 +226,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST http://localhost/b19c8738-0efa-400e-aaf0-610ef42f1ee1/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/b19c8738-0efa-400e-aaf0-610ef42f1ee1/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "subject": "47887629-7b4c-4bf5-b414-35bb2a5f5f23",
   "object": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
@@ -249,13 +249,13 @@ To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `p
 > Must take into consideration the user identified by the `user_token` needs to be assigned to the same organization identified by `group_id` with `g_list` action or be the owner of the organization identified by `group_id`.
 
 ```bash
-curl -isSX GET http://localhost/organizations/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/organizations/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX GET http://localhost/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Length: 246

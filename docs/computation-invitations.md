@@ -7,7 +7,7 @@ For a user to be able to run a computation, they need to be invited to the compu
 To send an invitation to a user to join a computation, we need to provide the following:
 
 ```bash
-curl -sSiX POST http://localhost/invitations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/invitations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "<name>",
   "description": "<description>",
@@ -34,7 +34,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on machine data",
@@ -69,14 +69,14 @@ EOF
 To retrieve a specific invitation for a user to join a computation, identified by the user ID and computation ID:
 
 ```bash
-curl -sSiX GET http://localhost/invitations/{user_id}/{computation_id} \
+curl -sSiX GET https://prism.ultraviolet.rs/invitations/{user_id}/{computation_id} \
 -H "Authorization: Bearer <user_token>"
 ```
 
 ### Example
 
 ```bash
-curl -sSiX GET http://localhost/invitations/bb7edb32-2eac-4aad-aebe-ed96fe073879/bb7edb32-2eac-4aad-aebe-ed96fe073879 \
+curl -sSiX GET https://prism.ultraviolet.rs/invitations/bb7edb32-2eac-4aad-aebe-ed96fe073879/bb7edb32-2eac-4aad-aebe-ed96fe073879 \
 -H "Authorization: Bearer <user_token>"
 ```
 
@@ -98,7 +98,7 @@ Expected Response:
 To accept an invitation to a computation, a user uploads a certificate for verification:
 
 ```bash
-curl -sSiX POST http://localhost/invitations/accept \
+curl -sSiX POST https://prism.ultraviolet.rs/invitations/accept \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d '{"computation_id":"<computation_id>"}'
@@ -107,7 +107,7 @@ curl -sSiX POST http://localhost/invitations/accept \
 Example:
 
 ```bash
-curl -sSiX POST http://localhost/invitations/accept \
+curl -sSiX POST https://prism.ultraviolet.rs/invitations/accept \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d '{"computation_id":"bb7edb32-2eac-4aad-aebe-ed96fe073879"}'
@@ -122,14 +122,14 @@ HTTP status code 200 OK with no content.
 To list all invitations:
 
 ```bash
-curl -sSiX GET http://localhost/invitations \
+curl -sSiX GET https://prism.ultraviolet.rs/invitations \
 -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX GET http://localhost/invitations \
+curl -sSiX GET https://prism.ultraviolet.rs/invitations \
 -H "Authorization: Bearer <user_token>"
 ```
 
@@ -157,14 +157,14 @@ Expected Response:
 To delete a specific invitation:
 
 ```bash
-curl -sSiX DELETE http://localhost/invitations/{user_id}/{computation_id} \
+curl -sSiX DELETE https://prism.ultraviolet.rs/invitations/{user_id}/{computation_id} \
 -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX DELETE http://localhost/invitations/bb7edb32-2eac-4aad-aebe-ed96fe073879/bb7edb32-2eac-4aad-aebe-ed96fe073879 \
+curl -sSiX DELETE https://prism.ultraviolet.rs/invitations/bb7edb32-2eac-4aad-aebe-ed96fe073879/bb7edb32-2eac-4aad-aebe-ed96fe073879 \
 -H "Authorization: Bearer <user_token>"
 ```
 

@@ -17,7 +17,7 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 
 
 
-![Architecture](../img/arch.drawio.png)
+![Architecture](img/arch.drawio.png)
 
 ### Users
 The users service provides users access to the plaform and the user identities are used to provide authorization for the platform. Prism uses [magistrala users](https://docs.magistrala.abstractmachines.fr/architecture/#domain-model) service to achieve this. 

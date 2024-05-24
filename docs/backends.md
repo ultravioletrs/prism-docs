@@ -3,11 +3,11 @@ The backends service provides a means to manage backends which is where computat
 
 A backend can be described as consisting on manager running on the host, along with agent in a virtual machine in a Trusted Execution Environment.
 
-![Backend](../img/backend.drawio.png)
+![Backend](img/backend.drawio.png)
 
 ## Creating a Backend
 This can be done on the user interface as below:
-![New backend](../img/ui/new%20backend.png)
+![New backend](img/ui/new%20backend.png)
 
 or by running:
 ```bash
@@ -32,7 +32,7 @@ Content-Length: 0
 
 ## Updating backend
 This can be done on the user interface:
-![Update Backend](../img/ui/update%20backend.png)
+![Update Backend](img/ui/update%20backend.png)
 
 or on curl:
 ```bash

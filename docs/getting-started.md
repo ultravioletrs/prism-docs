@@ -54,7 +54,7 @@ Content-Length: 647
 ```
 
 This can also be done using UI as below:
-![UI login](../img/ui/login.png)
+![UI login](img/ui/login.png)
 
 ### Create an organization
 
@@ -75,8 +75,8 @@ Content-Length: 235
 ```
 
 On the ui the steps are as follows:
-![Organization page](../img/ui/neworg.png)
-![Organization Creation](../img/ui/orgcreate.png)
+![Organization page](img/ui/neworg.png)
+![Organization Creation](img/ui/orgcreate.png)
 
 ### Organization Login
 
@@ -118,7 +118,7 @@ X-Xss-Protection: 1; mode=block
 ```
 
 For the UI click enter to login to organization with will bring you to the dashboard.
-![Organization login](../img/ui/orglogin.png)
+![Organization login](img/ui/orglogin.png)
 
 ## Backends
 For backends management, on the Backends microservice. This service runs on port `9011`.
@@ -126,7 +126,7 @@ For backends management, on the Backends microservice. This service runs on port
 ### Creating a backend
 Backends are used to run computations. We need to create one and start it before we are able to create and run a computation.
 
-![Create Backend](../img/ui/new%20backend.png)
+![Create Backend](img/ui/new%20backend.png)
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -151,7 +151,7 @@ Content-Length: 0
 ### Issuing a Certificate
 Backends connect via gRPC secured with mTLS. For this we will issue a certificate from certs service.
 
-![Issue Certificate](../img/ui/issue%20cert.png)
+![Issue Certificate](img/ui/issue%20cert.png)
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -187,7 +187,7 @@ First we'll request a download token:
 curl -sSiX GET https://prism.ultraviolet.rs/certs/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
 ```
 
-![Request Download](../img/ui/request%20download.png)
+![Request Download](img/ui/request%20download.png)
 
 response:
 
@@ -211,7 +211,7 @@ example:
 curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
 ```
 
-![Download Certificate](../img/ui/download%20cert.png)
+![Download Certificate](img/ui/download%20cert.png)
 
 This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
 
@@ -242,7 +242,7 @@ Content-Length: 110
 {"id":"fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5","name":"my dell server","address":"192.168.100.4","active":true}
 ```
 
-![Active Backend](../img/ui/active%20backend.png)
+![Active Backend](img/ui/active%20backend.png)
 
 ## Computations
 
@@ -303,7 +303,7 @@ Date: Thu, 02 May 2024 14:29:22 GMT
 Content-Length: 0
 ```
 
-![New computation](../img/ui/new%20computation.png)
+![New computation](img/ui/new%20computation.png)
 
 ### Run Computation
 Next we'll run the computation:
@@ -320,10 +320,10 @@ Date: Fri, 03 May 2024 08:37:24 GMT
 Content-Length: 0
 ```
 
-![Run computation](../img/ui/run%20computation.png)
+![Run computation](img/ui/run%20computation.png)
 
 This will result in events and logs from agent and manager visible on the ui.
-![Events and Logs](../img/ui/logsEvents.png)
+![Events and Logs](img/ui/logsEvents.png)
 
 
 ### Get One Computation
@@ -345,6 +345,6 @@ Content-Length: 872
 {"id":"bc31f512-106c-4705-8f6f-a83b58c2f609","name":"Machine Diagnostics Analysis","description":"Performing diagnostics analysis on machine data","status":"executable","start_time":"2024-05-02T15:05:30.868972Z","end_time":"0001-01-01T00:00:00Z","datasets":[{"provider":"b88b42b3-b4a4-4003-a777-6bab443385c9","id":"Sensor Data Logs","hash":"a9a96ff672cde7f6b2badcc4eb13b95afe59255650abfcbd9f73d34fc61480ad"}],"algorithm":{"provider":"b88b42b3-b4a4-4003-a777-6bab443385c9","id":"AlgoAI Research Labs","hash":"ef501e9225f2c132d75425c32a62bf32588da88494ed5cf73b239f9c02537d86"},"result_consumers":["Machine Maintenance Department","Predictive Analytics Team","Industrial Automation Division"],"agent_config":{"log_level":"debug","cert_file":"","server_key":"","server_ca_file":"","client_ca_file":""},"agent_port":"37721","backend_id":"fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5"}
 ```
 
-![Agent Address on UI](../img/ui/agentAdress.png)
+![Agent Address on UI](img/ui/agentAdress.png)
 
 You should be able to see the agent port which can be used for further computation actions using [agent CLI](https://docs.cocos.ultraviolet.rs/cli/).

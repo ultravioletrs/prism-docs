@@ -5,7 +5,7 @@ The certs service is a certificate authority used to issue certs related to back
 This is the creation of a certificate associated with a specific backend.
 
 This can be done on the UI on the specific backend page, by clicking on issue cert button.
-![Issue Certificate](../img/ui/issue%20cert.png)
+![Issue Certificate](img/ui/issue%20cert.png)
 
 This can be done on curl using:
 ```bash
@@ -68,16 +68,16 @@ curl -L -X GET https://prism.ultraviolet.rs/certs/757091559061627849116835145789
 
 On the UI we'll click on request download button, followed by download certs to obtain the certs. 
 
-![Request Download](../img/ui/request%20download.png)
+![Request Download](img/ui/request%20download.png)
 
-![Download Certificate](../img/ui/download%20cert.png)
+![Download Certificate](img/ui/download%20cert.png)
 
 This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
 
 ## Renew Certificate
 Certificates can be renewed before they expire. This will move their expiry date to a future one.
 
-![Renew Certificate](../img/ui/renew.png)
+![Renew Certificate](img/ui/renew.png)
 
 ```bash
 curl -sSiX PATCH https://prism.ultraviolet.rs/certs/<serial_number>/renew -H "Authorization: Bearer <user_token>"
@@ -94,7 +94,7 @@ Content-Length: 0
 ## Revoke Certificate
 Certificates can be revoked, which means they can no longer be used for connecting to backends service. Revoked certificates cannot be renewed.
 
-![Renew Certificate](../img/ui/revoke.png)
+![Renew Certificate](img/ui/revoke.png)
 
 ```bash
 curl -sSiX PATCH https://prism.ultraviolet.rs/certs/<serial_number>/revoke -H "Authorization: Bearer <user_token>"

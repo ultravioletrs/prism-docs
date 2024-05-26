@@ -299,7 +299,7 @@ curl -sSiX PATCH https://prism.ultraviolet.rs/users/11a2a5ba-723a-4b6d-8a5d-0c67
 {
   "name": "new name",
   "metadata": {
-    "depertment": "confidential-computing"
+    "department": "confidential-computing"
   }
 }
 EOF
@@ -317,7 +317,7 @@ X-Xss-Protection: 1; mode=block
   "credentials": {
     "identity": "john.doe@email.com"
   },
-  "metadata": { "depertment": "confidential-computing" },
+  "metadata": { "department": "confidential-computing" },
   "created_at": "2023-08-10T07:54:38.84894Z",
   "updated_at": "2023-08-10T07:57:17.088923Z",
   "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
@@ -358,7 +358,7 @@ X-Xss-Protection: 1; mode=block
   "name": "new name",
   "tags": ["manager", "developer"],
   "credentials": { "identity": "john.doe@email.com" },
-  "metadata": { "depertment": "confidential-computing" },
+  "metadata": { "department": "confidential-computing" },
   "created_at": "2023-08-10T07:54:38.84894Z",
   "updated_at": "2023-08-10T07:58:17.37807Z",
   "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
@@ -401,7 +401,7 @@ Access-Control-Expose-Headers: Location
   "tags": ["manager", "developer"],
   "owner": "532311a4-c13b-4061-b991-98dcae7a934e",
   "credentials": { "identity": "john.doe@email.com" },
-  "metadata": { "depertment": "confidential-computing" },
+  "metadata": { "department": "confidential-computing" },
   "created_at": "2023-08-10T07:54:38.84894Z",
   "updated_at": "2023-08-10T07:58:17.37807Z",
   "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
@@ -442,7 +442,7 @@ X-Xss-Protection: 1; mode=block
   "name": "new name",
   "tags": ["manager", "developer"],
   "credentials": { "identity": "jane.doe@email.com" },
-  "metadata": { "depertment": "confidential-computing" },
+  "metadata": { "department": "confidential-computing" },
   "created_at": "2023-08-10T07:54:38.84894Z",
   "updated_at": "2023-08-10T07:58:46.723802Z",
   "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
@@ -485,7 +485,7 @@ X-Xss-Protection: 1; mode=block
   "name": "new name",
   "tags": ["manager", "developer"],
   "credentials": { "identity": "jane.doe@email.com" },
-  "metadata": { "depertment": "confidential-computing" },
+  "metadata": { "department": "confidential-computing" },
   "created_at": "2023-08-10T07:54:38.84894Z",
   "updated_at": "2023-08-10T07:59:03.603003Z",
   "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
@@ -518,7 +518,7 @@ X-Xss-Protection: 1; mode=block
   "name": "new name",
   "tags": ["manager", "developer"],
   "credentials": { "identity": "jane.doe@email.com" },
-  "metadata": { "depertment": "confidential-computing" },
+  "metadata": { "department": "confidential-computing" },
   "created_at": "2023-08-10T07:54:38.84894Z",
   "updated_at": "2023-08-10T07:59:03.603003Z",
   "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
@@ -551,7 +551,7 @@ X-Xss-Protection: 1; mode=block
   "name": "new name",
   "tags": ["manager", "developer"],
   "credentials": { "identity": "jane.doe@email.com" },
-  "metadata": { "depertment": "confidential-computing" },
+  "metadata": { "department": "confidential-computing" },
   "created_at": "2023-08-10T07:54:38.84894Z",
   "updated_at": "2023-08-10T07:59:03.603003Z",
   "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",

@@ -111,7 +111,7 @@ Content-Length: 0
 ## List Certificates
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/certs/certs -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/certs -H "Authorization: Bearer <user_token>"
 ```
 
 response:
@@ -125,6 +125,6 @@ Content-Length: 269
 ```
 
 ## Online Certificate Status Protocal
-The certs service also provides an endpoint on `localhost/certs/ocsp` which allows verification of certificates issued by this service.
+The certs service also provides an endpoint on `prism.ultraviolet.rs/certs/ocsp` which allows verification of certificates issued by this service.
 
 

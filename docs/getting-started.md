@@ -59,7 +59,7 @@ This can also be done using UI as below:
 ### Create an organization
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs:8189/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
   "alias": "org1"
@@ -83,9 +83,9 @@ On the ui the steps are as follows:
 To log in to an organization:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/issue -H "Content-Type: application/json" -H "Authorization : Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
 {
-  "orgID": "<organization_id>"
+  "domain_id": "<organization_id>"
 }
 EOF
 ```
@@ -93,9 +93,9 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/issue -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
 {
-  "orgID": "b19c8738-0efa-400e-aaf0-610ef42f1ee1"
+  "domain_id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1"
 }
 EOF
 ```
@@ -260,7 +260,7 @@ curl -sSiX POST https://prism.ultraviolet.rs/computations -H "Content-Type: appl
   "datasets": [
     "<dataset_1>", ..., "[dataset_n]"
   ],
-  "algorithm": {"id":<id>, "provider":<provider>, "hash":<hash>},
+  "algorithm": {"id":<id>, "provider":<provider>, "hash":<hash>}
 }
 EOF
 ```
@@ -272,19 +272,6 @@ curl -sSiX POST https://prism.ultraviolet.rs/computations/computations -H "Conte
 {
   "name": "Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on machine data",
-  "datasets": [{
-    "id": "Sensor Data Logs",
-    "provider": "b88b42b3-b4a4-4003-a777-6bab443385c9",
-    "hash": "a9a96ff672cde7f6b2badcc4eb13b95afe59255650abfcbd9f73d34fc61480ad"
-  }],
-  "algorithm": {
-    "id": "AlgoAI Research Labs",
-    "provider": "b88b42b3-b4a4-4003-a777-6bab443385c9",
-    "hash": "ef501e9225f2c132d75425c32a62bf32588da88494ed5cf73b239f9c02537d86"
-  },
-  "result_consumers": [
-    "Machine Maintenance Department", "Predictive Analytics Team", "Industrial Automation Division"
-  ],
   "backend_id": "fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5",
   "agent_config": {
     "log_level": "debug"

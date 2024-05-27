@@ -29,7 +29,7 @@ EOF
 ```
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs:9021/invitations -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTg3MjUsImlhdCI6MTcxNjcxNTEyNSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.z7Py3ZwDm0INxosANjIm1slxziUTzD4EcXO1nt26inmSXVdaKSEZd3tGiE-7UHwOkwITsEgFOWBVucMnCFRipQ" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/invitations -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTg3MjUsImlhdCI6MTcxNjcxNTEyNSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.z7Py3ZwDm0INxosANjIm1slxziUTzD4EcXO1nt26inmSXVdaKSEZd3tGiE-7UHwOkwITsEgFOWBVucMnCFRipQ" -d @- << EOF
 {
     "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTg3MjUsImlhdCI6MTcxNjcxNTEyNSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.z7Py3ZwDm0INxosANjIm1slxziUTzD4EcXO1nt26inmSXVdaKSEZd3tGiE-7UHwOkwITsEgFOWBVucMnCFRipQ",
     "invited_by": {
@@ -107,7 +107,7 @@ Expected Response:
 To accept an invitation to a computation, a user uploads a certificate for verification:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs:9021/invitations/accept -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/invitations/accept -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
     "policy": {
         "user_id": "f774c854-00f9-4774-b67c-248507c4f8fd",
@@ -125,7 +125,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs:9021/invitations/accept -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTg3MjUsImlhdCI6MTcxNjcxNTEyNSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.z7Py3ZwDm0INxosANjIm1slxziUTzD4EcXO1nt26inmSXVdaKSEZd3tGiE-7UHwOkwITsEgFOWBVucMnCFRipQ" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/invitations/accept -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTg3MjUsImlhdCI6MTcxNjcxNTEyNSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.z7Py3ZwDm0INxosANjIm1slxziUTzD4EcXO1nt26inmSXVdaKSEZd3tGiE-7UHwOkwITsEgFOWBVucMnCFRipQ" -d @- << EOF
 {
     "policy": {
         "user_id": "f774c854-00f9-4774-b67c-248507c4f8fd",
@@ -161,13 +161,13 @@ On the UI the steps are as follows:
 To list all invitations:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs:9021/invitations -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/invitations -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs:9021/invitations -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTU4MjksImlhdCI6MTcxNjcxMjIyOSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.qTUPeKdyplEv80eL7DPZUCH7o-UeJeHQSPrk1qYp-0E-WCXfPA7nFjBv759AAuJP82gWqPahNnxuFZ_3HGVB9Q"
+curl -sSiX GET https://prism.ultraviolet.rs/invitations -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTU4MjksImlhdCI6MTcxNjcxMjIyOSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.qTUPeKdyplEv80eL7DPZUCH7o-UeJeHQSPrk1qYp-0E-WCXfPA7nFjBv759AAuJP82gWqPahNnxuFZ_3HGVB9Q"
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: Sun, 26 May 2024 09:17:04 GMT
@@ -216,7 +216,7 @@ curl -sSiX DELETE https://prism.ultraviolet.rs/invitations/{user_id}/{computatio
 Example:
 
 ```bash
-curl -sSiX DELETE https://prism.ultraviolet.rs:9021/invitations/986a04e5-be5b-4041-b649-f64346720219/61dfbb0f-13ad-4182-acc3-e068de9eead4 -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTU4MjksImlhdCI6MTcxNjcxMjIyOSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.qTUPeKdyplEv80eL7DPZUCH7o-UeJeHQSPrk1qYp-0E-WCXfPA7nFjBv759AAuJP82gWqPahNnxuFZ_3HGVB9Q"
+curl -sSiX DELETE https://prism.ultraviolet.rs/invitations/986a04e5-be5b-4041-b649-f64346720219/61dfbb0f-13ad-4182-acc3-e068de9eead4 -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MTU4MjksImlhdCI6MTcxNjcxMjIyOSwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.qTUPeKdyplEv80eL7DPZUCH7o-UeJeHQSPrk1qYp-0E-WCXfPA7nFjBv759AAuJP82gWqPahNnxuFZ_3HGVB9Q"
 
 HTTP/1.1 204 No Content
 Content-Type: application/json

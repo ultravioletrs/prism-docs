@@ -7,7 +7,7 @@
 _Only_ admin or the owner of the computation can use `/policies` endpoint.
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs:9000/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
     "user": {
         "id": "<user_id>",
@@ -24,7 +24,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs:9000/policies -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MjI0NzgsImlhdCI6MTcxNjcxODg3OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.ZTw4F3NlP2ziwRF9bgljDoj73ovRvgNHsbt607Z1vvogFd8yMCguKLhLEVbhPfQ_yIXQYQH8fZdRsxFw0QYKXQ" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MjI0NzgsImlhdCI6MTcxNjcxODg3OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.ZTw4F3NlP2ziwRF9bgljDoj73ovRvgNHsbt607Z1vvogFd8yMCguKLhLEVbhPfQ_yIXQYQH8fZdRsxFw0QYKXQ" -d @- << EOF
 {
     "user": {
         "id": "986a04e5-be5b-4041-b649-f64346720219",
@@ -55,7 +55,7 @@ On the UI the steps are as follows:
 The admin or the owner of the computation can update the policy.
 
 ```bash
-curl -sSiX PUT https://prism.ultraviolet.rs:9000/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "user": "<user_id>",
   "computation": "<computation_id>",
@@ -67,7 +67,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PUT https://prism.ultraviolet.rs:9000/policies -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MjI0NzgsImlhdCI6MTcxNjcxODg3OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.ZTw4F3NlP2ziwRF9bgljDoj73ovRvgNHsbt607Z1vvogFd8yMCguKLhLEVbhPfQ_yIXQYQH8fZdRsxFw0QYKXQ" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/computations/policies -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MjI0NzgsImlhdCI6MTcxNjcxODg3OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.ZTw4F3NlP2ziwRF9bgljDoj73ovRvgNHsbt607Z1vvogFd8yMCguKLhLEVbhPfQ_yIXQYQH8fZdRsxFw0QYKXQ" -d @- << EOF
 {
     "user": {
         "id": "986a04e5-be5b-4041-b649-f64346720219",
@@ -105,7 +105,7 @@ curl -isSX GET https://prism.ultraviolet.rs/computations/policies -H "Authorizat
 For example:
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs:9000/policies -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/computations/policies -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -145,13 +145,13 @@ On the UI the steps are as follows:
 The admin or the owner of the computation can delete the policy.
 
 ```bash
-curl -isSX DELETE https://prism.ultraviolet.rs:9000/policies/<user_id>/<computation_id> -H "Accept: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX DELETE https://prism.ultraviolet.rs/computations/policies/<user_id>/<computation_id> -H "Accept: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX DELETE https://prism.ultraviolet.rs:9000/policies/50569d27-060d-42aa-87a8-11b596ef0e68/306d5348-4865-42df-91e3-b292cc94387f -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MjI0NzgsImlhdCI6MTcxNjcxODg3OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.ZTw4F3NlP2ziwRF9bgljDoj73ovRvgNHsbt607Z1vvogFd8yMCguKLhLEVbhPfQ_yIXQYQH8fZdRsxFw0QYKXQ"
+curl -isSX DELETE https://prism.ultraviolet.rs/computations/policies/50569d27-060d-42aa-87a8-11b596ef0e68/306d5348-4865-42df-91e3-b292cc94387f -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiJlYzdmNmI2Mi0zYjBiLTRmNmYtOTI1Zi1jMWYwOWFiMmY4ODMiLCJleHAiOjE3MTY3MjI0NzgsImlhdCI6MTcxNjcxODg3OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiYzI1NTM3ZmQtMzlhZC00YjM2LWIxODAtZTkwZGZiNDc3ZmNkIiwidHlwZSI6MCwidXNlciI6ImMyNTUzN2ZkLTM5YWQtNGIzNi1iMTgwLWU5MGRmYjQ3N2ZjZCJ9.ZTw4F3NlP2ziwRF9bgljDoj73ovRvgNHsbt607Z1vvogFd8yMCguKLhLEVbhPfQ_yIXQYQH8fZdRsxFw0QYKXQ"
 
 HTTP/1.1 204 No Content
 Content-Type: application/json

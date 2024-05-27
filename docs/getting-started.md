@@ -6,7 +6,7 @@ Create a user on the ui as shown below:
 or using curl as below:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/users/users -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users -H "Content-Type: application/json" -d @- <<EOF
 {
   "name": "John Doe",
   "credentials": {
@@ -35,7 +35,7 @@ For more user related actions see: [magistrala users](https://docs.magistrala.ab
 In order to login user we need to provide username and password:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/users/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/issue -H "Content-Type: application/json" -d @- <<EOF
 {
   "identity": "john.doe@example.com",
   "secret": "12345678"
@@ -83,7 +83,7 @@ On the ui the steps are as follows:
 To log in to an organization:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
 {
   "domain_id": "<organization_id>"
 }
@@ -93,7 +93,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organizations/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
 {
   "domain_id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1"
 }
@@ -268,7 +268,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/computations/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on machine data",
@@ -296,7 +296,7 @@ Content-Length: 0
 Next we'll run the computation:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/computations/computations/<computation_id>/run -H "Authorization: Bearer <user_token>"
+curl -sSiX POST https://prism.ultraviolet.rs/computations/<computation_id>/run -H "Authorization: Bearer <user_token>"
 ```
 
 response:

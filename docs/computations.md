@@ -23,7 +23,7 @@ On the ui this can be done on this page as shown here
 Example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/computations/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/computations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "Machine Diagnostics Analysis",
   "description": "Performing diagnostics analysis on machine data",
@@ -50,7 +50,7 @@ Content-Length: 0
 In order to get all computations:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/computations/computations -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computations -H "Authorization: Bearer <user_token>"
 ```
 
 Example:

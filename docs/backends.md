@@ -11,7 +11,7 @@ This can be done on the user interface as below:
 
 or by running:
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/backends -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "my dell server",
   "description": "",
@@ -57,7 +57,7 @@ Content-Length: 0
 List of backends is viewable on the ui, they can also be accessed using curl as below:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/backends/backends -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/backends -H "Authorization: Bearer <user_token>"
 ```
 
 response:

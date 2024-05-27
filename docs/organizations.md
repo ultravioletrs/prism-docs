@@ -1,6 +1,6 @@
 # Organizations
 
-Organizations represent a consortium of users, computations, and resources that provides a single way to allow maangement of resources in the system. The organizations / organizations simplify access control by allowing only users who are in a particular organization to access resources which they have been assigned to.
+Organizations represent a consortium of users, computations, and resources that provides a single way to allow management of resources in the system. The organizations / organizations simplify access control by allowing only users who are in a particular organization to access resources which they have been assigned to.
 
 Within organizations, different users have different roles that allow them to only perform certain operations within the organization, such as creation of other users and other admin related tasks. A single user can belong to multiple organizations, with which they can have different roles based on the policy assigned.
 
@@ -9,18 +9,10 @@ For any user to access the CoCoS system, they must be part of an organization, a
 ## Create an organization
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "<domain_name>",
-  "metadata": {
-    "key": "value"
-  },
-  "tags": ["tag1", "tag2"],
-  "alias": "<alias>",
-  "status": "<status>",
-  "permission": "<permission>",
-  "created_by": "<created_by_id>",
-  "permissions": ["permission1", "permission2"]
+  "name": "organization 1",
+  "alias": "org1"
 }
 EOF
 ```
@@ -28,62 +20,45 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
-  "description": "organization providing data",
-  "metadata": {
-    "meeting": "every monday",
-    "location": "room 101"
-  }
-  "tags": ["data", "algo"],
-  "alias": "org1",
-  "status": "active",
+  "alias": "org1"
 }
 EOF
 
-HTTP/1.1 200 Ok
-Content-Length: 331
+HTTP/1.1 200 OK
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 08:03:34 GMT
-Location: /organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Tue, 30 Apr 2024 13:17:33 GMT
+Content-Length: 235
 
 {
-  "id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
-  "name": "organization 1",
-  "description": "organization providing data",
-  "metadata": { 
-    "location": "room 101", 
-    "meeting": "every monday" 
-  },
-  "tags": ["data", "algo"],
-  "alias": "org1",
-  "created_at": "2023-08-10T08:03:34.204862Z",
-  "updated_at": "0001-01-01T00:00:00Z",  
-  "status": "active",
+  "id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c",
+  "name":"organization 1",
+  "alias":"org1",
+  "status":"enabled",
+  "created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58",
+  "created_at":"2024-04-30T13:17:32.884558Z",
+  "updated_at":"0001-01-01T00:00:00Z"
 }
-
 ```
+
+On the ui the steps are as follows:
+1. Log in to prism platform with a user with administrator permission.
+2. On successfully log in, organizations page is displayed. Click on 'New Organization'.
+   ![Organizations page](img/ui/organizations.png)
+3. Fill the required fields and click 'Create Organization'
+   ![Organization Creation](img/ui/orgcreate.png)
 
 ## Update organization
 
 Update organization
 
 ```bash
-curl -sSiX PUT https://prism.ultraviolet.rs/organizations/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "<organization_name>",
-  "metadata": {
-    "key": "value"
-  },
-  "tags": ["tag1", "tag2"],
-  "alias": "<alias>",
-  "status": "<status>",
-  "permission": "<permission>",
-  "created_by": "<created_by_id>",
-  "permissions": ["permission1", "permission2"]
+  "name": "organization 1",
+  "alias": "org1"
 }
 EOF
 ```
@@ -91,73 +66,69 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "updated confidential computing",
-  "description": "updated confidential computing organization",
-  "metadata": { 
-    "location": "room 809", 
-    "meeting": "every friday" 
-  },
-  "created_at": "2023-08-10T08:03:34.204862Z",
-  "updated_at": "2023-08-10T08:06:09.289907Z",
-  "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
-  "status": "enabled"
+  "name": "organization 1",
+  "alias": "org1"
 }
 EOF
-
 HTTP/1.1 200 OK
-Content-Length: 406
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 08:06:09 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Fri, 24 May 2024 06:28:08 GMT
+Content-Length: 294
 
 {
-  "id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
-  "owner_id": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
-  "name": "updated confidential computing",
-  "description": "updated confidential computing organization",
-  "metadata": { "location": "room 809", "meeting": "every friday" },
-  "created_at": "2023-08-10T08:03:34.204862Z",
-  "updated_at": "2023-08-10T08:06:09.289907Z",
-  "updated_by": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
-  "status": "enabled"
+  "id":"127910df-7eca-42dc-a625-1f8fda70229c",
+  "name":"organization 1",
+  "alias":"org1",
+  "status":"enabled",
+  "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+  "created_at":"2024-05-24T05:29:47.030197Z",
+  "updated_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+  "updated_at":"2024-05-24T06:28:08.121207Z"
 }
 ```
+
+On the ui the steps are as follows:
+1. Click on 'Organizations' on the navigation panel to view organization details.
+   ![Organization Details](img/ui/organization details.png)
+
+2. Click on 'Update Organization' to navigate to the update organization page.
+3. Make necessary changes and click 'update'
+   ![Updating an Organization](img/ui/update organization.png)
 
 ## Get organization
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/organizations/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"         
 
 HTTP/1.1 200 OK
-Content-Length: 331
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 08:04:32 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Fri, 24 May 2024 06:32:29 GMT
+Content-Length: 294
 
 {
-  "id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
-  "owner_id": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
-  "name": "confidential computing",
-  "description": "confidential computing organization",
-  "metadata": { 
-    "location": "room 101", 
-    "meeting": "every monday" 
-  },
-  "created_at": "2023-08-10T08:03:34.204862Z",
-  "updated_at": "0001-01-01T00:00:00Z",
-  "status": "enabled"
+  "id":"127910df-7eca-42dc-a625-1f8fda70229c",
+  "name":"organization 1",
+  "alias":"org1",
+  "status":"enabled",
+  "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+  "created_at":"2024-05-24T05:29:47.030197Z",
+  "updated_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+  "updated_at":"2024-05-24T06:28:08.121207Z"
 }
 ```
+
+On the ui the steps are as follows:
+1. Click on 'Organizations' on the navigation panel to view organization details.
+   ![Organization Details](img/ui/organization details.png)
+
 
 ## Get organizations
 
@@ -170,51 +141,64 @@ curl -isSX GET https://prism.ultraviolet.rs/organizations/ -H "Content-Type: app
 For example:
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/organizations -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" 
 
 HTTP/1.1 200 OK
-Content-Length: 768
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 08:04:47 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Fri, 24 May 2024 06:32:59 GMT
+Content-Length: 898
 
 {
-  "limit": 0,
-  "offset": 0,
-  "total": 2,
-  "organizations": [
+  "total":3,
+  "offset":0,
+  "limit":10,
+  "domains": [
     {
-      "id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
-      "owner_id": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
-      "name": "confidential computing",
-      "description": "confidential computing organization",
-      "metadata": { "location": "room 101", "meeting": "every monday" },
-      "created_at": "2023-08-10T08:03:34.204862Z",
-      "updated_at": "0001-01-01T00:00:00Z",
-      "status": "enabled"
+      "id":"2c8f3651-eb61-4a2d-8473-a84ae7a94845",
+      "name":"Test Org2",
+      "alias":"Desc 2",
+      "status":"enabled",
+      "permission":"administrator",
+      "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+      "created_at":"2024-05-24T05:37:43.870852Z",
+      "updated_at":"0001-01-01T00:00:00Z"
     },
     {
-      "id": "e2aba2d7-1f82-4b13-b010-dc0aa3a228a0",
-      "owner_id": "11a2a5ba-723a-4b6d-8a5d-0c679efbf283",
-      "parent_id": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
-      "name": "EU confidential computing",
-      "description": "confidential computing organization for EU",
-      "metadata": { "location": "room 102", "meeting": "every tuesday" },
-      "created_at": "2023-08-10T08:03:57.994226Z",
-      "updated_at": "0001-01-01T00:00:00Z",
-      "status": "enabled"
+      "id":"f5bc07b4-bdc1-426f-8d18-d625bb5da8ac",
+      "name":"Another Org",
+      "alias":"Desc 2",
+      "status":"enabled",
+      "permission":"administrator",
+      "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+      "created_at":"2024-05-24T05:47:32.275316Z",
+      "updated_at":"0001-01-01T00:00:00Z"
+    },
+    {"id":"127910df-7eca-42dc-a625-1f8fda70229c",
+    "name":"organization 1",
+    "alias":"org1",
+    "status":"enabled",
+    "permission":"administrator",
+    "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+    "created_at":"2024-05-24T05:29:47.030197Z",
+    "updated_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
+    "updated_at":"2024-05-24T06:28:08.121207Z"
     }
   ]
 }
 ```
+
+On the ui the steps are as follows:
+1. Click on user profile at the top right, then click on "Organizations" on the menu. This navigates to the organizations page.
+   ![User Profile](img/ui/profile.png)
+2. Organization page is displayed.
+   ![Organizations](img/ui/organizations.png)
 
 ## Assign
 
 Assign user to an organization
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/domains/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "subject": "<user_id>",
   "object": "<organization_id>",
@@ -226,21 +210,27 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/b19c8738-0efa-400e-aaf0-610ef42f1ee1/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/domains/127910df-7eca-42dc-a625-1f8fda70229c/users/assign -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "subject": "47887629-7b4c-4bf5-b414-35bb2a5f5f23",
-  "object": "b19c8738-0efa-400e-aaf0-610ef42f1ee1",
-  "actions": ["admin", "view"]
+  "relation": "member",
+  "user_ids": ["1470462e-70d3-4e3f-82d8-7df5ad643de3"]
 }
 EOF
 
-HTTP/1.1 200 Ok
-Content-Length: 0
+HTTP/1.1 201 Created
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 08:07:26 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Fri, 24 May 2024 06:51:37 GMT
+Content-Length: 0
+
 ```
+
+On the ui the steps are as follows:
+1. From Organization details page, click on 'Members'. This navigates to Members page.
+   ![Organization Details](img/ui/org details members.png)
+
+2. From Member page, click on 'Assign Member'. A modal dialog will appear that allowing member relation assignment.
+   ![Assign Member](img/ui/assign member.png)
+
 
 ## Members
 
@@ -249,34 +239,38 @@ To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `p
 > Must take into consideration the user identified by the `user_token` needs to be assigned to the same organization identified by `group_id` with `g_list` action or be the owner of the organization identified by `group_id`.
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/organizations/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET http://localhost/domains/<organization_id>/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/organizations/b19c8738-0efa-400e-aaf0-610ef42f1ee1/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+ curl -sSiX GET http://localhost:9003/domains/ec7f6b62-3b0b-4f6f-925f-c1f09ab2f883/users\?permission\=view -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
-Content-Length: 246
 Content-Type: application/json
-Date: Thu, 10 Aug 2023 08:11:12 GMT
-X-Frame-Options: DENY
-X-Xss-Protection: 1; mode=block
+Date: Sat, 25 May 2024 08:44:49 GMT
+Content-Length: 216
 
 {
-  "limit": 10,
-  "total": 1,
-  "members": [
+  "limit":10,
+  "offset":0,
+  "total":1,
+  "users": [
     {
-      "id": "47887629-7b4c-4bf5-b414-35bb2a5f5f23",
-      "name": "John Doe",
-      "credentials": { "identity": "john.doe2@email.com" },
-      "created_at": "2023-08-10T07:55:08.056426Z",
-      "updated_at": "0001-01-01T00:00:00Z",
-      "status": "enabled"
+      "id":"986a04e5-be5b-4041-b649-f64346720219",
+      "name":"John Doe",
+      "credentials":{},
+      "created_at":"0001-01-01T00:00:00Z",
+      "updated_at":"0001-01-01T00:00:00Z",
+      "status":"enabled"
     }
   ]
 }
 ```
-
+On the ui steps are as follows:
+On the ui, steps are as follows:
+1. From Organization details page, click on 'Members'. This navigates to Members page.
+   ![Organization Details](img/ui/org details members.png)
+2. Organization members page is displayed.
+   ![Organization Members](img/ui/members.png)

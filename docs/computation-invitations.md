@@ -70,13 +70,13 @@ On the UI the steps are as follows:
 To retrieve a specific invitation for a user to join a computation, identified by the user ID and computation ID:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs:9091/computation-invitations/{user_id}/{computation_id} -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computation-invitations/{user_id}/{computation_id} -H "Authorization: Bearer <user_token>"
 ```
 
 ### Example
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs:9091/computation-invitations/986a04e5-be5b-4041-b649-f64346720219/ecb4565e-5cc3-4fcf-845f-031a69d52cab -H "Authorization: Bearer <user_token>"
+curl -sSiX GET https://prism.ultraviolet.rs/computation-invitations/986a04e5-be5b-4041-b649-f64346720219/ecb4565e-5cc3-4fcf-845f-031a69d52cab -H "Authorization: Bearer <user_token>"
 ```
 
 Expected Response:

@@ -19,9 +19,8 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - Architecture: architecture.md
-  - Billing: billing.md
-  - Install: install.md
   - Getting Started: getting-started.md
+  - Billing: billing.md
   - Computations: computations.md
   - Users: users.md
   - Organizations: organizations.md

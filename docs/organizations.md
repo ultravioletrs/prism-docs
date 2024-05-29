@@ -9,7 +9,7 @@ For any user to access the CoCoS system, they must be part of an organization, a
 ## Create an organization
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
   "alias": "org1"
@@ -20,7 +20,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
   "alias": "org1"
@@ -55,7 +55,7 @@ On the ui the steps are as follows:
 Update organization
 
 ```bash
-curl -sSiX PUT https://prism.ultraviolet.rs/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/auth/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
   "alias": "org1"
@@ -66,7 +66,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX PATCH https://prism.ultraviolet.rs/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PATCH https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "organization 1",
   "alias": "org1"
@@ -100,13 +100,13 @@ On the ui the steps are as follows:
 ## Get organization
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"         
+curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"         
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -135,13 +135,13 @@ On the ui the steps are as follows:
 To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `parentID`, `ownerID`, `tree` and `dir` as query parameters.
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/organizations/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" 
+curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" 
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -198,7 +198,7 @@ On the ui the steps are as follows:
 Assign user to an organization
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/domains/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "subject": "<user_id>",
   "object": "<organization_id>",
@@ -210,7 +210,7 @@ EOF
 For example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/domains/127910df-7eca-42dc-a625-1f8fda70229c/users/assign -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c/users/assign -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "relation": "member",
   "user_ids": ["1470462e-70d3-4e3f-82d8-7df5ad643de3"]
@@ -239,13 +239,13 @@ To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `p
 > Must take into consideration the user identified by the `user_token` needs to be assigned to the same organization identified by `group_id` with `g_list` action or be the owner of the organization identified by `group_id`.
 
 ```bash
-curl -isSX GET http://localhost/domains/<organization_id>/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<organization_id>/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
- curl -sSiX GET http://localhost:9003/domains/ec7f6b62-3b0b-4f6f-925f-c1f09ab2f883/users\?permission\=view -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+ curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/ec7f6b62-3b0b-4f6f-925f-c1f09ab2f883/users\?permission\=view -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Type: application/json

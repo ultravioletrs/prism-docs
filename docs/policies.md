@@ -48,11 +48,11 @@ On the UI the steps are as follows:
 1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
-![List Policies](img/ui/to computation policies.png)
+![List Policies](img/ui/to%20computation%20policies.png)
 3. Click on 'New Computation Policy' button on the top left.
-![List Policies](img/ui/computation policies.png)
+![List Policies](img/ui/computation%20policies.png)
 4. Select the required details and click 'Create'
-![New Policy](img/ui/new policy.png)
+![New Policy](img/ui/new%20policy.png)
 
 ### Updating Computation Policies
 
@@ -95,11 +95,11 @@ On the UI the steps are as follows:
 1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
-![List Policies](img/ui/to computation policies.png)
+![List Policies](img/ui/to%20computation%20policies.png)
 3. Click on the edit button on any of the policies to edit.
-![List Policies](img/ui/computation policies.png)
+![List Policies](img/ui/computation%20policies.png)
 4. Select required details and click on 'Update'.
-![Update Policy Page](img/ui/update policy page.png)
+![Update Policy Page](img/ui/update%20policy%20page.png)
 
 
 
@@ -150,7 +150,7 @@ On the UI the steps are as follows:
 1. Login and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
-![List Policies](img/ui/to computation policies.png)
+![List Policies](img/ui/to%20computation%20policies.png)
 
 ### Delete Computation Policies
 
@@ -175,9 +175,9 @@ On the UI the steps are as follows:
 1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
-![List Policies](img/ui/to computation policies.png)
+![List Policies](img/ui/to%20computation%20policies.png)
 3. Click on the delete button on any of the policies to delete.
-![List Policies](img/ui/computation policies.png)
+![List Policies](img/ui/computation%20policies.png)
 
 
 If you delete policies, the policy will be removed from the policy storage. Further authorization checks related to that policy will fail.

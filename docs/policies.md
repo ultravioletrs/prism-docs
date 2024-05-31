@@ -45,7 +45,7 @@ Content-Length: 0
 
 On the UI the steps are as follows:
 
-1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
 ![List Policies](img/ui/to computation policies.png)
@@ -92,7 +92,7 @@ Content-Length: 0
 
 On the UI the steps are as follows:
 
-1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
 ![List Policies](img/ui/to computation policies.png)
@@ -105,7 +105,7 @@ On the UI the steps are as follows:
 
 ### Lisiting Computation Policies
 
-As an admin, you can list all the policies, while as a user you can only list your own policies.
+As an administrator/computation owner, you can list all the policies in a computation, while as a user you can only list your own policies in a computation.
 
 ```bash
 curl -isSX GET https://prism.ultraviolet.rs/computations/policies/<computation_id> -H "Authorization: Bearer <user_token>"
@@ -147,7 +147,7 @@ Content-Length: 1785
 
 On the UI the steps are as follows:
 
-1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
 ![List Policies](img/ui/to computation policies.png)
@@ -172,7 +172,7 @@ Date: Sun, 26 May 2024 11:05:16 GMT
 
 On the UI the steps are as follows:
 
-1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
 ![List Policies](img/ui/to computation policies.png)

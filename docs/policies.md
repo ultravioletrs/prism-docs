@@ -147,7 +147,7 @@ Content-Length: 1785
 
 On the UI the steps are as follows:
 
-1. Login as an administrator/computation owner and click on 'Computations' on the side navigation panel.
+1. Login and click on 'Computations' on the side navigation panel.
 ![List Computations](img/ui/computations%20list.png)
 2. Select a computation and click on 'Computation Policies'
 ![List Policies](img/ui/to computation policies.png)

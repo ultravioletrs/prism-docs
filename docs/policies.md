@@ -44,10 +44,14 @@ Content-Length: 0
 ```
 
 On the UI the steps are as follows:
-1. Login as an Administrator and click on 'Policies' on the side navigation panel. 
-2. Click on 'New Computation Policies' button on the top left.
-![List Policies](img/ui/policies.png)
-3. Select the required details and click 'Create'
+
+1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+![List Computations](img/ui/computations%20list.png)
+2. Select a computation and click on 'Computation Policies'
+![List Policies](img/ui/to computation policies.png)
+3. Click on 'New Computation Policy' button on the top left.
+![List Policies](img/ui/computation policies.png)
+4. Select the required details and click 'Create'
 ![New Policy](img/ui/new policy.png)
 
 ### Updating Computation Policies
@@ -87,9 +91,14 @@ Content-Length: 0
 ```
 
 On the UI the steps are as follows:
-1. Click on the edit button on any of the policies to edit.
-![Update Policy](img/ui/update policy.png)
-2. Select required details and click on 'Update'.
+
+1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+![List Computations](img/ui/computations%20list.png)
+2. Select a computation and click on 'Computation Policies'
+![List Policies](img/ui/to computation policies.png)
+3. Click on the edit button on any of the policies to edit.
+![List Policies](img/ui/computation policies.png)
+4. Select required details and click on 'Update'.
 ![Update Policy Page](img/ui/update policy page.png)
 
 
@@ -99,13 +108,13 @@ On the UI the steps are as follows:
 As an admin, you can list all the policies, while as a user you can only list your own policies.
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/computations/policies -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/computations/policies/<computation_id> -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/computations/policies -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/computations/policies/3b273eed-155f-4b56-9408-a29a93cc47b6 -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -137,8 +146,11 @@ Content-Length: 1785
 ```
 
 On the UI the steps are as follows:
-1. Login as an Administrator and click on 'Policies' on the side navigation panel.
-![List Policies](img/ui/policies.png)
+
+1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+![List Computations](img/ui/computations%20list.png)
+2. Select a computation and click on 'Computation Policies'
+![List Policies](img/ui/to computation policies.png)
 
 ### Delete Computation Policies
 
@@ -159,8 +171,13 @@ Date: Sun, 26 May 2024 11:05:16 GMT
 ```
 
 On the UI the steps are as follows:
-1. Click on the delete button on any of the policies to delete.
-![Delete Policy](img/ui/delete policy.png)
+
+1. Login as an Administrator and click on 'Computations' on the side navigation panel.
+![List Computations](img/ui/computations%20list.png)
+2. Select a computation and click on 'Computation Policies'
+![List Policies](img/ui/to computation policies.png)
+3. Click on the delete button on any of the policies to delete.
+![List Policies](img/ui/computation policies.png)
 
 
 If you delete policies, the policy will be removed from the policy storage. Further authorization checks related to that policy will fail.

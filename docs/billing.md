@@ -246,9 +246,9 @@ Content-Length: 382
 On the UI the steps are as follows:
 
 1. Click on 'Admin' on the side navigation.
-2. Click on the edit button on any of the plans you'd like to delete.
+2. Click on the edit button on any of the plans you'd like to edit.
    ![Admin Page](img/ui/plans%20list.png)
-3. Fill the required details and click
+3. Fill the required details and click 'Update'
    ![Edit Plan Page](img/ui/edit%20plan%20page.png)
 
 ## Customer Functions
@@ -526,10 +526,10 @@ Content-Length: 1349
 
 On the UI the steps are as follows:
 
-1. Click on 'Billing' on the side navigation, then click 'Create'
-   ![Billing Page](img/ui/billing%20customer.png)
-2. On the dialog that pops up, fill in the required details.
-   ![Create Customer Dialog](img/ui/create%20customer%20dialog.png)
+1. Click on 'Billing' on the side navigation, then click 'Update Customer Details'
+   ![Billing Page](img/ui/billing%20customer%20plans.png)
+2. On the dialog that pops up, fill in the required details and click 'Update'.
+   ![Update Customer Dialog](img/ui/update%20customer%20dialog.png)
 
 ## Subscription Functions
 

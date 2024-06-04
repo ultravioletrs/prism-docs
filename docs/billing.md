@@ -81,6 +81,13 @@ X-Xss-Protection: 1; mode=block
 }
 ```
 
+On the UI the steps are as follows:
+
+1. Click on 'Admin' on the side navigation then click on 'Create' at the top right.
+   ![Admin Page](img/ui/admin%20page.png)
+2. On the dialog that appears fill the required details then click 'Create'.
+   ![Create Plan Dialog](img/ui/create%20plan%20dialog.png)
+
 ### Delete Plan
 
 To delete a plan, the following information is needed:
@@ -105,6 +112,12 @@ Date: Thu, 10 Aug 2023 07:29:22 GMT
 X-Frame-Options: DENY
 X-Xss-Protection: 1; mode=block
 ```
+
+On the UI the steps are as follows:
+
+1. Click on 'Admin' on the side navigation.
+2. Click on the delete button on any of the plans you'd like to delete.
+   ![Admin Page](img/ui/plans%20list.png)
 
 ### Update Plan
 
@@ -175,6 +188,14 @@ X-Xss-Protection: 1; mode=block
     "updated_by": "1b849a99-cef7-42f5-a7f4-e00b1f439e08"
 }
 ```
+
+On the UI the steps are as follows:
+
+1. Click on 'Admin' on the side navigation.
+2. Click on the edit button on any of the plans you'd like to delete.
+   ![Admin Page](img/ui/plans%20list.png)
+3. Fill the required details and click
+   ![Edit Plan Page](img/ui/edit%20plan%20page.png)
 
 ## Customer Functions
 
@@ -249,6 +270,13 @@ X-Xss-Protection: 1; mode=block
 }
 ```
 
+On the UI the steps are as follows:
+
+1. Click on 'Billing' on the side navigation, then click 'Create'
+   ![Billing Page](img/ui/billing%20customer.png)
+2. On the dialog that pops up, fill in the required details.
+   ![Create Customer Dialog](img/ui/create%20plan%20dialog.png)
+
 ### Update Billing Customer
 
 This function updates the details of an existing customer account.
@@ -321,6 +349,13 @@ X-Xss-Protection: 1; mode=block
     "updated_by": "1b849a99-cef7-42f5-a7f4-e00b1f439e08"
 }
 ```
+
+On the UI the steps are as follows:
+
+1. Click on 'Billing' on the side navigation, then click 'Create'
+   ![Billing Page](img/ui/billing%20customer.png)
+2. On the dialog that pops up, fill in the required details.
+   ![Create Customer Dialog](img/ui/create%20plan%20dialog.png)
 
 ## Subscription Functions
 
@@ -434,3 +469,11 @@ Date: Thu, 10 Aug 2023 07:29:59 GMT
 X-Frame-Options: DENY
 X-Xss-Protection: 1; mode=block
 ```
+
+On the UI the steps are as follows:
+
+1. Click on 'Billing' on the side navigation, then click 'Subscription' on any of plans
+   ![Billing Plans Page](img/ui/billing%20plans.png)
+2. On the checkout page, fill in your information and submit to check out.
+   ![Checkout Page](img/ui/checkout%20page.png)
+

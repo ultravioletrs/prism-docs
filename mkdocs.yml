@@ -1,8 +1,8 @@
 copyright: Copyright (c) Ultraviolet
 repo_url: https://github.com/ultravioletrs/cocos
 site_description: Prism Platform
-site_name: Cocos
-site_url: https://docs.cocos.ai
+site_name: Prism
+site_url: https://docs.prism.ultraviolet.rs
 edit_uri: ""
 theme:
   name: material
@@ -22,10 +22,10 @@ nav:
   - Getting Started: getting-started.md
   - Billing: billing.md
   - Computations: computations.md
+  - Computation Invitations: computation-invitations.md
+  - Computation Policies: policies.md
   - Users: users.md
   - Organizations: organizations.md
-  - Computation Invitations: computation-invitations.md
   - UI: ui.md
-  - Computation Policies: policies.md
   - Certs: certs.md
   - Backends: backends.md

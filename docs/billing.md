@@ -4,8 +4,7 @@ The billing service allows the organization to pay for the services used in the 
 
 ## Billing Metrics
 
-Currently, billing plans are only based on the maximum number of computations that an organization or user can have in the system. When an admin creates a plan, they limit the amount of computations that an organization can have based on the amount paid by the user. This is still a work in progress and the actual metrics that should be limited will be changed based on internal discussions.
-
+Billing plans are designed for flexibility to accommodate different organizations needs such as number of computations, usage and number of users. This allows choice for a plan that best fits current organization needs and can easily scale up as needed.
 ## Customer Functions
 
 ### List Plans

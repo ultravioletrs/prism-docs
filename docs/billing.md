@@ -1,16 +1,16 @@
 # Billing service
 
-The billing service allows the organization to pay for the services used in the CoCoS system such as total number of computations, total users, and the use rate. Once a billing customer is created, the billing service allows the user to select a plan out of the ones created by the admin and make payments for these plans based on the selected plan.
+The billing service allows the project to pay for the services used in the CoCoS system such as total number of computations, total users, and the use rate. Once a billing customer is created, the billing service allows the user to select a plan out of the ones created by the admin and make payments for these plans based on the selected plan.
 
 ## Billing Metrics
 
-Currently, billing plans are only based on the maximum number of computations that an organization or user can have in the system. When an admin creates a plan, they limit the amount of computations that an organization can have based on the amount paid by the user. This is still a work in progress and the actual metrics that should be limited will be changed based on internal discussions.
+Currently, billing plans are only based on the maximum number of computations that an project or user can have in the system. When an admin creates a plan, they limit the amount of computations that an project can have based on the amount paid by the user. This is still a work in progress and the actual metrics that should be limited will be changed based on internal discussions.
 
 ## Admin functions
 
 ### Create Plan
 
-Only an admin can create a billing plan which will be viewed by the organizations permitted to view it. In order to create a billing plan, the following steps need to be followed:
+Only an admin can create a billing plan which will be viewed by the projects permitted to view it. In order to create a billing plan, the following steps need to be followed:
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/createplan -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -23,7 +23,7 @@ curl -sSiX POST https://prism.ultraviolet.rs/createplan -H "Content-Type: applic
         "currency":<currency>
     },
     "public-plan":<public-plan>,
-    "org-id":<org-id>
+    "proj-id":<proj-id>
 }
 EOF
 ```
@@ -44,7 +44,7 @@ curl -sSiX POST https://prism.ultraviolet.rs/createplan -H "Content-Type: applic
         "currency": "eur"
     },
     "public-plan":"true",
-    "org-id":"8b131663-058d-4e8f-8ccb-cc83c3f9e694"
+    "proj-id":"8b131663-058d-4e8f-8ccb-cc83c3f9e694"
 }
 EOF
 ```
@@ -72,7 +72,7 @@ X-Xss-Protection: 1; mode=block
         "currency": "eur"
     },
     "public_plan": "true",
-    "allowed_organizations": ["8b131663-058d-4e8f-8ccb-cc83c3f9e694"],
+    "allowed_projects": ["8b131663-058d-4e8f-8ccb-cc83c3f9e694"],
     "disable": "false",
     "created_by": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
     "created_at": "2023-08-10T07:29:22Z",
@@ -120,7 +120,7 @@ curl -sSiX POST https://prism.ultraviolet.rs/updateplan/<plan-id> -H "Content-Ty
         "currency":<currency>
     },
     "public-plan":<public-plan>,
-    "org-id":<org-id>
+    "proj-id":<proj-id>
 }
 EOF
 ```
@@ -140,7 +140,7 @@ curl -sSiX POST https://prism.ultraviolet.rs/updateplan/8b131663-058d-4e8f-8ccb-
         "currency": "eur"
     },
     "public-plan":"true",
-    "org-id":"8b131663-058d-4e8f-8ccb-cc83c3f9e694"
+    "proj-id":"8b131663-058d-4e8f-8ccb-cc83c3f9e694"
 }
 ```
 
@@ -167,7 +167,7 @@ X-Xss-Protection: 1; mode=block
         "currency": "eur"
     },
     "public_plan": "true",
-    "allowed_organizations": ["8b131663-058d-4e8f-8ccb-cc83c3f9e694"],
+    "allowed_projects": ["8b131663-058d-4e8f-8ccb-cc83c3f9e694"],
     "disable": "false",
     "created_by": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
     "created_at": "2023-08-10T07:29:22Z",
@@ -183,12 +183,12 @@ X-Xss-Protection: 1; mode=block
 This function allows for the creation of a new customer account with the billing service.
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/<org-id>/createcustomer \
+curl -sSiX POST https://prism.ultraviolet.rs/<proj-id>/createcustomer \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
 {
-    "organization_id": "<organization_id>",
+    "project_id": "<project_id>",
     "name": "<name>",
     "email": "<email>",
     "line1": "<line1>",
@@ -209,7 +209,7 @@ curl -sSiX POST https://prism.ultraviolet.rs/8b131663-058d-4e8f-8ccb-cc83c3f9e69
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d '{
-    "organization_id": "8b131663-058d-4e8f-8ccb-cc83c3f9e694",
+    "project_id": "8b131663-058d-4e8f-8ccb-cc83c3f9e694",
     "name": "John Doe",
     "email": "john.doe@example.com",
     "line1": "123 Main St",
@@ -232,7 +232,7 @@ X-Xss-Protection: 1; mode=block
 
 {
     "id": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-    "organization_id": "8b131663-058d-4e8f-8ccb-cc83c3f9e694",
+    "project_id": "8b131663-058d-4e8f-8ccb-cc83c3f9e694",
     "name": "John Doe",
     "email": "john.doe@example.com",
     "line1": "123 Main St",
@@ -255,7 +255,7 @@ This function updates the details of an existing customer account.
 
 ```bash
 Copy code
-curl -sSiX POST https://prism.ultraviolet.rs/organization/<org-id>/updatecustomer \
+curl -sSiX POST https://prism.ultraviolet.rs/project/<proj-id>/updatecustomer \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
@@ -276,7 +276,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/updatecustomer \
+curl -sSiX POST https://prism.ultraviolet.rs/project/1b849a99-cef7-42f5-a7f4-e00b1f439e08/updatecustomer \
 -H "Content-Type: application/json" \
 -H "Authorization : Bearer <user_token>" \
 -d @- << EOF
@@ -305,7 +305,7 @@ X-Xss-Protection: 1; mode=block
 
 {
     "id": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-    "organization_id": "org123",
+    "project_id": "org123",
     "name": "John Dozen",
     "email": "john.dozen@example.com",
     "line1": "123 Main St",
@@ -331,7 +331,7 @@ Create a new subscription for a customer.
 Command:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organization/<org-id>/subscribe \
+curl -sSiX POST https://prism.ultraviolet.rs/project/<proj-id>/subscribe \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
 {
@@ -345,7 +345,7 @@ EOF
 Example:
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/subscribe \
+curl -sSiX POST https://prism.ultraviolet.rs/project/1b849a99-cef7-42f5-a7f4-e00b1f439e08/subscribe \
 -H "Authorization: Bearer <user_token>" \
 -d @- << EOF
 {
@@ -368,7 +368,7 @@ X-Xss-Protection: 1; mode=block
 
 {
     "id": "1b849a99-cef7-42f5-a7f4-e00b1f439e08",
-    "organization_id": "8b131663-058d-4e8f-8ccb-cc83c3f9e694",
+    "project_id": "8b131663-058d-4e8f-8ccb-cc83c3f9e694",
     "pa_customer_id": "cus_123",
     "details": {
         "name": "John Dozen",
@@ -413,14 +413,14 @@ This function allows the customer to checkout and make payment for the selected 
 Command:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/organization/<org-id>/checkout \
+curl -sSiX GET https://prism.ultraviolet.rs/project/<proj-id>/checkout \
 -H "Authorization: Bearer <user_token>"
 ```
 
 Example:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/organization/1b849a99-cef7-42f5-a7f4-e00b1f439e08/checkout \
+curl -sSiX GET https://prism.ultraviolet.rs/project/1b849a99-cef7-42f5-a7f4-e00b1f439e08/checkout \
 -H "Authorization: Bearer <user_token>"
 ```
 

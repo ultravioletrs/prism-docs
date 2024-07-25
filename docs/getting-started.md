@@ -56,13 +56,13 @@ Content-Length: 647
 This can also be done using UI as below:
 ![UI login](img/ui/login.png)
 
-### Create an organization
+### Create a project
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "organization 1",
-  "alias": "org1"
+  "name": "project 1",
+  "alias": "proj1"
 }
 EOF
 
@@ -71,21 +71,21 @@ Content-Type: application/json
 Date: Tue, 30 Apr 2024 13:17:33 GMT
 Content-Length: 235
 
-{"id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c","name":"organization 1","alias":"org1","status":"enabled","created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58","created_at":"2024-04-30T13:17:32.884558Z","updated_at":"0001-01-01T00:00:00Z"}
+{"id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c","name":"project 1","alias":"org1","status":"enabled","created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58","created_at":"2024-04-30T13:17:32.884558Z","updated_at":"0001-01-01T00:00:00Z"}
 ```
 
 On the ui the steps are as follows:
-![Organization page](img/ui/neworg.png)
-![Organization Creation](img/ui/orgcreate.png)
+![Project page](img/ui/newproj.png)
+![Project Creation](img/ui/projcreate.png)
 
-### Organization Login
+### Project Login
 
-To log in to an organization:
+To log in to a Project:
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
 {
-  "domain_id": "<organization_id>"
+  "domain_id": "<project_id>"
 }
 EOF
 ```
@@ -117,8 +117,8 @@ X-Xss-Protection: 1; mode=block
 }
 ```
 
-For the UI click enter to login to organization with will bring you to the dashboard.
-![Organization login](img/ui/orglogin.png)
+For the UI click enter to login to Project with will bring you to the dashboard.
+![Project login](img/ui/projlogin.png)
 
 ## Backends
 For backends management, on the Backends microservice. This service runs on port `9011`.

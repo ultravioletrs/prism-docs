@@ -6,12 +6,12 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 | Service        | Description                                                                                               |
 | -------------- | --------------------------------------------------------------------------------------------------------- |
 | Auth           | Manages user policies in relation to backends, certs and computations.                                    |
-| Users          | Manages platform's users and auth concerns in regards to users and organizations.                         |
+| Users          | Manages platform's users and auth concerns in regards to users and projects.                              |
 | Computations   | Manages computation lifecycle, from creation to running and monitoring.                                   |
 | Backends       | Manages connections to manager allowing running of computations on CoCos within secure enclaves.          |
 | Certs          | Manages certification lifecyle (issuing, revocation, renewal) used for mTLS between backends and manager. |
 | Billing        | Manages payments on the platform and controls resource access based on billing plans.                     |
-| Invitations    | Manages user inivations to access organizations and computations.                                         |
+| Invitations    | Manages user inivations to access projects.                                                               |
 | User Interface | Provides an web interface to provide platform access over a visual interface.                             |
 
 

@@ -1,17 +1,17 @@
-# Organizations
+# Projects
 
-Organizations represent a consortium of users, computations, and resources that provides a single way to allow management of resources in the system. The organizations / organizations simplify access control by allowing only users who are in a particular organization to access resources which they have been assigned to.
+Projects represent a consortium of users, computations, and resources that provides a single way to allow management of resources in the system. The projects / projects simplify access control by allowing only users who are in a particular project to access resources which they have been assigned to.
 
-Within organizations, different users have different roles that allow them to only perform certain operations within the organization, such as creation of other users and other admin related tasks. A single user can belong to multiple organizations, with which they can have different roles based on the policy assigned.
+Within projects, different users have different roles that allow them to only perform certain operations within the project, such as creation of other users and other admin related tasks. A single user can belong to multiple projects, with which they can have different roles based on the policy assigned.
 
-For any user to access the CoCoS system, they must be part of an organization, and have to be signed in to the organization.
+For any user to access the CoCoS system, they must be part of an project, and have to be signed in to the project.
 
-## Create an organization
+## Create an project
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "organization 1",
+  "name": "project 1",
   "alias": "org1"
 }
 EOF
@@ -22,7 +22,7 @@ For example:
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "organization 1",
+  "name": "project 1",
   "alias": "org1"
 }
 EOF
@@ -34,7 +34,7 @@ Content-Length: 235
 
 {
   "id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c",
-  "name":"organization 1",
+  "name":"project 1",
   "alias":"org1",
   "status":"enabled",
   "created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58",
@@ -45,19 +45,19 @@ Content-Length: 235
 
 On the ui the steps are as follows:
 1. Log in to prism platform with a user with administrator permission.
-2. On successfully log in, organizations page is displayed. Click on 'New Organization'.
-   ![Organizations page](img/ui/organizations.png)
-3. Fill the required fields and click 'Create Organization'
-   ![Organization Creation](img/ui/orgcreate.png)
+2. On successfully log in, projects page is displayed. Click on 'New Project'.
+   ![Projects page](img/ui/projects.png)
+3. Fill the required fields and click 'Create Project'
+   ![Project Creation](img/ui/projcreate.png)
 
-## Update organization
+## Update project
 
-Update organization
+Update project
 
 ```bash
-curl -sSiX PUT https://prism.ultraviolet.rs/auth/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/auth/domains/<project_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "organization 1",
+  "name": "project 1",
   "alias": "org1"
 }
 EOF
@@ -68,7 +68,7 @@ For example:
 ```bash
 curl -sSiX PATCH https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "organization 1",
+  "name": "project 1",
   "alias": "org1"
 }
 EOF
@@ -79,7 +79,7 @@ Content-Length: 294
 
 {
   "id":"127910df-7eca-42dc-a625-1f8fda70229c",
-  "name":"organization 1",
+  "name":"project 1",
   "alias":"org1",
   "status":"enabled",
   "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
@@ -90,17 +90,17 @@ Content-Length: 294
 ```
 
 On the ui the steps are as follows:
-1. Click on 'Organizations' on the navigation panel to view organization details.
-   ![Organization Details](img/ui/organization details.png)
+1. Click on 'Projects' on the navigation panel to view project details.
+   ![Project Details](img/ui/project details.png)
 
-2. Click on 'Update Organization' to navigate to the update organization page.
+2. Click on 'Update Project' to navigate to the update project page.
 3. Make necessary changes and click 'update'
-   ![Updating an Organization](img/ui/update organization.png)
+   ![Updating an Project](img/ui/update project.png)
 
-## Get organization
+## Get project
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<organization_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<project_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
@@ -115,7 +115,7 @@ Content-Length: 294
 
 {
   "id":"127910df-7eca-42dc-a625-1f8fda70229c",
-  "name":"organization 1",
+  "name":"project 1",
   "alias":"org1",
   "status":"enabled",
   "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
@@ -126,11 +126,11 @@ Content-Length: 294
 ```
 
 On the ui the steps are as follows:
-1. Click on 'Organizations' on the navigation panel to view organization details.
-   ![Organization Details](img/ui/organization details.png)
+1. Click on 'Projects' on the navigation panel to view project details.
+   ![Project Details](img/ui/project details.png)
 
 
-## Get organizations
+## Get projects
 
 To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `parentID`, `ownerID`, `tree` and `dir` as query parameters.
 
@@ -174,7 +174,7 @@ Content-Length: 898
       "updated_at":"0001-01-01T00:00:00Z"
     },
     {"id":"127910df-7eca-42dc-a625-1f8fda70229c",
-    "name":"organization 1",
+    "name":"project 1",
     "alias":"org1",
     "status":"enabled",
     "permission":"administrator",
@@ -188,20 +188,20 @@ Content-Length: 898
 ```
 
 On the ui the steps are as follows:
-1. Click on user profile at the top right, then click on "Organizations" on the menu. This navigates to the organizations page.
+1. Click on user profile at the top right, then click on "Projects" on the menu. This navigates to the projects page.
    ![User Profile](img/ui/profile.png)
-2. Organization page is displayed.
-   ![Organizations](img/ui/organizations.png)
+2. Project page is displayed.
+   ![Projects](img/ui/projects.png)
 
 ## Assign
 
-Assign user to an organization
+Assign user to an project
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/<organization_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/<project_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "subject": "<user_id>",
-  "object": "<organization_id>",
+  "object": "<project_id>",
   "relation": ["<relations>"]
 }
 EOF
@@ -225,8 +225,8 @@ Content-Length: 0
 ```
 
 On the ui the steps are as follows:
-1. From Organization details page, click on 'Members'. This navigates to Members page.
-   ![Organization Details](img/ui/org details members.png)
+1. From Project details page, click on 'Members'. This navigates to Members page.
+   ![Project Details](img/ui/proj details members.png)
 
 2. From Member page, click on 'Assign Member'. A modal dialog will appear that allowing member relation assignment.
    ![Assign Member](img/ui/assign member.png)
@@ -236,10 +236,10 @@ On the ui the steps are as follows:
 
 To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `parentID`, `ownerID`, `tree` and `dir` as query parameters.
 
-> Must take into consideration the user identified by the `user_token` needs to be assigned to the same organization identified by `group_id` with `g_list` action or be the owner of the organization identified by `group_id`.
+> Must take into consideration the user identified by the `user_token` needs to be assigned to the same project identified by `group_id` with `g_list` action or be the owner of the project identified by `group_id`.
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<organization_id>/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<project_id>/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
@@ -270,7 +270,7 @@ Content-Length: 216
 ```
 On the ui steps are as follows:
 On the ui, steps are as follows:
-1. From Organization details page, click on 'Members'. This navigates to Members page.
-   ![Organization Details](img/ui/org details members.png)
-2. Organization members page is displayed.
-   ![Organization Members](img/ui/members.png)
+1. From Project details page, click on 'Members'. This navigates to Members page.
+   ![Project Details](img/ui/proj details members.png)
+2. Project members page is displayed.
+   ![Project Members](img/ui/members.png)

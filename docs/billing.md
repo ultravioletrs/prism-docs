@@ -6,31 +6,6 @@ The billing service allows the project to pay for the services used in the CoCoS
 
 Currently, billing plans are only based on the maximum number of computations that an project or user can have in the system. When an admin creates a plan, they limit the amount of computations that an project can have based on the amount paid by the user. This is still a work in progress and the actual metrics that should be limited will be changed based on internal discussions.
 
-## Admin functions
-
-### Create Plan
-
-Only an admin can create a billing plan which will be viewed by the projects permitted to view it. In order to create a billing plan, the following steps need to be followed on UI.
-
-On the admin console, click create and fill in the details of the plan that you would like to create. The minimum amount on a plan is the equivalent of 0.2 euro.
-
-![Amin Console](img/admin_console.png)
-
-Once created, the list of plans will be displayed. Plans can be modified and updated from this page.
-
-### Delete Plan
-
-On the admin console, plans can be deleted by pressing the trash icon as illustrated below:
-
-![Delete Plan](img/delete_plan.png)
-
-
-### Update Plan
-
-Plans can be updated on the admin console by pressing the update button as shown.
-
-![Update Plan](img/update_plan.png)
-
 ## Customer Functions
 
 ### Create Customer
@@ -68,3 +43,9 @@ When the select subscription button is clicked, you will be redirected to the ch
 ![Checkout Page](img/checkout_page.png)
 
 If the payment is successful, you will be redirected to the projects page to proceed with your operations.
+
+### Update Payment Details
+
+The payment details of the current session are stored, and these can be changed by clicking the update payment details button as shown below:
+
+![Update Payment Details](img/update_payment_details.png)

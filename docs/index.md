@@ -1,9 +1,9 @@
 # Prism
 
-Prism is a web based SAAS that is intended for use by the end user, to allow for a user in an organization to benefit from the entire CoCoS AI system. Prism adds a layer of security and user management to the CoCoS AI system by providing functionality such as:
+Prism is a web based SAAS that is intended for use by the end user, to allow for a user in an project to benefit from the entire CoCoS AI system. Prism adds a layer of security and user management to the CoCoS AI system by providing functionality such as:
 
-- User and Consortium (organization) creation and management
-- Policy creation and management (between users, organizations, and computations)
+- User and Consortium (project) creation and management
+- Policy creation and management (between users, projects, and computations)
 - Billing and payment management
 - Computation creation and management
 

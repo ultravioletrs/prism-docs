@@ -23,8 +23,7 @@ nav:
   - Billing: billing.md
   - Computations: computations.md
   - Users: users.md
-  - Organizations: organizations.md
-  - Computation Invitations: computation-invitations.md
+  - Projects: projects.md
   - UI: ui.md
   - Computation Policies: policies.md
   - Certs: certs.md

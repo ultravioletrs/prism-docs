@@ -12,65 +12,50 @@ In order to list plans, the following steps need to be followed:
 On the UI the steps are as follows:
 
 1. Click on 'Billing' on the side navigation to view the plans.
-   ![Billing Plans Page](img/ui/plans%20list.png)
+   ![Plans Page](img/plans_page.png)
 
 ### Create Customer
-This function allows for the creation of a new customer account with the billing service. A billing customer is required to perform all billing operations and is created from the billing settings page as shown below.
-
-
-![Create Billing Customer](img/create_customer.png)
+This function allows for the creation of a new customer account with the billing service. A billing customer is required to perform all billing operations and is created from the billing page as shown below.
 
 Once you click the create billing customer, the customer details are required in order to successfully create the plan.
-![Create Customer Modal](img/create_customer_modal.png)
-
 On the UI the steps are as follows:
 
 1. Click on 'Billing' on the side navigation, then click 'Create'
-   ![Billing Page](img/ui/billing%20customer.png)
+   ![Create Billing Customer](img/create_customer.png)
 2. On the dialog that pops up, fill in the required details.
-   ![Create Customer Dialog](img/ui/create%20plan%20dialog.png)
+   ![Create Customer Modal](img/create_customer_modal.png)
 
 ### Update Billing Customer
 
 This function updates the details of an existing customer account.
-![Create Customer Modal](img/create_customer_modal.png)
 
 
 On the UI the steps are as follows:
-
 1. Click on 'Billing' on the side navigation, then click 'Update Customer Details'
    ![Billing Page](img/ui/billing%20customer%20plans.png)
 2. On the dialog that pops up, fill in the required details and click 'Update'.
-   ![Update Customer Dialog](img/ui/update%20customer%20dialog.png)
+   ![Update Customer Modal](img/update_customer_modal.png)
 
 ## Subscription Functions
 
 ### Create Subscription
 
-Once a billing customer has been created, the plans creted will be visible. On the projects settings page, the plan cards will be visible as shown below:
+Once a billing customer has been created, the plans created will be visible. On the billing page, the plan cards will be visible as shown below:
 
 ![Plans Page](img/plans_page.png)
 
 To subscribe to a plan, click the select subscription button which will create a subscription to the selected plan.
 
-![Select Subscription](img/select_subscription.png)
-
-
-On the UI the steps are as follows:
-
-1. Click on 'Billing' on the side navigation, then click 'Select Subscription' on any of plans to subscribe.
-   ![Billing Plans Page](img/ui/billing%20plans.png)
 
 ### Checkout
 
 When the select subscription button is clicked, you will be redirected to the checkout page where your payment details will be required for the payment to be made.
-![Checkout Page](img/checkout_page.png)
 
 On the UI the steps are as follows:
 1. Click on 'Billing' on the side navigation, then click 'Select Subscription' on any of plans
-   ![Billing Plans Page](img/ui/billing%20plans.png)
+   ![Plans Page](img/plans_page.png)
 2. On the checkout page, fill in your information and submit to check out.
-   ![Checkout Page](img/ui/checkout%20page.png)
+   ![Checkout Page](img/checkout_page.png)
 
 ### Update Payment Details
 

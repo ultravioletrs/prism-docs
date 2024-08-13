@@ -9,88 +9,41 @@ A backend can be described as consisting on manager running on the host, along w
 This can be done on the user interface as below:
 ![New backend](img/ui/new%20backend.png)
 
-or by running:
-```bash
-curl -sSiX POST https://prism.ultraviolet.rs/backends -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
-{
-  "name": "my dell server",
-  "description": "",
-  "address": "192.168.100.4"
-}
-EOF
-```
-
-response:
-
-```bash
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: /backends/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5
-Date: Thu, 02 May 2024 10:15:35 GMT
-Content-Length: 0
-```
-
 ## Updating backend
 This can be done on the user interface:
 ![Update Backend](img/ui/update%20backend.png)
 
-or on curl:
-```bash
-curl -sSiX PUT https://prism.ultraviolet.rs/backends/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
-{
-  "name": "my dell server",
-  "description": "new description",
-  "address": "192.168.100.4"
-}
-EOF
-```
-
-response:
-```bash
-HTTP/1.1 200 OK
-Content-Type: application/json
-Date: Fri, 03 May 2024 20:14:22 GMT
-Content-Length: 0
-```
 
 ## Listing Backends
-List of backends is viewable on the ui, they can also be accessed using curl as below:
+List of backends is viewable on the ui:
 
-```bash
-curl -sSiX GET https://prism.ultraviolet.rs/backends -H "Authorization: Bearer <user_token>"
-```
-
-response:
-
-```bash
-HTTP/1.1 200 OK
-Content-Type: application/json
-Date: Fri, 03 May 2024 20:17:03 GMT
-Content-Length: 165
-
-{"total":1,"limit":10,"backends":[{"id":"ca219243-0dd4-4e6e-94ad-54fbf3dd8b32","name":"my dell server","description":"some description","address":"192.168.100.4"}]}
-```
+![list_backends](img/backends_page.png)
 
 ## View Backend
+An individual backend can be viewed on ui where it's details such as address, status, ID, certs and information can be acquired. Backend termination is also done on this page through cert revocation.
 
-```bash
-curl -sSiX GET https://prism.ultraviolet.rs/backends/<backend_id> -H "Authorization: Bearer <user_token>"
-```
+![backend](img/backend.png)
 
-response:
+## View Backend Information
+For a SEV enabled backend, the backend information can be viewed using prism. This information is measured by a rust script found [here](https://github.com/ultravioletrs/cocos/blob/main/scripts/backend_info/src/main.rs). Once compiled and the binary is stored in `/build`, the backend information can be measured by prism as shown below.
 
-```bash
-HTTP/1.1 200 OK
-Content-Type: application/json
-Date: Fri, 03 May 2024 20:19:14 GMT
-Content-Length: 129
+On the backend page, click the Backend Information button:
+![backend_page](img/backend_page.png)
 
-{"id":"ca219243-0dd4-4e6e-94ad-54fbf3dd8b32","name":"my dell server","description":"some description","address":"192.168.100.4"}
-```
+If the measurement binary is absent and no measurement is found, an empty measurement file is displayed:
+
+![empty_info](img/empty_backend_info.png)
+
+If the measurement is present or measurement is found in the db, the measurement file will be available for download.
+
+![backend_info](img/backend_info.png)
+
 
 ## Terminate Backend
 This is used to disconnect and close the associated backend connection. This is usually triggered when a certificate is revoked while the backend is connected using this certificate or user initiated for any reason.
 Please note that this action will stop all ongoing computations and stop manager and any running agent.
+
+Manual backend termination can not be done directly on ui, but can be done using the curl command below:
 
 ```bash
 curl -sSiX GET https://prism.ultraviolet.rs/backends/terminate/<backend_id>/<termination_type> -H "Authorization: Bearer <user_token>"
@@ -114,15 +67,9 @@ On manager the logs will be as follows:
 ```
 
 ## Delete Backend
-This removes the backend from the database.
+This removes the backend from the database. This can be done by clicking the delete button on the backend's page as shown:
 
-```bash
-curl -sSiX DELETE https://prism.ultraviolet.rs/backends/<backend_id> -H "Authorization: Bearer <user_token>"
-```
+![delete_backend](img/delete_backend_1.png)
 
-Response:
-```bash
-HTTP/1.1 204 No Content
-Content-Type: application/json
-Date: Fri, 03 May 2024 20:46:09 GMT
-```
+Alternatively, the backend can be deleted on the list backends page by clicking the trash icon:
+![delete_backend_2](img/delete_backend_2.png)

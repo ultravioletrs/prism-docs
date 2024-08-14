@@ -113,6 +113,14 @@ If the measurement is present or measurement is found in the db, the measurement
 
 ![backend_info](img/backend_info.png)
 
+The backend_info.json file is useful in cocos when performing attestation. The file is provided to [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#backend-info) which can add measurement data or host data. The file contains the SnpPolicy and RootOfTrust as shown:
+
+```go
+type BackendInfo struct {
+    SnpPolicy   check.Policy      `json:"snp_policy"`
+    RootOfTrust check.RootOfTrust `json:"root_of_trust"`
+}
+```
 
 ## Terminate Backend
 This is used to disconnect and close the associated backend connection. This is usually triggered when a certificate is revoked while the backend is connected using this certificate or user initiated for any reason.

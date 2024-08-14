@@ -113,7 +113,7 @@ If the measurement is present or measurement is found in the db, the measurement
 
 ![backend_info](img/backend_info.png)
 
-The backend_info.json file is useful in cocos when performing attestation. The file is provided to [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#backend-info) which can add measurement data or host data. The file contains the SnpPolicy and RootOfTrust as shown:
+The backend_info.json file is useful in cocos for [attested TLS](https://docs.cocos.ultraviolet.rs/attestation/#attested-tls), and can be used to verify [attestation report](https://docs.cocos.ultraviolet.rs/cli/#fetch-and-validate-attestation-report). The file is provided to [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#backend-info) which can add measurement data or host data. The file contains the SnpPolicy and RootOfTrust as shown:
 
 ```go
 type BackendInfo struct {

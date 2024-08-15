@@ -1,13 +1,13 @@
 copyright: Copyright (c) Ultraviolet
-repo_url: https://github.com/ultravioletrs/cocos
+repo_url: https://github.com/ultravioletrs/prism
 site_description: Prism Platform
-site_name: Cocos
-site_url: https://docs.cocos.ai
+site_name: Prism Docs
+site_url: https://docs.prism.ultraviolet.rs
 edit_uri: ""
 theme:
   name: material
-  logo: img/logo.png
-  favicon: img/logo.png
+  logo: img/Prism_logo.png
+  favicon: img/Prism_logo.png
   icon:
     repo: fontawesome/brands/github
 

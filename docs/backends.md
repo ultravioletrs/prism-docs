@@ -78,7 +78,7 @@ Content-Length: 165
 ```
 
 ## View Backend
-An individual backend can be viewed on ui where it's details such as address, status, ID, certs and information can be acquired. Backend termination is also done on this page through cert revocation.
+An individual backend can be viewed on ui where it's details such as address, status, ID, certs and information can be acquired. Certs management is also carried out on this page.
 
 ![backend](img/backend.png)
 
@@ -115,10 +115,10 @@ If the measurement is present or measurement is found in the db, the measurement
 
 The backend_info.json file is useful in cocos for [attested TLS](https://docs.cocos.ultraviolet.rs/attestation/#attested-tls), and can be used to verify [attestation report](https://docs.cocos.ultraviolet.rs/cli/#fetch-and-validate-attestation-report). The file is provided to [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#backend-info) which can add measurement data or host data. The file contains the SnpPolicy and RootOfTrust as shown:
 
-```go
-type BackendInfo struct {
-    SnpPolicy   check.Policy      `json:"snp_policy"`
-    RootOfTrust check.RootOfTrust `json:"root_of_trust"`
+```
+{
+  "snp_policy": {},
+  "root_of_trust": {}
 }
 ```
 

@@ -117,9 +117,32 @@ The backend_info.json file is useful in cocos for [attested TLS](https://docs.co
 
 ```
 {
-  "snp_policy": {},
-  "root_of_trust": {}
+  "snp_policy": {
+    "policy": 1966081,
+    "family_id": "AA==",
+    "image_id": "AA==",
+    "vmpl": {
+      "value": 0
+    },
+    "minimum_tcb": 1506397780360888800,
+    "minimum_launch_tcb": 1506397780360888800,
+    "require_author_key": false,
+    "measurement": "AA==",
+    "host_data": "AA==",
+    "report_id_ma": "AA==",
+    "chip_id": "GrFqQtRklrsjBslu9pcQ6X4rkftFW1Ar1oT+I4guQ1sVC6qakgSvEtE4P/SLSJ6mHNp0kY0mHnGpvz1Ov+k/w==",
+    "minimum_build": 7,
+    "minimum_version": "1.55",
+    "permit_provisional_firmware": false,
+    "require_id_block": false
+  },
+  "root_of_trust": {
+    "product": "Milan",
+    "check_crl": true,
+    "disallow_network": false
+  }
 }
+
 ```
 
 ## Terminate Backend

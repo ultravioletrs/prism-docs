@@ -22,9 +22,9 @@ nav:
   - Getting Started: getting-started.md
   - Billing: billing.md
   - Computations: computations.md
+  - Computation Policies: policies.md
   - Users: users.md
   - Projects: projects.md
   - UI: ui.md
-  - Computation Policies: policies.md
   - Certs: certs.md
   - Backends: backends.md

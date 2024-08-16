@@ -292,8 +292,6 @@ Content-Length: 0
 
 ![New computation](img/ui/new%20computation.png)
 
-Next we'll need to invite users to the computation as described [here](/computation-invitations/#send-invitation-to-user).
-
 ### Run Computation
 Next we'll run the computation:
 

@@ -100,7 +100,7 @@ Content-Length: 129
 ```
 
 ## View Backend Information
-For a SEV enabled backend, the backend information can be viewed using prism. This information is measured by a rust script found [here](https://github.com/ultravioletrs/cocos/blob/main/scripts/backend_info/src/main.rs). Once compiled and the binary is stored in `/build`, the backend information can be measured by prism as shown below.
+For a SEV enabled backend, the backend information can be viewed using prism. This information is measured by a Rust script found [here](https://github.com/ultravioletrs/cocos/blob/main/scripts/backend_info/src/main.rs). Once compiled and the binary is stored in `/build`, the backend information can be measured by Prism as shown below.
 
 On the backend page, click the Backend Information button:
 ![backend_page](img/backend_page.png)
@@ -115,7 +115,7 @@ If the measurement is present or measurement is found in the db, the measurement
 
 The backend_info.json file is useful in cocos for [attested TLS](https://docs.cocos.ultraviolet.rs/attestation/#attested-tls), and can be used to verify [attestation report](https://docs.cocos.ultraviolet.rs/cli/#fetch-and-validate-attestation-report). The file is provided to [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#backend-info) which can add measurement data or host data. The file contains the SnpPolicy and RootOfTrust as shown:
 
-```
+```json
 {
   "snp_policy": {
     "policy": 1966081,
@@ -149,7 +149,7 @@ The backend_info.json file is useful in cocos for [attested TLS](https://docs.co
 This is used to disconnect and close the associated backend connection. This is usually triggered when a certificate is revoked while the backend is connected using this certificate or user initiated for any reason.
 Please note that this action will stop all ongoing computations and stop manager and any running agent.
 
-Manual backend termination can not be done directly on ui, but can be done using the curl command below:
+Manual backend termination can not be done directly on ui, but can be done using the HTTP API:
 
 ```bash
 curl -sSiX GET https://prism.ultraviolet.rs/backends/terminate/<backend_id>/<termination_type> -H "Authorization: Bearer <user_token>"
@@ -177,7 +177,7 @@ This removes the backend from the database. This can be done by clicking the del
 
 ![delete_backend](img/delete_backend_1.png)
 
-Alternatively, the backend can be deleted on the list backends page by clicking the trash icon:
+Alternatively, the backend can be deleted on the backends list page by clicking the trash icon:
 ![delete_backend_2](img/delete_backend_2.png)
 
 This can be done on curl as shown below:

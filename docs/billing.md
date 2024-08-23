@@ -4,7 +4,7 @@ The billing service allows the project to pay for the services used in the CoCoS
 
 ## Billing Metrics
 
-Billing plans are designed for flexibility to accommodate different projects needs such as number of computations, usage and number of users. This allows choice for a plan that best fits current projects needs and can easily scale up as needed.
+Billing plans are designed for flexibility to accommodate different projects needs such as number of computations, workspace members and computation runs. This allows choice for a plan that best fits current projects needs and can easily scale up as needed.
 ## Customer Functions
 
 ### List Plans
@@ -32,9 +32,9 @@ This function updates the details of an existing customer account.
 
 On the UI the steps are as follows:
 1. Click on 'Billing' on the side navigation, then click 'Update Customer Details'
-   ![Billing Page](img/ui/billing%20customer%20plans.png)
+   ![Billing Page](img/ui/billing_customer_plans.png)
 2. On the dialog that pops up, fill in the required details and click 'Update'.
-   ![Update Customer Modal](img/update_customer_modal.png)
+   ![Update Customer Modal](img/ui/update_customer_modal.png)
 
 ## Subscription Functions
 

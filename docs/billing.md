@@ -12,7 +12,7 @@ In order to list plans, the following steps need to be followed:
 On the UI the steps are as follows:
 
 1. Click on 'Billing' on the side navigation to view the plans.
-   ![Plans Page](img/plans_page.png)
+   ![Plans Page](img/ui/plans_page.png)
 
 ### Create Customer
 This function allows for the creation of a new customer account with the billing service. A billing customer is required to perform all billing operations and is created from the billing page as shown below.
@@ -32,9 +32,9 @@ This function updates the details of an existing customer account.
 
 On the UI the steps are as follows:
 1. Click on 'Billing' on the side navigation, then click 'Update Customer Details'
-   ![Billing Page](img/ui/billing_customer_plans.png)
+   ![Billing Page](img/ui/plans_page.png)
 2. On the dialog that pops up, fill in the required details and click 'Update'.
-   ![Update Customer Modal](img/ui/update_customer_modal.png)
+   ![Update Customer Modal](img/ui/update_billing_customer.png)
 
 ## Subscription Functions
 
@@ -42,7 +42,7 @@ On the UI the steps are as follows:
 
 Once a billing customer has been created, the plans created will be visible. On the billing page, the plan cards will be visible as shown below:
 
-![Plans Page](img/plans_page.png)
+![Plans Page](img/ui/plans_page.png)
 
 To subscribe to a plan, click the select subscription button which will create a subscription to the selected plan.
 
@@ -53,7 +53,7 @@ When the select subscription button is clicked, you will be redirected to the ch
 
 On the UI the steps are as follows:
 1. Click on 'Billing' on the side navigation, then click 'Select Subscription' on any of plans
-   ![Plans Page](img/plans_page.png)
+   ![Plans Page](img/ui/plans_page.png)
 2. On the checkout page, fill in your information and submit to check out.
    ![Checkout Page](img/checkout_page.png)
 
@@ -61,4 +61,4 @@ On the UI the steps are as follows:
 
 The payment details of the current session are stored, and these can be changed by clicking the update payment details button as shown below:
 
-![Update Payment Details](img/update_payment_details.png)
+![Update Payment Details](img/ui/update_payment_details.png)

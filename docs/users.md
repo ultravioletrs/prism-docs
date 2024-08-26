@@ -145,6 +145,7 @@ X-Xss-Protection: 1; mode=block
 ```
 
 On the ui the steps are as follows:
+
 1. Click 'Users' on the navigation panel to display Users page. Then click 'New User' at the top right.
    ![Users](img/ui/users.png)
 2. Fill in the required fields on the Create User page. Once done click 'Create User'.
@@ -177,6 +178,7 @@ Content-Length: 212
 ```
 
 On the ui the steps are as follows:
+
 1. Click on user profile at the top right.
    ![User Profile](img/ui/profile.png)
 
@@ -222,10 +224,10 @@ Content-Length: 1087
 ```
 
 On the ui the steps are as follows:
-1. Click 'Users' on the navigation panel to display Users page. Then click a  user name from the list of users. This navigates to User Details page.
+
+1. Click 'Users' on the navigation panel to display Users page. Then click a user name from the list of users. This navigates to User Details page.
    ![Users](img/ui/users list.png)
    ![Users Details](img/ui/user details.png)
-
 
 ## Get Users
 
@@ -290,7 +292,8 @@ Content-Length: 44
 ```
 
 On the ui the steps are as follows:
-1. Click 'Users' on the navigation panel to display Users page. Then click a  user name from the list of users. This navigates to User Details page.
+
+1. Click 'Users' on the navigation panel to display Users page. Then click a user name from the list of users. This navigates to User Details page.
    ![Users](img/ui/users list.png)
 
 ## Update User
@@ -336,7 +339,8 @@ Content-Length: 391
 ```
 
 On the ui the steps are as follows:
-1. Click 'Users' on the navigation panel to display Users page. Then click a  user name from the list of users. This navigates to User Details page.
+
+1. Click 'Users' on the navigation panel to display Users page. Then click a user name from the list of users. This navigates to User Details page.
    ![Users](img/ui/users list.png)
 2. Click 'Update User'.
    ![User Details](img/ui/user details.png)
@@ -579,13 +583,13 @@ For example:
 
 ```bash
  curl -sSiX GET https://prism.ultraviolet.rs/domains  -H "Authorization: Bearer <user_token>"
- 
+
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: Sat, 25 May 2024 09:09:58 GMT
 Content-Length: 304
 
-{ 
+{
   "total":1,"offset":0,
   "limit":10,
   "domains": [

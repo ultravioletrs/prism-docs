@@ -54,5 +54,4 @@ Once the customer is created, the user can select one of the plans created by th
 
 Once selected, the user will be prompted to make the payment. Once the payment is successful, the user will be subscribed to the plan and the billing will be active.
 
-
 ![Payment Page](img/payment.png)

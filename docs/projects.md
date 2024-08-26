@@ -44,6 +44,7 @@ Content-Length: 235
 ```
 
 On the ui the steps are as follows:
+
 1. Log in to prism platform with a user with administrator permission.
 2. On successfully log in, projects page is displayed. Click on 'New Project'.
    ![Projects page](img/ui/projects.png)
@@ -90,6 +91,7 @@ Content-Length: 294
 ```
 
 On the ui the steps are as follows:
+
 1. Click on 'Projects' on the navigation panel to view project details.
    ![Project Details](img/ui/project details.png)
 
@@ -106,7 +108,7 @@ curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<project_id> -H "Conten
 For example:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"         
+curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -126,9 +128,9 @@ Content-Length: 294
 ```
 
 On the ui the steps are as follows:
+
 1. Click on 'Projects' on the navigation panel to view project details.
    ![Project Details](img/ui/project details.png)
-
 
 ## Get projects
 
@@ -141,7 +143,7 @@ curl -isSX GET https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: appl
 For example:
 
 ```bash
-curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" 
+curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -188,6 +190,7 @@ Content-Length: 898
 ```
 
 On the ui the steps are as follows:
+
 1. Click on user profile at the top right, then click on "Projects" on the menu. This navigates to the projects page.
    ![User Profile](img/ui/profile.png)
 2. Project page is displayed.
@@ -225,12 +228,12 @@ Content-Length: 0
 ```
 
 On the ui the steps are as follows:
+
 1. From Project details page, click on 'Members'. This navigates to Members page.
    ![Project Details](img/ui/proj details members.png)
 
 2. From Member page, click on 'Assign Member'. A modal dialog will appear that allowing member relation assignment.
    ![Assign Member](img/ui/assign member.png)
-
 
 ## Members
 
@@ -268,8 +271,10 @@ Content-Length: 216
   ]
 }
 ```
+
 On the ui steps are as follows:
 On the ui, steps are as follows:
+
 1. From Project details page, click on 'Members'. This navigates to Members page.
    ![Project Details](img/ui/proj details members.png)
 2. Project members page is displayed.

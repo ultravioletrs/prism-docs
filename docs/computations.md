@@ -62,7 +62,7 @@ curl -sSiX GET https://prism.ultraviolet.rs/computations -H "Authorization: Bear
 Response:
 
 ```bash
-HTTP/2 200 
+HTTP/2 200
 content-type: application/json
 date: Mon, 27 May 2024 11:37:50 GMT
 x-frame-options: DENY
@@ -92,7 +92,7 @@ curl -sSiX GET https://prism.ultraviolet.rs/computations/f025d311-193a-469b-b504
 Response:
 
 ```bash
-HTTP/2 200 
+HTTP/2 200
 content-type: application/json
 date: Mon, 27 May 2024 11:39:22 GMT
 x-frame-options: DENY
@@ -138,7 +138,7 @@ EOF
 Response:
 
 ```bash
-HTTP/2 200 
+HTTP/2 200
 content-type: application/json
 date: Mon, 27 May 2024 11:51:25 GMT
 x-frame-options: DENY

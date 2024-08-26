@@ -1,6 +1,7 @@
 # Getting Started
 
 ## Sign Up
+
 Create a user on the ui as shown below:
 
 or using curl as below:
@@ -32,6 +33,7 @@ Content-Length: 213
 For more user related actions see: [magistrala users](https://docs.magistrala.abstractmachines.fr/api/#users)
 
 ## Login User
+
 In order to login user we need to provide username and password:
 
 ```bash
@@ -44,6 +46,7 @@ EOF
 ```
 
 response:
+
 ```bash
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -121,9 +124,11 @@ For the UI click enter to login to Project with will bring you to the dashboard.
 ![Project login](img/ui/projlogin.png)
 
 ## Backends
+
 For backends management, on the Backends microservice. This service runs on port `9011`.
 
 ### Creating a backend
+
 Backends are used to run computations. We need to create one and start it before we are able to create and run a computation.
 
 ![Create Backend](img/ui/new%20backend.png)
@@ -149,6 +154,7 @@ Content-Length: 0
 ```
 
 ### Issuing a Certificate
+
 Backends connect via gRPC secured with mTLS. For this we will issue a certificate from certs service.
 
 ![Issue Certificate](img/ui/issue%20cert.png)
@@ -162,6 +168,7 @@ EOF
 ```
 
 example:
+
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
@@ -171,6 +178,7 @@ EOF
 ```
 
 response:
+
 ```bash
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -181,6 +189,7 @@ Content-Length: 59
 ```
 
 ### Download Certificate
+
 First we'll request a download token:
 
 ```bash
@@ -207,6 +216,7 @@ curl -L -X GET https://prism.ultraviolet.rs/certs/<serial_number>/download -G -d
 ```
 
 example:
+
 ```bash
 curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
 ```
@@ -215,12 +225,13 @@ curl -L -X GET https://prism.ultraviolet.rs/certs/757091559061627849116835145789
 
 This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
 
-
 ### Connect backend
+
 To connect a backend we need to start manager. Follow the getting started [guide](https://docs.cocos.ultraviolet.rs/getting-started/) on cocos to get up to speed.
 We'll then run manager to connect the backend.
 
 example:
+
 ```bash
 MANAGER_GRPC_URL=192.168.100.4:7011 MANAGER_LOG_LEVEL=debug MANAGER_QEMU_USE_SUDO=false  MANAGER_QEMU_ENABLE_SEV=false MANAGER_QEMU_SEV_CBITPOS=51 MANAGER_QEMU_OVMF_CODE_FILE=/usr/share/edk2/x64/OVMF_CODE.fd MANAGER_QEMU_OVMF_VARS_FILE=/usr/share/edk2/x64/OVMF_VARS.fd MANAGER_QEMU_ENABLE_SEV_SNP=false MANAGER_GRPC_CLIENT_CERT=cert.pem MANAGER_GRPC_CLIENT_KEY=key.pem MANAGER_GRPC_SERVER_CA_CERTS=ca.pem go run main.go
 ```
@@ -231,6 +242,7 @@ This can be viewed by:
 ```bash
 curl -sSiX GET https://prism.ultraviolet.rs/backends/<backend_id> -H "Authorization: Bearer <user_token>"
 ```
+
 response:
 
 ```bash
@@ -293,6 +305,7 @@ Content-Length: 0
 ![New computation](img/ui/new%20computation.png)
 
 ### Run Computation
+
 Next we'll run the computation:
 
 ```bash
@@ -300,6 +313,7 @@ curl -sSiX POST https://prism.ultraviolet.rs/computations/<computation_id>/run -
 ```
 
 response:
+
 ```bash
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -311,7 +325,6 @@ Content-Length: 0
 
 This will result in events and logs from agent and manager visible on the ui.
 ![Events and Logs](img/ui/logsEvents.png)
-
 
 ### Get One Computation
 

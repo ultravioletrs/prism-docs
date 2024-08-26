@@ -101,7 +101,6 @@ On the UI the steps are as follows:
 4. Select required details and click on 'Update'.
    ![Update Policy Page](img/ui/update_computation_policy.png)
 
-
 ### Lisiting Computation Policies
 
 As an administrator/computation owner, you can list all the policies in a computation, while as a user you can only list your own policies in a computation.
@@ -138,7 +137,7 @@ Content-Length: 1785
       "created_at": "0001-01-01T00:00:00Z",
       "updated_at": "2024-05-26T10:48:49.111668Z",
       "updated_by": "c25537fd-39ad-4b36-b180-e90dfb477fcd"
-    },       
+    },
     ...
   ]
 }
@@ -178,6 +177,5 @@ On the UI the steps are as follows:
    ![Computation Details](img/ui/computation_details.png)
 3. Click on the delete button on any of the policies to delete.
    ![List Policies](img/ui/computation_policies.png)
-
 
 If you delete policies, the policy will be removed from the policy storage. Further authorization checks related to that policy will fail.

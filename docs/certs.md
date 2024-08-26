@@ -1,13 +1,16 @@
 # Certs Service
+
 The certs service is a certificate authority used to issue certs related to backends service for mutual TLS purposes. The certs service provides the ability to issue, renew, revoke and download certificates.
 
 ## Issue a Certificate
+
 This is the creation of a certificate associated with a specific backend.
 
 This can be done on the UI on the specific backend page, by clicking on issue cert button.
 ![Issue Certificate](img/ui/issue%20cert.png)
 
 This can be done on curl using:
+
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
@@ -17,6 +20,7 @@ EOF
 ```
 
 example:
+
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
@@ -26,6 +30,7 @@ EOF
 ```
 
 response:
+
 ```bash
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -36,6 +41,7 @@ Content-Length: 59
 ```
 
 ## Download a Certificate
+
 This is a two step process. First we'll obtain a short lived token. Then using this token we'll be able to download the zip file containing the associated cert.
 
 First we'll request a download token:
@@ -62,11 +68,12 @@ curl -L -X GET https://prism.ultraviolet.rs/certs/<serial_number>/download -G -d
 ```
 
 example:
+
 ```bash
 curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
 ```
 
-On the UI we'll click on request download button, followed by download certs to obtain the certs. 
+On the UI we'll click on request download button, followed by download certs to obtain the certs.
 
 ![Request Download](img/ui/request%20download.png)
 
@@ -75,6 +82,7 @@ On the UI we'll click on request download button, followed by download certs to 
 This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
 
 ## Renew Certificate
+
 Certificates can be renewed before they expire. This will move their expiry date to a future one.
 
 ![Renew Certificate](img/ui/renew.png)
@@ -84,6 +92,7 @@ curl -sSiX PATCH https://prism.ultraviolet.rs/certs/<serial_number>/renew -H "Au
 ```
 
 response:
+
 ```bash
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -92,6 +101,7 @@ Content-Length: 0
 ```
 
 ## Revoke Certificate
+
 Certificates can be revoked, which means they can no longer be used for connecting to backends service. Revoked certificates cannot be renewed.
 
 ![Renew Certificate](img/ui/revoke.png)
@@ -101,6 +111,7 @@ curl -sSiX PATCH https://prism.ultraviolet.rs/certs/<serial_number>/revoke -H "A
 ```
 
 response:
+
 ```bash
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -115,6 +126,7 @@ curl -sSiX GET https://prism.ultraviolet.rs/certs -H "Authorization: Bearer <use
 ```
 
 response:
+
 ```bash
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -125,6 +137,5 @@ Content-Length: 269
 ```
 
 ## Online Certificate Status Protocal
+
 The certs service also provides an endpoint on `prism.ultraviolet.rs/certs/ocsp` which allows verification of certificates issued by this service.
-
-

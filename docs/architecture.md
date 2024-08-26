@@ -1,5 +1,6 @@
 # Architecture
-Prism provides a computation management service for [CoCos AI](https://docs.cocos.ultraviolet.rs/). 
+
+Prism provides a computation management service for [CoCos AI](https://docs.cocos.ultraviolet.rs/).
 
 ## Components
 
@@ -14,23 +15,24 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 | Invitations    | Manages user inivations to access projects.                                                               |
 | User Interface | Provides an web interface to provide platform access over a visual interface.                             |
 
-
-
-
 ![Architecture](img/arch.drawio.png)
 
 ### Users
-The users service provides users access to the plaform and the user identities are used to provide authorization for the platform. Prism uses [magistrala users](https://docs.magistrala.abstractmachines.fr/architecture/#domain-model) service to achieve this. 
+
+The users service provides users access to the plaform and the user identities are used to provide authorization for the platform. Prism uses [magistrala users](https://docs.magistrala.abstractmachines.fr/architecture/#domain-model) service to achieve this.
 
 ### Computations
+
 The computations service give users with the appropriate authorization, the ability to create, update, delete and run computations.
 
 ### Backends
+
 The backends service connects to the computations service and receives run requests from computations service which it forwards to manager service. Backends are identified by their ip addresses and have certificates assigned to them for mutual TLS connections with manager.
 
 ### Certs
-This a certificate authority service that offers the ability to issue, revoke, renew certificates. It also offers an online certificate status protocal `OCSP` endpoint which is used to verify certificates used in backends service. 
+
+This a certificate authority service that offers the ability to issue, revoke, renew certificates. It also offers an online certificate status protocal `OCSP` endpoint which is used to verify certificates used in backends service.
 
 ### User Interface
-This provides users with a web interface to visually access the platform. It connects to the other services using the sdk.
 
+This provides users with a web interface to visually access the platform. It connects to the other services using the sdk.

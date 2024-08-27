@@ -19,3 +19,7 @@ Get familiar with running algorithms using cocos [here](https://docs.cocos.ultra
 ### WASM
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Lmmnr5lg6bs?si=D9Gb2c_0H7biWW5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Docker
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IpdkRiQbI0U?si=gQ-2tf3ukUOp6zmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

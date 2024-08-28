@@ -5,9 +5,11 @@ The billing service allows the project to pay for the services used in the CoCoS
 ## Billing Metrics
 
 Billing plans are designed for flexibility to accommodate different projects needs such as number of computations, workspace members and computation runs. This allows choice for a plan that best fits current projects needs and can easily scale up as needed.
+
 ## Customer Functions
 
 ### List Plans
+
 In order to list plans, the following steps need to be followed:
 On the UI the steps are as follows:
 
@@ -15,6 +17,7 @@ On the UI the steps are as follows:
    ![Plans Page](img/ui/plans_page.png)
 
 ### Create Customer
+
 This function allows for the creation of a new customer account with the billing service. A billing customer is required to perform all billing operations and is created from the billing page as shown below.
 
 Once you click the create billing customer, the customer details are required in order to successfully create the plan.
@@ -29,8 +32,8 @@ On the UI the steps are as follows:
 
 This function updates the details of an existing customer account.
 
-
 On the UI the steps are as follows:
+
 1. Click on 'Billing' on the side navigation, then click 'Update Customer Details'
    ![Billing Page](img/ui/plans_page.png)
 2. On the dialog that pops up, fill in the required details and click 'Update'.
@@ -46,12 +49,12 @@ Once a billing customer has been created, the plans created will be visible. On 
 
 To subscribe to a plan, click the select subscription button which will create a subscription to the selected plan.
 
-
 ### Checkout
 
 When the select subscription button is clicked, you will be redirected to the checkout page where your payment details will be required for the payment to be made.
 
 On the UI the steps are as follows:
+
 1. Click on 'Billing' on the side navigation, then click 'Select Subscription' on any of plans
    ![Plans Page](img/ui/plans_page.png)
 2. On the checkout page, fill in your information and submit to check out.

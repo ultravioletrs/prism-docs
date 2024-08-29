@@ -4,48 +4,64 @@ The billing service allows the project to pay for the services used in the CoCoS
 
 ## Billing Metrics
 
-Currently, billing plans are only based on the maximum number of computations that an project or user can have in the system. When an admin creates a plan, they limit the amount of computations that an project can have based on the amount paid by the user. This is still a work in progress and the actual metrics that should be limited will be changed based on internal discussions.
+Billing plans are designed for flexibility to accommodate different projects needs such as number of computations, workspace members and computation runs. This allows choice for a plan that best fits current projects needs and can easily scale up as needed.
 
 ## Customer Functions
 
+### List Plans
+
+In order to list plans, the following steps need to be followed:
+On the UI the steps are as follows:
+
+1. Click on 'Billing' on the side navigation to view the plans.
+   ![Plans Page](img/ui/plans_page.png)
+
 ### Create Customer
 
-This function allows for the creation of a new customer account with the billing service. A billing customer is required to perform all billing operations and is created from the project settings page as shown below.
-
-![Create Billing Customer](img/create_customer.png)
+This function allows for the creation of a new customer account with the billing service. A billing customer is required to perform all billing operations and is created from the billing page as shown below.
 
 Once you click the create billing customer, the customer details are required in order to successfully create the plan.
+On the UI the steps are as follows:
 
-![Create Customer Modal](img/create_customer_modal.png)
+1. Click on 'Billing' on the side navigation, then click 'Create'
+   ![Create Billing Customer](img/create_customer.png)
+2. On the dialog that pops up, fill in the required details.
+   ![Create Customer Modal](img/create_customer_modal.png)
 
 ### Update Billing Customer
 
 This function updates the details of an existing customer account.
 
-![Update Billing Customer](img/update_billing_customer.png)
+On the UI the steps are as follows:
+
+1. Click on 'Billing' on the side navigation, then click 'Update Customer Details'
+   ![Billing Page](img/ui/plans_page.png)
+2. On the dialog that pops up, fill in the required details and click 'Update'.
+   ![Update Customer Modal](img/ui/update_billing_customer.png)
 
 ## Subscription Functions
 
 ### Create Subscription
 
-Once a billing customer has been created, the plans creted will be visible. On the projects settings page, the plan cards will be visible as shown below:
+Once a billing customer has been created, the plans created will be visible. On the billing page, the plan cards will be visible as shown below:
 
-![Plans Page](img/plans_page.png)
+![Plans Page](img/ui/plans_page.png)
 
 To subscribe to a plan, click the select subscription button which will create a subscription to the selected plan.
-
-![Select Subscription](img/select_subscription.png)
 
 ### Checkout
 
 When the select subscription button is clicked, you will be redirected to the checkout page where your payment details will be required for the payment to be made.
 
-![Checkout Page](img/checkout_page.png)
+On the UI the steps are as follows:
 
-If the payment is successful, you will be redirected to the projects page to proceed with your operations.
+1. Click on 'Billing' on the side navigation, then click 'Select Subscription' on any of plans
+   ![Plans Page](img/ui/plans_page.png)
+2. On the checkout page, fill in your information and submit to check out.
+   ![Checkout Page](img/checkout_page.png)
 
 ### Update Payment Details
 
 The payment details of the current session are stored, and these can be changed by clicking the update payment details button as shown below:
 
-![Update Payment Details](img/update_payment_details.png)
+![Update Payment Details](img/ui/update_payment_details.png)

@@ -4,7 +4,7 @@ This demonstrates how to run algorithms using prism.
 
 ## Running algorithms
 
-To run algorithms, you need to have a prism installation. You can get it from [here](./getting-started.md). Also you need to have a manager running. You can get it from [here](https://docs.cocos.ultraviolet.rs/getting-started/).
+To run algorithms, you need to have a prism installation. You can get it from [here](./getting-started.md). Also you need to have manager running. You can get it from [here](https://docs.cocos.ultraviolet.rs/getting-started/).
 
 Get familiar with running algorithms using cocos [here](https://docs.cocos.ultraviolet.rs/algorithms/), before continuing.
 

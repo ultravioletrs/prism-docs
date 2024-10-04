@@ -20,6 +20,7 @@ nav:
   - Overview: index.md
   - Architecture: architecture.md
   - Getting Started: getting-started.md
+  - Access Control: access-control.md
   - Billing: billing.md
   - Computations: computations.md
   - Users: users.md

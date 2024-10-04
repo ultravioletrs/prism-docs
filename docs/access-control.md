@@ -41,7 +41,6 @@ Computations have more complex access control with various user roles:
 - **Provide Algo**: Ability to provide algorithms for the computation
 - **Consume Result**: Ability to access and use computation results
 
-
 ```mermaid
 graph TD
     U[User] --> D[Workspace]

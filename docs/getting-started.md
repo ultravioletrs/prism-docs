@@ -326,6 +326,16 @@ Content-Length: 0
 This will result in events and logs from agent and manager visible on the ui.
 ![Events and Logs](img/ui/logsEvents.png)
 
+### Stop Computation Run
+
+To stop a computation run at any point, click the **Stop** button on the event's card. The card contains the details and list of events related to the current computation run. Once the run is stopped, the button will be hidden.
+
+![Stop Computation Run](img/ui/stop_computation.png)
+
+The **Stop** button can also be found in the Logs tab, on each card.
+
+![Stop Run](img/ui/stop_computation_run.png)
+
 ### Get One Computation
 
 In order to get one specific computation, by ID:

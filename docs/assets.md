@@ -1,8 +1,8 @@
 # Computation Assets Overview
 
-Computation assets on Prism provide a convenient way to manage essential computational resources—datasets and algorithms. These assets facilitate basic operations such as creation, reading, updating, and deletion (CRUD). They can also be associated with or unlinked from a computation.
+Computation assets on Prism provide a convenient way to manage essential computational resources including datasets and algorithms. They can also be associated with or unlinked from a computation.
 
-An important distinction is that computation assets contain file samples of the algorithm or dataset, providing users with a guide on what the actual files will resemble. These samples are **not** the actual files sent to the computation manifest when uploading via the CLI. For this reason, the actual file’s checksum is required during asset creation.
+An important distinction is that computation assets contain file samples of the algorithm or dataset, providing collaborators in a computation with a guide on what the actual files will resemble. These samples are **not** the actual files sent to the computation manifest when uploading via the CLI. For this reason, the actual file’s checksum is required during asset creation.
 
 A single asset can be used in multiple computations (one-to-many relationship), and a computation can be linked to several assets.
 
@@ -19,10 +19,11 @@ To create a new asset:
 
 The only mandatory fields during asset creation are:
 
-- **File Hash**: The checksum of the actual file (not the sample).
+- **Checksum**: The checksum of the actual file (not the sample), get more information on checksum  [here](https://docs.cocos.ultraviolet.rs/cli/#file-hash).
+
 - **Asset Description**: A brief summary of what the asset represents.
 
-The **File Name** field is optional. If provided, it will be used as the file name when running the computation (not the name of the sample file).
+The **File Name** field is optional. If provided, it will be verified when asset is uploaded on computation run.
 
 ![New Asset Modal](img/new_asset_modal.png)
 
@@ -64,4 +65,4 @@ Once all assets have been successfully associated with a computation, they will 
 
 ![Computation Page](img/asset_computation.png)
 
-After the public keys and other necessary requirements have been provided, the computation can be executed. During execution, the computation service will retrieve the associated assets from the database and add them to the computation manifest, which is then sent to the manager.
+After the public keys and other necessary requirements have been provided, the computation can be executed. During execution, the computation service will retrieve the associated assets from the database and add them to the computation manifest, which is then sent to the backend.

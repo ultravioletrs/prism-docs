@@ -23,6 +23,7 @@ nav:
   - Billing: billing.md
   - Computations: computations.md
   - Computation Policies: policies.md
+  - Assets: assets.md
   - Users: users.md
   - Projects: projects.md
   - UI: ui.md

@@ -19,7 +19,7 @@ To create a new asset:
 
 The only mandatory fields during asset creation are:
 
-- **Checksum**: The checksum of the actual file (not the sample), get more information on checksum [here](https://docs.cocos.ultraviolet.rs/cli/#file-hash).
+- **File Checksum**: The checksum of the actual file (not the sample), get more information on checksum [here](https://docs.cocos.ultraviolet.rs/cli/#file-hash).
 
 - **Asset Description**: A brief summary of what the asset represents.
 
@@ -61,7 +61,7 @@ If an asset sample has been uploaded, users can either view it directly on Prism
 
 ### 4. **Viewing a computation's assets**
 
-To view assets associated to a computation, click the **Asset Management** which opens the assets page containing the computation's assets.
+To view assets associated to a computation, click the **Asset Management** button which opens the assets page containing the computation's assets.
 
 ![computation assets](img/computation_assets.png)
 

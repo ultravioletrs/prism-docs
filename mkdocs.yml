@@ -24,6 +24,7 @@ nav:
   - Computations: computations.md
   - Computation Policies: policies.md
   - Assets: assets.md
+  - Computation Logs: computation-logs.md
   - Users: users.md
   - Projects: projects.md
   - UI: ui.md

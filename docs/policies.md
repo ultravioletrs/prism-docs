@@ -2,6 +2,11 @@
 
 ## Computations Policies
 
+The computation policies page on the ui gives the user the ability to create new computation policies.
+The user can also view the computation policies they have created and the computation policies that are a part of the workspace they are in.
+The user can also update the information of the computation policies they have created.
+A computation policy is used to determine the roles that are assigned to the different users that are a part of the computation, such as editor, viewer, or admin.
+
 ### Add Computation Policies
 
 _Only_ admin or the owner of the computation can use `/policies` endpoint.

@@ -1,5 +1,9 @@
 # Getting Started
 
+The Prism UI gives is the easiest way to use the CoCoS system, giving the ability to use the entire prism system without interacting with the command line.
+It provides a convenient way to log in to the CoCoS system, creation of users, workspaces, computations, computation policies, computation invitations, certs, backends, workspace billing and updating of all this information.
+The UI can be found at [https://prism.ultraviolet.rs](https://prism.ultraviolet.rs). The UI is a web application and can be accessed from any modern web browser. Currently, the source code is not available for the UI, but it is planned to be open sourced in the future.
+
 ## Sign Up
 
 Create a user on the ui as shown below:
@@ -56,10 +60,10 @@ Content-Length: 647
 {"access_token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiIiLCJleHAiOjE3MTQ0ODQ4OTgsImlhdCI6MTcxNDQ4MTI5OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiIiwidHlwZSI6MCwidXNlciI6IjBkY2UyMmM2LTFhOTQtNGE4ZS1hNzAxLTE4NWE0YzM3ZGY1OCJ9.osXITQXqGHV_aewrnz0bmFzfwIjxMuPZnsSkcYxmJJrNlO9JYEVXrZHLZuS8wejGNUzHur33desq_X3REISBaA","refresh_token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiIiLCJleHAiOjE3MTQ1Njc2OTgsImlhdCI6MTcxNDQ4MTI5OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiIiwidHlwZSI6MSwidXNlciI6IjBkY2UyMmM2LTFhOTQtNGE4ZS1hNzAxLTE4NWE0YzM3ZGY1OCJ9.KRWH0TTfrORMrjCsfxKw4P6TO4z0Pr3DXilLttwQCiMF6kKy-8sbNz5n2VNjkAIonm-LgIN-qz64l6--a78NjQ"}
 ```
 
-This can also be done using UI as below:
+A user can also register/create an account using the UI by clicking the Register button which prompts the user for a username, email, and password. After which, the user is free to create workspaces and manage their created system.
 ![UI login](img/ui/login.png)
 
-### Create a project
+### Create a workspace
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -77,13 +81,15 @@ Content-Length: 235
 {"id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c","name":"project 1","alias":"org1","status":"enabled","created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58","created_at":"2024-04-30T13:17:32.884558Z","updated_at":"0001-01-01T00:00:00Z"}
 ```
 
+The workspaces page gives the user the ability to either create an entirely new workspace or join an existing workspace. The user can also view the workspace they are a part of and the workspace they have created.
+
 On the ui the steps are as follows:
 ![Project page](img/ui/newproj.png)
 ![Project Creation](img/ui/projcreate.png)
 
 ### Project Login
 
-To log in to a Project:
+To log in to a Workspace:
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
@@ -120,7 +126,7 @@ X-Xss-Protection: 1; mode=block
 }
 ```
 
-For the UI click enter to login to Project with will bring you to the dashboard.
+For the UI click enter to log in to workspace with will bring you to the dashboard.
 ![Project login](img/ui/projlogin.png)
 
 ## Backends

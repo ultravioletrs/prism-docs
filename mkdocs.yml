@@ -30,3 +30,4 @@ nav:
   - Certs: certs.md
   - Backends: backends.md
   - Algorithms: algorithms.md
+  - Dashboard: dashboard.md

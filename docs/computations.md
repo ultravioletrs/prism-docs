@@ -149,6 +149,58 @@ content-length: 0
 The update computation page appears as below:
 ![Update computation](./img/ui/update%20computation.png)
 
+## Computation export and import
+
+Prism allows users to export and import computations in both JSON and CSV formats. When exporting as JSON, all details of a computation are bundled into a single file, which can later be imported to recreate the computation with the provided data. Alternatively, multiple computations can be uploaded using a CSV file, which contains the relevant details for each computation. You can find a sample CSV file in the Prism repository [here](https://github.com/ultravioletrs/prism/blob/main/sample_computations.csv). When importing computations, ensure that all user IDs included in the file are valid and correspond to registered users in the workspace, including both backend and user IDs.
+
+A sample computation that can be uploaded as json is shown:
+
+```json
+{
+  "id": "185e61f4-2fd1-47c3-b8e7-1bf6a8466b79",
+  "name": "sample_computation",
+  "description": "sample",
+  "owner": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+  "start_time": "0001-01-01T00:00:00Z",
+  "datasets": [
+    {
+      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+      "hash": "171ae99ff0449d52cd37f824eec20f56d4efbe322e022e1df02a89eabc16209c"
+    },
+    {
+      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+      "hash": "3b8aea5a74d179a445e86ce23d2fc24c8cd65d34f19798cb8852a7bcf945b2ae"
+    },
+    {
+      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+      "hash": "64a6eb1ed400d9b8139d64ef21641e0a930cda8008e21d2b055f1ae91a2c710a"
+    }
+  ],
+  "algorithm": {
+    "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+    "hash": "9567a45920974a3261f9e897b3da7e49a391728f607f36f0ad6e8f5ec8a2041b"
+  },
+  "result_consumers": ["f07b7716-2737-4228-9d80-d9df4ab5ee53"],
+  "agent_config": {
+    "log_level": "debug",
+    "cert_file": "",
+    "server_key": "",
+    "server_ca_file": "",
+    "client_ca_file": "",
+    "attested_tls": false
+  },
+  "backend_id": "9a8d67b6-9298-4393-81c6-8b7958a8cebf"
+}
+```
+
+Upload of computations can be done on the computations page, the files accepted are json and csv.
+
+![computation_import](img/ui/import_computation.png)
+
+Any computation can be downloaded by clicking the download button when you view the desired computation.
+
+![computation_download](img/ui/download_computation.png)
+
 ## Run Computation
 
 In order to get one pspecific computation, by ID:

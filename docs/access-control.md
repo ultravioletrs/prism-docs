@@ -6,10 +6,10 @@ Prism implements fine grained access control for users having different access t
 
 Workspaces are organizational units within the platform. They have the following user roles:
 
-| Role          | Permissions                             |
-|---------------|------------------------------------------|
-| Administrator | Admin, Member, Delete                    |
-| Member        | Member                                   |
+| Role          | Permissions           |
+| ------------- | --------------------- |
+| Administrator | Admin, Member, Delete |
+| Member        | Member                |
 
 ### Workspaces Permissions Explained
 
@@ -21,15 +21,15 @@ Workspaces are organizational units within the platform. They have the following
 
 Computations have more complex access control with various user roles:
 
-| Role             | Permissions                                   |
-|------------------|------------------------------------------------|
-| Administrator    | Owner, View, Edit, Run                         |
-| Viewer           | View                                           |
-| Editor           | View, Edit                                     |
-| Runner           | View, Run                                      |
-| Dataset Provider | View, Edit, Provide Data                       |
-| Algo Provider    | View, Edit, Provide Algo                       |
-| Result Consumer  | View, Edit, Consume Result                     |
+| Role             | Permissions                |
+| ---------------- | -------------------------- |
+| Administrator    | Owner, View, Edit, Run     |
+| Viewer           | View                       |
+| Editor           | View, Edit                 |
+| Runner           | View, Run                  |
+| Dataset Provider | View, Edit, Provide Data   |
+| Algo Provider    | View, Edit, Provide Algo   |
+| Result Consumer  | View, Edit, Consume Result |
 
 ### Computation Permissions Explained
 
@@ -45,10 +45,10 @@ Computations have more complex access control with various user roles:
 graph TD
     U[User] --> D[Workspace]
     U --> C[Computation]
-    
+
     D --> DA[Administrator]
     D --> DM[Member]
-    
+
     C --> CA[Administrator]
     C --> CV[Viewer]
     C --> CE[Editor]
@@ -56,10 +56,10 @@ graph TD
     C --> CDP[Dataset Provider]
     C --> CAP[Algo Provider]
     C --> CRC[Result Consumer]
-    
+
     DA --> |Admin, Member, Delete| DP[Workspace Permissions]
     DM --> |Member| DP
-    
+
     CA --> |Owner, View, Edit, Run| CP[Computation Permissions]
     CV --> |View| CP
     CE --> |View, Edit| CP

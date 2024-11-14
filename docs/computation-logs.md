@@ -28,9 +28,10 @@ These sections allow you to switch between detailed computation events and logs.
 To view these logs and events:
 
 1. Timeline Tab:
+
    - This tab outlines the sequence of events for the computation, from the initial setup (such as VM provisioning) to completion, including downloading the computation results.
    - The timeline view provides an organized, event-by-event account of the computation’s progression.
-![Computation Events](img/events.png)
+     ![Computation Events](img/events.png)
 
 2. Logs Tab:
    - This tab contains the detailed logs generated during the computation run.
@@ -49,14 +50,15 @@ Using the Filter Feature:
 1. Click on the filter (funnel) icon located in the logs/events section to open the filter modal.
 
 2. In the modal, you’ll find options to refine your view:
+
    - Date Filter: Specify a date range to focus on logs and events from a specific period.
    - Log Level Filter: Filter by log level (e.g., error, warning, info) to see logs of a specific severity.
    - Run: Filter by run id to see logs and events of a specific computation run.
    - No. of Entries: Filter number of entries to specify number of logs and events displayed per page.
    - Each filter selection refines the logs/events displayed to only show relevant data based on the chosen criteria.
-![Filter Modal - All Options](img/log_filters_all.png)
-![Filter Modal - Date](img/log_filters_date.png)
-![Filter Modal - Log Level](img/logs_filters_log_level.png)
+     ![Filter Modal - All Options](img/log_filters_all.png)
+     ![Filter Modal - Date](img/log_filters_date.png)
+     ![Filter Modal - Log Level](img/logs_filters_log_level.png)
 
 3. Click Apply to apply your selected filters to the logs/events view. To reset the filters back to their default state and show all logs/events, click the Reset button.
 

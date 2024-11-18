@@ -45,6 +45,133 @@ Date: Thu, 02 May 2024 14:29:22 GMT
 Content-Length: 0
 ```
 
+### Agent Configuration
+
+The Agent Config feature allows users to configure TLS (Transport Layer Security) settings and logging levels for computational agents. This configuration is accessible through the Agent Config modal in the New Computation interface.
+
+#### TLS Configuration Options
+
+The system supports four TLS configuration modes:
+
+1. Attested TLS
+
+    - Basic TLS configuration with attestation verification during the TLS handshake.
+    - No additional certificate or key files required.
+    - Suitable for environments requiring basic secure communication.
+
+2. Mutual TLS
+
+    - Requires bi-directional authentication
+    - Required files:
+        - Key File
+        - Certificate File
+        - Server CA File
+        - Client CA File
+    - Provides highest level of security with mutual authentication
+
+3. TLS
+
+    - Standard TLS configuration
+    - Required files:
+        - Key File
+        - Certificate File
+    - Suitable for environments requiring encrypted communication without mutual authentication
+
+4. No TLS
+
+    - Disables TLS security
+    - No additional configuration required
+    - Should only be used in secure, isolated environments
+    - Not recommended for production deployments
+
+#### Log Level Configuration
+
+- **Info**: Standard logging level for general operational information
+  - Logs important events and milestones
+  - Recommended for normal operation
+  - Provides good balance of information without excessive detail
+
+- **Debug**: Detailed logging for troubleshooting
+  - Includes extensive operation details
+  - Useful during development and debugging
+  - May impact performance
+
+- **Warn**: Warning-level messages only
+  - Logs potentially harmful situations
+  - Does not log normal operational information
+  - Useful for monitoring potential issues
+
+- **Error**: Critical issues only
+  - Logs only error conditions
+  - May miss important operational information
+
+##### Best practices for log levels
+
+- Use Info for normal operations
+- Enable Debug temporarily for troubleshooting
+- Use Error only when minimal logging is required
+
+#### File Requirements
+
+##### Key File
+
+- Required for: Mutual TLS, TLS
+- Format: PEM-encoded private key
+- Purpose: Authentication of the agent
+
+##### Certificate File
+
+- Required for: Mutual TLS, TLS
+- Format: PEM-encoded certificate
+- Purpose: Identity verification of the agent
+
+##### Server CA File
+
+- Required for: Mutual TLS only
+- Format: PEM-encoded CA certificate
+- Purpose: Verification of server certificates
+
+##### Client CA File
+
+- Required for: Mutual TLS only
+- Format: PEM-encoded CA certificate
+- Purpose: Verification of client certificates
+
+#### Implementation Steps
+
+![Agent Config](./img/ui/agentconfig.png)
+
+1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
+2. Select appropriate TLS Configuration mode
+3. Set desired Log Level based on operational requirements
+4. For Mutual TLS or TLS modes:
+    - Upload required certificate and key files
+    - Verify file formats and permissions
+5. Click "Close" to save configuration
+
+#### Troubleshooting
+
+Common issues and solutions:
+
+##### Certificate Issues
+
+- Verify certificate chain validity
+- Check certificate expiration dates
+- Ensure proper file permissions
+
+##### Connection Problems
+
+- Verify all required files are properly uploaded
+- Check network connectivity
+- Confirm firewall rules allow TLS traffic
+- Restart the computation
+
+##### Authentication Failures
+
+- Verify certificate-key pairs match
+- Check CA trust chain
+- Confirm client/server certificate compatibility
+
 ## Retrieve Computations
 
 In order to get all computations:

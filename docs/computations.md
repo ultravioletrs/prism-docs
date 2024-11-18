@@ -87,25 +87,25 @@ The system supports four TLS configuration modes:
 #### Log Level Configuration
 
 - **Info**: Standard logging level for general operational information
-    - Logs important events and milestones
-    - Recommended for normal operation
-    - Provides good balance of information without excessive detail
+  - Logs important events and milestones
+  - Recommended for normal operation
+  - Provides good balance of information without excessive detail
 
 - **Debug**: Detailed logging for troubleshooting
-    - Includes extensive operation details
-    - Useful during development and debugging
-    - May impact performance
+  - Includes extensive operation details
+  - Useful during development and debugging
+  - May impact performance
 
 - **Warn**: Warning-level messages only
-    - Logs potentially harmful situations
-    - Does not log normal operational information
-    - Useful for monitoring potential issues
+  - Logs potentially harmful situations
+  - Does not log normal operational information
+  - Useful for monitoring potential issues
 
 - **Error**: Critical issues only
-    - Logs only error conditions
-    - May miss important operational information
+  - Logs only error conditions
+  - May miss important operational information
 
-##### Best practices for log levels:
+##### Best practices for log levels
 
 - Use Info for normal operations
 - Enable Debug temporarily for troubleshooting
@@ -140,6 +140,7 @@ The system supports four TLS configuration modes:
 #### Implementation Steps
 
 ![Agent Config](./img/ui/agentconfig.png)
+
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select appropriate TLS Configuration mode
 3. Set desired Log Level based on operational requirements

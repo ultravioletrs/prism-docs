@@ -203,7 +203,7 @@ Any computation can be downloaded by clicking the download button when you view 
 
 ## Run Computation
 
-In order to get one pspecific computation, by ID:
+In order to get one specific computation, by ID:
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/computations/<computation_id>/run -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
@@ -247,3 +247,53 @@ Date: Thu, 10 Aug 2023 07:34:17 GMT
 X-Frame-Options: DENY
 X-Xss-Protection: 1; mode=block
 ```
+
+## User Keys
+
+Cocos implements a public-key cryptography system for user authentication and role management in its multiparty confidential computing platform. Each user requires only a single public-private key pair per computation, regardless of how many roles they hold in that computation. Private keys are used for [command-line  operations](https://docs.cocos.ultraviolet.rs/cli/).
+
+Cocos supports three types of cryptographic keys:
+
+- RSA
+- ECDSA
+- Ed25519
+
+### Key Usage Workflow
+
+#### Registration Phase
+
+- [User generates one public-private key pair](https://docs.cocos.ultraviolet.rs/cli/#generate-keys)
+- User provides their public key when being assigned to the computation
+![Upload user key](./img/ui/upload-key.png)
+- System associates the public key with all of the user's designated roles
+
+#### Operation Phase
+
+Users use the same private key for all CLI operations, regardless of role:
+
+- [Algorithm uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-algorithm)
+- [Data uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-dataset)
+- [Result retrieval](https://docs.cocos.ultraviolet.rs/cli/#retrieve-result)
+
+### Security Considerations
+
+#### Private Key Handling
+
+- Private keys should never be shared
+- Private keys should be stored securely
+- Private keys are only used locally with CLI operations
+- One private key is sufficient for all roles in a computation
+
+#### Public Key Distribution
+
+- Public keys are safe to share and can be viewed in the manifest
+![manifest](./img/ui/manifest.png)
+- Public key must be registered once before participation
+- Same public key is used for all roles in the computation
+
+#### Best Practices
+
+- Keep private keys secure and backed up
+- Register public key once before beginning computation participation
+- Verify all role assignments are associated with your single key pair by viewing the manifest
+- Consider using separate key pairs for different workspaces and computations

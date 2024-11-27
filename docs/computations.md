@@ -172,6 +172,70 @@ Common issues and solutions:
 - Check CA trust chain
 - Confirm client/server certificate compatibility
 
+#### Example: Attestated TLS configuration
+
+Agent can be configured to run with [attested TLS](https://docs.cocos.ultraviolet.rs/attestation/#attested-tls).
+
+1. Set agent tls configuration to aTLS. ![atls config](./img/ui/setatlsconfig.png)
+Click on close to save config and click the update/create button to save the computation.
+2. To confirm aTLS was configured, click on the update computation button.
+![atls config](./img/ui/confirmatls.png)
+3. Next Run the computation and wait for the virtual machine provisioning to be complete.
+![vm provision](./img/ui/provisioncomplete.png)
+4. Download the attestation policy. This file is used to set the expected values in the attestation report and is required for validation.
+![attestation-policy-download-list](./img/ui/attestation-policy-download-list.png)
+![download-attestation-list](./img/ui/download-policy-download.png)
+
+5. Finally to connect to agent, we need to configure the env variables on cli.
+
+```shell
+export AGENT_GRPC_URL=<backend_host>:<agent_port>
+export AGENT_GRPC_ATTESTED_TLS=true
+export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy_file>
+```
+
+after this configuration you can connect to agent normally using cli and perform [operations](https://docs.cocos.ultraviolet.rs/cli/) on cli such as algo/data upload etc.
+
+##### Calculating measurement manually (optional)
+
+Optionally, you can calculate and confirm the measurement in the attestation report. You'll need the kernel and rootfs file which can be downloaded from cocos releases based on versions.
+
+![svm info](./img/ui/svminfo.png)
+
+to calculate the expected measurement:
+
+```shell
+OVMF_CODE=/home/cocosai/danko/test/ovmf/OVMF.fd
+INITRD="/home/sammy/rootfs.cpio.gz"
+KERNEL="/home/sammy/bzImage"
+LINE='"quiet console=null rootfstype=ramfs"'
+./build/cocos-cli sevsnpmeasure --mode snp --vcpus 4 --vcpu-type EPYC-v4 --ovmf $OVMF_CODE --kernel $KERNEL --initrd $INITRD --append "$LINE"
+```
+
+Once caluated this can be replaced on the attestation policy file using:
+
+```shell
+./build/cocos-cli backend measurement <base64-string-of-measurement> <attestation_policy.json file>
+```
+
+##### Calculating the host-data (Optional)
+
+The host data set on the virtual machine is based on the computation mmanifest. The manifest should be downloaded from the computation page. Click on preview manifest and then download the manifest for the specific computation run.
+
+![download-manifest](./img/ui/hostdata.png)
+
+The host data value us calculated using the cli as below:
+
+```shell
+./build/cocos-cli checksum <path-to-manifest-json-file> --manifest -b
+```
+
+This can also be edited into the downloaded attestation policy as below:
+
+```shell
+./build/cocos-cli backend hostdata <base64-string-of-measurement> <attestation_policy.json file>
+```
+
 ## Retrieve Computations
 
 In order to get all computations:

@@ -26,7 +26,7 @@ nav:
   - Assets: assets.md
   - Computation Logs: computation-logs.md
   - Users: users.md
-  - Projects: projects.md
+  - Workspaces: workspaces.md
   - Certs: certs.md
   - Backends: backends.md
   - Algorithms: algorithms.md

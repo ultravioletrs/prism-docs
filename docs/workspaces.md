@@ -1,17 +1,17 @@
-# Projects
+# Workspaces
 
-Projects represent a consortium of users, computations, and resources that provides a single way to allow management of resources in the system. The projects / projects simplify access control by allowing only users who are in a particular project to access resources which they have been assigned to.
+Workspaces represent a consortium of users, computations, and resources that provides a single way to allow management of resources in the system. The workspaces / workspaces simplify access control by allowing only users who are in a particular workspace to access resources which they have been assigned to.
 
-Within projects, different users have different roles that allow them to only perform certain operations within the project, such as creation of other users and other admin related tasks. A single user can belong to multiple projects, with which they can have different roles based on the policy assigned.
+Within workspaces, different users have different roles that allow them to only perform certain operations within the workspace, such as creation of other users and other admin related tasks. A single user can belong to multiple workspaces, with which they can have different roles based on the policy assigned.
 
-For any user to access the CoCoS system, they must be part of an project, and have to be signed in to the project.
+For any user to access the CoCoS system, they must be part of an workspace, and have to be signed in to the workspace.
 
-## Create an project
+## Create an workspace
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "project 1",
+  "name": "workspace 1",
   "alias": "org1"
 }
 EOF
@@ -22,7 +22,7 @@ For example:
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "project 1",
+  "name": "workspace 1",
   "alias": "org1"
 }
 EOF
@@ -34,7 +34,7 @@ Content-Length: 235
 
 {
   "id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c",
-  "name":"project 1",
+  "name":"workspace 1",
   "alias":"org1",
   "status":"enabled",
   "created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58",
@@ -46,19 +46,19 @@ Content-Length: 235
 On the ui the steps are as follows:
 
 1. Log in to prism platform with a user with administrator permission.
-2. On successfully log in, projects page is displayed. Click on 'New Project'.
-   ![Projects page](img/ui/projects.png)
+2. On successfully log in, workspaces page is displayed. Click on 'New Project'.
+   ![Workspaces page](img/ui/workspaces.png)
 3. Fill the required fields and click 'Create Project'
    ![Project Creation](img/ui/projcreate.png)
 
-## Update project
+## Update workspace
 
-Update project
+Update workspace
 
 ```bash
-curl -sSiX PUT https://prism.ultraviolet.rs/auth/domains/<project_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX PUT https://prism.ultraviolet.rs/auth/domains/<workspace_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "project 1",
+  "name": "workspace 1",
   "alias": "org1"
 }
 EOF
@@ -69,7 +69,7 @@ For example:
 ```bash
 curl -sSiX PATCH https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "project 1",
+  "name": "workspace 1",
   "alias": "org1"
 }
 EOF
@@ -80,7 +80,7 @@ Content-Length: 294
 
 {
   "id":"127910df-7eca-42dc-a625-1f8fda70229c",
-  "name":"project 1",
+  "name":"workspace 1",
   "alias":"org1",
   "status":"enabled",
   "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
@@ -92,17 +92,17 @@ Content-Length: 294
 
 On the ui the steps are as follows:
 
-1. Click on 'Projects' on the navigation panel to view project details.
-   ![Project Details](img/ui/project details.png)
+1. Click on 'Workspaces' on the navigation panel to view workspace details.
+   ![Project Details](img/ui/workspace details.png)
 
-2. Click on 'Update Project' to navigate to the update project page.
+2. Click on 'Update Project' to navigate to the update workspace page.
 3. Make necessary changes and click 'update'
-   ![Updating an Project](img/ui/update project.png)
+   ![Updating an Project](img/ui/update workspace.png)
 
-## Get project
+## Get workspace
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<project_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<workspace_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:
@@ -117,7 +117,7 @@ Content-Length: 294
 
 {
   "id":"127910df-7eca-42dc-a625-1f8fda70229c",
-  "name":"project 1",
+  "name":"workspace 1",
   "alias":"org1",
   "status":"enabled",
   "created_by":"c7a1374c-b6e1-4cfd-b333-696bec0c672d",
@@ -129,10 +129,10 @@ Content-Length: 294
 
 On the ui the steps are as follows:
 
-1. Click on 'Projects' on the navigation panel to view project details.
-   ![Project Details](img/ui/project details.png)
+1. Click on 'Workspaces' on the navigation panel to view workspace details.
+   ![Project Details](img/ui/workspace details.png)
 
-## Get projects
+## Get workspaces
 
 To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `parentID`, `ownerID`, `tree` and `dir` as query parameters.
 
@@ -176,7 +176,7 @@ Content-Length: 898
       "updated_at":"0001-01-01T00:00:00Z"
     },
     {"id":"127910df-7eca-42dc-a625-1f8fda70229c",
-    "name":"project 1",
+    "name":"workspace 1",
     "alias":"org1",
     "status":"enabled",
     "permission":"administrator",
@@ -191,20 +191,20 @@ Content-Length: 898
 
 On the ui the steps are as follows:
 
-1. Click on user profile at the top right, then click on "Projects" on the menu. This navigates to the projects page.
+1. Click on user profile at the top right, then click on "Workspaces" on the menu. This navigates to the workspaces page.
    ![User Profile](img/ui/profile.png)
 2. Project page is displayed.
-   ![Projects](img/ui/projects.png)
+   ![Workspaces](img/ui/workspaces.png)
 
 ## Assign
 
-Assign user to an project
+Assign user to an workspace
 
 ```bash
-curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/<project_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
+curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/<workspace_id>/members -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "subject": "<user_id>",
-  "object": "<project_id>",
+  "object": "<workspace_id>",
   "relation": ["<relations>"]
 }
 EOF
@@ -239,10 +239,10 @@ On the ui the steps are as follows:
 
 To paginate the results, use `offset`, `limit`, `metadata`, `name`, `status`, `parentID`, `ownerID`, `tree` and `dir` as query parameters.
 
-> Must take into consideration the user identified by the `user_token` needs to be assigned to the same project identified by `group_id` with `g_list` action or be the owner of the project identified by `group_id`.
+> Must take into consideration the user identified by the `user_token` needs to be assigned to the same workspace identified by `group_id` with `g_list` action or be the owner of the workspace identified by `group_id`.
 
 ```bash
-curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<project_id>/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
+curl -isSX GET https://prism.ultraviolet.rs/auth/domains/<workspace_id>/users -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>"
 ```
 
 For example:

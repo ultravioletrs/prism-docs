@@ -68,7 +68,7 @@ A user can also register/create an account using the UI by clicking the Register
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "project 1",
+  "name": "workspace 1",
   "alias": "proj1"
 }
 EOF
@@ -78,7 +78,7 @@ Content-Type: application/json
 Date: Tue, 30 Apr 2024 13:17:33 GMT
 Content-Length: 235
 
-{"id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c","name":"project 1","alias":"org1","status":"enabled","created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58","created_at":"2024-04-30T13:17:32.884558Z","updated_at":"0001-01-01T00:00:00Z"}
+{"id":"fda88db8-97e1-4560-8db1-29e8a40b5d0c","name":"workspace 1","alias":"org1","status":"enabled","created_by":"0dce22c6-1a94-4a8e-a701-185a4c37df58","created_at":"2024-04-30T13:17:32.884558Z","updated_at":"0001-01-01T00:00:00Z"}
 ```
 
 The workspaces page gives the user the ability to either create an entirely new workspace or join an existing workspace. The user can also view the workspace they are a part of and the workspace they have created.
@@ -94,7 +94,7 @@ To log in to a Workspace:
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H "Content-Type: application/json" -H "Authorization: Bearer <user_refresh_token>" -d @- << EOF
 {
-  "domain_id": "<project_id>"
+  "domain_id": "<workspace_id>"
 }
 EOF
 ```

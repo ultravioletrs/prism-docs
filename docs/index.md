@@ -1,15 +1,15 @@
 # Prism
 
-Prism is a web based SAAS that is intended for use by the end user, to allow for a user in an project to benefit from the entire CoCoS AI system. Prism adds a layer of security and user management to the CoCoS AI system by providing functionality such as:
+Prism is a web based SAAS that is intended for use by the end user, to allow for a user in an workspace to benefit from the entire CoCoS AI system. Prism adds a layer of security and user management to the CoCoS AI system by providing functionality such as:
 
-- User and Consortium (project) creation and management
-- Policy creation and management (between users, projects, and computations)
+- User and Consortium (workspace) creation and management
+- Policy creation and management (between users, workspaces, and computations)
 - Billing and payment management
 - Computation creation and management
 
 ## What is Prism AI
 
-Prism AI is a platform designed for secure, confidential AI workloads using Trusted Execution Environments (TEEs). It enables secure VM provisioning, fine-grained access control, and end-to-end encryption to ensure data privacy in collaborative AI projects. The platform supports various computational backends and includes logging, monitoring, and a user-friendly interface. It’s particularly useful in sectors like healthcare, finance, and government for secure data processing and collaboration. More details can be found on the [Prism AI page](https://ultraviolet.rs/prism.html).
+Prism AI is a platform designed for secure, confidential AI workloads using Trusted Execution Environments (TEEs). It enables secure VM provisioning, fine-grained access control, and end-to-end encryption to ensure data privacy in collaborative AI workspaces. The platform supports various computational backends and includes logging, monitoring, and a user-friendly interface. It’s particularly useful in sectors like healthcare, finance, and government for secure data processing and collaboration. More details can be found on the [Prism AI page](https://ultraviolet.rs/prism.html).
 
 ![Collaborative AI drawio](https://user-images.githubusercontent.com/23095882/183417817-a5013c43-637e-488b-9e06-ee6fe8e588b0.svg)
 

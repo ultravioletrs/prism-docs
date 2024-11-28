@@ -212,7 +212,7 @@ LINE='"quiet console=null rootfstype=ramfs"'
 ./build/cocos-cli sevsnpmeasure --mode snp --vcpus 4 --vcpu-type EPYC-v4 --ovmf $OVMF_CODE --kernel $KERNEL --initrd $INITRD --append "$LINE"
 ```
 
-Once caluated this can be replaced on the attestation policy file using:
+Once calculated this can be replaced on the attestation policy file using:
 
 ```shell
 ./build/cocos-cli backend measurement <base64-string-of-measurement> <attestation_policy.json file>
@@ -235,6 +235,127 @@ This can also be edited into the downloaded attestation policy as below:
 ```shell
 ./build/cocos-cli backend hostdata <base64-string-of-measurement> <attestation_policy.json file>
 ```
+
+#### mTLS/TLS configuration
+
+To ensure secure communications, prevent unauthorized access, data interception, and man-in-the-middle (MITM) attacks in Prism and COCOS Transport Layer Security (TLS) and Mutual TLS (mTLS) features can be enabled as described above.
+TLS/ mTLS configurations ensures that:
+
+- Algorithms and Datasets uploaded to Agent and Results downloaded from agent through the CLI remains private.
+- The integrity of data is preserved (i.e., no tampering).
+- The Agent's identity is verified through a server certificate either issued by a trusted Certificate Authority (CA) or self-signed
+
+For TLS connection:
+
+1. The CLI connects to the Agent.
+2. Agent shows its certificate to the CLI.
+3. CLI verifies that certificate.
+4. CLI sends data to the Agent in an encrypted communication channel.
+
+![tls_illustration](./img/ui/tls.png)
+
+For MTLS connection:
+
+1. CLI connects to the Agent.
+2. Agent shows its certificate to the CLI.
+3. CLI verifies that certificate.
+4. CLI shows its certificate to the Agent.
+5. Agent verifies that certificate and allows the CLI to send requests.
+6. CLI sends data to the Agent in an encrypted communication channel.
+
+![mtls_illustration info](./img/ui/mtls.png)
+
+To generate your own certificates for configuring either of the modes:
+
+```bash
+CLIENT_ORG_UNIT="example_prism_cli"
+SERVER_ORG_UNIT="example_prism_agent"
+WORK_DIR=""
+
+# 1. Generate CA's private key and self-signed certificate
+openssl req -x509 -sha256 -newkey rsa:4096 -days 365 -nodes -keyout  "$WORK_DIR/ca-key.pem" -out "$WORK_DIR/ca-cert.pem" -subj "/CN=Example_Selfsigned_ca/O=ExampleOrg/OU=example_ca/emailAddress=info@example.com"
+
+echo "CA's self-signed certificate"
+openssl x509 -in "$WORK_DIR/ca-cert.pem" -noout -text
+
+# 2. Generate server's private key and certificate signing request (CSR)
+openssl req -newkey rsa:4096  -sha256 -nodes -keyout  "$WORK_DIR/server-key.pem" -out  "$WORK_DIR/server-req.pem" -subj "/CN=Example_Selfsigned/O=ExampleOrg/OU=$SERVER_ORG_UNIT/emailAddress=info@example.com"
+
+# 3. Use CA's private key to sign web server's CSR and get back the signed certificate
+openssl x509 -req -in "$WORK_DIR/server-req.pem" -days 365 -CA "$WORK_DIR/ca-cert.pem" -CAkey  "$WORK_DIR/ca-key.pem" -CAcreateserial -out  "$WORK_DIR/server-cert.pem" -extfile "$WORK_DIR/ext/server-ext.cnf" -extensions v3_req
+
+echo "Server's signed certificate"
+openssl x509 -in "$WORK_DIR/server-cert.pem" -noout -text
+
+# For mTLS
+# 4. Generate client's private key and certificate signing request (CSR)
+openssl req -newkey rsa:4096 -sha256 -nodes -keyout "$WORK_DIR/client-key.pem" -out "$WORK_DIR/client-req.pem" -subj "/CN=Example_Selfsigned/O=ExampleOrg/OU=$CLIENT_ORG_UNIT/emailAddress=info@example.com"
+
+# 5. Use CA's private key to sign client's CSR and get back the signed certificate
+openssl x509 -req -in "$WORK_DIR/client-req.pem" -days 365 -CA "$WORK_DIR/ca-cert.pem" -CAkey "$WORK_DIR/ca-key.pem" -CAcreateserial -out "$WORK_DIR/client-cert.pem" -extfile "$WORK_DIR/ext/client-ext.cnf" -extensions v3_req
+
+echo "Client's signed certificate"
+openssl x509 -in "$WORK_DIR/client-cert.pem" -noout -text
+```
+
+Example extension file:
+
+```text
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[req_distinguished_name]
+
+[v3_req]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+DNS.2 = <agent host name>
+
+# IP addresses
+IP.1 = <agent host ip>
+```
+
+To configure TLS for agent on the ui:
+
+1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
+2. Select the TLS option from the TLS Configuration drop down.
+
+![TLS Agent Config](./img/ui/tlsconfig.png)
+
+To configure mTLS for agent on the ui:
+
+1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
+2. Select the mTLS option from the TLS Configuration drop down.
+
+![mTLS Agent Config](./img/ui/mtlsconfig.png)
+
+To connect cli to agent, we need to configure the env variables on cli.
+
+For mTLS:
+
+```bash
+
+export AGENT_GRPC_URL=<backend_host>:<agent_port>
+export AGENT_GRPC_CLIENT_CERT=<path_to_generated_client_cert>
+export AGENT_GRPC_CLIENT_KEY=<path_to_generated_client_key>
+export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
+```
+
+For TLS:
+
+```bash
+export AGENT_GRPC_URL=<backend_host>:<agent_port>
+export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
+```
+
+After this configuration you can connect to agent normally using cli and perform [operations](https://docs.cocos.ultraviolet.rs/cli/) on cli such as algo/data upload etc.
+
+It is important to note that the Agent is the server and cli the client. Therefore, upload server generated cert, key on the UI as shown above and configure certificates generated for client on CLI.
 
 ## Retrieve Computations
 

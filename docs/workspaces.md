@@ -191,8 +191,8 @@ Content-Length: 898
 
 On the ui the steps are as follows:
 
-1. Click on user profile at the top right, then click on "Workspaces" on the menu. This navigates to the workspaces page.
-   ![User Profile](img/ui/profile.png)
+1. Click on user profile at the top right, then click on "Switch Workspaces" on the menu. This navigates to the workspaces page.
+   ![user profile](img/ui/user_profile.png)
 2. Project page is displayed.
    ![Workspaces](img/ui/workspaces.png)
 

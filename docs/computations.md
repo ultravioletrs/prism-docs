@@ -55,48 +55,51 @@ The system supports four TLS configuration modes:
 
 1. Attested TLS
 
-    - Basic TLS configuration with attestation verification during the TLS handshake.
-    - No additional certificate or key files required.
-    - Suitable for environments requiring basic secure communication.
+   - Basic TLS configuration with attestation verification during the TLS handshake.
+   - No additional certificate or key files required.
+   - Suitable for environments requiring basic secure communication.
 
 2. Mutual TLS
 
-    - Requires bi-directional authentication
-    - Required files:
-        - Key File
-        - Certificate File
-        - Server CA File
-        - Client CA File
-    - Provides highest level of security with mutual authentication
+   - Requires bi-directional authentication
+   - Required files:
+     - Key File
+     - Certificate File
+     - Server CA File
+     - Client CA File
+   - Provides highest level of security with mutual authentication
 
 3. TLS
 
-    - Standard TLS configuration
-    - Required files:
-        - Key File
-        - Certificate File
-    - Suitable for environments requiring encrypted communication without mutual authentication
+   - Standard TLS configuration
+   - Required files:
+     - Key File
+     - Certificate File
+   - Suitable for environments requiring encrypted communication without mutual authentication
 
 4. No TLS
 
-    - Disables TLS security
-    - No additional configuration required
-    - Should only be used in secure, isolated environments
-    - Not recommended for production deployments
+   - Disables TLS security
+   - No additional configuration required
+   - Should only be used in secure, isolated environments
+   - Not recommended for production deployments
 
 #### Log Level Configuration
 
 - **Info**: Standard logging level for general operational information
+
   - Logs important events and milestones
   - Recommended for normal operation
   - Provides good balance of information without excessive detail
 
 - **Debug**: Detailed logging for troubleshooting
+
   - Includes extensive operation details
   - Useful during development and debugging
   - May impact performance
 
 - **Warn**: Warning-level messages only
+
   - Logs potentially harmful situations
   - Does not log normal operational information
   - Useful for monitoring potential issues
@@ -145,8 +148,8 @@ The system supports four TLS configuration modes:
 2. Select appropriate TLS Configuration mode
 3. Set desired Log Level based on operational requirements
 4. For Mutual TLS or TLS modes:
-    - Upload required certificate and key files
-    - Verify file formats and permissions
+   - Upload required certificate and key files
+   - Verify file formats and permissions
 5. Click "Close" to save configuration
 
 #### Troubleshooting
@@ -177,14 +180,14 @@ Common issues and solutions:
 Agent can be configured to run with [attested TLS](https://docs.cocos.ultraviolet.rs/attestation/#attested-tls).
 
 1. Set agent tls configuration to aTLS. ![atls config](./img/ui/setatlsconfig.png)
-Click on close to save config and click the update/create button to save the computation.
+   Click on close to save config and click the update/create button to save the computation.
 2. To confirm aTLS was configured, click on the update computation button.
-![atls config](./img/ui/confirmatls.png)
+   ![atls config](./img/ui/confirmatls.png)
 3. Next Run the computation and wait for the virtual machine provisioning to be complete.
-![vm provision](./img/ui/provisioncomplete.png)
+   ![vm provision](./img/ui/provisioncomplete.png)
 4. Download the attestation policy. This file is used to set the expected values in the attestation report and is required for validation.
-![attestation-policy-download-list](./img/ui/attestation-policy-download-list.png)
-![download-attestation-list](./img/ui/download-policy-download.png)
+   ![attestation-policy-download-list](./img/ui/attestation-policy-download-list.png)
+   ![download-attestation-list](./img/ui/download-policy-download.png)
 
 5. Finally to connect to agent, we need to configure the env variables on cli.
 
@@ -441,7 +444,7 @@ X-Xss-Protection: 1; mode=block
 
 ## User Keys
 
-Cocos implements a public-key cryptography system for user authentication and role management in its multiparty confidential computing platform. Each user requires only a single public-private key pair per computation, regardless of how many roles they hold in that computation. Private keys are used for [command-line  operations](https://docs.cocos.ultraviolet.rs/cli/).
+Cocos implements a public-key cryptography system for user authentication and role management in its multiparty confidential computing platform. Each user requires only a single public-private key pair per computation, regardless of how many roles they hold in that computation. Private keys are used for [command-line operations](https://docs.cocos.ultraviolet.rs/cli/).
 
 Cocos supports three types of cryptographic keys:
 
@@ -455,7 +458,7 @@ Cocos supports three types of cryptographic keys:
 
 - [User generates one public-private key pair](https://docs.cocos.ultraviolet.rs/cli/#generate-keys)
 - User provides their public key when being assigned to the computation
-![Upload user key](./img/ui/upload-key.png)
+  ![Upload user key](./img/ui/upload-key.png)
 - System associates the public key with all of the user's designated roles
 
 #### Operation Phase
@@ -478,7 +481,7 @@ Users use the same private key for all CLI operations, regardless of role:
 #### Public Key Distribution
 
 - Public keys are safe to share and can be viewed in the manifest
-![manifest](./img/ui/manifest.png)
+  ![manifest](./img/ui/manifest.png)
 - Public key must be registered once before participation
 - Same public key is used for all roles in the computation
 

@@ -170,11 +170,45 @@ Content-Length: 212
 }
 ```
 
-On the ui the steps to view and update user info are as follows:
+# Steps to View and Update User Information  
 
-1. Click on user profile at the top right.
-   ![User Profile](img/ui/user_profile.png)
-2. On the resulting drop down, click the 'My Account' item which will redirect you to your profile page.
-   ![Account page](img/ui/my_account.png)
+## 1. Register as a New User  
+Navigate to the landing page and click the **Register** button:  
+  ![Registration](img/ui/user_register.png)  
 
-On the profile page, a summary of the user's entities are listed and information on how to deactivate your account or update your details.
+On the registration form, provide the following required details:  
+  - **Username**  
+  - **Email Address**  
+  - **First and Last Names**  
+  - **Password**  
+  ![Register Form](img/ui/self_register.png)  
+
+## 2. Accessing Your Profile  
+- Once logged in, click on your **User Profile** icon located at the top-right corner of the page:  
+  ![User Profile](img/ui/user_profile.png)  
+
+- From the dropdown menu, select the **My Account** option. This will redirect you to your **Profile Page**:  
+  ![Account Page](img/ui/my_account.png)  
+
+## 3. Profile Page Overview  
+- On the profile page, you can:  
+  - View a summary of your account details.  
+  - Access options to **update** your information or **deactivate** your account.  
+
+## 4. Updating User Details  
+To modify your information, click the **Update** icon on the profile page:  
+  ![Update Details](img/ui/update_details.png)  
+
+On the resulting update page, you can edit any of the following fields as needed:  
+  - Username  
+  - Email Address  
+  - First and Last Names  
+  - Password  
+  ![Update Page](img/ui/update_user_page.png)  
+
+## 5. Disabling a User  
+- To deactivate your account, you must first manage any associated entities:  
+  - Delete all associated entities, OR  
+  - Transfer ownership of these entities to another registered user.  
+
+> **Note:** Once all associated entities are resolved, you can proceed with account deactivation through the options provided on the profile page.  

@@ -169,7 +169,6 @@ Issuing and refreshing the user token is done automatically on UI when you log i
 
    ![Project login](img/ui/wkslogin.png)
 
-
 ## Get User Profile
 
 ```bash

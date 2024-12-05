@@ -1,0 +1,1736 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Prism Platform">
+      
+      
+      
+        <link rel="canonical" href="https://docs.prism.ultraviolet.rs/computations/">
+      
+      
+        <link rel="prev" href="../access-control/">
+      
+      
+        <link rel="next" href="../policies/">
+      
+      
+      <link rel="icon" href="../img/Prism_logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Computations - Prism Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#computations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Prism Docs" class="md-header__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prism Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Computations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Prism Docs" class="md-nav__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    Prism Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Computations
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Computations
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Computation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tls-configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLS Configuration Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-level-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log Level Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Log Level Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-log-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best practices for log levels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificate-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certificate File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-ca-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server CA File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-ca-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client CA File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#certificate-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certificate Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-attestated-tls-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Attestated TLS configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: Attestated TLS configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculating-measurement-manually-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating measurement manually (optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculating-the-host-data-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating the host-data (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-computations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve Computations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-computation-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve Computation Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-computations-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Computations Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computation-export-and-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation export and import
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Computation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-a-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove a Computation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Keys
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-usage-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Usage Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Usage Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registration-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registration Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operation-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operation Phase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#private-key-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Key Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Key Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computation Policies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computation-logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computation Logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workspaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Certs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Computation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tls-configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      TLS Configuration Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-level-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Log Level Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Log Level Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-log-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best practices for log levels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificate-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certificate File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-ca-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server CA File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-ca-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client CA File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Steps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#certificate-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Certificate Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-attestated-tls-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Attestated TLS configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: Attestated TLS configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#calculating-measurement-manually-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating measurement manually (optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculating-the-host-data-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating the host-data (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-computations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve Computations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-computation-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retrieve Computation Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-computations-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Computations Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computation-export-and-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation export and import
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Computation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-a-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove a Computation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Keys
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-usage-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Usage Workflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Usage Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registration-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registration Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operation-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operation Phase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#private-key-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Key Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-key-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Key Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="computations">Computations<a class="headerlink" href="#computations" title="Permanent link">#</a></h1>
+<p>The computations service provides a means to manage computations, with functions such as computation creation, update, deletion, and running.</p>
+<h2 id="add-computation">Add Computation<a class="headerlink" href="#add-computation" title="Permanent link">#</a></h2>
+<p>In order to create computation, we can to provide the following content:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/computations -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;&lt;name&gt;&quot;,
+  &quot;description&quot;: &quot;&lt;description&gt;&quot;,
+  &quot;backend_id&quot;: &lt;backend_id&quot;
+  ]
+}
+EOF
+</code></pre>
+<p>On the ui this can be done on this page as shown here
+<img alt="Create computation" src="../img/ui/new%20computation.png" /></p>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/computations -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;Machine Diagnostics Analysis&quot;,
+  &quot;description&quot;: &quot;Performing diagnostics analysis on machine data&quot;,
+  &quot;backend_id&quot;: &quot;fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5&quot;,
+  &quot;agent_config&quot;: {
+    &quot;log_level&quot;: &quot;debug&quot;
+  }
+}
+EOF
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/1.1 201 Created
+Content-Type: application/json
+Location: /computations/240be921-5758-4ffa-9ed3-97e6e72e97ea
+Date: Thu, 02 May 2024 14:29:22 GMT
+Content-Length: 0
+</code></pre>
+<h3 id="agent-configuration">Agent Configuration<a class="headerlink" href="#agent-configuration" title="Permanent link">#</a></h3>
+<p>The Agent Config feature allows users to configure TLS (Transport Layer Security) settings and logging levels for computational agents. This configuration is accessible through the Agent Config modal in the New Computation interface.</p>
+<h4 id="tls-configuration-options">TLS Configuration Options<a class="headerlink" href="#tls-configuration-options" title="Permanent link">#</a></h4>
+<p>The system supports four TLS configuration modes:</p>
+<ol>
+<li>
+<p>Attested TLS</p>
+</li>
+<li>
+<p>Basic TLS configuration with attestation verification during the TLS handshake.</p>
+</li>
+<li>No additional certificate or key files required.</li>
+<li>
+<p>Suitable for environments requiring basic secure communication.</p>
+</li>
+<li>
+<p>Mutual TLS</p>
+</li>
+<li>
+<p>Requires bi-directional authentication</p>
+</li>
+<li>Required files:<ul>
+<li>Key File</li>
+<li>Certificate File</li>
+<li>Server CA File</li>
+<li>Client CA File</li>
+</ul>
+</li>
+<li>
+<p>Provides highest level of security with mutual authentication</p>
+</li>
+<li>
+<p>TLS</p>
+</li>
+<li>
+<p>Standard TLS configuration</p>
+</li>
+<li>Required files:<ul>
+<li>Key File</li>
+<li>Certificate File</li>
+</ul>
+</li>
+<li>
+<p>Suitable for environments requiring encrypted communication without mutual authentication</p>
+</li>
+<li>
+<p>No TLS</p>
+</li>
+<li>
+<p>Disables TLS security</p>
+</li>
+<li>No additional configuration required</li>
+<li>Should only be used in secure, isolated environments</li>
+<li>Not recommended for production deployments</li>
+</ol>
+<h4 id="log-level-configuration">Log Level Configuration<a class="headerlink" href="#log-level-configuration" title="Permanent link">#</a></h4>
+<ul>
+<li>
+<p><strong>Info</strong>: Standard logging level for general operational information</p>
+</li>
+<li>
+<p>Logs important events and milestones</p>
+</li>
+<li>Recommended for normal operation</li>
+<li>
+<p>Provides good balance of information without excessive detail</p>
+</li>
+<li>
+<p><strong>Debug</strong>: Detailed logging for troubleshooting</p>
+</li>
+<li>
+<p>Includes extensive operation details</p>
+</li>
+<li>Useful during development and debugging</li>
+<li>
+<p>May impact performance</p>
+</li>
+<li>
+<p><strong>Warn</strong>: Warning-level messages only</p>
+</li>
+<li>
+<p>Logs potentially harmful situations</p>
+</li>
+<li>Does not log normal operational information</li>
+<li>
+<p>Useful for monitoring potential issues</p>
+</li>
+<li>
+<p><strong>Error</strong>: Critical issues only</p>
+</li>
+<li>Logs only error conditions</li>
+<li>May miss important operational information</li>
+</ul>
+<h5 id="best-practices-for-log-levels">Best practices for log levels<a class="headerlink" href="#best-practices-for-log-levels" title="Permanent link">#</a></h5>
+<ul>
+<li>Use Info for normal operations</li>
+<li>Enable Debug temporarily for troubleshooting</li>
+<li>Use Error only when minimal logging is required</li>
+</ul>
+<h4 id="file-requirements">File Requirements<a class="headerlink" href="#file-requirements" title="Permanent link">#</a></h4>
+<h5 id="key-file">Key File<a class="headerlink" href="#key-file" title="Permanent link">#</a></h5>
+<ul>
+<li>Required for: Mutual TLS, TLS</li>
+<li>Format: PEM-encoded private key</li>
+<li>Purpose: Authentication of the agent</li>
+</ul>
+<h5 id="certificate-file">Certificate File<a class="headerlink" href="#certificate-file" title="Permanent link">#</a></h5>
+<ul>
+<li>Required for: Mutual TLS, TLS</li>
+<li>Format: PEM-encoded certificate</li>
+<li>Purpose: Identity verification of the agent</li>
+</ul>
+<h5 id="server-ca-file">Server CA File<a class="headerlink" href="#server-ca-file" title="Permanent link">#</a></h5>
+<ul>
+<li>Required for: Mutual TLS only</li>
+<li>Format: PEM-encoded CA certificate</li>
+<li>Purpose: Verification of server certificates</li>
+</ul>
+<h5 id="client-ca-file">Client CA File<a class="headerlink" href="#client-ca-file" title="Permanent link">#</a></h5>
+<ul>
+<li>Required for: Mutual TLS only</li>
+<li>Format: PEM-encoded CA certificate</li>
+<li>Purpose: Verification of client certificates</li>
+</ul>
+<h4 id="implementation-steps">Implementation Steps<a class="headerlink" href="#implementation-steps" title="Permanent link">#</a></h4>
+<p><img alt="Agent Config" src="../img/ui/agentconfig.png" /></p>
+<ol>
+<li>Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.</li>
+<li>Select appropriate TLS Configuration mode</li>
+<li>Set desired Log Level based on operational requirements</li>
+<li>For Mutual TLS or TLS modes:</li>
+<li>Upload required certificate and key files</li>
+<li>Verify file formats and permissions</li>
+<li>Click "Close" to save configuration</li>
+</ol>
+<h4 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h4>
+<p>Common issues and solutions:</p>
+<h5 id="certificate-issues">Certificate Issues<a class="headerlink" href="#certificate-issues" title="Permanent link">#</a></h5>
+<ul>
+<li>Verify certificate chain validity</li>
+<li>Check certificate expiration dates</li>
+<li>Ensure proper file permissions</li>
+</ul>
+<h5 id="connection-problems">Connection Problems<a class="headerlink" href="#connection-problems" title="Permanent link">#</a></h5>
+<ul>
+<li>Verify all required files are properly uploaded</li>
+<li>Check network connectivity</li>
+<li>Confirm firewall rules allow TLS traffic</li>
+<li>Restart the computation</li>
+</ul>
+<h5 id="authentication-failures">Authentication Failures<a class="headerlink" href="#authentication-failures" title="Permanent link">#</a></h5>
+<ul>
+<li>Verify certificate-key pairs match</li>
+<li>Check CA trust chain</li>
+<li>Confirm client/server certificate compatibility</li>
+</ul>
+<h4 id="example-attestated-tls-configuration">Example: Attestated TLS configuration<a class="headerlink" href="#example-attestated-tls-configuration" title="Permanent link">#</a></h4>
+<p>Agent can be configured to run with <a href="https://docs.cocos.ultraviolet.rs/attestation/#attested-tls">attested TLS</a>.</p>
+<ol>
+<li>Set agent tls configuration to aTLS. <img alt="atls config" src="../img/ui/setatlsconfig.png" />
+   Click on close to save config and click the update/create button to save the computation.</li>
+<li>To confirm aTLS was configured, click on the update computation button.
+   <img alt="atls config" src="../img/ui/confirmatls.png" /></li>
+<li>Next Run the computation and wait for the virtual machine provisioning to be complete.
+   <img alt="vm provision" src="../img/ui/provisioncomplete.png" /></li>
+<li>
+<p>Download the attestation policy. This file is used to set the expected values in the attestation report and is required for validation.
+   <img alt="attestation-policy-download-list" src="../img/ui/attestation-policy-download-list.png" />
+   <img alt="download-attestation-list" src="../img/ui/download-policy-download.png" /></p>
+</li>
+<li>
+<p>Finally to connect to agent, we need to configure the env variables on cli.</p>
+</li>
+</ol>
+<pre><code class="language-shell">export AGENT_GRPC_URL=&lt;backend_host&gt;:&lt;agent_port&gt;
+export AGENT_GRPC_ATTESTED_TLS=true
+export AGENT_GRPC_ATTESTATION_POLICY=&lt;path_to_attestation_policy_file&gt;
+</code></pre>
+<p>after this configuration you can connect to agent normally using cli and perform <a href="https://docs.cocos.ultraviolet.rs/cli/">operations</a> on cli such as algo/data upload etc.</p>
+<h5 id="calculating-measurement-manually-optional">Calculating measurement manually (optional)<a class="headerlink" href="#calculating-measurement-manually-optional" title="Permanent link">#</a></h5>
+<p>Optionally, you can calculate and confirm the measurement in the attestation report. You'll need the kernel and rootfs file which can be downloaded from cocos releases based on versions.</p>
+<p><img alt="svm info" src="../img/ui/svminfo.png" /></p>
+<p>to calculate the expected measurement:</p>
+<pre><code class="language-shell">OVMF_CODE=/home/cocosai/danko/test/ovmf/OVMF.fd
+INITRD=&quot;/home/sammy/rootfs.cpio.gz&quot;
+KERNEL=&quot;/home/sammy/bzImage&quot;
+LINE='&quot;quiet console=null rootfstype=ramfs&quot;'
+./build/cocos-cli sevsnpmeasure --mode snp --vcpus 4 --vcpu-type EPYC-v4 --ovmf $OVMF_CODE --kernel $KERNEL --initrd $INITRD --append &quot;$LINE&quot;
+</code></pre>
+<p>Once caluated this can be replaced on the attestation policy file using:</p>
+<pre><code class="language-shell">./build/cocos-cli backend measurement &lt;base64-string-of-measurement&gt; &lt;attestation_policy.json file&gt;
+</code></pre>
+<h5 id="calculating-the-host-data-optional">Calculating the host-data (Optional)<a class="headerlink" href="#calculating-the-host-data-optional" title="Permanent link">#</a></h5>
+<p>The host data set on the virtual machine is based on the computation mmanifest. The manifest should be downloaded from the computation page. Click on preview manifest and then download the manifest for the specific computation run.</p>
+<p><img alt="download-manifest" src="../img/ui/hostdata.png" /></p>
+<p>The host data value us calculated using the cli as below:</p>
+<pre><code class="language-shell">./build/cocos-cli checksum &lt;path-to-manifest-json-file&gt; --manifest -b
+</code></pre>
+<p>This can also be edited into the downloaded attestation policy as below:</p>
+<pre><code class="language-shell">./build/cocos-cli backend hostdata &lt;base64-string-of-measurement&gt; &lt;attestation_policy.json file&gt;
+</code></pre>
+<h2 id="retrieve-computations">Retrieve Computations<a class="headerlink" href="#retrieve-computations" title="Permanent link">#</a></h2>
+<p>In order to get all computations:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/computations -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/computations -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/2 200
+content-type: application/json
+date: Mon, 27 May 2024 11:37:50 GMT
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+content-length: 433
+
+{&quot;computations&quot;:[{&quot;id&quot;:&quot;f025d311-193a-469b-b504-f137e0b768c2&quot;,&quot;name&quot;:&quot;name 1&quot;,&quot;status&quot;:&quot;executable&quot;,&quot;owner&quot;:&quot;e20aaa5a-95d7-444a-8471-51c67082adbf&quot;,&quot;start_time&quot;:&quot;2024-05-27T11:36:42.99242Z&quot;,&quot;end_time&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;algorithm&quot;:{},&quot;agent_config&quot;:{&quot;log_level&quot;:&quot;&quot;,&quot;cert_file&quot;:&quot;&quot;,&quot;server_key&quot;:&quot;&quot;,&quot;server_ca_file&quot;:&quot;&quot;,&quot;client_ca_file&quot;:&quot;&quot;,&quot;attested_tls&quot;:false},&quot;agent_port&quot;:&quot;&quot;,&quot;backend_id&quot;:&quot;cbaf711f-a086-48e0-bea1-a53a9650ba9c&quot;}]}
+</code></pre>
+<p>On the UI the listed computations appear so:
+<img alt="List computations" src="../img/ui/list%20computations.png" /></p>
+<h2 id="retrieve-computation-information">Retrieve Computation Information<a class="headerlink" href="#retrieve-computation-information" title="Permanent link">#</a></h2>
+<p>In order to get one specific computation, by ID:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/computations/&lt;computation_id&gt; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/computations/f025d311-193a-469b-b504-f137e0b768c2 -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/2 200
+content-type: application/json
+date: Mon, 27 May 2024 11:39:22 GMT
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+content-length: 414
+
+{&quot;id&quot;:&quot;f025d311-193a-469b-b504-f137e0b768c2&quot;,&quot;name&quot;:&quot;name 1&quot;,&quot;status&quot;:&quot;executable&quot;,&quot;owner&quot;:&quot;e20aaa5a-95d7-444a-8471-51c67082adbf&quot;,&quot;start_time&quot;:&quot;2024-05-27T11:36:42.99242Z&quot;,&quot;end_time&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;algorithm&quot;:{},&quot;agent_config&quot;:{&quot;log_level&quot;:&quot;&quot;,&quot;cert_file&quot;:&quot;&quot;,&quot;server_key&quot;:&quot;&quot;,&quot;server_ca_file&quot;:&quot;&quot;,&quot;client_ca_file&quot;:&quot;&quot;,&quot;attested_tls&quot;:false},&quot;agent_port&quot;:&quot;&quot;,&quot;backend_id&quot;:&quot;cbaf711f-a086-48e0-bea1-a53a9650ba9c&quot;}
+</code></pre>
+<p>The view computation page appears as below, it also contains buttons to edit, run, delete and view computation logs and events.
+<img alt="View computation" src="../img/ui/computation.png" /></p>
+<h2 id="update-computations-information">Update Computations Information<a class="headerlink" href="#update-computations-information" title="Permanent link">#</a></h2>
+<p>In order to update computation:</p>
+<pre><code class="language-bash">curl -sSiX PUT https://prism.ultraviolet.rs/computations/&lt;computation_id&gt; -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt;EOF
+{
+  &quot;name&quot;: &quot;[computation_name]&quot;,
+  &quot;description&quot;: &quot;[computation_description]&quot;,
+  &quot;datasets&quot;: [&quot;[dataset_1]&quot;, &quot;[dataset_2]&quot;, &quot;[dataset_3]&quot;],
+  &quot;algorithm&quot;: [&quot;[algorithm_1]&quot;, &quot;[algorithm_2]&quot;, &quot;[algorithm_3]&quot;],
+}
+EOF
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX PUT https://prism.ultraviolet.rs/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694 -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt;EOF
+{
+  &quot;name&quot;: &quot;CNC Machine Diagnostics Analysis&quot;,
+  &quot;description&quot;: &quot;Performing diagnostics analysis on CNC machine data&quot;,
+  &quot;result_consumers&quot;: [
+    &quot;3ed2a2ad-8251-484c-a39b-bdb82f122f67&quot;,
+    &quot;622d4b11-1b06-426e-baf6-e80d7025f961&quot;
+  ]
+}
+EOF
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/2 200
+content-type: application/json
+date: Mon, 27 May 2024 11:51:25 GMT
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+content-length: 0
+</code></pre>
+<p>The update computation page appears as below:
+<img alt="Update computation" src="../img/ui/update%20computation.png" /></p>
+<h2 id="computation-export-and-import">Computation export and import<a class="headerlink" href="#computation-export-and-import" title="Permanent link">#</a></h2>
+<p>Prism allows users to export and import computations in both JSON and CSV formats. When exporting as JSON, all details of a computation are bundled into a single file, which can later be imported to recreate the computation with the provided data. Alternatively, multiple computations can be uploaded using a CSV file, which contains the relevant details for each computation. You can find a sample CSV file in the Prism repository <a href="https://github.com/ultravioletrs/prism/blob/main/sample_computations.csv">here</a>. When importing computations, ensure that all user IDs included in the file are valid and correspond to registered users in the workspace, including both backend and user IDs.</p>
+<p>A sample computation that can be uploaded as json is shown:</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;185e61f4-2fd1-47c3-b8e7-1bf6a8466b79&quot;,
+  &quot;name&quot;: &quot;sample_computation&quot;,
+  &quot;description&quot;: &quot;sample&quot;,
+  &quot;owner&quot;: &quot;f07b7716-2737-4228-9d80-d9df4ab5ee53&quot;,
+  &quot;start_time&quot;: &quot;0001-01-01T00:00:00Z&quot;,
+  &quot;datasets&quot;: [
+    {
+      &quot;provider&quot;: &quot;f07b7716-2737-4228-9d80-d9df4ab5ee53&quot;,
+      &quot;hash&quot;: &quot;171ae99ff0449d52cd37f824eec20f56d4efbe322e022e1df02a89eabc16209c&quot;
+    },
+    {
+      &quot;provider&quot;: &quot;f07b7716-2737-4228-9d80-d9df4ab5ee53&quot;,
+      &quot;hash&quot;: &quot;3b8aea5a74d179a445e86ce23d2fc24c8cd65d34f19798cb8852a7bcf945b2ae&quot;
+    },
+    {
+      &quot;provider&quot;: &quot;f07b7716-2737-4228-9d80-d9df4ab5ee53&quot;,
+      &quot;hash&quot;: &quot;64a6eb1ed400d9b8139d64ef21641e0a930cda8008e21d2b055f1ae91a2c710a&quot;
+    }
+  ],
+  &quot;algorithm&quot;: {
+    &quot;provider&quot;: &quot;f07b7716-2737-4228-9d80-d9df4ab5ee53&quot;,
+    &quot;hash&quot;: &quot;9567a45920974a3261f9e897b3da7e49a391728f607f36f0ad6e8f5ec8a2041b&quot;
+  },
+  &quot;result_consumers&quot;: [&quot;f07b7716-2737-4228-9d80-d9df4ab5ee53&quot;],
+  &quot;agent_config&quot;: {
+    &quot;log_level&quot;: &quot;debug&quot;,
+    &quot;cert_file&quot;: &quot;&quot;,
+    &quot;server_key&quot;: &quot;&quot;,
+    &quot;server_ca_file&quot;: &quot;&quot;,
+    &quot;client_ca_file&quot;: &quot;&quot;,
+    &quot;attested_tls&quot;: false
+  },
+  &quot;backend_id&quot;: &quot;9a8d67b6-9298-4393-81c6-8b7958a8cebf&quot;
+}
+</code></pre>
+<p>Upload of computations can be done on the computations page, the files accepted are json and csv.</p>
+<p><img alt="computation_import" src="../img/ui/import_computation.png" /></p>
+<p>Any computation can be downloaded by clicking the download button when you view the desired computation.</p>
+<p><img alt="computation_download" src="../img/ui/download_computation.png" /></p>
+<h2 id="run-computation">Run Computation<a class="headerlink" href="#run-computation" title="Permanent link">#</a></h2>
+<p>In order to get one specific computation, by ID:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/computations/&lt;computation_id&gt;/run -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694/run -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Fri, 03 May 2024 08:37:24 GMT
+Content-Length: 0
+</code></pre>
+<h2 id="remove-a-computation">Remove a Computation<a class="headerlink" href="#remove-a-computation" title="Permanent link">#</a></h2>
+<p>In order to delete computation:</p>
+<pre><code class="language-bash">curl -sSiX DELETE &quot;https://prism.ultraviolet.rs/computations/&lt;computation_id&gt;&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX DELETE &quot;https://prism.ultraviolet.rs/computations/8b131663-058d-4e8f-8ccb-cc83c3f9e694&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/1.1 204 No Content
+Content-Type: application/json
+Date: Thu, 10 Aug 2023 07:34:17 GMT
+X-Frame-Options: DENY
+X-Xss-Protection: 1; mode=block
+</code></pre>
+<h2 id="user-keys">User Keys<a class="headerlink" href="#user-keys" title="Permanent link">#</a></h2>
+<p>Cocos implements a public-key cryptography system for user authentication and role management in its multiparty confidential computing platform. Each user requires only a single public-private key pair per computation, regardless of how many roles they hold in that computation. Private keys are used for <a href="https://docs.cocos.ultraviolet.rs/cli/">command-line operations</a>.</p>
+<p>Cocos supports three types of cryptographic keys:</p>
+<ul>
+<li>RSA</li>
+<li>ECDSA</li>
+<li>Ed25519</li>
+</ul>
+<h3 id="key-usage-workflow">Key Usage Workflow<a class="headerlink" href="#key-usage-workflow" title="Permanent link">#</a></h3>
+<h4 id="registration-phase">Registration Phase<a class="headerlink" href="#registration-phase" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://docs.cocos.ultraviolet.rs/cli/#generate-keys">User generates one public-private key pair</a></li>
+<li>User provides their public key when being assigned to the computation
+  <img alt="Upload user key" src="../img/ui/upload-key.png" /></li>
+<li>System associates the public key with all of the user's designated roles</li>
+</ul>
+<h4 id="operation-phase">Operation Phase<a class="headerlink" href="#operation-phase" title="Permanent link">#</a></h4>
+<p>Users use the same private key for all CLI operations, regardless of role:</p>
+<ul>
+<li><a href="https://docs.cocos.ultraviolet.rs/cli/#upload-algorithm">Algorithm uploads</a></li>
+<li><a href="https://docs.cocos.ultraviolet.rs/cli/#upload-dataset">Data uploads</a></li>
+<li><a href="https://docs.cocos.ultraviolet.rs/cli/#retrieve-result">Result retrieval</a></li>
+</ul>
+<h3 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">#</a></h3>
+<h4 id="private-key-handling">Private Key Handling<a class="headerlink" href="#private-key-handling" title="Permanent link">#</a></h4>
+<ul>
+<li>Private keys should never be shared</li>
+<li>Private keys should be stored securely</li>
+<li>Private keys are only used locally with CLI operations</li>
+<li>One private key is sufficient for all roles in a computation</li>
+</ul>
+<h4 id="public-key-distribution">Public Key Distribution<a class="headerlink" href="#public-key-distribution" title="Permanent link">#</a></h4>
+<ul>
+<li>Public keys are safe to share and can be viewed in the manifest
+  <img alt="manifest" src="../img/ui/manifest.png" /></li>
+<li>Public key must be registered once before participation</li>
+<li>Same public key is used for all roles in the computation</li>
+</ul>
+<h4 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">#</a></h4>
+<ul>
+<li>Keep private keys secure and backed up</li>
+<li>Register public key once before beginning computation participation</li>
+<li>Verify all role assignments are associated with your single key pair by viewing the manifest</li>
+<li>Consider using separate key pairs for different workspaces and computations</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) Ultraviolet
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

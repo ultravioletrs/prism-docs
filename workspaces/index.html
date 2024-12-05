@@ -1,0 +1,984 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Prism Platform">
+      
+      
+      
+        <link rel="canonical" href="https://docs.prism.ultraviolet.rs/workspaces/">
+      
+      
+        <link rel="prev" href="../users/">
+      
+      
+        <link rel="next" href="../certs/">
+      
+      
+      <link rel="icon" href="../img/Prism_logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Workspaces - Prism Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workspaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Prism Docs" class="md-header__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prism Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Workspaces
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Prism Docs" class="md-nav__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    Prism Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computation Policies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computation-logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computation Logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Workspaces
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Workspaces
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an workspace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update workspace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get workspace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-workspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get workspaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assign" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#members" class="md-nav__link">
+    <span class="md-ellipsis">
+      Members
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Certs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an workspace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update workspace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get workspace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-workspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get workspaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assign" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assign
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#members" class="md-nav__link">
+    <span class="md-ellipsis">
+      Members
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="workspaces">Workspaces<a class="headerlink" href="#workspaces" title="Permanent link">#</a></h1>
+<p>Workspaces represent a consortium of users, computations, and resources that provides a single way to allow management of resources in the system. The workspaces / workspaces simplify access control by allowing only users who are in a particular workspace to access resources which they have been assigned to.</p>
+<p>Within workspaces, different users have different roles that allow them to only perform certain operations within the workspace, such as creation of other users and other admin related tasks. A single user can belong to multiple workspaces, with which they can have different roles based on the policy assigned.</p>
+<p>For any user to access the CoCoS system, they must be part of an workspace, and have to be signed in to the workspace.</p>
+<h2 id="create-an-workspace">Create an workspace<a class="headerlink" href="#create-an-workspace" title="Permanent link">#</a></h2>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;workspace 1&quot;,
+  &quot;alias&quot;: &quot;org1&quot;
+}
+EOF
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;workspace 1&quot;,
+  &quot;alias&quot;: &quot;org1&quot;
+}
+EOF
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Tue, 30 Apr 2024 13:17:33 GMT
+Content-Length: 235
+
+{
+  &quot;id&quot;:&quot;fda88db8-97e1-4560-8db1-29e8a40b5d0c&quot;,
+  &quot;name&quot;:&quot;workspace 1&quot;,
+  &quot;alias&quot;:&quot;org1&quot;,
+  &quot;status&quot;:&quot;enabled&quot;,
+  &quot;created_by&quot;:&quot;0dce22c6-1a94-4a8e-a701-185a4c37df58&quot;,
+  &quot;created_at&quot;:&quot;2024-04-30T13:17:32.884558Z&quot;,
+  &quot;updated_at&quot;:&quot;0001-01-01T00:00:00Z&quot;
+}
+</code></pre>
+<p>On the ui the steps are as follows:</p>
+<ol>
+<li>Log in to prism platform with a user with administrator permission.</li>
+<li>On successfully log in, workspaces page is displayed. Click on 'New Project'.
+   <img alt="Workspaces page" src="../img/ui/workspaces.png" /></li>
+<li>Fill the required fields and click 'Create Project'
+   <img alt="Project Creation" src="../img/ui/projcreate.png" /></li>
+</ol>
+<h2 id="update-workspace">Update workspace<a class="headerlink" href="#update-workspace" title="Permanent link">#</a></h2>
+<p>Update workspace</p>
+<pre><code class="language-bash">curl -sSiX PUT https://prism.ultraviolet.rs/auth/domains/&lt;workspace_id&gt; -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;workspace 1&quot;,
+  &quot;alias&quot;: &quot;org1&quot;
+}
+EOF
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">curl -sSiX PATCH https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;workspace 1&quot;,
+  &quot;alias&quot;: &quot;org1&quot;
+}
+EOF
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Fri, 24 May 2024 06:28:08 GMT
+Content-Length: 294
+
+{
+  &quot;id&quot;:&quot;127910df-7eca-42dc-a625-1f8fda70229c&quot;,
+  &quot;name&quot;:&quot;workspace 1&quot;,
+  &quot;alias&quot;:&quot;org1&quot;,
+  &quot;status&quot;:&quot;enabled&quot;,
+  &quot;created_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+  &quot;created_at&quot;:&quot;2024-05-24T05:29:47.030197Z&quot;,
+  &quot;updated_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+  &quot;updated_at&quot;:&quot;2024-05-24T06:28:08.121207Z&quot;
+}
+</code></pre>
+<p>On the ui the steps are as follows:</p>
+<ol>
+<li>
+<p>Click on 'Workspaces' on the navigation panel to view workspace details.
+   <img alt="Project Details" src="../img/ui/workspace%20details.png" /></p>
+</li>
+<li>
+<p>Click on 'Update Project' to navigate to the update workspace page.</p>
+</li>
+<li>Make necessary changes and click 'update'
+   <img alt="Updating an Project" src="../img/ui/update%20workspace.png" /></li>
+</ol>
+<h2 id="get-workspace">Get workspace<a class="headerlink" href="#get-workspace" title="Permanent link">#</a></h2>
+<pre><code class="language-bash">curl -isSX GET https://prism.ultraviolet.rs/auth/domains/&lt;workspace_id&gt; -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Fri, 24 May 2024 06:32:29 GMT
+Content-Length: 294
+
+{
+  &quot;id&quot;:&quot;127910df-7eca-42dc-a625-1f8fda70229c&quot;,
+  &quot;name&quot;:&quot;workspace 1&quot;,
+  &quot;alias&quot;:&quot;org1&quot;,
+  &quot;status&quot;:&quot;enabled&quot;,
+  &quot;created_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+  &quot;created_at&quot;:&quot;2024-05-24T05:29:47.030197Z&quot;,
+  &quot;updated_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+  &quot;updated_at&quot;:&quot;2024-05-24T06:28:08.121207Z&quot;
+}
+</code></pre>
+<p>On the ui the steps are as follows:</p>
+<ol>
+<li>Click on 'Workspaces' on the navigation panel to view workspace details.
+   <img alt="Project Details" src="../img/ui/workspace%20details.png" /></li>
+</ol>
+<h2 id="get-workspaces">Get workspaces<a class="headerlink" href="#get-workspaces" title="Permanent link">#</a></h2>
+<p>To paginate the results, use <code>offset</code>, <code>limit</code>, <code>metadata</code>, <code>name</code>, <code>status</code>, <code>parentID</code>, <code>ownerID</code>, <code>tree</code> and <code>dir</code> as query parameters.</p>
+<pre><code class="language-bash">curl -isSX GET https://prism.ultraviolet.rs/auth/domains/ -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/ -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Fri, 24 May 2024 06:32:59 GMT
+Content-Length: 898
+
+{
+  &quot;total&quot;:3,
+  &quot;offset&quot;:0,
+  &quot;limit&quot;:10,
+  &quot;domains&quot;: [
+    {
+      &quot;id&quot;:&quot;2c8f3651-eb61-4a2d-8473-a84ae7a94845&quot;,
+      &quot;name&quot;:&quot;Test Org2&quot;,
+      &quot;alias&quot;:&quot;Desc 2&quot;,
+      &quot;status&quot;:&quot;enabled&quot;,
+      &quot;permission&quot;:&quot;administrator&quot;,
+      &quot;created_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+      &quot;created_at&quot;:&quot;2024-05-24T05:37:43.870852Z&quot;,
+      &quot;updated_at&quot;:&quot;0001-01-01T00:00:00Z&quot;
+    },
+    {
+      &quot;id&quot;:&quot;f5bc07b4-bdc1-426f-8d18-d625bb5da8ac&quot;,
+      &quot;name&quot;:&quot;Another Org&quot;,
+      &quot;alias&quot;:&quot;Desc 2&quot;,
+      &quot;status&quot;:&quot;enabled&quot;,
+      &quot;permission&quot;:&quot;administrator&quot;,
+      &quot;created_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+      &quot;created_at&quot;:&quot;2024-05-24T05:47:32.275316Z&quot;,
+      &quot;updated_at&quot;:&quot;0001-01-01T00:00:00Z&quot;
+    },
+    {&quot;id&quot;:&quot;127910df-7eca-42dc-a625-1f8fda70229c&quot;,
+    &quot;name&quot;:&quot;workspace 1&quot;,
+    &quot;alias&quot;:&quot;org1&quot;,
+    &quot;status&quot;:&quot;enabled&quot;,
+    &quot;permission&quot;:&quot;administrator&quot;,
+    &quot;created_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+    &quot;created_at&quot;:&quot;2024-05-24T05:29:47.030197Z&quot;,
+    &quot;updated_by&quot;:&quot;c7a1374c-b6e1-4cfd-b333-696bec0c672d&quot;,
+    &quot;updated_at&quot;:&quot;2024-05-24T06:28:08.121207Z&quot;
+    }
+  ]
+}
+</code></pre>
+<p>On the ui the steps are as follows:</p>
+<ol>
+<li>Click on user profile at the top right, then click on "Switch Workspaces" on the menu. This navigates to the workspaces page.
+   <img alt="user profile" src="../img/ui/user_profile.png" /></li>
+<li>Project page is displayed.
+   <img alt="Workspaces" src="../img/ui/workspaces.png" /></li>
+</ol>
+<h2 id="assign">Assign<a class="headerlink" href="#assign" title="Permanent link">#</a></h2>
+<p>Assign user to an workspace</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/&lt;workspace_id&gt;/members -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;subject&quot;: &quot;&lt;user_id&gt;&quot;,
+  &quot;object&quot;: &quot;&lt;workspace_id&gt;&quot;,
+  &quot;relation&quot;: [&quot;&lt;relations&gt;&quot;]
+}
+EOF
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/127910df-7eca-42dc-a625-1f8fda70229c/users/assign -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;relation&quot;: &quot;member&quot;,
+  &quot;user_ids&quot;: [&quot;1470462e-70d3-4e3f-82d8-7df5ad643de3&quot;]
+}
+EOF
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Fri, 24 May 2024 06:51:37 GMT
+Content-Length: 0
+
+</code></pre>
+<p>On the ui the steps are as follows:</p>
+<ol>
+<li>
+<p>From Project details page, click on 'Members'. This navigates to Members page.
+   <img alt="Project Details" src="../img/ui/proj%20details%20members.png" /></p>
+</li>
+<li>
+<p>From Member page, click on 'Assign Member'. A modal dialog will appear that allowing member relation assignment.
+   <img alt="Assign Member" src="../img/ui/assign%20member.png" /></p>
+</li>
+</ol>
+<h2 id="members">Members<a class="headerlink" href="#members" title="Permanent link">#</a></h2>
+<p>To paginate the results, use <code>offset</code>, <code>limit</code>, <code>metadata</code>, <code>name</code>, <code>status</code>, <code>parentID</code>, <code>ownerID</code>, <code>tree</code> and <code>dir</code> as query parameters.</p>
+<blockquote>
+<p>Must take into consideration the user identified by the <code>user_token</code> needs to be assigned to the same workspace identified by <code>group_id</code> with <code>g_list</code> action or be the owner of the workspace identified by <code>group_id</code>.</p>
+</blockquote>
+<pre><code class="language-bash">curl -isSX GET https://prism.ultraviolet.rs/auth/domains/&lt;workspace_id&gt;/users -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-bash"> curl -sSiX GET https://prism.ultraviolet.rs/auth/domains/ec7f6b62-3b0b-4f6f-925f-c1f09ab2f883/users\?permission\=view -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Sat, 25 May 2024 08:44:49 GMT
+Content-Length: 216
+
+{
+  &quot;limit&quot;:10,
+  &quot;offset&quot;:0,
+  &quot;total&quot;:1,
+  &quot;users&quot;: [
+    {
+      &quot;id&quot;:&quot;986a04e5-be5b-4041-b649-f64346720219&quot;,
+      &quot;name&quot;:&quot;John Doe&quot;,
+      &quot;credentials&quot;:{},
+      &quot;created_at&quot;:&quot;0001-01-01T00:00:00Z&quot;,
+      &quot;updated_at&quot;:&quot;0001-01-01T00:00:00Z&quot;,
+      &quot;status&quot;:&quot;enabled&quot;
+    }
+  ]
+}
+</code></pre>
+<p>On the ui steps are as follows:
+On the ui, steps are as follows:</p>
+<ol>
+<li>From Project details page, click on 'Members'. This navigates to Members page.
+   <img alt="Project Details" src="../img/ui/proj%20details%20members.png" /></li>
+<li>Project members page is displayed.
+   <img alt="Project Members" src="../img/ui/members.png" /></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) Ultraviolet
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

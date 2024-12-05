@@ -1,0 +1,1166 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Prism Platform">
+      
+      
+      
+        <link rel="canonical" href="https://docs.prism.ultraviolet.rs/getting-started/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../access-control/">
+      
+      
+      <link rel="icon" href="../img/Prism_logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Getting Started - Prism Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Prism Docs" class="md-header__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prism Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Prism Docs" class="md-nav__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    Prism Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sign-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sign Up
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login User
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Login User">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a workspace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Login
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backends
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issuing-a-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issuing a Certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect backend
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-computation-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop Computation Run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-one-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get One Computation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computation Policies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computation-logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computation Logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workspaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Certs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backends
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sign-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sign Up
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login User
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Login User">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a workspace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Login
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backends
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issuing-a-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issuing a Certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download Certificate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect backend
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Computations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Computation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-computation-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop Computation Run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-one-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get One Computation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h1>
+<p>The Prism UI gives is the easiest way to use the CoCoS system, giving the ability to use the entire prism system without interacting with the command line.
+It provides a convenient way to log in to the CoCoS system, creation of users, workspaces, computations, computation policies, computation invitations, certs, backends, workspace billing and updating of all this information.
+The UI can be found at <a href="https://prism.ultraviolet.rs">https://prism.ultraviolet.rs</a>. The UI is a web application and can be accessed from any modern web browser.</p>
+<h2 id="sign-up">Sign Up<a class="headerlink" href="#sign-up" title="Permanent link">#</a></h2>
+<p>Create a user on the ui as shown below:</p>
+<p>or using curl as below:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/users -H &quot;Content-Type: application/json&quot; -d @- &lt;&lt;EOF
+{
+  &quot;name&quot;: &quot;John Doe&quot;,
+  &quot;credentials&quot;: {
+    &quot;identity&quot;: &quot;john.doe@example.com&quot;,
+    &quot;secret&quot;: &quot;12345678&quot;
+  }
+}
+EOF
+</code></pre>
+<p>the response is follows:</p>
+<pre><code class="language-bash">HTTP/1.1 201 Created
+Content-Type: application/json
+Location: /users/b88b42b3-b4a4-4003-a777-6bab443385c9
+Date: Tue, 30 Apr 2024 12:40:32 GMT
+Content-Length: 213
+
+{&quot;id&quot;:&quot;b88b42b3-b4a4-4003-a777-6bab443385c9&quot;,&quot;name&quot;:&quot;John Doe&quot;,&quot;credentials&quot;:{&quot;identity&quot;:&quot;john.doe@example.com&quot;},&quot;created_at&quot;:&quot;2024-04-30T12:40:32.116252Z&quot;,&quot;updated_at&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;status&quot;:&quot;enabled&quot;}
+</code></pre>
+<p>For more user related actions see: <a href="https://docs.magistrala.abstractmachines.fr/api/#users">magistrala users</a></p>
+<h2 id="login-user">Login User<a class="headerlink" href="#login-user" title="Permanent link">#</a></h2>
+<p>In order to login user we need to provide username and password:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/issue -H &quot;Content-Type: application/json&quot; -d @- &lt;&lt;EOF
+{
+  &quot;identity&quot;: &quot;john.doe@example.com&quot;,
+  &quot;secret&quot;: &quot;12345678&quot;
+}
+EOF
+</code></pre>
+<p>response:</p>
+<pre><code class="language-bash">HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Tue, 30 Apr 2024 12:48:18 GMT
+Content-Length: 647
+
+{&quot;access_token&quot;:&quot;eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiIiLCJleHAiOjE3MTQ0ODQ4OTgsImlhdCI6MTcxNDQ4MTI5OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiIiwidHlwZSI6MCwidXNlciI6IjBkY2UyMmM2LTFhOTQtNGE4ZS1hNzAxLTE4NWE0YzM3ZGY1OCJ9.osXITQXqGHV_aewrnz0bmFzfwIjxMuPZnsSkcYxmJJrNlO9JYEVXrZHLZuS8wejGNUzHur33desq_X3REISBaA&quot;,&quot;refresh_token&quot;:&quot;eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb21haW4iOiIiLCJleHAiOjE3MTQ1Njc2OTgsImlhdCI6MTcxNDQ4MTI5OCwiaXNzIjoibWFnaXN0cmFsYS5hdXRoIiwic3ViIjoiIiwidHlwZSI6MSwidXNlciI6IjBkY2UyMmM2LTFhOTQtNGE4ZS1hNzAxLTE4NWE0YzM3ZGY1OCJ9.KRWH0TTfrORMrjCsfxKw4P6TO4z0Pr3DXilLttwQCiMF6kKy-8sbNz5n2VNjkAIonm-LgIN-qz64l6--a78NjQ&quot;}
+</code></pre>
+<p>A user can also register/create an account using the UI by clicking the Register button which prompts the user for a username, email, and password. After which, the user is free to create workspaces and manage their created system.
+<img alt="UI login" src="../img/ui/login.png" /></p>
+<h3 id="create-a-workspace">Create a workspace<a class="headerlink" href="#create-a-workspace" title="Permanent link">#</a></h3>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/auth/domains/ -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;workspace 1&quot;,
+  &quot;alias&quot;: &quot;proj1&quot;
+}
+EOF
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Tue, 30 Apr 2024 13:17:33 GMT
+Content-Length: 235
+
+{&quot;id&quot;:&quot;fda88db8-97e1-4560-8db1-29e8a40b5d0c&quot;,&quot;name&quot;:&quot;workspace 1&quot;,&quot;alias&quot;:&quot;org1&quot;,&quot;status&quot;:&quot;enabled&quot;,&quot;created_by&quot;:&quot;0dce22c6-1a94-4a8e-a701-185a4c37df58&quot;,&quot;created_at&quot;:&quot;2024-04-30T13:17:32.884558Z&quot;,&quot;updated_at&quot;:&quot;0001-01-01T00:00:00Z&quot;}
+</code></pre>
+<p>The workspaces page gives the user the ability to either create an entirely new workspace or join an existing workspace. The user can also view the workspace they are a part of and the workspace they have created.</p>
+<p>On the ui the steps are as follows:
+<img alt="Project page" src="../img/ui/newproj.png" />
+<img alt="Project Creation" src="../img/ui/projcreate.png" /></p>
+<h3 id="project-login">Project Login<a class="headerlink" href="#project-login" title="Permanent link">#</a></h3>
+<p>To log in to a Workspace:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_refresh_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;domain_id&quot;: &quot;&lt;workspace_id&gt;&quot;
+}
+EOF
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/users/tokens/refresh -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_refresh_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;domain_id&quot;: &quot;b19c8738-0efa-400e-aaf0-610ef42f1ee1&quot;
+}
+EOF
+</code></pre>
+<p>Resopnse:</p>
+<pre><code class="language-bash">HTTP/1.1 201 Created
+Content-Length: 715
+Content-Type: application/json
+Date: Thu, 10 Aug 2023 07:25:06 GMT
+X-Frame-Options: DENY
+X-Xss-Protection: 1; mode=block
+
+{
+  &quot;access_token&quot;: &quot;eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE2NTQxMDYsImlhdCI6MTY5MTY1MjMwNiwiaWRlbnRpdHkiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlzcyI6ImNsaWVudHMuYXV0aCIsInN1YiI6IjFiODQ5YTk5LWNlZjctNDJmNS1hN2Y0LWUwMGIxZjQzOWUwOCIsInR5cGUiOiJhY2Nlc3MifQ.FRaSjJT7wZVPSW6w-O3jyQa9WekLUzp6WcdakrZuvFgTsPvo29tbCNsX71ktJkwKeQUK1CPwRQrWrEu8tAOKFg&quot;,
+  &quot;refresh_token&quot;: &quot;eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE3Mzg3MDYsImlhdCI6MTY5MTY1MjMwNiwiaWRlbnRpdHkiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlzcyI6ImNsaWVudHMuYXV0aCIsInN1YiI6IjFiODQ5YTk5LWNlZjctNDJmNS1hN2Y0LWUwMGIxZjQzOWUwOCIsInR5cGUiOiJyZWZyZXNoIn0.iGpKn5FrTknYeuxqIxMd8x40MnExgaUJ1iWJ9Vg5szoShM-M6hu-Q1bNMcZQJoS4wxswGc50JzOjd7JSIYnucg&quot;,
+  &quot;access_type&quot;: &quot;Bearer&quot;
+}
+</code></pre>
+<p>For the UI click enter to log in to workspace with will bring you to the dashboard.
+<img alt="Project login" src="../img/ui/wkslogin.png" /></p>
+<h2 id="backends">Backends<a class="headerlink" href="#backends" title="Permanent link">#</a></h2>
+<p>For backends management, on the Backends microservice. This service runs on port <code>9011</code>.</p>
+<h3 id="creating-a-backend">Creating a backend<a class="headerlink" href="#creating-a-backend" title="Permanent link">#</a></h3>
+<p>Backends are used to run computations. We need to create one and start it before we are able to create and run a computation.</p>
+<p><img alt="Create Backend" src="../img/ui/new%20backend.png" /></p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;my dell server&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;address&quot;: &quot;192.168.100.4&quot;
+}
+EOF
+</code></pre>
+<p>response</p>
+<pre><code class="language-bash">HTTP/1.1 201 Created
+Content-Type: application/json
+Location: /backends/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5
+Date: Thu, 02 May 2024 10:15:35 GMT
+Content-Length: 0
+</code></pre>
+<h3 id="issuing-a-certificate">Issuing a Certificate<a class="headerlink" href="#issuing-a-certificate" title="Permanent link">#</a></h3>
+<p>Backends connect via gRPC secured with mTLS. For this we will issue a certificate from certs service.</p>
+<p><img alt="Issue Certificate" src="../img/ui/issue%20cert.png" /></p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/&lt;backend_id&gt; -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;ip_addresses&quot;: []
+}
+EOF
+</code></pre>
+<p>example:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;ip_addresses&quot;: [&quot;192.168.100.4&quot;]
+}
+EOF
+</code></pre>
+<p>response:</p>
+<pre><code class="language-bash">HTTP/1.1 201 Created
+Content-Type: application/json
+Date: Thu, 02 May 2024 11:35:37 GMT
+Content-Length: 59
+
+{&quot;serial_number&quot;:&quot;75709155906162784911683514578929321876&quot;}
+</code></pre>
+<h3 id="download-certificate">Download Certificate<a class="headerlink" href="#download-certificate" title="Permanent link">#</a></h3>
+<p>First we'll request a download token:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/certs/&lt;serial_number&gt;/download/token -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p><img alt="Request Download" src="../img/ui/request%20download.png" /></p>
+<p>response:</p>
+<pre><code class="language-bash">HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Thu, 02 May 2024 11:46:11 GMT
+Content-Length: 164
+
+{&quot;token&quot;:&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTA2NzEsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.4njH2KAz-qxzuaFkVx3WLQNuRTUdoKBTvlbG11oM7Yg&quot;}
+</code></pre>
+<p>With the token we can then download the cert. Please note that the token is short lived and must be used before expiry.</p>
+<pre><code class="language-bash">curl -L -X GET https://prism.ultraviolet.rs/certs/&lt;serial_number&gt;/download -G -d &quot;token=&lt;download_token&gt;&quot; --output &lt;filename&gt;.zip
+</code></pre>
+<p>example:</p>
+<pre><code class="language-bash">curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d &quot;token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I&quot; --output certs.zip
+</code></pre>
+<p><img alt="Download Certificate" src="../img/ui/download%20cert.png" /></p>
+<p>This results in three files <code>ca.pem</code>, <code>cert.pem</code> and <code>key.pem</code> which we'll use with CoCo's manager to bring the backend online.</p>
+<h3 id="connect-backend">Connect backend<a class="headerlink" href="#connect-backend" title="Permanent link">#</a></h3>
+<p>To connect a backend we need to start manager. Follow the getting started <a href="https://docs.cocos.ultraviolet.rs/getting-started/">guide</a> on cocos to get up to speed.
+We'll then run manager to connect the backend.</p>
+<p>example:</p>
+<pre><code class="language-bash">MANAGER_GRPC_URL=prism.ultraviolet.rs:7011 MANAGER_LOG_LEVEL=debug MANAGER_QEMU_USE_SUDO=false  MANAGER_QEMU_ENABLE_SEV=false MANAGER_QEMU_SEV_CBITPOS=51 MANAGER_QEMU_OVMF_CODE_FILE=/usr/share/edk2/x64/OVMF_CODE.fd MANAGER_QEMU_OVMF_VARS_FILE=/usr/share/edk2/x64/OVMF_VARS.fd MANAGER_QEMU_ENABLE_SEV_SNP=false MANAGER_GRPC_CLIENT_CERT=cert.pem MANAGER_GRPC_CLIENT_KEY=key.pem MANAGER_GRPC_SERVER_CA_CERTS=ca.pem go run main.go
+</code></pre>
+<p>Once manager is connected we should notice the associated backend marked as active:
+This can be viewed by:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/backends/&lt;backend_id&gt; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>response:</p>
+<pre><code class="language-bash">HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Thu, 02 May 2024 12:59:15 GMT
+Content-Length: 110
+
+{&quot;id&quot;:&quot;fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5&quot;,&quot;name&quot;:&quot;my dell server&quot;,&quot;address&quot;:&quot;192.168.100.4&quot;,&quot;active&quot;:true}
+</code></pre>
+<p><img alt="Active Backend" src="../img/ui/active%20backend.png" /></p>
+<h2 id="computations">Computations<a class="headerlink" href="#computations" title="Permanent link">#</a></h2>
+<p>For computation management, we use Computations micorservice. By default, this service will be running on the port <code>9000</code>.</p>
+<h3 id="create-computation">Create Computation<a class="headerlink" href="#create-computation" title="Permanent link">#</a></h3>
+<p>In order to create computation, we can to provide the following content:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/computations -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;[name]&quot;,
+  &quot;description&quot;: &quot;[description]&quot;,
+  &quot;datasets&quot;: [
+    &quot;&lt;dataset_1&gt;&quot;, ..., &quot;[dataset_n]&quot;
+  ],
+  &quot;algorithm&quot;: {&quot;id&quot;:&lt;id&gt;, &quot;provider&quot;:&lt;provider&gt;, &quot;hash&quot;:&lt;hash&gt;}
+}
+EOF
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/computations -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot; -d @- &lt;&lt; EOF
+{
+  &quot;name&quot;: &quot;Machine Diagnostics Analysis&quot;,
+  &quot;description&quot;: &quot;Performing diagnostics analysis on machine data&quot;,
+  &quot;backend_id&quot;: &quot;fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5&quot;,
+  &quot;agent_config&quot;: {
+    &quot;log_level&quot;: &quot;debug&quot;
+  }
+}
+EOF
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/1.1 201 Created
+Content-Type: application/json
+Location: /computations/240be921-5758-4ffa-9ed3-97e6e72e97ea
+Date: Thu, 02 May 2024 14:29:22 GMT
+Content-Length: 0
+</code></pre>
+<p><img alt="New computation" src="../img/ui/new%20computation.png" /></p>
+<h3 id="run-computation">Run Computation<a class="headerlink" href="#run-computation" title="Permanent link">#</a></h3>
+<p>Next we'll run the computation:</p>
+<pre><code class="language-bash">curl -sSiX POST https://prism.ultraviolet.rs/computations/&lt;computation_id&gt;/run -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>response:</p>
+<pre><code class="language-bash">HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Fri, 03 May 2024 08:37:24 GMT
+Content-Length: 0
+</code></pre>
+<p><img alt="Run computation" src="../img/ui/run%20computation.png" /></p>
+<p>This will result in events and logs from agent and manager visible on the ui.
+<img alt="Events and Logs" src="../img/ui/logsEvents.png" /></p>
+<h3 id="stop-computation-run">Stop Computation Run<a class="headerlink" href="#stop-computation-run" title="Permanent link">#</a></h3>
+<p>To stop a computation run at any point, click the <strong>Stop</strong> button on the event's card. The card contains the details and list of events related to the current computation run. Once the run is stopped, the button will be hidden.</p>
+<p><img alt="Stop Computation Run" src="../img/ui/stop_computation.png" /></p>
+<p>The <strong>Stop</strong> button can also be found in the Logs tab, on each card.</p>
+<p><img alt="Stop Run" src="../img/ui/stop_computation_run.png" /></p>
+<h3 id="get-one-computation">Get One Computation<a class="headerlink" href="#get-one-computation" title="Permanent link">#</a></h3>
+<p>In order to get one specific computation, by ID:</p>
+<pre><code class="language-bash">curl -sSiX GET https://prism.ultraviolet.rs/computations/&lt;computation_id&gt; -H &quot;Authorization: Bearer &lt;user_token&gt;&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-bash">HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Fri, 03 May 2024 09:22:30 GMT
+Content-Length: 872
+
+{&quot;id&quot;:&quot;bc31f512-106c-4705-8f6f-a83b58c2f609&quot;,&quot;name&quot;:&quot;Machine Diagnostics Analysis&quot;,&quot;description&quot;:&quot;Performing diagnostics analysis on machine data&quot;,&quot;status&quot;:&quot;executable&quot;,&quot;start_time&quot;:&quot;2024-05-02T15:05:30.868972Z&quot;,&quot;end_time&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;datasets&quot;:[{&quot;provider&quot;:&quot;b88b42b3-b4a4-4003-a777-6bab443385c9&quot;,&quot;id&quot;:&quot;Sensor Data Logs&quot;,&quot;hash&quot;:&quot;a9a96ff672cde7f6b2badcc4eb13b95afe59255650abfcbd9f73d34fc61480ad&quot;}],&quot;algorithm&quot;:{&quot;provider&quot;:&quot;b88b42b3-b4a4-4003-a777-6bab443385c9&quot;,&quot;id&quot;:&quot;AlgoAI Research Labs&quot;,&quot;hash&quot;:&quot;ef501e9225f2c132d75425c32a62bf32588da88494ed5cf73b239f9c02537d86&quot;},&quot;result_consumers&quot;:[&quot;Machine Maintenance Department&quot;,&quot;Predictive Analytics Team&quot;,&quot;Industrial Automation Division&quot;],&quot;agent_config&quot;:{&quot;log_level&quot;:&quot;debug&quot;,&quot;cert_file&quot;:&quot;&quot;,&quot;server_key&quot;:&quot;&quot;,&quot;server_ca_file&quot;:&quot;&quot;,&quot;client_ca_file&quot;:&quot;&quot;},&quot;agent_port&quot;:&quot;37721&quot;,&quot;backend_id&quot;:&quot;fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5&quot;}
+</code></pre>
+<p><img alt="Agent Address on UI" src="../img/ui/agentAdress.png" /></p>
+<p>You should be able to see the agent port which can be used for further computation actions using <a href="https://docs.cocos.ultraviolet.rs/cli/">agent CLI</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) Ultraviolet
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

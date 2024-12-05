@@ -127,7 +127,7 @@ X-Xss-Protection: 1; mode=block
 ```
 
 For the UI click enter to log in to workspace with will bring you to the dashboard.
-![Project login](img/ui/projlogin.png)
+![Project login](img/ui/wkslogin.png)
 
 ## Backends
 

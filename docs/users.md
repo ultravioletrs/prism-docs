@@ -83,7 +83,7 @@ Content-Length: 215
 
 On ui this can be done as follows;
 
-Navigate to the landing page and click the **Register** button:  
+Navigate to the landing page and click the **Register** button:
  ![Registration](img/ui/user_register.png)
 
 On the registration form, provide the following required details:
@@ -91,7 +91,7 @@ On the registration form, provide the following required details:
 - **Username**
 - **Email Address**
 - **First and Last Names**
-- **Password**  
+- **Password**
   ![Register Form](img/ui/self_register.png)
 
 ## Create Token
@@ -157,6 +157,18 @@ X-Xss-Protection: 1; mode=block
 }
 ```
 
+Issuing and refreshing the user token is done automatically on ui when you log in to your account. This can be done as follows:
+
+  1. Navigate to the login page:
+
+    ![Login](img/ui/login_page.png)
+
+  2. Enter your email and password, and click login.
+
+    This will direct you to the workspaces page at which point you can select the workspace to log in to and proceed with using prism.
+
+    ![Project login](img/ui/wkslogin.png)
+
 ## Get User Profile
 
 ```bash
@@ -185,10 +197,10 @@ Content-Length: 212
 
 On the UI this can be done as follows:
 
-- Once logged in, click on your **User Profile** icon located at the top-right corner of the page:  
+- Once logged in, click on your **User Profile** icon located at the top-right corner of the page:
   ![User Profile](img/ui/user_profile.png)
 
-- From the dropdown menu, select the **My Account** option. This will redirect you to your **Profile Page**:  
+- From the dropdown menu, select the **My Account** option. This will redirect you to your **Profile Page**:
   ![Account Page](img/ui/my_account.png)
 
 ## Steps to View and Update User Information
@@ -201,7 +213,7 @@ On the UI this can be done as follows:
 
 ### 2. Updating User Details
 
-To modify your information, click the **Update** icon on the profile page:  
+To modify your information, click the **Update** icon on the profile page:
  ![Update Details](img/ui/update_details.png)
 
 On the resulting update page, you can edit any of the following fields as needed:
@@ -209,7 +221,7 @@ On the resulting update page, you can edit any of the following fields as needed
 - Username
 - Email Address
 - First and Last Names
-- Password  
+- Password
   ![Update Page](img/ui/update_user_page.png)
 
 ### 3. Disabling a User

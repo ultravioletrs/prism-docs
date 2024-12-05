@@ -157,17 +157,18 @@ X-Xss-Protection: 1; mode=block
 }
 ```
 
-Issuing and refreshing the user token is done automatically on ui when you log in to your account. This can be done as follows:
+Issuing and refreshing the user token is done automatically on UI when you log in to your account. This can be done as follows:
 
-  1. Navigate to the login page:
+1. Navigate to the login page:
 
-    ![Login](img/ui/login_page.png)
+   ![Login](img/ui/login_page.png)
 
-  2. Enter your email and password, and click login.
+2. Enter your email and password, and click login.
 
-    This will direct you to the workspaces page at which point you can select the workspace to log in to and proceed with using prism.
+   This will direct you to the workspaces page at which point you can select the workspace to log in to and proceed with using Prism.
 
-    ![Project login](img/ui/wkslogin.png)
+   ![Project login](img/ui/wkslogin.png)
+
 
 ## Get User Profile
 

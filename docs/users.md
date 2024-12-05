@@ -81,6 +81,20 @@ Content-Length: 215
 }
 ```
 
+
+On ui this can be done as follows; 
+
+Navigate to the landing page and click the **Register** button:  
+ ![Registration](img/ui/user_register.png)
+
+On the registration form, provide the following required details:
+
+- **Username**
+- **Email Address**
+- **First and Last Names**
+- **Password**  
+  ![Register Form](img/ui/self_register.png)
+
 ## Create Token
 
 To log in to the Mainflux system, you need to create a `user_token`.
@@ -170,22 +184,7 @@ Content-Length: 212
 }
 ```
 
-## Steps to View and Update User Information
-
-### 1. Register as a New User
-
-Navigate to the landing page and click the **Register** button:  
- ![Registration](img/ui/user_register.png)
-
-On the registration form, provide the following required details:
-
-- **Username**
-- **Email Address**
-- **First and Last Names**
-- **Password**  
-  ![Register Form](img/ui/self_register.png)
-
-### 2. Accessing Your Profile
+On the UI this can be done as follows:
 
 - Once logged in, click on your **User Profile** icon located at the top-right corner of the page:  
   ![User Profile](img/ui/user_profile.png)
@@ -193,13 +192,15 @@ On the registration form, provide the following required details:
 - From the dropdown menu, select the **My Account** option. This will redirect you to your **Profile Page**:  
   ![Account Page](img/ui/my_account.png)
 
-### 3. Profile Page Overview
+## Steps to View and Update User Information
+
+### 1. Profile Page Overview
 
 - On the profile page, you can:
   - View a summary of your account details.
   - Access options to **update** your information or **deactivate** your account.
 
-### 4. Updating User Details
+### 2. Updating User Details
 
 To modify your information, click the **Update** icon on the profile page:  
  ![Update Details](img/ui/update_details.png)
@@ -212,7 +213,7 @@ On the resulting update page, you can edit any of the following fields as needed
 - Password  
   ![Update Page](img/ui/update_user_page.png)
 
-### 5. Disabling a User
+### 3. Disabling a User
 
 - To deactivate your account, you must first manage any associated entities:
   - Delete all associated entities, OR

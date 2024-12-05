@@ -81,8 +81,7 @@ Content-Length: 215
 }
 ```
 
-
-On ui this can be done as follows; 
+On ui this can be done as follows;
 
 Navigate to the landing page and click the **Register** button:  
  ![Registration](img/ui/user_register.png)

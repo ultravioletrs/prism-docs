@@ -236,7 +236,7 @@ This can also be edited into the downloaded attestation policy as below:
 ./build/cocos-cli backend hostdata <base64-string-of-measurement> <attestation_policy.json file>
 ```
 
-#### mTLS/TLS configuration
+#### Example:  mTLS and TLS configuration
 
 To ensure secure communications, prevent unauthorized access, data interception, and man-in-the-middle (MITM) attacks in Prism and COCOS Transport Layer Security (TLS) and Mutual TLS (mTLS) features can be enabled as described above.
 TLS/ mTLS configurations ensures that:

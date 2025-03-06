@@ -142,8 +142,6 @@ CVMs are used to run computations. We need to create one and start it before we 
 Please wait as the cvm is being created.
 ![CVM_Creating](img/ui/cvm_creating.png)
 
-
-
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
@@ -331,6 +329,7 @@ Content-Type: application/json
 Date: Fri, 03 May 2024 08:37:24 GMT
 Content-Length: 0
 ```
+
 Notice the run button is disabled until all the requirements are met:
 ![Run computation Disabled](img/ui/run_computation_disabled.png)
 
@@ -339,7 +338,6 @@ Once the requirements are satisfied, run computation button is enabled.
 
 Once you click run computation, you will be required to select a CVM on which to run the computation:
 ![Select CVM](img/ui/select_cvm.png)
-
 
 This will result in events and logs from agent and manager visible on the ui.
 ![Events and Logs](img/ui/logsEvents.png)

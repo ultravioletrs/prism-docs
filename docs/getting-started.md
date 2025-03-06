@@ -129,15 +129,20 @@ X-Xss-Protection: 1; mode=block
 For the UI click enter to log in to workspace with will bring you to the dashboard.
 ![Project login](img/ui/wkslogin.png)
 
-## Backends
+## CVMs
 
-For backends management, on the Backends microservice. This service runs on port `9011`.
+For CVMs management, on the backends microservice. This service runs on port `9011`.
 
-### Creating a backend
+### Creating a CVM
 
-Backends are used to run computations. We need to create one and start it before we are able to create and run a computation.
+CVMs are used to run computations. We need to create one and start it before we are able to create and run a computation.
 
-![Create Backend](img/ui/new%20backend.png)
+![Create CVM](img/ui/new_cvm.png)
+
+Please wait as the cvm is being created.
+![CVM_Creating](img/ui/cvm_creating.png)
+
+
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -161,9 +166,9 @@ Content-Length: 0
 
 ### Issuing a Certificate
 
-Backends connect via gRPC secured with mTLS. For this we will issue a certificate from certs service.
+CVMs connect via gRPC secured with mTLS. For this we will issue a certificate from certs service.
 
-![Issue Certificate](img/ui/issue%20cert.png)
+![Issue Certificate](img/ui/issue_cert.png)
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -202,7 +207,7 @@ First we'll request a download token:
 curl -sSiX GET https://prism.ultraviolet.rs/certs/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
 ```
 
-![Request Download](img/ui/request%20download.png)
+![Request Download](img/ui/request_cert.png)
 
 response:
 
@@ -227,7 +232,7 @@ example:
 curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
 ```
 
-![Download Certificate](img/ui/download%20cert.png)
+![Download Certificate](img/ui/download_cert.png)
 
 This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
 
@@ -308,7 +313,7 @@ Date: Thu, 02 May 2024 14:29:22 GMT
 Content-Length: 0
 ```
 
-![New computation](img/ui/new%20computation.png)
+![New computation](img/ui/new_computation.png)
 
 ### Run Computation
 
@@ -326,8 +331,15 @@ Content-Type: application/json
 Date: Fri, 03 May 2024 08:37:24 GMT
 Content-Length: 0
 ```
+Notice the run button is disabled until all the requirements are met:
+![Run computation Disabled](img/ui/run_computation_disabled.png)
 
-![Run computation](img/ui/run%20computation.png)
+Once the requirements are satisfied, run computation button is enabled.
+![Run computation](img/ui/run_computation.png)
+
+Once you click run computation, you will be required to select a CVM on which to run the computation:
+![Select CVM](img/ui/select_cvm.png)
+
 
 This will result in events and logs from agent and manager visible on the ui.
 ![Events and Logs](img/ui/logsEvents.png)
@@ -341,26 +353,3 @@ To stop a computation run at any point, click the **Stop** button on the event's
 The **Stop** button can also be found in the Logs tab, on each card.
 
 ![Stop Run](img/ui/stop_computation_run.png)
-
-### Get One Computation
-
-In order to get one specific computation, by ID:
-
-```bash
-curl -sSiX GET https://prism.ultraviolet.rs/computations/<computation_id> -H "Authorization: Bearer <user_token>"
-```
-
-Response:
-
-```bash
-HTTP/1.1 200 OK
-Content-Type: application/json
-Date: Fri, 03 May 2024 09:22:30 GMT
-Content-Length: 872
-
-{"id":"bc31f512-106c-4705-8f6f-a83b58c2f609","name":"Machine Diagnostics Analysis","description":"Performing diagnostics analysis on machine data","status":"executable","start_time":"2024-05-02T15:05:30.868972Z","end_time":"0001-01-01T00:00:00Z","datasets":[{"provider":"b88b42b3-b4a4-4003-a777-6bab443385c9","id":"Sensor Data Logs","hash":"a9a96ff672cde7f6b2badcc4eb13b95afe59255650abfcbd9f73d34fc61480ad"}],"algorithm":{"provider":"b88b42b3-b4a4-4003-a777-6bab443385c9","id":"AlgoAI Research Labs","hash":"ef501e9225f2c132d75425c32a62bf32588da88494ed5cf73b239f9c02537d86"},"result_consumers":["Machine Maintenance Department","Predictive Analytics Team","Industrial Automation Division"],"agent_config":{"log_level":"debug","cert_file":"","server_key":"","server_ca_file":"","client_ca_file":""},"agent_port":"37721","backend_id":"fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5"}
-```
-
-![Agent Address on UI](img/ui/agentAdress.png)
-
-You should be able to see the agent port which can be used for further computation actions using [agent CLI](https://docs.cocos.ultraviolet.rs/cli/).

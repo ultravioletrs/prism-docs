@@ -1,4 +1,8 @@
-# Prism
+---
+slug: /intro
+---
+
+# Overview
 
 Prism is a web based SAAS that is intended for use by the end user, to allow for a user in an workspace to benefit from the entire CoCoS AI system. Prism adds a layer of security and user management to the CoCoS AI system by providing functionality such as:
 

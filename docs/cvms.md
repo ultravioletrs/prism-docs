@@ -36,13 +36,13 @@ To create a CVM, follow these steps:
 
    - From the dashboard, click on the **CVMs** tab to access the CVM management page.
 
-   ![Dashboard](img/cvms/dashboard.png)
+   ![Dashboard](../static/img/cvms/dashboard.png)
 
 2. **Initiate CVM Creation:**
 
    - Click the **Create CVM** button to begin the setup process.
 
-   ![Create Button](img/cvms/create_button.png)
+   ![Create Button](../static/img/cvms/create_button.png)
 
 3. **Select Configuration Options:**
 
@@ -50,14 +50,14 @@ To create a CVM, follow these steps:
    - Specify the amount of RAM (required for Azure and GCP CVMs).
    - Define the vCPU count (configurable for Azure and GCP CVMs only).
 
-   ![Create Modal](img/cvms/create_modal.png)
+   ![Create Modal](../static/img/cvms/create_modal.png)
 
 4. **CVM Provisioning:**
 
    - After submitting the configuration, the CVM creation process will begin. This may take a few minutes.
    - Once created, the CVM will appear in the list with its unique **ID, URL, and status**.
 
-   ![CVM List](img/cvms/cvms_list.png)
+   ![CVM List](../static/img/cvms/cvms_list.png)
 
 ---
 
@@ -70,7 +70,7 @@ Each CVM is initialized with default certificates that are used to verify secure
    - Navigate to the CVM list.
    - Click on the **CVM ID** to open its details page.
 
-   ![CVM Details](img/cvms/cvm_details_page.png)
+   ![CVM Details](../static/img/cvms/cvm_details_page.png)
 
 2. **Manage Certificates:**
 
@@ -95,7 +95,7 @@ If a CVM is no longer needed, it can be removed using the following steps:
 
    - Click the **Delete** button next to the CVM you want to remove.
 
-   ![Remove CVM](img/cvms/cvm_removal.png)
+   ![Remove CVM](../static/img/cvms/cvm_removal.png)
 
 3. **CVM Deactivation:**
    - The CVM’s status will change to **Inactive** upon removal.

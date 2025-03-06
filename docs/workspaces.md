@@ -47,9 +47,9 @@ On the ui the steps are as follows:
 
 1. Log in to prism platform with a user with administrator permission.
 2. On successfully log in, workspaces page is displayed. Click on 'New Project'.
-   ![Workspaces page](img/ui/workspaces.png)
+   ![Workspaces page](../static/img/ui/workspaces.png)
 3. Fill the required fields and click 'Create Project'
-   ![Project Creation](img/ui/projcreate.png)
+   ![Project Creation](../static/img/ui/projcreate.png)
 
 ## Update workspace
 
@@ -93,11 +93,11 @@ Content-Length: 294
 On the ui the steps are as follows:
 
 1. Click on 'Workspaces' on the navigation panel to view workspace details.
-   ![Project Details](img/ui/workspace details.png)
+   ![Project Details](../static/img/ui/workspace details.png)
 
 2. Click on 'Update Project' to navigate to the update workspace page.
 3. Make necessary changes and click 'update'
-   ![Updating an Project](img/ui/update workspace.png)
+   ![Updating an Project](../static/img/ui/update workspace.png)
 
 ## Get workspace
 
@@ -130,7 +130,7 @@ Content-Length: 294
 On the ui the steps are as follows:
 
 1. Click on 'Workspaces' on the navigation panel to view workspace details.
-   ![Project Details](img/ui/workspace details.png)
+   ![Project Details](../static/img/ui/workspace details.png)
 
 ## Get workspaces
 
@@ -192,9 +192,9 @@ Content-Length: 898
 On the ui the steps are as follows:
 
 1. Click on user profile at the top right, then click on "Switch Workspaces" on the menu. This navigates to the workspaces page.
-   ![user profile](img/ui/user_profile.png)
+   ![user profile](../static/img/ui/user_profile.png)
 2. Project page is displayed.
-   ![Workspaces](img/ui/workspaces.png)
+   ![Workspaces](../static/img/ui/workspaces.png)
 
 ## Assign
 
@@ -230,10 +230,10 @@ Content-Length: 0
 On the ui the steps are as follows:
 
 1. From Project details page, click on 'Members'. This navigates to Members page.
-   ![Project Details](img/ui/proj details members.png)
+   ![Project Details](../static/img/ui/proj details members.png)
 
 2. From Member page, click on 'Assign Member'. A modal dialog will appear that allowing member relation assignment.
-   ![Assign Member](img/ui/assign member.png)
+   ![Assign Member](../static/img/ui/assign member.png)
 
 ## Members
 
@@ -276,6 +276,6 @@ On the ui steps are as follows:
 On the ui, steps are as follows:
 
 1. From Project details page, click on 'Members'. This navigates to Members page.
-   ![Project Details](img/ui/proj details members.png)
+   ![Project Details](../static/img/ui/proj details members.png)
 2. Project members page is displayed.
-   ![Project Members](img/ui/members.png)
+   ![Project Members](../static/img/ui/members.png)

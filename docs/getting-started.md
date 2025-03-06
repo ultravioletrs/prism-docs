@@ -61,7 +61,7 @@ Content-Length: 647
 ```
 
 A user can also register/create an account using the UI by clicking the Register button which prompts the user for a username, email, and password. After which, the user is free to create workspaces and manage their created system.
-![UI login](img/ui/login.png)
+![UI login](../static/img/ui/login.png)
 
 ### Create a workspace
 
@@ -84,8 +84,8 @@ Content-Length: 235
 The workspaces page gives the user the ability to either create an entirely new workspace or join an existing workspace. The user can also view the workspace they are a part of and the workspace they have created.
 
 On the ui the steps are as follows:
-![Project page](img/ui/newproj.png)
-![Project Creation](img/ui/projcreate.png)
+![Project page](../static/img/ui/newproj.png)
+![Project Creation](../static/img/ui/projcreate.png)
 
 ### Project Login
 
@@ -127,7 +127,7 @@ X-Xss-Protection: 1; mode=block
 ```
 
 For the UI click enter to log in to workspace with will bring you to the dashboard.
-![Project login](img/ui/wkslogin.png)
+![Project login](../static/img/ui/wkslogin.png)
 
 ## CVMs
 
@@ -135,10 +135,10 @@ For the UI click enter to log in to workspace with will bring you to the dashboa
 
 CVMs are used to run computations. We need to create one and start it before we are able to run a computation.
 
-![Create CVM](img/ui/new_cvm.png)
+![Create CVM](../static/img/ui/new_cvm.png)
 
 Please wait as the cvm is being created.
-![CVM_Creating](img/ui/cvm_creating.png)
+![CVM_Creating](../static/img/ui/cvm_creating.png)
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -165,7 +165,7 @@ Content-Length: 0
 CVMs connect via gRPC secured with mTLS. Certificates are issued at CVM creation.
 When needed new certificates can be issued.
 
-![Issue Certificate](img/ui/issue_cert.png)
+![Issue Certificate](../static/img/ui/issue_cert.png)
 
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
@@ -204,7 +204,7 @@ First we'll request a download token:
 curl -sSiX GET https://prism.ultraviolet.rs/certs/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
 ```
 
-![Request Download](img/ui/request_cert.png)
+![Request Download](../static/img/ui/request_cert.png)
 
 response:
 
@@ -229,7 +229,7 @@ example:
 curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
 ```
 
-![Download Certificate](img/ui/download_cert.png)
+![Download Certificate](../static/img/ui/download_cert.png)
 
 This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
 
@@ -262,7 +262,7 @@ Content-Length: 110
 {"id":"fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5","name":"my dell server","address":"192.168.100.4","active":true}
 ```
 
-![Active Backend](img/ui/active%20backend.png)
+![Active Backend](../static/img/ui/active%20backend.png)
 
 ## Computations
 
@@ -310,7 +310,7 @@ Date: Thu, 02 May 2024 14:29:22 GMT
 Content-Length: 0
 ```
 
-![New computation](img/ui/new_computation.png)
+![New computation](../static/img/ui/new_computation.png)
 Running a computation requires the following items:
 
 | Item            | User     | User Role          | Computation Asset | Public Key | Additional Information                                                                                               |
@@ -333,22 +333,22 @@ These steps have been explained in the sections below.
 ### Assigning Computation Roles and Permissions
 
 1. Navigate to the roles page from the computation details page.
-   ![Roles](img/ui/roles.png)
+![Roles](../static/img/ui/roles.png)
 
 2. Select a role to which you would like to add a user.
    Please note that this user needs to be invited to a workspace and to have accepted the invitation.
-   ![Roles](img/ui/view_role.png)
+   ![Roles](../static/img/ui/view_role.png)
 
 3. Switch to the members tab and click on the Add Members button.
-   ![Roles](img/ui/role_details.png)
+   ![Roles](../static/img/ui/role_details.png)
 
 4. Search for the user you'd like to assign a role.
 
 5. Select the user from the list and click on Add Selected Members button.
-   ![Roles](img/ui/add_user_to_role.png)
+   ![Roles](../static/img/ui/add_user_to_role.png)
 
 6. Upon successful role assignment, the user will appear on the role details page.
-   ![Roles](img/ui/assigned_user_role.png)
+   ![Roles](../static/img/ui/assigned_user_role.png)
 
 ### Linking Computation Assets
 
@@ -356,13 +356,13 @@ The assigned users from the previous step need to create and link their respecti
 This can be done as follows:
 
 1. Navigate to assets page and create a new asset.
-   ![Roles](img/ui/new_asset.png)
+   ![Roles](../static/img/ui/new_asset.png)
 
 2. A successfully created asset will appear in the assets page.
-   ![Roles](img/ui/user_assets.png)
+   ![Roles](../static/img/ui/user_assets.png)
 
 3. Search for the computation by name and link the asset.
-   ![Roles](img/ui/associate_user_asset.png)
+   ![Roles](../static/img/ui/associate_user_asset.png)
 
 4. Repeat the steps for all the assets that are needed to run the computation.
 
@@ -384,23 +384,23 @@ Content-Length: 0
 ```
 
 Notice the run button is disabled until all the requirements are met:
-![Run computation Disabled](img/ui/run_computation_disabled.png)
+![Run computation Disabled](../static/img/ui/run_computation_disabled.png)
 
 Once the requirements are satisfied, run computation button is enabled.
-![Run computation](img/ui/run_computation.png)
+![Run computation](../static/img/ui/run_computation.png)
 
 Once you click run computation, you will be required to select a CVM on which to run the computation:
-![Select CVM](img/ui/select_cvm.png)
+![Select CVM](../static/img/ui/select_cvm.png)
 
 This will result in events and logs from agent and manager visible on the ui.
-![Events and Logs](img/ui/logsEvents.png)
+![Events and Logs](../static/img/ui/logsEvents.png)
 
 ### Stop Computation Run
 
 To stop a computation run at any point, click the **Stop** button on the event's card. The card contains the details and list of events related to the current computation run. Once the run is stopped, the button will be hidden.
 
-![Stop Computation Run](img/ui/stop_computation.png)
+![Stop Computation Run](../static/img/ui/stop_computation.png)
 
 The **Stop** button can also be found in the Logs tab, on each card.
 
-![Stop Run](img/ui/stop_computation_run.png)
+![Stop Run](../static/img/ui/stop_computation_run.png)

@@ -18,7 +18,7 @@ EOF
 ```
 
 On the ui this can be done on this page as shown here
-![Create computation](./img/ui/new%20computation.png)
+![Create computation](../static/img/ui/new_computation.png)
 
 Example:
 
@@ -142,7 +142,7 @@ The system supports four TLS configuration modes:
 
 #### Implementation Steps
 
-![Agent Config](./img/ui/agentconfig.png)
+![Agent Config](../static/img/ui/agentconfig.png)
 
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select appropriate TLS Configuration mode
@@ -179,15 +179,15 @@ Common issues and solutions:
 
 Agent can be configured to run with [attested TLS](https://docs.cocos.ultraviolet.rs/attestation/#attested-tls).
 
-1. Set agent tls configuration to aTLS. ![atls config](./img/ui/setatlsconfig.png)
+1. Set agent tls configuration to aTLS. ![atls config](../static/img/ui/setatlsconfig.png)
    Click on close to save config and click the update/create button to save the computation.
 2. To confirm aTLS was configured, click on the update computation button.
-   ![atls config](./img/ui/confirmatls.png)
+   ![atls config](../static/img/ui/confirmatls.png)
 3. Next Run the computation and wait for the virtual machine provisioning to be complete.
-   ![vm provision](./img/ui/provisioncomplete.png)
+   ![vm provision](../static/img/ui/provisioncomplete.png)
 4. Download the attestation policy. This file is used to set the expected values in the attestation report and is required for validation.
-   ![attestation-policy-download-list](./img/ui/attestation-policy-download-list.png)
-   ![download-attestation-list](./img/ui/download-policy-download.png)
+   ![attestation-policy-download-list](../static/img/ui/attestation-policy-download-list.png)
+   ![download-attestation-list](../static/img/ui/download-policy-download.png)
 
 5. Finally to connect to agent, we need to configure the env variables on cli.
 
@@ -203,7 +203,7 @@ after this configuration you can connect to agent normally using cli and perform
 
 Optionally, you can calculate and confirm the measurement in the attestation report. You'll need the kernel and rootfs file which can be downloaded from cocos releases based on versions.
 
-![svm info](./img/ui/svminfo.png)
+![svm info](../static/img/ui/svminfo.png)
 
 to calculate the expected measurement:
 
@@ -225,7 +225,7 @@ Once calculated this can be replaced on the attestation policy file using:
 
 The host data set on the virtual machine is based on the computation mmanifest. The manifest should be downloaded from the computation page. Click on preview manifest and then download the manifest for the specific computation run.
 
-![download-manifest](./img/ui/hostdata.png)
+![download-manifest](../static/img/ui/hostdata.png)
 
 The host data value us calculated using the cli as below:
 
@@ -255,7 +255,7 @@ For TLS connection:
 3. CLI verifies that certificate.
 4. CLI sends data to the Agent in an encrypted communication channel.
 
-![tls_illustration](./img/ui/tls.png)
+![tls_illustration](../static/img/ui/tls.png)
 
 For MTLS connection:
 
@@ -266,7 +266,7 @@ For MTLS connection:
 5. Agent verifies that certificate and allows the CLI to send requests.
 6. CLI sends data to the Agent in an encrypted communication channel.
 
-![mtls_illustration info](./img/ui/mtls.png)
+![mtls_illustration info](../static/img/ui/mtls.png)
 
 To generate your own certificates for configuring either of the modes:
 
@@ -328,14 +328,14 @@ To configure TLS for agent on the ui:
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select the TLS option from the TLS Configuration drop down.
 
-![TLS Agent Config](./img/ui/tlsconfig.png)
+![TLS Agent Config](../static/img/ui/tlsconfig.png)
 
 To configure mTLS for agent on the ui:
 
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select the mTLS option from the TLS Configuration drop down.
 
-![mTLS Agent Config](./img/ui/mtlsconfig.png)
+![mTLS Agent Config](../static/img/ui/mtlsconfig.png)
 
 To connect cli to agent, we need to configure the env variables on cli.
 
@@ -388,7 +388,7 @@ content-length: 433
 ```
 
 On the UI the listed computations appear so:
-![List computations](./img/ui/list%20computations.png)
+![List computations](../static/img/ui/list%20computations.png)
 
 ## Retrieve Computation Information
 
@@ -418,7 +418,7 @@ content-length: 414
 ```
 
 The view computation page appears as below, it also contains buttons to edit, run, delete and view computation logs and events.
-![View computation](./img/ui/computation.png)
+![View computation](../static/img/ui/computation.png)
 
 ## Update Computations Information
 
@@ -462,7 +462,7 @@ content-length: 0
 ```
 
 The update computation page appears as below:
-![Update computation](./img/ui/update%20computation.png)
+![Update computation](../static/img/ui/update%20computation.png)
 
 ## Computation export and import
 
@@ -510,11 +510,11 @@ A sample computation that can be uploaded as json is shown:
 
 Upload of computations can be done on the computations page, the files accepted are json and csv.
 
-![computation_import](img/ui/import_computation.png)
+![computation_import](../static/img/ui/import_computation.png)
 
 Any computation can be downloaded by clicking the download button when you view the desired computation.
 
-![computation_download](img/ui/download_computation.png)
+![computation_download](../static/img/ui/download_computation.png)
 
 ## Run Computation
 
@@ -579,7 +579,7 @@ Cocos supports three types of cryptographic keys:
 
 - [User generates one public-private key pair](https://docs.cocos.ultraviolet.rs/cli/#generate-keys)
 - User provides their public key when being assigned to the computation
-  ![Upload user key](./img/ui/upload-key.png)
+  ![Upload user key](../static/img/ui/upload-key.png)
 - System associates the public key with all of the user's designated roles
 
 #### Operation Phase
@@ -602,7 +602,7 @@ Users use the same private key for all CLI operations, regardless of role:
 #### Public Key Distribution
 
 - Public keys are safe to share and can be viewed in the manifest
-  ![manifest](./img/ui/manifest.png)
+  ![manifest](../static/img/ui/manifest.png)
 - Public key must be registered once before participation
 - Same public key is used for all roles in the computation
 

@@ -5,23 +5,7 @@ Official documentation is hosted at [Prism Docs page][docs].
 
 Documentation is auto-generated from Markdown files in this repo.
 
-[MkDocs](https://www.mkdocs.org/) is used to serve the docs locally with different theming.
-
-## Prerequisites
-
-Install [MkDocs](https://www.mkdocs.org/#installation)
-
-```bash
-pip install mkdocs
-```
-
-Additionally, install [Material theme](https://squidfunk.github.io/mkdocs-material/):
-
-```bash
-pip install mkdocs-material
-```
-
-## Install
+## Installation
 
 Doc repo can be fetched from GitHub:
 
@@ -29,14 +13,24 @@ Doc repo can be fetched from GitHub:
 git clone git@github.com:ultravioletrs/prism-docs.git
 ```
 
-## Usage
-
-Use MkDocs to serve documentation:
-
-```bash
-mkdocs serve
+``` bash
+yarn
 ```
 
-Then just point the browser to [http://127.0.0.1:8000](http://127.0.0.1:8000).
+### Local Development
+
+```
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
 [docs]: https://docs.prism.ultraviolet.rs

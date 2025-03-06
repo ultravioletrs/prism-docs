@@ -10,13 +10,15 @@ Confidential Virtual Machines (CVMs) provide a secure environment for running co
 
 Before computations can be executed, a CVM must be created and properly configured. Once set up, it can be selected for running workloads securely.
 
-## Google Cloud Platform (GCP) & Azure CVM Configurations  
+## **Confidential Computing Virtual Machines (CVM) Configurations**  
 
-- **GCP CVMs** run on the **N2D machine series**, powered by AMD EPYC Milan and Rome processors. These machines support up to **224 vCPUs and 896 GB RAM**, offering high-bandwidth networking and various pricing options. They use **AMD SEV and SEV-SNP** for memory encryption, ensuring data remains confidential even from the hypervisor. N2D instances support persistent and local SSD storage but do not support GPUs or nested virtualization.  
+- **GCP CVMs** run on the **N2D machine series**, powered by **AMD EPYC Milan and Rome processors**. These machines support up to **224 vCPUs and 896 GB RAM**, offering high-bandwidth networking and flexible pricing options. They use **SEV-SNP** for memory encryption, ensuring data remains confidential even from the hypervisor. N2D instances support persistent and local SSD storage but do not support GPUs or nested virtualization.  
 
 - **Azure CVMs** utilize the **DCasv5 series**, featuring **AMD EPYC 7763v (Milan) processors** with **up to 96 vCPUs and 384 GB RAM**. These machines incorporate **SEV-SNP** for full memory encryption and hardware-isolated execution. They support premium remote storage but lack local disks, making them ideal for workloads requiring strict security without temporary storage dependencies.  
 
-Both providers ensure robust **confidential computing capabilities**, with different performance tiers to optimize cost and workload efficiency.
+- **Manager** runs on an **AMD EPYC 7443P (Milan) processor** with **24 cores and 30 GB RAM**, providing a secure and efficient environment for coordination tasks. It leverages **SEV-SNP** for full memory encryption, ensuring strong confidential computing capabilities. The system operates on **Ubuntu 24.04.1 LTS** and features **446.6 GB of storage**, with a **1 GB EFI partition and 445.6 GB root partition**. It supports virtualization via **AMD-V** and includes mitigations against speculative execution vulnerabilities, making it a reliable control node in confidential computing infrastructures.  
+
+All configurations ensure robust **confidential computing capabilities**, with varying performance tiers to optimize security, cost, and workload efficiency.
 
 ---
 

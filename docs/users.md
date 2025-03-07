@@ -84,7 +84,7 @@ Content-Length: 215
 On ui this can be done as follows;
 
 Navigate to the landing page and click the **Register** button:
- ![Registration](img/ui/user_register.png)
+![Registration](img/ui/user_register.png)
 
 On the registration form, provide the following required details:
 
@@ -214,7 +214,7 @@ On the UI this can be done as follows:
 ### 2. Updating User Details
 
 To modify your information, click the **Update** icon on the profile page:
- ![Update Details](img/ui/update_details.png)
+![Update Details](img/ui/update_details.png)
 
 On the resulting update page, you can edit any of the following fields as needed:
 

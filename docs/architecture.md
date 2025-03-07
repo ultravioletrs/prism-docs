@@ -9,7 +9,7 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 | Auth           | Manages user policies in relation to backends, certs and computations.                                    |
 | Users          | Manages platform's users and auth concerns in regards to users and workspaces.                            |
 | Computations   | Manages computation lifecycle, from creation to running and monitoring.                                   |
-| Backends       | Manages connections to manager allowing running of computations on CoCos within secure enclaves.          |
+| Backends       | Manages connections Confidential Virtual Machine creation, and connection between agent and cvms service. |
 | Certs          | Manages certification lifecyle (issuing, revocation, renewal) used for mTLS between backends and manager. |
 | Billing        | Manages payments on the platform and controls resource access based on billing plans.                     |
 | Invitations    | Manages user inivations to access workspaces.                                                             |
@@ -27,7 +27,7 @@ The computations service give users with the appropriate authorization, the abil
 
 ### Backends
 
-The backends service connects to the computations service and receives run requests from computations service which it forwards to manager service. Backends are identified by their ip addresses and have certificates assigned to them for mutual TLS connections with manager.
+The backends service connects to the computations service and receives run requests from computations service which it forwards to the Confidential Virtual Machines. Backends are identified by their flavors, i.e., GCP, Azure, Manager, or User created, and any VMs created on the backends are identified by their ip addresses and have certificates assigned to them for mutual TLS connections with prism.
 
 ### Certs
 

@@ -22,7 +22,7 @@ Before computations can be executed, a CVM must be created and properly configur
 
   - **During boot, Manager ensures system integrity using remote attestation**. The **AMD Secure Processor (AMD SP) measures the VM’s contents and includes the hash in the attestation report**. Since **SEV alone only measures the OVMF firmware**, Manager extends attestation by embedding **hashes of vmlinuz and initramfs inside OVMF**. At boot, **OVMF verifies these hashes before loading the kernel and file system into memory**, ensuring that only the expected and trusted software stack executes.
 
-  - **Manager provisions a 10 GB disk image**, **virtualized networking via Virtio-Net PCI**, and **vsock support (Guest CID: 3)** for secure host-guest communication. Running **headlessly without a graphical interface**, it prioritizes **performance, security, and scalability** for confidential computing workloads.
+  - More information on manager can be found on [manager docs](https://docs.cocos.ultraviolet.rs/manager).
 
 ---
 

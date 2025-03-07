@@ -131,11 +131,9 @@ For the UI click enter to log in to workspace with will bring you to the dashboa
 
 ## CVMs
 
-For CVMs management, on the backends microservice. This service runs on port `9011`.
-
 ### Creating a CVM
 
-CVMs are used to run computations. We need to create one and start it before we are able to create and run a computation.
+CVMs are used to run computations. We need to create one and start it before we are able to run a computation.
 
 ![Create CVM](img/ui/new_cvm.png)
 
@@ -164,7 +162,8 @@ Content-Length: 0
 
 ### Issuing a Certificate
 
-CVMs connect via gRPC secured with mTLS. For this we will issue a certificate from certs service.
+CVMs connect via gRPC secured with mTLS. Certificates are issued at CVM creation. 
+When needed new certificates can be issued.
 
 ![Issue Certificate](img/ui/issue_cert.png)
 

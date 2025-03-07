@@ -11,8 +11,8 @@ The dashboard can be found at [https://prism.ultraviolet.rs](https://prism.ultra
 2. Computation Summary and Status Tracking
    An important feature of the dashboard is the computation summary graph, which tracks the lifecycle of computations executed within the workspace. This graph provides both a historical overview of computations and highlights their final statuses, such as completed, failed, or in progress. This summary enables users to quickly gauge the overall performance and success rates of the system's computational tasks.
 
-3. Backend Operational Trends
-   The dashboard includes a detailed time-series chart that analyzes backend performance. This chart displays the operational periods of the backends, showing when they were active and when they were shut down. By highlighting these trends, users can identify patterns, such as peak operational times or recurring downtime, and take proactive measures to optimize backend availability.
+3. CVM Operational Trends
+   The dashboard includes a detailed time-series chart that analyzes CVM performance. This chart displays the operational periods of the CVMs, showing when they were active and when they were shut down. By highlighting these trends, users can identify patterns, such as peak operational times or recurring downtime, and take proactive measures to optimize CVM availability.
 
 With these metrics, the dashboard enables workspace health monitoring, identifying trends, and making informed decisions efficiently.
 

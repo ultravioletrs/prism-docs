@@ -22,6 +22,8 @@ Before computations can be executed, a CVM must be created and properly configur
 
   - **During boot, Manager ensures system integrity using remote attestation**. The **AMD Secure Processor (AMD SP) measures the VM’s contents and includes the hash in the attestation report**. Since **SEV alone only measures the OVMF firmware**, Manager extends attestation by embedding **hashes of vmlinuz and initramfs inside OVMF**. At boot, **OVMF verifies these hashes before loading the kernel and file system into memory**, ensuring that only the expected and trusted software stack executes.
 
+  - **Manager includes a virtual TPM (vTPM) within the CVM, measured and attested by AMD SEV-SNP**. After boot, the vTPM functions as a standard TPM, measuring the boot process, including the kernel and initial file system, to ensure system integrity.
+
   - More information on manager can be found on [manager docs](https://docs.cocos.ultraviolet.rs/manager).
 
 ---

@@ -162,7 +162,7 @@ Content-Length: 0
 
 ### Issuing a Certificate
 
-CVMs connect via gRPC secured with mTLS. Certificates are issued at CVM creation. 
+CVMs connect via gRPC secured with mTLS. Certificates are issued at CVM creation.
 When needed new certificates can be issued.
 
 ![Issue Certificate](img/ui/issue_cert.png)

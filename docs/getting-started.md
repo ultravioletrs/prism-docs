@@ -311,7 +311,16 @@ Content-Length: 0
 ```
 
 ![New computation](img/ui/new_computation.png)
-Before running a computation, user roles in the computation need to be assigned and the all the required assets created and linked to the computation.
+Running a computation requires the following items:
+
+| Item              | User     | User Role          | Computation Asset | Additional Information                                                         |
+|:------------------|:---------|:-------------------|:------------------|:-------------------------------------------------------------------------------|
+| Algorithm         | Required | Algorithm Provider | Algorithm         | Algorithms are required because they will be executed in TEE                   |
+| Dataset           | Optional | Dataset Provider   | Dataset           | Datasets are optional because som algorithms do not require training datasets  |
+
+Users invited to a workspace need to be assigned user roles in the computation.
+They also need to create and link all the required assets to the computation.
+These steps have been explained in the sections below.
 
 ### Assigning Computation Roles and Permissions
 

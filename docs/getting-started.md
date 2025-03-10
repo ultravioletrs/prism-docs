@@ -313,13 +313,21 @@ Content-Length: 0
 ![New computation](img/ui/new_computation.png)
 Running a computation requires the following items:
 
-| Item              | User     | User Role          | Computation Asset | Additional Information                                                          |
-|:------------------|:---------|:-------------------|:------------------|:--------------------------------------------------------------------------------|
-| Algorithm         | Required | Algorithm Provider | Algorithm         | Algorithms are required because they will be executed in TEE.                   |
-| Dataset           | Optional | Dataset Provider   | Dataset           | Datasets are optional because some algorithms do not require training datasets. |
+| Item            | User     | User Role          | Computation Asset | Public Key  | Additional Information                                                                                               |
+|:----------------|:---------|:-------------------|:------------------|:------------|:---------------------------------------------------------------------------------------------------------------------|
+| Algorithm       | Required | Algorithm Provider | Algorithm         | Required    | Algorithms are required because they will be executed in TEE.                                                        |
+| Dataset         | Optional | Dataset Provider   | Dataset           | Required    | Datasets are optional because some algorithms do not require training datasets.                                      |
+| Result Consumer | Require  | Result Consumer    | -                 | Required    | Result consumers are required because they are the users that can retrieve results after successful computation run. |
 
-Users invited to a workspace need to be assigned user roles in the computation.
-These users also need to create and link all the required assets to the computation.
+Public keys are mandatory because they are needed for user identification when uploading algorithm and datasets and when retrieving results. Therefore, users need to generate public/private key pairs and upload their public keys.
+
+Users invited to a workspace:
+
+1. need to be assigned user roles in the computation by the computation owner or admin.
+2. need to create computation assets respective to their roles i.e. an algorithm provider needs to create an algorithm asset.
+3. need to link all the required assets to the computation.
+4. need to their private key for uploading assets and retrieving results.
+
 These steps have been explained in the sections below.
 
 ### Assigning Computation Roles and Permissions

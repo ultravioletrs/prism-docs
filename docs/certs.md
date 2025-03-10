@@ -1,6 +1,6 @@
 # Certs Service
 
-The certs service is a certificate authority used to issue certs related to backends service for mutual TLS purposes. The certs service provides the ability to issue, renew, revoke and download certificates.
+The certs service is a certificate authority used to issue certs related to CVMs service for mutual TLS purposes. The certs service provides the ability to issue, renew, revoke and download certificates.
 
 ## Issue a Certificate
 
@@ -102,7 +102,7 @@ Content-Length: 0
 
 ## Revoke Certificate
 
-Certificates can be revoked, which means they can no longer be used for connecting to backends service. Revoked certificates cannot be renewed.
+Certificates can be revoked, which means they can no longer be used for connecting to CVMs service. Revoked certificates cannot be renewed.
 
 ![Renew Certificate](img/ui/revoke.png)
 

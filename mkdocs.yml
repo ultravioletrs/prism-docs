@@ -28,7 +28,6 @@ nav:
   - Users: users.md
   - Workspaces: workspaces.md
   - Certs: certs.md
-  - Backends: backends.md
   - Algorithms: algorithms.md
   - Dashboard: dashboard.md
   - CVMs: cvms.md

@@ -55,58 +55,58 @@ The system supports four TLS configuration modes:
 
 1. Attested TLS
 
-    - Basic TLS configuration with attestation verification during the TLS handshake.
-    - No additional certificate or key files required.
-    - Suitable for environments requiring basic secure communication.
+   - Basic TLS configuration with attestation verification during the TLS handshake.
+   - No additional certificate or key files required.
+   - Suitable for environments requiring basic secure communication.
 
 2. Mutual TLS
 
-    - Requires bi-directional authentication
-    - Required files:
-        - Key File
-        - Certificate File
-        - Server CA File
-        - Client CA File
-    - Provides highest level of security with mutual authentication
+   - Requires bi-directional authentication
+   - Required files:
+     - Key File
+     - Certificate File
+     - Server CA File
+     - Client CA File
+   - Provides highest level of security with mutual authentication
 
 3. TLS
 
-    - Standard TLS configuration
-    - Required files:
-        - Key File
-        - Certificate File
-    - Suitable for environments requiring encrypted communication without mutual authentication
+   - Standard TLS configuration
+   - Required files:
+     - Key File
+     - Certificate File
+   - Suitable for environments requiring encrypted communication without mutual authentication
 
 4. No TLS
 
-    - Disables TLS security
-    - No additional configuration required
-    - Should only be used in secure, isolated environments
-    - Not recommended for production deployments
+   - Disables TLS security
+   - No additional configuration required
+   - Should only be used in secure, isolated environments
+   - Not recommended for production deployments
 
 #### Log Level Configuration
 
 - **Info**: Standard logging level for general operational information
 
-    - Logs important events and milestones
-    - Recommended for normal operation
-    - Provides good balance of information without excessive detail
+  - Logs important events and milestones
+  - Recommended for normal operation
+  - Provides good balance of information without excessive detail
 
 - **Debug**: Detailed logging for troubleshooting
 
-    - Includes extensive operation details
-    - Useful during development and debugging
-    - May impact performance
+  - Includes extensive operation details
+  - Useful during development and debugging
+  - May impact performance
 
 - **Warn**: Warning-level messages only
 
-    - Logs potentially harmful situations
-    - Does not log normal operational information
-    - Useful for monitoring potential issues
+  - Logs potentially harmful situations
+  - Does not log normal operational information
+  - Useful for monitoring potential issues
 
 - **Error**: Critical issues only
-    - Logs only error conditions
-    - May miss important operational information
+  - Logs only error conditions
+  - May miss important operational information
 
 ##### Best practices for log levels
 
@@ -148,8 +148,8 @@ The system supports four TLS configuration modes:
 2. Select appropriate TLS Configuration mode
 3. Set desired Log Level based on operational requirements
 4. For Mutual TLS or TLS modes:
-    - Upload required certificate and key files
-    - Verify file formats and permissions
+   - Upload required certificate and key files
+   - Verify file formats and permissions
 5. Click "Close" to save configuration
 
 #### Troubleshooting

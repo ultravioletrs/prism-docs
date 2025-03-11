@@ -62,16 +62,20 @@ const config: Config = {
             },
             items: [
                 {
-                    type: 'docSidebar',
-                    sidebarId: 'tutorialSidebar',
-                    position: 'left',
-                    label: 'Docs',
+                    href: 'https://ultraviolet.rs/prism.html',
+                    position: 'right',
+                    label: 'Product',
+                },
+                {
+                    href: 'https://medium.com/ultraviolet-blog',
+                    label: 'Blogs',
+                    position: 'right',
                 },
                 {
                     href: 'https://github.com/ultravioletrs/prism',
                     label: 'GitHub',
                     position: 'right',
-                },
+                }
             ],
         },
         footer: {
@@ -82,7 +86,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'Docs',
-                            to: '/intro',
+                            to: '/',
                         },
                     ],
                 },
@@ -92,6 +96,10 @@ const config: Config = {
                         {
                             label: 'X',
                             href: 'https://x.com/ultravioletrs',
+                        },
+                        {
+                            label: 'Medium',
+                            href: 'https://medium.com/ultraviolet-blog',
                         },
                     ],
                 },
@@ -105,7 +113,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} Prism ai, Inc. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} Prism AI, Inc. Built with Docusaurus.`,
         },
         prism: {
             theme: prismThemes.github,

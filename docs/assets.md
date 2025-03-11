@@ -1,4 +1,4 @@
-# Computation Assets
+# Computation Assets Overview
 
 Computation assets on Prism provide a convenient way to manage essential computational resources including datasets and algorithms. They can also be associated with or unlinked from a computation.
 

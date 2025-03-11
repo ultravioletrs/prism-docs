@@ -135,7 +135,7 @@ For the UI click enter to log in to workspace with will bring you to the dashboa
 
 CVMs are used to run computations. We need to create one and start it before we are able to run a computation.
 
-![Create CVM](img/ui/new_cvm.png)
+![Create CVM](../static/img/ui/new_cvm.png)
 
 Please wait as the cvm is being created.
 ![CVM_Creating](../static/img/ui/cvm_creating.png)
@@ -333,22 +333,22 @@ These steps have been explained in the sections below.
 ### Assigning Computation Roles and Permissions
 
 1. Navigate to the roles page from the computation details page.
-![Roles](img/ui/roles.png)
+![Roles](../static/img/ui/roles.png)
 
 2. Select a role to which you would like to add a user.
 Please note that this user needs to be invited to a workspace and to have accepted the invitation.
-![Roles](img/ui/view_role.png)
+![Roles](../static/img/ui/view_role.png)
 
 3. Switch to the members tab and click on the Add Members button.
-![Roles](img/ui/role_details.png)
+![Roles](../static/img/ui/role_details.png)
 
 4. Search for the user you'd like to assign a role.
 
 5. Select the user from the list and click on Add Selected Members button.
-![Roles](img/ui/add_user_to_role.png)
+![Roles](../static/img/ui/add_user_to_role.png)
 
 6. Upon successful role assignment, the user will appear on the role details page.
-![Roles](img/ui/assigned_user_role.png)
+![Roles](../static/img/ui/assigned_user_role.png)
 
 ### Linking Computation Assets
 
@@ -356,13 +356,13 @@ The assigned users from the previous step need to create and link their respecti
 This can be done as follows:
 
 1. Navigate to assets page and create a new asset.
-![Roles](img/ui/new_asset.png)
+![Roles](../static/img/ui/new_asset.png)
 
 2. A successfully created asset will appear in the assets page.
-![Roles](img/ui/user_assets.png)
+![Roles](../static/img/ui/user_assets.png)
 
 3. Search for the computation by name and link the asset.
-![Roles](img/ui/associate_user_asset.png)
+![Roles](../static/img/ui/associate_user_asset.png)
 
 4. Repeat the steps for all the assets that are needed to run the computation.
 
@@ -390,7 +390,7 @@ Once the requirements are satisfied, run computation button is enabled.
 ![Run computation](../static/img/ui/run_computation.png)
 
 Once you click run computation, you will be required to select a CVM on which to run the computation:
-![Select CVM](img/ui/select_cvm.png)
+![Select CVM](../static/img/ui/select_cvm.png)
 
 This will result in events and logs from agent and manager visible on the ui.
 ![Events and Logs](../static/img/ui/logsEvents.png)

@@ -255,7 +255,7 @@ For TLS connection:
 3. CLI verifies that certificate.
 4. CLI sends data to the Agent in an encrypted communication channel.
 
-![tls_illustration](./img/ui/tls.png)
+![tls_illustration](../static/img/ui/tls.png)
 
 For MTLS connection:
 
@@ -266,7 +266,7 @@ For MTLS connection:
 5. Agent verifies that certificate and allows the CLI to send requests.
 6. CLI sends data to the Agent in an encrypted communication channel.
 
-![mtls_illustration info](./img/ui/mtls.png)
+![mtls_illustration info](../static/img/ui/mtls.png)
 
 To generate your own certificates for configuring either of the modes:
 
@@ -328,14 +328,14 @@ To configure TLS for agent on the ui:
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select the TLS option from the TLS Configuration drop down.
 
-![TLS Agent Config](./img/ui/tlsconfig.png)
+![TLS Agent Config](../static/img/ui/tlsconfig.png)
 
 To configure mTLS for agent on the ui:
 
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select the mTLS option from the TLS Configuration drop down.
 
-![mTLS Agent Config](./img/ui/mtlsconfig.png)
+![mTLS Agent Config](../static/img/ui/mtlsconfig.png)
 
 To connect cli to agent, we need to configure the env variables on cli.
 

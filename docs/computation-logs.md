@@ -1,4 +1,4 @@
-# Logging and Monitoring
+# Computation Logging and Monitoring
 
 Monitoring and reviewing logs and events is crucial for understanding the flow, tracking performance, and diagnosing potential issues during a computation run.
 

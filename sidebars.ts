@@ -19,8 +19,8 @@ const sidebars: SidebarsConfig = {
 
     tutorialSidebar: [
         'intro',
-        'getting-started',
         'architecture',
+        'getting-started',
         'access-control',
         'dashboard',
         'workspaces',

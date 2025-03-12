@@ -1,19 +1,20 @@
+import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
-import { JSX } from 'react';
+
 
 type FeatureItem = {
     title: string;
     Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-    description: JSX.Element;
+    description: ReactNode;
 };
 
 
 const FeatureList: FeatureItem[] = [
     {
         title: 'Secure Collaboration',
-        Svg: require('@site/static/img/smpc.svg').default,
+        Svg: require('@site/static/img/placeholder.svg').default,
         description: (
             <>
                 Allows multiple parties to collaboratively process data without exposing sensitive information. Powered by Trusted Execution Environments (TEEs), our platform ensures the confidentiality and privacy of your data exchanges and AI workloads.
@@ -22,7 +23,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Secure VM Provisioning and Management',
-        Svg: require('@site/static/img/provision.svg').default,
+        Svg: require('@site/static/img/placeholder.svg').default,
         description: (
             <>
                 Uses Trusted Execution Environments (TEEs) for secure workloads.
@@ -31,7 +32,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Fine-Grained Access Control',
-        Svg: require('@site/static/img/rats.svg').default,
+        Svg: require('@site/static/img/placeholder.svg').default,
         description: (
             <>
                 Allows precise management of user and data permissions.
@@ -40,7 +41,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'End-to-End Encryption',
-        Svg: require('@site/static/img/rats.svg').default,
+        Svg: require('@site/static/img/placeholder.svg').default,
         description: (
             <>
                 Ensures data privacy from input to output.
@@ -49,7 +50,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Support for Multiple Backends',
-        Svg: require('@site/static/img/rats.svg').default,
+        Svg: require('@site/static/img/placeholder.svg').default,
         description: (
             <>
                 Integrates with various computational backends.
@@ -58,7 +59,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'User-Friendly Interface',
-        Svg: require('@site/static/img/rats.svg').default,
+        Svg: require('@site/static/img/placeholder.svg').default,
         description: (
             <>
                 Simplifies complex AI workflow management.
@@ -67,7 +68,7 @@ const FeatureList: FeatureItem[] = [
     },
     {
         title: 'Logging and Monitoring',
-        Svg: require('@site/static/img/rats.svg').default,
+        Svg: require('@site/static/img/placeholder.svg').default,
         description: (
             <>
                 Provides comprehensive tracking and auditing capabilities.
@@ -90,7 +91,7 @@ function Feature({title, Svg, description}: FeatureItem) {
     );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): ReactNode {
     return (
         <section className={styles.features}>
             <div className="container">

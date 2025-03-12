@@ -22,13 +22,13 @@ Here’s an enhanced version of your Role Management documentation with addition
 
 ### Overview
 
-Role management is a critical component of access control in computations. Each role defines a set of actions a user is permitted to perform, ensuring that users have only the necessary permissions for their responsibilities.
+Role management is a critical component of access control in computations. Each role defines a set of actions a user is permitted to perform, ensuring that users have only the necessary actions for their responsibilities.
 
-A key constraint in the role system is that **a user can only belong to a single role at a time**. If multiple permissions from different roles are required (e.g., both **AlgorithmProvider** and **DatasetProvider**), a **new custom role** must be created with those combined actions.
+A key constraint in the role system is that **a user can only belong to a single role at a time**. If multiple actions from different roles are required (e.g., both **AlgorithmProvider** and **DatasetProvider**), a **[new custom role](#Creating a Role)** must be created with those combined actions.
 
 ### Role Purpose in Computation Manifest
 
-Roles are essential in governing who can interact with a computation and how. In the computation manifest, assigned roles determine access to various resources, such as datasets, algorithms, and execution permissions. Each role is mapped to a set of predefined actions that enforce security and operational boundaries within a computation.
+Roles are essential in governing who can interact with a computation and how. In the computation manifest, assigned roles determine access to various resources, such as datasets, algorithms, and execution actions. Each role is mapped to a set of predefined actions that enforce security and operational boundaries within a computation.
 
 ### Accessing Role Management
 
@@ -49,15 +49,15 @@ Clicking the **Roles** button will display all predefined built-in roles and the
 
 The system provides predefined **built-in roles**, each granting specific access levels. The available built-in roles and their associated actions are:
 
-| Built-in Role         | Actions                        | Description                                                                   |
-| --------------------- | ------------------------------ | ----------------------------------------------------------------------------- |
-| **Owner**             | view, edit, run, administrator | Full control over the computation, including modifying roles and permissions. |
-| **AlgorithmProvider** | view, algo_provider            | Provides algorithms but cannot edit or run computations.                      |
-| **DatasetProvider**   | view, dataset_provider         | Provides datasets but cannot edit or execute computations.                    |
-| **ResultConsumer**    | view, result_consumer          | Can view results but cannot modify or execute computations.                   |
-| **Viewer**            | view                           | Read-only access.                                                             |
-| **Editor**            | view, edit                     | Can modify computations but cannot execute them.                              |
-| **Runner**            | view, run                      | Can execute computations but cannot modify them.                              |
+| Built-in Role         | Actions                        | Description                                                               |
+| --------------------- | ------------------------------ | ------------------------------------------------------------------------- |
+| **Owner**             | view, edit, run, administrator | Full control over the computation, including modifying roles and actions. |
+| **AlgorithmProvider** | view, algo_provider            | Provides algorithms but cannot edit or run computations.                  |
+| **DatasetProvider**   | view, dataset_provider         | Provides datasets but cannot edit or execute computations.                |
+| **ResultConsumer**    | view, result_consumer          | Can view results but cannot modify or execute computations.               |
+| **Viewer**            | view                           | Read-only access.                                                         |
+| **Editor**            | view, edit                     | Can modify computations but cannot execute them.                          |
+| **Runner**            | view, run                      | Can execute computations but cannot modify them.                          |
 
 ### Explanation of Actions
 
@@ -75,7 +75,7 @@ Each action in a role defines what the user can do:
 
 ### Creating a Role
 
-If a user needs permissions that are not covered by a built-in role, a **custom role** must be created.
+If a user needs actions that are not covered by a built-in role, a **custom role** must be created.
 
 1. Click the **Create Role** button.
 2. Define the role name and select the required actions.
@@ -85,7 +85,7 @@ If a user needs permissions that are not covered by a built-in role, a **custom 
 
 ### Updating a Role
 
-Existing roles can be modified if permissions need to be adjusted.
+Existing roles can be modified if actions need to be adjusted.
 
 1. Click the **Update Role** button next to the role.
 2. Modify the role’s name or actions.
@@ -96,13 +96,13 @@ Existing roles can be modified if permissions need to be adjusted.
 
 ### Viewing Role Details
 
-To see details about a role, including its assigned permissions and members, click the **View Role** button.
+To see details about a role, including its assigned actions and members, click the **View Role** button.
 
 ![View Role](img/roles/view_role_button.png)
 
 This will display:
 
-- **Role Actions** – The permissions assigned to the role.
+- **Role Actions** – The actions assigned to the role.
 - **Role Members** – A list of users assigned to this role.
 
 ![Role Actions](img/roles/role_actions.png)  

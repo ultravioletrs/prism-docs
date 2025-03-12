@@ -75,9 +75,9 @@ curl -L -X GET https://prism.ultraviolet.rs/certs/757091559061627849116835145789
 
 On the UI we'll click on request download button, followed by download certs to obtain the certs.
 
-![Request Download](../static/img/ui/request%20download.png)
+![Request Download](../static/img/ui/request_cert.png)
 
-![Download Certificate](../static/img/ui/download%20cert.png)
+![Download Certificate](../static/img/ui/download_cert.png)
 
 This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
 

@@ -18,7 +18,7 @@ EOF
 ```
 
 On the ui this can be done on this page as shown here
-![Create computation](../static/img/ui/new%20computation.png)
+![Create computation](../static/img/ui/new_computation.png)
 
 Example:
 

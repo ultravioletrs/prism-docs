@@ -25,7 +25,7 @@ const sidebars: SidebarsConfig = {
         'dashboard',
         'workspaces',
         'users',
-        'backends',
+        'cvms',
         'computations',
         'assets',
         'algorithms',

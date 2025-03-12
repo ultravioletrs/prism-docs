@@ -22,7 +22,7 @@ nav:
   - Getting Started: getting-started.md
   - Access Control: access-control.md
   - Computations: computations.md
-  - Computation Policies: policies.md
+  - Computation Roles: roles.md
   - Assets: assets.md
   - Computation Logs: computation-logs.md
   - Users: users.md

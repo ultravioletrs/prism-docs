@@ -24,7 +24,9 @@ Here’s an enhanced version of your Role Management documentation with addition
 
 Role management is a critical component of access control in computations. Each role defines a set of actions a user is permitted to perform, ensuring that users have only the necessary actions for their responsibilities.
 
-A key constraint in the role system is that **a user can only belong to a single role at a time**. If multiple actions from different roles are required (e.g., both **AlgorithmProvider** and **DatasetProvider**), a **[new custom role](#Creating a Role)** must be created with those combined actions.
+A key constraint in the role system is that **a user can only belong to a single role at a time**. If multiple actions from different roles are required (e.g., both **algo_provider** and **dataset_provider**), an existing builtin role can be updated to include these actions, or a **[new custom role](#Creating a Role)** can be created with those combined actions.
+
+Builtin roles provide the most basic roles with single actions that can be updated or added depending on the user's requirements.
 
 ### Role Purpose in Computation Manifest
 
@@ -75,7 +77,7 @@ Each action in a role defines what the user can do:
 
 ### Creating a Role
 
-If a user needs actions that are not covered by a built-in role, a **custom role** must be created.
+To create a role, the following steps can be followed.
 
 1. Click the **Create Role** button.
 2. Define the role name and select the required actions.

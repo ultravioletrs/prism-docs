@@ -29,7 +29,6 @@ const sidebars: SidebarsConfig = {
         'computations',
         'assets',
         'algorithms',
-        'policies',
         'certs',
         'computation-logs',
     ],

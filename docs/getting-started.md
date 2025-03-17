@@ -313,11 +313,11 @@ Content-Length: 0
 ![New computation](img/ui/new_computation.png)
 Running a computation requires the following items:
 
-| Item            | User     | User Role          | Computation Asset | Public Key  | Additional Information                                                                                               |
-|:----------------|:---------|:-------------------|:------------------|:------------|:---------------------------------------------------------------------------------------------------------------------|
-| Algorithm       | Required | Algorithm Provider | Algorithm         | Required    | Algorithms are required because they will be executed in TEE.                                                        |
-| Dataset         | Optional | Dataset Provider   | Dataset           | Required    | Datasets are optional because some algorithms do not require training datasets.                                      |
-| Result Consumer | Require  | Result Consumer    | -                 | Required    | Result consumers are required because they are the users that can retrieve results after successful computation run. |
+| Item            | User     | User Role          | Computation Asset | Public Key | Additional Information                                                                                               |
+| :-------------- | :------- | :----------------- | :---------------- | :--------- | :------------------------------------------------------------------------------------------------------------------- |
+| Algorithm       | Required | Algorithm Provider | Algorithm         | Required   | Algorithms are required because they will be executed in TEE.                                                        |
+| Dataset         | Optional | Dataset Provider   | Dataset           | Required   | Datasets are optional because some algorithms do not require training datasets.                                      |
+| Result Consumer | Require  | Result Consumer    | -                 | Required   | Result consumers are required because they are the users that can retrieve results after successful computation run. |
 
 Public keys are mandatory because they are needed for user identification when uploading algorithm and datasets and when retrieving results. Therefore, users need to generate public/private key pairs and upload their public keys.
 
@@ -333,22 +333,22 @@ These steps have been explained in the sections below.
 ### Assigning Computation Roles and Permissions
 
 1. Navigate to the roles page from the computation details page.
-![Roles](img/ui/roles.png)
+   ![Roles](img/ui/roles.png)
 
 2. Select a role to which you would like to add a user.
-Please note that this user needs to be invited to a workspace and to have accepted the invitation.
-![Roles](img/ui/view_role.png)
+   Please note that this user needs to be invited to a workspace and to have accepted the invitation.
+   ![Roles](img/ui/view_role.png)
 
 3. Switch to the members tab and click on the Add Members button.
-![Roles](img/ui/role_details.png)
+   ![Roles](img/ui/role_details.png)
 
 4. Search for the user you'd like to assign a role.
 
 5. Select the user from the list and click on Add Selected Members button.
-![Roles](img/ui/add_user_to_role.png)
+   ![Roles](img/ui/add_user_to_role.png)
 
 6. Upon successful role assignment, the user will appear on the role details page.
-![Roles](img/ui/assigned_user_role.png)
+   ![Roles](img/ui/assigned_user_role.png)
 
 ### Linking Computation Assets
 
@@ -356,13 +356,13 @@ The assigned users from the previous step need to create and link their respecti
 This can be done as follows:
 
 1. Navigate to assets page and create a new asset.
-![Roles](img/ui/new_asset.png)
+   ![Roles](img/ui/new_asset.png)
 
 2. A successfully created asset will appear in the assets page.
-![Roles](img/ui/user_assets.png)
+   ![Roles](img/ui/user_assets.png)
 
 3. Search for the computation by name and link the asset.
-![Roles](img/ui/associate_user_asset.png)
+   ![Roles](img/ui/associate_user_asset.png)
 
 4. Repeat the steps for all the assets that are needed to run the computation.
 

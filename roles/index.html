@@ -1,0 +1,1110 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Prism Platform">
+      
+      
+      
+        <link rel="canonical" href="https://docs.prism.ultraviolet.rs/roles/">
+      
+      
+        <link rel="prev" href="../computations/">
+      
+      
+        <link rel="next" href="../assets/">
+      
+      
+      <link rel="icon" href="../img/Prism_logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Computation Roles - Prism Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#roles" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Prism Docs" class="md-header__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prism Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Computation Roles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Prism Docs" class="md-nav__button md-logo" aria-label="Prism Docs" data-md-component="logo">
+      
+  <img src="../img/Prism_logo.png" alt="logo">
+
+    </a>
+    Prism Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ultravioletrs/prism" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Computation Roles
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Computation Roles
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#computation-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Role Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-purpose-in-computation-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role Purpose in Computation Manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-role-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Role Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-roles-and-their-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Roles and Their Actions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating a Role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-role-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Role Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-users-in-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Users in Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Users in Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-user-to-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a User to a Role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-a-user-from-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing a User from a Role
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting a Role
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computation-logs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computation Logs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workspaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Certs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cvms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CVMs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#computation-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Role Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-purpose-in-computation-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role Purpose in Computation Manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-role-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Role Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-roles-and-their-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Roles and Their Actions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating a Role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-role-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Role Details
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-users-in-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Users in Roles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Users in Roles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-user-to-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a User to a Role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-a-user-from-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing a User from a Role
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting a Role
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">#</a></h1>
+<h2 id="computation-roles">Computation Roles<a class="headerlink" href="#computation-roles" title="Permanent link">#</a></h2>
+<p>Computation roles are used to manage user actions to a computation. On service start, builtin roles are created with their associated actions which can be assigned to a user on a particular computation. These builtin roles can be updated, deleted, and new ones added.</p>
+<p>The following builtin roles are created on service initialization:</p>
+<table>
+<thead>
+<tr>
+<th>Built-in Role</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Owner</td>
+<td>view, edit, run, administrator</td>
+</tr>
+<tr>
+<td>AlgorithmProvider</td>
+<td>view, algo_provider</td>
+</tr>
+<tr>
+<td>DatasetProvider</td>
+<td>view, dataset_provider</td>
+</tr>
+<tr>
+<td>ResultConsumer</td>
+<td>view, result_consumer</td>
+</tr>
+<tr>
+<td>Viewer</td>
+<td>view</td>
+</tr>
+<tr>
+<td>Editor</td>
+<td>view, edit</td>
+</tr>
+<tr>
+<td>Runner</td>
+<td>view, run</td>
+</tr>
+</tbody>
+</table>
+<p>Here’s an enhanced version of your Role Management documentation with additional explanations and clarity:</p>
+<h2 id="role-management">Role Management<a class="headerlink" href="#role-management" title="Permanent link">#</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h3>
+<p>Role management is a critical component of access control in computations. Each role defines a set of actions a user is permitted to perform, ensuring that users have only the necessary actions for their responsibilities.</p>
+<p>A key constraint in the role system is that <strong>a user can only belong to a single role at a time</strong>. If multiple actions from different roles are required (e.g., both <strong>algo_provider</strong> and <strong>dataset_provider</strong>), an existing builtin role can be updated to include these actions, or a <strong><a href="#Creating a Role">new custom role</a></strong> can be created with those combined actions.</p>
+<p>Builtin roles provide the most basic roles with single actions that can be updated or added depending on the user's requirements.</p>
+<h3 id="role-purpose-in-computation-manifest">Role Purpose in Computation Manifest<a class="headerlink" href="#role-purpose-in-computation-manifest" title="Permanent link">#</a></h3>
+<p>Roles are essential in governing who can interact with a computation and how. In the computation manifest, assigned roles determine access to various resources, such as datasets, algorithms, and execution actions. Each role is mapped to a set of predefined actions that enforce security and operational boundaries within a computation.</p>
+<h3 id="accessing-role-management">Accessing Role Management<a class="headerlink" href="#accessing-role-management" title="Permanent link">#</a></h3>
+<p>To manage roles, follow these steps:</p>
+<ol>
+<li>Navigate to the <strong>Computations</strong> page.</li>
+<li>Click the <strong>New Computation</strong> button to create a computation.</li>
+<li>After creation, open the computation's <strong>Details</strong> page.</li>
+<li>Click the <strong>Roles</strong> button to manage user roles.</li>
+</ol>
+<p><img alt="Access Roles" src="../img/roles/roles_page.png" /></p>
+<p>Clicking the <strong>Roles</strong> button will display all predefined built-in roles and their associated actions.</p>
+<p><img alt="Built-in Roles" src="../img/roles/builtin.png" /></p>
+<h3 id="built-in-roles-and-their-actions">Built-in Roles and Their Actions<a class="headerlink" href="#built-in-roles-and-their-actions" title="Permanent link">#</a></h3>
+<p>The system provides predefined <strong>built-in roles</strong>, each granting specific access levels. The available built-in roles and their associated actions are:</p>
+<table>
+<thead>
+<tr>
+<th>Built-in Role</th>
+<th>Actions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Owner</strong></td>
+<td>view, edit, run, administrator</td>
+<td>Full control over the computation, including modifying roles and actions.</td>
+</tr>
+<tr>
+<td><strong>AlgorithmProvider</strong></td>
+<td>view, algo_provider</td>
+<td>Provides algorithms but cannot edit or run computations.</td>
+</tr>
+<tr>
+<td><strong>DatasetProvider</strong></td>
+<td>view, dataset_provider</td>
+<td>Provides datasets but cannot edit or execute computations.</td>
+</tr>
+<tr>
+<td><strong>ResultConsumer</strong></td>
+<td>view, result_consumer</td>
+<td>Can view results but cannot modify or execute computations.</td>
+</tr>
+<tr>
+<td><strong>Viewer</strong></td>
+<td>view</td>
+<td>Read-only access.</td>
+</tr>
+<tr>
+<td><strong>Editor</strong></td>
+<td>view, edit</td>
+<td>Can modify computations but cannot execute them.</td>
+</tr>
+<tr>
+<td><strong>Runner</strong></td>
+<td>view, run</td>
+<td>Can execute computations but cannot modify them.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="explanation-of-actions">Explanation of Actions<a class="headerlink" href="#explanation-of-actions" title="Permanent link">#</a></h3>
+<p>Each action in a role defines what the user can do:</p>
+<ul>
+<li><strong>view</strong> – Allows the user to see computation details but not modify them.</li>
+<li><strong>edit</strong> – Grants the ability to modify computation properties.</li>
+<li><strong>run</strong> – Enables execution of a computation.</li>
+<li><strong>administrator</strong> – Provides full control, including role management.</li>
+<li><strong>algo_provider</strong> – Allows the user to contribute and manage algorithms.</li>
+<li><strong>dataset_provider</strong> – Allows the user to contribute and manage datasets.</li>
+<li><strong>result_consumer</strong> – Enables access to computation results.</li>
+</ul>
+<h2 id="managing-roles">Managing Roles<a class="headerlink" href="#managing-roles" title="Permanent link">#</a></h2>
+<h3 id="creating-a-role">Creating a Role<a class="headerlink" href="#creating-a-role" title="Permanent link">#</a></h3>
+<p>To create a role, the following steps can be followed.</p>
+<ol>
+<li>Click the <strong>Create Role</strong> button.</li>
+<li>Define the role name and select the required actions.</li>
+<li>Save the role to make it available for assignment.</li>
+</ol>
+<p><img alt="Create Role" src="../img/roles/create_role.png" /></p>
+<h3 id="updating-a-role">Updating a Role<a class="headerlink" href="#updating-a-role" title="Permanent link">#</a></h3>
+<p>Existing roles can be modified if actions need to be adjusted.</p>
+<ol>
+<li>Click the <strong>Update Role</strong> button next to the role.</li>
+<li>Modify the role’s name or actions.</li>
+<li>Save the changes to update the role.</li>
+</ol>
+<p><img alt="Update Role" src="../img/roles/update_role_button.png" /><br />
+<img alt="Update Role Modal" src="../img/roles/update_role_modal.png" /></p>
+<h3 id="viewing-role-details">Viewing Role Details<a class="headerlink" href="#viewing-role-details" title="Permanent link">#</a></h3>
+<p>To see details about a role, including its assigned actions and members, click the <strong>View Role</strong> button.</p>
+<p><img alt="View Role" src="../img/roles/view_role_button.png" /></p>
+<p>This will display:</p>
+<ul>
+<li><strong>Role Actions</strong> – The actions assigned to the role.</li>
+<li><strong>Role Members</strong> – A list of users assigned to this role.</li>
+</ul>
+<p><img alt="Role Actions" src="../img/roles/role_actions.png" /><br />
+<img alt="Role Members" src="../img/roles/role_members.png" /></p>
+<h2 id="managing-users-in-roles">Managing Users in Roles<a class="headerlink" href="#managing-users-in-roles" title="Permanent link">#</a></h2>
+<h3 id="adding-a-user-to-a-role">Adding a User to a Role<a class="headerlink" href="#adding-a-user-to-a-role" title="Permanent link">#</a></h3>
+<p>Since a user can only have one role at a time, ensure that the assigned role includes all necessary actions.</p>
+<ol>
+<li>Click the <strong>Add Members</strong> button.</li>
+<li>Select users to assign to the role.</li>
+<li>Confirm the selection.</li>
+</ol>
+<p><img alt="Add Members" src="../img/roles/add_members_button.png" /><br />
+<img alt="Select Members" src="../img/roles/select_members_button.png" /></p>
+<h3 id="removing-a-user-from-a-role">Removing a User from a Role<a class="headerlink" href="#removing-a-user-from-a-role" title="Permanent link">#</a></h3>
+<p>To revoke access, remove a user from a role:</p>
+<ol>
+<li>Navigate to the role’s details page.</li>
+<li>Locate the user in the <strong>Role Members</strong> section.</li>
+<li>Click the <strong>Remove</strong> button.</li>
+</ol>
+<p><img alt="Remove User" src="../img/roles/remove_member_from_role.png" /></p>
+<h2 id="deleting-a-role">Deleting a Role<a class="headerlink" href="#deleting-a-role" title="Permanent link">#</a></h2>
+<p>Roles that are no longer needed can be removed. <strong>Note:</strong> Deleting a role will revoke access for all assigned users.</p>
+<ol>
+<li>Click the <strong>Delete Role</strong> button next to the role.</li>
+<li>Confirm the deletion.</li>
+</ol>
+<p><img alt="Delete Role" src="../img/roles/delete_role.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) Ultraviolet
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -15,7 +15,7 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 | Invitations    | Manages user inivations to access workspaces.                                                             |
 | User Interface | Provides an web interface to provide platform access over a visual interface.                             |
 
-![Architecture](img/arch.drawio.png)
+![Architecture](../static/img/arch.drawio.png)
 
 ### Users
 

@@ -16,4 +16,4 @@ The dashboard can be found at [https://prism.ultraviolet.rs](https://prism.ultra
 
 With these metrics, the dashboard enables workspace health monitoring, identifying trends, and making informed decisions efficiently.
 
-![dashboard](img/ui/dashboard.png)
+![dashboard](../static/img/ui/dashboard.png)

@@ -4,10 +4,10 @@ const navigationLinks = [
   { label: "Features", href: "/#features" },
   { label: "Solutions", href: "/#use-cases" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "Docs", href: "/docs" },
+  { label: "Docs", href: "/docs/intro" },
   {
     label: "Blog",
-    href: "https://medium.com/abstract-machines-blog",
+    href: "https://medium.com/ultraviolet-blog",
   },
 ];
 
@@ -31,30 +31,30 @@ export const HeaderData = {
 export const FooterData = {
   companyInfo: {
     logo: logo,
-    name: "Magistrala",
+    name: "Prism AI",
     description:
-      "Connecting devices, sharing data, and visualizing insights with our powerful IoT platform built for the future.",
+      "Secure, Collaborative AI for Confidential Workloads.",
   },
   quickLinks: navigationLinks,
   socialLinks: [
     {
       platform: "Twitter",
       icon: "Twitter",
-      href: "https://twitter.com/absmach",
+      href: "https://twitter.com/ultravioletrs",
     },
     {
       platform: "LinkedIn",
       icon: "Linkedin",
-      href: "https://www.linkedin.com/company/abstract-machines",
+      href: "https://www.linkedin.com/company/ultravioletrs",
     },
     {
       platform: "GitHub",
       icon: "Github",
-      href: "https://github.com/absmach/magistrala",
+      href: "https://github.com/ultravioletrs/cocos",
     },
   ],
   contact: {
-    email: "info@abstractmachines.fr",
+    email: "info@ultraviolet.rs",
   },
   newsletter: {
     title: "Newsletter",
@@ -73,9 +73,9 @@ export const FooterData = {
 };
 
 export const HeroData = {
-  title1: "Reliable and Secure Infrastructure for the Cloud-Edge Continuum",
+  title1: "Secure, Collaborative AI for Confidential Workloads",
   subtitle:
-    "Magistrala creates a platform to connect and manage devices and applications across the cloud and edge with ease. Fine-grained access control with a sophisticated policy and identity management system helps securely connect devices over constrained IoT protocols - like MQTT or CoAP. Embrace the future of IoT technology confidently, and simplify your IoT device management with our cutting-edge platform.",
+    "Prism AI empowers organizations to execute AI computations securely within Trusted Execution Environments (TEEs). Designed for privacy-preserving collaboration, it enables multi-party data sharing and analysis without exposing sensitive information. Whether in the cloud or on-premises, Prism AI ensures end-to-end encryption and robust security for your AI workflows.",
   getStartedButton: {
     text: "Get Started",
     link: "#",
@@ -165,16 +165,16 @@ export const TrustedByData = [
 
 export const ProductData = {
   sectionId: "introduction",
-  title: "What is Magistrala?",
-  imageUrl: "img/magistrala-concept.png",
-  alt: "Magistrala IoT Platform",
+  title: "What is Prism AI?",
+  imageUrl: "https://user-images.githubusercontent.com/23095882/183417817-a5013c43-637e-488b-9e06-ee6fe8e588b0.svg",
+  alt: "Prism AI Platform",
   content: {
     overview:
-      "Magistrala is a cutting-edge Software as a Service (SaaS) platform designed to empower businesses to connect, manage, and monitor their IoT devices and applications with ease. Formerly known as Mainflux, our platform offers a suite of tools and features that simplify the development and deployment of IoT solutions, enabling businesses to scale their operations and drive innovation. This platform provides a comprehensive suite of open-source frameworks, libraries and APIs that facilitate seamless connectivity between devices, applications, and systems, ensuring that businesses can easily manage and monitor their operations in real-time.",
+      "Prism AI is a cutting-edge platform designed to empower secure, collaborative AI computations within Trusted Execution Environments (TEEs). It enables organizations to share and analyze sensitive data across multiple parties without compromising privacy, making it ideal for industries like healthcare, finance, and government.",
     security:
-      "Abstract Machines is committed to delivering software that is highly resilient against cyber threats. The platform incorporates advanced encryption protocols, robust security frameworks, and other essential tools, ensuring that developers can create IoT applications with the utmost security.",
+      "Prism AI ensures end-to-end encryption and robust data protection throughout the computation process. It offers secure VM provisioning, fine-grained access control, and remote attestation, simplifying the deployment and management of confidential workloads.",
     community:
-      "Magistrala is also committed to fostering a thriving open-source community of developers and contributors. Through events, discussion forums, and extensive training support, developers can leverage Magistrala’s tools to build solutions with confidence.",
+      "Prism AI's seamless integration with open-source tools like Cocos AI ensures flexibility, scalability, and transparency. This integration allows developers to innovate securely and efficiently, fostering a community-driven approach to AI development. The open-source nature of Cocos AI, which forms the core part of Prism AI, enables rapid bug fixing, customization, and collaboration within a thriving developer ecosystem, further enhancing the platform's capabilities and security features.",
   },
 };
 
@@ -185,64 +185,52 @@ export const FeaturesOverviewData = {
     "Empower your production ecosystem with tools designed to simplify, secure, and scale your operations.",
   benefits: [
     {
-      title: "Multi-Protocol Messaging",
+      title: "Secure Collaboration",
       description:
-        "Empowers your IoT ecosystem with versatile multi-protocol messaging capabilities, seamlessly handling communication from a wide array of IoT devices using different protocols.",
-      imageUrl: "img/connectivity.svg",
+        "Prism AI allows multiple parties to collaboratively process data without exposing sensitive information. Powered by Trusted Execution Environments (TEEs), the platform ensures the confidentiality and privacy of data exchanges and AI workloads. This enables Secure Multi-party Computation (SMPC) for confidential collaborative AI.",
+      imageUrl: "img/product/collaboration-rafiki.svg",
     },
     {
-      title: "Device and Payload Agnostic",
+      title: "Secure VM Provisioning and Management",
       description:
-        "Connects and communicates with various IoT devices and accommodates diverse message formats, ensuring flexibility and compatibility with your IoT data.",
-      imageUrl: "img/devices.svg",
+        "Prism AI excels in provisioning secure Confidential Virtual Machines (CVMs) within private, hybrid, or public cloud settings. Leveraging TEEs, Prism AI simplifies computation definition and management, enabling users to effortlessly define and execute secure workloads within secure enclaves. Seamlessly deploy and maintain secure Virtual Machines for your workloads.",
+      imageUrl: "img/product/Server-rafiki.svg",
     },
     {
-      title: "Superior Security",
+      title: "Remote Attestation",
       description:
-        "Incorporates robust data protection and access control mechanisms, including encryption, authentication, and fine-grained access policies, ensuring the integrity and confidentiality of your IoT data.",
-      imageUrl: "img/security.svg",
+        "Prism AI implements a robust remote attestation mechanism, verifying the integrity of remote systems. This ensures that your workloads run in trusted environments, even in untrusted or remote settings.",
+      imageUrl: "img/product/Security-On-rafiki.svg",
     },
     {
-      title: "Efficient and Cloud-Native",
+      title: "Fine-Grained Access Control",
       description:
-        "Leverages a cloud-native architecture with microservices for efficient and scalable deployment, offering robust remote monitoring, comprehensive metrics, and detailed logs.",
-      imageUrl: "img/cloud.svg",
+        "Prism AI empowers users with fine-grained access control through policies and attribute-based access control (ABAC) or role-based access control (RBAC). Ensures that only authorized entities access orchestration metadata, while AI algorithms and data are uploaded only in private confidential enclaves previously attested by the user.",
+      imageUrl: "img/product/Privacy-policy-rafiki.svg",
     },
     {
-      title: "Extensible IoT Protocol Adapters",
+      title: '"Bring Your Own Backend"',
       description:
-        "Equipped with a rich library of existing IoT protocol adapters and allows easy development and deployment of custom adapters, ensuring flexibility and compatibility across diverse IoT devices and services.",
-      imageUrl: "img/adapter.svg",
+        'Prism AI supports a "bring your own backend" approach, enabling the introduction of any TEE-capable node into the infrastructure, enhancing flexibility and scalability. Computational nodes can be enabled via the open-source Cocos AI platform. Prism AI is designed with a flexible architecture that supports multiple computational backends, adhering to a "bring your own backend" approach.',
+      imageUrl: "img/product/Server-rafiki2.svg",
     },
     {
-      title: "Pluggable Storage and Message Brokers",
+      title: "End-to-End Encryption",
       description:
-        "Offers flexibility in your choice of databases and seamless integration with various message brokers, enabling you to tailor your IoT infrastructure to your specific needs.",
-      imageUrl: "img/storage.svg",
+        "Prism AI ensures end-to-end encryption for traffic, safeguarding the confidentiality and integrity of data transmissions. Collaborate on AI projects with the assurance that your data remains secure throughout the computation process.",
+      imageUrl: "img/product/encryption-cuate.svg",
     },
     {
-      title: "User Interface and Open APIs",
+      title: "User-Friendly Interface",
       description:
-        "Provides an open-source user interface for effortless IoT ecosystem management and open APIs adhering to the OpenAPI standard for easy integration and custom application development.",
-      imageUrl: "img/dashboard.svg",
+        "Prism AI features an intuitive user interface designed to simplify the management and orchestration of confidential workloads. The UI is crafted to enhance user experience, providing seamless navigation, easy configuration, and real-time monitoring of computational tasks.",
+      imageUrl: "img/product/integration-bro.svg",
     },
     {
-      title: "High Code Quality and Well-Tested",
+      title: "Open Source",
       description:
-        "Built with a strong commitment to high code quality and reliability, following best open-source practices with comprehensive test coverage to ensure stability and performance.",
-      imageUrl: "img/code-testing.svg",
-    },
-    {
-      title: "Open-Source Tools, SDKs, and Libraries",
-      description:
-        "Offers a rich ecosystem of open-source tools, SDKs, and libraries to streamline development tasks and create innovative, efficient IoT solutions.",
-      imageUrl: "img/tools.svg",
-    },
-    {
-      title: "Open-Source and Free",
-      description:
-        "Proudly open-source under the permissive Apache-2.0 license, empowering you to accelerate your IoT product development with a scalable and versatile platform.",
-      imageUrl: "img/open-source.svg",
+        "Core part of Prism AI - Cocos AI - is open source, published under the Apache 2.0 license, enabling transparency, rapid bug fixing, customization, and collaboration. It fosters heightened security and innovation within a thriving developer community.",
+      imageUrl: "img/product/Open-source-rafiki.svg",
     },
   ],
 };
@@ -301,12 +289,12 @@ export const FeaturesData = {
 export const UsecasesData = {
   sectionId: "use-cases",
   title: "Use Cases",
-  subtitle: "Real-World Applications of Magistrala in IoT and Smart Systems",
+  subtitle: "Real-World Applications of Prism AI",
   useCases: [
     {
-      title: "Smart Cities",
+      title: "Confidential AI Workloads",
       description:
-        "Manage traffic flow, monitor air quality, and optimize energy usage across urban environments.",
+        "Prism AI is designed for executing confidential AI workloads in secure enclaves. Whether in private, hybrid, or public cloud environments, the platform ensures that sensitive computations are encrypted and isolated, making it suitable for financial institutions analyzing proprietary data or governments handling classified information.",
       imageUrl: "iot.jpg",
       ctaText: "Learn more",
       ctaLink: "#",
@@ -314,9 +302,9 @@ export const UsecasesData = {
       secondaryCtaLink: "#",
     },
     {
-      title: "Smart Energy",
+      title: "Privacy-Preserving Data Analytics",
       description:
-        "Deliver and store data from smart meters in reliable and fault-tolerant way, visualize real-time and historical energy consumption data on customizable end-user dashboards.",
+        "With Prism AI, organizations can perform data analytics without compromising privacy. The platform’s end-to-end encryption and secure VM provisioning allow businesses to derive insights from sensitive datasets while maintaining compliance with data protection regulations like GDPR or HIPAA.",
       imageUrl: "smart-home.jpg",
       ctaText: "Learn more",
       ctaLink: "#",
@@ -324,9 +312,9 @@ export const UsecasesData = {
       secondaryCtaLink: "#",
     },
     {
-      title: "Industrial IoT",
+      title: "Collaborative AI Development",
       description:
-        "Monitor and control industrial equipment, optimize production processes, and predict maintenance needs in real-time.",
+        "Prism AI fosters innovation by enabling secure collaboration among AI developers. Teams can share algorithms and datasets within trusted environments, ensuring intellectual property remains protected. This is particularly valuable for cross-organizational AI initiatives.",
       imageUrl: "industrial.jpg",
       ctaText: "Learn more",
       ctaLink: "#",
@@ -338,25 +326,25 @@ export const UsecasesData = {
 
 export const UsedForData = {
   sectionId: "used-for",
-  title: "Magistrala IoT Core is used for",
+  title: "Prism AI is used for",
   usedFor: [
     {
-      title: "Industrial IoT (IIoT)",
+      title: "Healthcare",
       description:
-        "Magistrala IoT platform serves as the backbone for Industrial IoT (IIoT) applications, supporting industrial protocols like Sparkplug MQTT, OPC-UA, Modbus, BACnet, and more. It facilitates seamless data exchange, edge computing through gateways, robust security measures, and ensures real-time insights for critical industrial processes.",
-      icon: "Factory",
+        "In the healthcare sector, Prism AI brings the power of confidential computing and secure multi-party computation (SMPC) to protect sensitive patient data and enable collaborative research. Healthcare organizations can securely share and analyze patient records, conduct research on medical data, and develop AI-driven healthcare solutions while maintaining data privacy and compliance with regulations.",
+      icon: "BriefcaseMedical",
     },
     {
-      title: "Enterprise IoT",
+      title: "Finance",
       description:
-        "In Enterprise IoT, Magistrala's adaptable microservice architecture empowers the development and deployment of IoT solutions tailored to the unique demands of modern enterprises. Harness the capabilities of 5G connectivity, efficiently manage and scale microservices, and optimize resource utilization to enhance system performance.",
-      icon: "Building",
+        "In the finance sector, Prism AI enhances data security and privacy for financial institutions and organizations. It enables secure data sharing and collaborative financial analysis while protecting sensitive financial data. Financial organizations can securely exchange financial information, perform risk assessments, and develop AI-driven financial models, all within confidential computing environments.",
+      icon: "ChartNoAxesCombined",
     },
     {
-      title: "Consumer IoT",
+      title: "Government",
       description:
-        "Magistrala streamlines Consumer IoT with support for multiple protocols, making it a device-agnostic and easy-to-integrate platform. Whether you're working on smart homes or wearables, Magistrala offers open-source flexibility and a rich set of SDKs for seamless development and customization.",
-      icon: "Laptop",
+        "In government agencies and institutions, Prism AI ensures data security and privacy for critical government operations. It enables secure multi-party computation (SMPC) for collaborative data analysis, secure data sharing between government departments, and confidential computing for sensitive government applications. Government entities can leverage Prism AI to protect classified information, enhance cybersecurity, and drive data-driven policy decisions.",
+      icon: "Landmark",
     },
   ],
 };
@@ -364,18 +352,17 @@ export const PricingData = {
   sectionId: "pricing",
   title: "Pricing",
   subtitle:
-    "Choose the right plan for your business needs and get started with Magistrala today",
+    "Choose the right plan for your business needs and get started with Prism AI today",
   plans: [
     {
       title: "Trial",
       features: [
-        "Test 14 days for free",
-        "Up to 3 users",
-        "5 dashboards",
-        "10 clients",
-        "10 channels",
-        "2 groups",
-        "10,000 messages",
+        "Private CVMs only (Max 30 minutes per lifecycle, Prism AI private cloud",
+        "1 member",
+        "2 concurrent computations",
+        "10 computation runs per month",
+        "1 concurrent VM",
+        "Community support",
       ],
       price: {
         custom: true,
@@ -386,37 +373,53 @@ export const PricingData = {
       ctaLink: "#",
     },
     {
-      title: "Starter",
+      title: "Developer",
       features: [
-        "Up to 25 users",
-        "500 dashboards",
-        "500 clients",
-        "100 channels",
-        "50 groups",
-        "1,000,000 messages",
+        "Single infrastructure choice (GCP)",
+        "2 members",
+        "3 concurrent computations",
+        "1 concurrent VM",
+        "Community support",
       ],
       price: {
         custom: false,
-        month: "350",
-        year: "300",
+        month: "99",
+        year: "99",
       },
       ctaText: "Sign Up",
       ctaLink: "/#",
     },
     {
-      title: "Business",
+      title: "Team",
       features: [
-        "Up to 100 users",
-        "1000 dashboards",
-        "1000 clients",
-        "1000 channels",
-        "100 groups",
-        "10,000,000 messages",
+        "Two infrastructure choices (GCP, Azure)",
+        "Up to 5 members",
+        "Maximum 8 concurrent computations",
+        "2 concurrent VMs",
+        "Standard support",
       ],
       price: {
         custom: false,
-        month: "750",
-        year: "700",
+        month: "499",
+        year: "499",
+      },
+      ctaText: "Sign Up",
+      ctaLink: "#",
+    },
+    {
+      title: "Business",
+      features: [
+        "All infrastructure options (GCP, Azure, Private Cloud)",
+        "Up to 15 members",
+        "Maximum 25 concurrent computations",
+        "5 concurrent VMs",
+        "Priority support",
+        "Basic analytics",
+      ],
+      price: {
+        custom: false,
+        month: "1499",
+        year: "1499",
       },
       ctaText: "Sign Up",
       ctaLink: "#",
@@ -424,13 +427,12 @@ export const PricingData = {
     {
       title: "Enterprise",
       features: [
-        "Multitenant support",
-        "Custom number of users",
-        "Custom dashboards",
-        "Custom clients",
-        "Custom channels",
-        "Custom groups",
-        "Custom messages",
+        "Custom infrastructure allocation",
+        "Unlimited members",
+        "Custom computation limits",
+        "Custom VM allocation",
+        "24/7 dedicated support",
+        "Custom integration options",
       ],
       price: {
         custom: true,
@@ -453,19 +455,24 @@ export const faqData = {
       title: "General Questions",
       faqs: [
         {
-          question: "What protocols does the platform support?",
+          question: "What is a computation?",
           answer:
-            "Our platform supports a wide range of protocols including MQTT, HTTP, CoAP, and more. We're constantly adding support for new protocols to ensure compatibility with various devices.",
+            "Computation an entity that defines a collection of users and assets that are used in a manifest to define a workload on the platfrom.",
         },
         {
-          question: "How secure is the data transmission?",
+          question: "Which cloud platforms do you support?",
           answer:
-            "We implement industry-standard encryption protocols and security measures to ensure that all data transmitted through our platform is secure. This includes end-to-end encryption and regular security audits.",
+            "We support Google Cloud Platform, Azure and private cloud offerings.",
         },
         {
           question: "Can I integrate with existing systems?",
           answer:
             "Yes, our platform is designed to be highly integrable. We offer APIs and SDKs that allow you to easily integrate with your existing systems and workflows.",
+        },
+        {
+          question: "Which confidential computing technologies do you use?",
+          answer:
+            "We support AMD SEV_SNP and have plans to support Intel TDX in the future.",
         },
       ],
     },

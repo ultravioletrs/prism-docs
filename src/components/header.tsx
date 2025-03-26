@@ -33,7 +33,7 @@ export default function HeaderSection() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="web-link tw-text-lg tw-transition-colors hover:tw-text-blue-300"
+                    className="web-link tw-text-lg tw-transition-colors hover:tw-text-blue-400 tw-text-gray-300"
                   >
                     {link.label}
                   </Link>
@@ -46,6 +46,7 @@ export default function HeaderSection() {
             <Button 
               variant="outline" 
               aria-label={HeaderData.ctaButton.text} 
+              className="tw-border-gray-700 tw-bg-gray-800 tw-text-gray-200 hover:tw-bg-gray-700 hover:tw-text-blue-300"
               asChild={true}
             >
               <Link href={HeaderData.ctaButton.link} className="web-link">
@@ -81,7 +82,7 @@ export default function HeaderSection() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="web-link tw-text-xl hover:tw-text-blue-300 tw-transition-colors"
+                    className="web-link tw-text-xl hover:tw-text-blue-400 tw-text-gray-300 tw-transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -94,6 +95,7 @@ export default function HeaderSection() {
             <Button 
               variant="outline" 
               aria-label={HeaderData.ctaButton.text} 
+              className="tw-border-gray-700 tw-bg-gray-800 tw-text-gray-200 hover:tw-bg-gray-700 hover:tw-text-blue-300"
               asChild={true}
             >
               <Link
@@ -108,4 +110,4 @@ export default function HeaderSection() {
         </SheetContent>
       </Sheet>
     );
-  }
+}

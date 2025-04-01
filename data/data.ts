@@ -384,7 +384,7 @@ export const PricingData = {
       price: {
         custom: false,
         month: "99",
-        year: "99",
+        year: "90",
       },
       ctaText: "Sign Up",
       ctaLink: "/#",
@@ -401,7 +401,7 @@ export const PricingData = {
       price: {
         custom: false,
         month: "499",
-        year: "499",
+        year: "450",
       },
       ctaText: "Sign Up",
       ctaLink: "#",
@@ -419,7 +419,7 @@ export const PricingData = {
       price: {
         custom: false,
         month: "1499",
-        year: "1499",
+        year: "1350",
       },
       ctaText: "Sign Up",
       ctaLink: "#",

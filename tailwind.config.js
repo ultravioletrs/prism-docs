@@ -67,4 +67,3 @@ module.exports = {
     plugins: [require("tailwindcss-animate")],
     prefix: "tw-",
 };
-  

@@ -1,44 +1,37 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
+import { TrustedBySection } from '@site/src/components/trusted_by';
+import { HeroSection } from '../components/hero';
+import HeaderSection from '../components/header';
+import { ProductSection } from "../components/product";
+import { BenefitsSection } from "../components/benefits";
+import { UsedForSection } from "../components/use-for";
+import { UsecasesSection } from "../components/section-usecases";
+import { PricingSection } from "../components/section-pricing";
+import { FaqSection } from "../components/section-faq";
+import { FooterSection } from "../components/section-footer";
 
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docs
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
+    <div className="web-body">
+      <HeaderSection />
+      <div className="tw-mt-4 container">
+        <div className="row">
+          <div className="col col--12">
+            <HeroSection />
+            <TrustedBySection />
+            <ProductSection />
+            <BenefitsSection />
+            <UsedForSection />
+            <UsecasesSection />
+            <PricingSection />
+            <FaqSection />
+          </div>
+        </div>
+      </div>
+      <FooterSection />
+    </div>
   );
 }

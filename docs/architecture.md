@@ -9,15 +9,15 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 | Auth           | Manages user policies in relation to backends, certs and computations.                                    |
 | Users          | Manages platform's users and auth concerns in regards to users and workspaces.                            |
 | Computations   | Manages computation lifecycle, from creation to running and monitoring.                                   |
-| Backends       | Manages connections Confidential Virtual Machine creation, and connection between agent and cvms service. |
+| Backends       | Manages Confidential Virtual Machine creation, and connection to agent.                                   |
 | Certs          | Manages certification lifecyle (issuing, revocation, renewal) used for mTLS between backends and manager. |
-| Billing        | Manages payments on the platform and controls resource access based on billing plans.                     |
-| Invitations    | Manages user inivations to access workspaces.                                                             |
+| Billing        | Manages payments on the platform and controls resource access based on billing plans for each workspace.  |
+| Workspaces     | Manages the user `domain` which encapsulates all other entities including computations and cvms.          |
 | User Interface | Provides an web interface to provide platform access over a visual interface.                             |
 
 ![Architecture](../static/img/arch.drawio.png)
 
-### Users
+### Users and Workspaces
 
 The users service provides users access to the plaform and the user identities are used to provide authorization for the platform. Prism uses [magistrala users](https://docs.magistrala.abstractmachines.fr/architecture/#domain-model) service to achieve this.
 

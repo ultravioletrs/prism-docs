@@ -19,7 +19,7 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 
 ### Users and Workspaces
 
-The users service provides users access to the platform, and user identities are used to provide authorization for the platform. Prism uses [magistrala users](https://docs.magistrala.abstractmachines.fr/architecture/#domain-model) service to achieve this. 
+The users service provides users access to the platform, and user identities are used to provide authorization for the platform. Prism uses [magistrala users](https://docs.magistrala.abstractmachines.fr/architecture/#domain-model) service to achieve this.
 The workspaces service manages user domains, which encapsulate all other entities, including computations, backends, and billing. Workspaces provide a structured environment for organizing and controlling resources on the platform.
 
 ### Computations

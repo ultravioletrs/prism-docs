@@ -12,7 +12,7 @@ Prism provides a computation management service for [CoCos AI](https://docs.coco
 | Backends       | Manages Confidential Virtual Machine creation, and connection to agent.                                   |
 | Certs          | Manages certification lifecyle (issuing, revocation, renewal) used for mTLS between backends and manager. |
 | Billing        | Manages payments on the platform and controls resource access based on billing plans for each workspace.  |
-| Workspaces     | Manages the user `domain` which encapsulates all other entities including computations and cvms.          |
+| Workspaces     | Manages the user `domain`, which includes all entities associated with a workspace, such as computations, Confidential Virtual Machines (CVMs), user-specific configurations, and access controls.          |
 | User Interface | Provides an web interface to provide platform access over a visual interface.                             |
 
 ![Architecture](../static/img/arch.drawio.png)

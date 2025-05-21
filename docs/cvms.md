@@ -82,9 +82,10 @@ Each CVM is initialized with default certificates that are used to verify secure
 
    > **Note:** Default certificates are automatically loaded into the CVM during creation. Any newly issued certificates must be manually transferred to the CVM for use.
 
-   Additionaly, you can download the root certificate of the default CA. This certificate is used for signing newly issued certificates. The certificate can be downloaded on the CVM management page by clicking on the **Download CA certs** button.
+   - Additionaly, you can download the root certificate of the default CA. This certificate is used for signing newly issued certificates. The certificate can be downloaded on the CVM management page by clicking on the **Download CA certs** button.
 
    ![CA certs dowload](../static/img/cvms/ca_certs_download.png)
+   
 ---
 
 ## Removing a CVM

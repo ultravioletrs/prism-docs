@@ -53,13 +53,22 @@ The Agent Config feature allows users to configure TLS (Transport Layer Security
 
 The system supports four TLS configuration modes:
 
-1. Attested TLS
+1. No TLS
 
-   - Basic TLS configuration with attestation verification during the TLS handshake.
-   - No additional certificate or key files required.
-   - Suitable for environments requiring basic secure communication.
+   - Disables TLS security
+   - No additional configuration required
+   - Should only be used in secure, isolated environments
+   - Not recommended for production deployments
 
-2. Mutual TLS
+2. TLS
+
+   - Standard TLS configuration
+   - Required files:
+     - Key File
+     - Certificate File
+   - Suitable for environments requiring encrypted communication without mutual authentication
+
+3. Mutual TLS
 
    - Requires bi-directional authentication
    - Required files:
@@ -69,20 +78,17 @@ The system supports four TLS configuration modes:
      - Client CA File
    - Provides highest level of security with mutual authentication
 
-3. TLS
+4. Attested TLS
 
-   - Standard TLS configuration
+   - Basic TLS configuration with attestation verification during the TLS handshake.
+   - No additional certificate or key files required.
+   - Suitable for environments requiring basic secure communication.
+
+5. Mutual Attested TLS
+
+   - A combination of Mutual TLS and Attested TLS.
    - Required files:
-     - Key File
-     - Certificate File
-   - Suitable for environments requiring encrypted communication without mutual authentication
-
-4. No TLS
-
-   - Disables TLS security
-   - No additional configuration required
-   - Should only be used in secure, isolated environments
-   - Not recommended for production deployments
+     - Client CA File
 
 #### Log Level Configuration
 
@@ -136,7 +142,7 @@ The system supports four TLS configuration modes:
 
 ##### Client CA File
 
-- Required for: Mutual TLS only
+- Required for: Mutual TLS and Mutual Attested TLS
 - Format: PEM-encoded CA certificate
 - Purpose: Verification of client certificates
 
@@ -147,7 +153,7 @@ The system supports four TLS configuration modes:
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select appropriate TLS Configuration mode
 3. Set desired Log Level based on operational requirements
-4. For Mutual TLS or TLS modes:
+4. For TLS, Mutual TLS or Mutual Attested TLS modes:
    - Upload required certificate and key files
    - Verify file formats and permissions
 5. Click "Close" to save configuration

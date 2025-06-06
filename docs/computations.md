@@ -366,6 +366,22 @@ After this configuration you can connect to agent normally using cli and perform
 
 It is important to note that the Agent is the server and cli the client. Therefore, upload server generated cert, key on the UI as shown above and configure certificates generated for client on CLI.
 
+#### Example: maTLS configuration
+
+Mutual Attested TLS works like mTLS with the addition of the attestation report. To configure maTLS follow the steps for mTLS. To connect cli to agent with maTLS, we need to configure the following superset of env variables on cli (mTLS + aTLS env variables).
+
+```bash
+
+export AGENT_GRPC_URL=<backend_host>:<agent_port>
+export AGENT_GRPC_CLIENT_CERT=<path_to_generated_client_cert>
+export AGENT_GRPC_CLIENT_KEY=<path_to_generated_client_key>
+export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
+export AGENT_GRPC_ATTESTED_TLS=true
+export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy_file>
+```
+
+After this configuration you can connect to agent normally using cli and perform operations on cli such as algo/data upload etc.
+
 ## Retrieve Computations
 
 In order to get all computations:

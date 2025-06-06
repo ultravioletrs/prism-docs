@@ -1,6 +1,6 @@
 # Certs Service
 
-The certs service is a certificate authority used to issue certs related to CVMs service for mutual TLS purposes. The certs service provides the ability to issue, renew, revoke and download certificates.
+The certs service is a certificate authority used to issue certs related to CVMs service for mutual and mutual attested TLS purposes. The certs service provides the ability to issue, renew, revoke and download certificates.
 
 ## Issue a Certificate
 

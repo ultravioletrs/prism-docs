@@ -48,7 +48,7 @@ To create a CVM, follow these steps:
 
    - From the dropdown menu, choose the desired CVM flavor (GCP, Azure, or Manager).
    - Specify the name of the CVM.
-   - Specify the log leve of the CVM Agent.
+   - Specify the log level of the CVM Agent.
    - Define the vCPU count and amount of RAM (configurable for Azure and GCP CVMs only).
 
    ![Create Modal](../static/img/cvms/create_modal.png)
@@ -84,7 +84,7 @@ Each CVM is initialized with default certificates that are used to verify secure
 
    - Additionaly, you can download the root certificate of the default CA. This certificate is used for signing newly issued certificates. The certificate can be downloaded on the CVM management page by clicking on the **Download CA certs** button.
 
-   ![CA certs dowload](../static/img/cvms/ca_certs_download.png)
+   ![CA certificate dowload](../static/img/cvms/ca_certs_download.png)
 
 ---
 

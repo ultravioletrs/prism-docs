@@ -53,13 +53,22 @@ The Agent Config feature allows users to configure TLS (Transport Layer Security
 
 The system supports four TLS configuration modes:
 
-1. Attested TLS
+1. No TLS
 
-   - Basic TLS configuration with attestation verification during the TLS handshake.
-   - No additional certificate or key files required.
-   - Suitable for environments requiring basic secure communication.
+   - Disables TLS security
+   - No additional configuration required
+   - Should only be used in secure, isolated environments
+   - Not recommended for production deployments
 
-2. Mutual TLS
+2. TLS
+
+   - Standard TLS configuration
+   - Required files:
+     - Key File
+     - Certificate File
+   - Suitable for environments requiring encrypted communication without mutual authentication
+
+3. Mutual TLS
 
    - Requires bi-directional authentication
    - Required files:
@@ -69,20 +78,17 @@ The system supports four TLS configuration modes:
      - Client CA File
    - Provides highest level of security with mutual authentication
 
-3. TLS
+4. Attested TLS
 
-   - Standard TLS configuration
+   - Basic TLS configuration with attestation verification during the TLS handshake.
+   - No additional certificate or key files required.
+   - Suitable for environments requiring basic secure communication.
+
+5. Mutual Attested TLS
+
+   - A combination of Mutual TLS and Attested TLS.
    - Required files:
-     - Key File
-     - Certificate File
-   - Suitable for environments requiring encrypted communication without mutual authentication
-
-4. No TLS
-
-   - Disables TLS security
-   - No additional configuration required
-   - Should only be used in secure, isolated environments
-   - Not recommended for production deployments
+     - Client CA File
 
 #### Log Level Configuration
 
@@ -136,7 +142,7 @@ The system supports four TLS configuration modes:
 
 ##### Client CA File
 
-- Required for: Mutual TLS only
+- Required for: Mutual TLS and Mutual Attested TLS
 - Format: PEM-encoded CA certificate
 - Purpose: Verification of client certificates
 
@@ -147,7 +153,7 @@ The system supports four TLS configuration modes:
 1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
 2. Select appropriate TLS Configuration mode
 3. Set desired Log Level based on operational requirements
-4. For Mutual TLS or TLS modes:
+4. For TLS, Mutual TLS or Mutual Attested TLS modes:
    - Upload required certificate and key files
    - Verify file formats and permissions
 5. Click "Close" to save configuration
@@ -359,6 +365,22 @@ export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
 After this configuration you can connect to agent normally using cli and perform [operations](https://docs.cocos.ultraviolet.rs/cli/) on cli such as algo/data upload etc.
 
 It is important to note that the Agent is the server and cli the client. Therefore, upload server generated cert, key on the UI as shown above and configure certificates generated for client on CLI.
+
+#### Example: maTLS configuration
+
+Mutual Attested TLS works like mTLS with the addition of the attestation report. To configure maTLS follow the steps for mTLS. To connect cli to agent with maTLS, we need to configure the following superset of env variables on cli (mTLS + aTLS env variables).
+
+```bash
+
+export AGENT_GRPC_URL=<backend_host>:<agent_port>
+export AGENT_GRPC_CLIENT_CERT=<path_to_generated_client_cert>
+export AGENT_GRPC_CLIENT_KEY=<path_to_generated_client_key>
+export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
+export AGENT_GRPC_ATTESTED_TLS=true
+export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy_file>
+```
+
+After this configuration you can connect to agent normally using cli and perform operations on cli such as algo/data upload etc.
 
 ## Retrieve Computations
 

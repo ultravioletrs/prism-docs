@@ -165,7 +165,7 @@ The cvm will come online in a few minutes.
 
 ## Computations
 
-Once the cvm comes online, we can proceed to creating a computation. For computation management, we use Computations micorservice.
+Once the cvm comes online, we can proceed to creating a computation. For computation management, we use Computations microservice.
 
 ### Create Computation
 

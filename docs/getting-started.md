@@ -144,7 +144,7 @@ Please wait as the cvm is being created.
 curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
   "name": "test cvm",
-  "backend": "",
+  "backend": "manager",
   "agent_log_level": "info"
 }
 EOF

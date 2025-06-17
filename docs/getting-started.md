@@ -84,10 +84,10 @@ Content-Length: 235
 The workspaces page gives the user the ability to either create an entirely new workspace or join an existing workspace. The user can also view the workspace they are a part of and the workspace they have created.
 
 On the ui the steps are as follows:
-![Project page](../static/img/ui/newproj.png)
-![Project Creation](../static/img/ui/projcreate.png)
+![Workspace page](../static/img/ui/newproj.png)
+![Workspace Creation](../static/img/ui/projcreate.png)
 
-### Project Login
+### Workspace Login
 
 To log in to a Workspace:
 
@@ -127,7 +127,7 @@ X-Xss-Protection: 1; mode=block
 ```
 
 For the UI click enter to log in to workspace with will bring you to the dashboard.
-![Project login](../static/img/ui/wkslogin.png)
+![Workspace login](../static/img/ui/wkslogin.png)
 
 ## CVMs
 

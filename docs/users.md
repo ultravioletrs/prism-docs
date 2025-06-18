@@ -167,7 +167,7 @@ Issuing and refreshing the user token is done automatically on UI when you log i
 
    This will direct you to the workspaces page at which point you can select the workspace to log in to and proceed with using Prism.
 
-   ![Project login](../static/img/ui/wkslogin.png)
+   ![Workspace login](../static/img/ui/wkslogin.png)
 
 ## Get User Profile
 

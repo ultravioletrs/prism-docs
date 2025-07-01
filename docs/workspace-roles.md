@@ -10,7 +10,6 @@ The following builtin roles are created on service initialization:
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Admin         | add_role_users, create_computation, create_cvms, delete, disable, enable, manage_role, read, remove_cvms, remove_role_users, update, view_role_users |
 
-
 ## Role Management
 
 ### Overview

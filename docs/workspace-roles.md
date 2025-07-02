@@ -6,12 +6,9 @@ Workspace roles are used to manage user actions to a workspace. On service start
 
 The following builtin roles are created on service initialization:
 
-| Built-in Role   | Actions                                                                                                         |
-|-----------------|-----------------------------------------------------------------------------------------------------------------|
-| Admin           | add_role_users, create_cvms, delete, manage_role, read, remove_cvms, remove_role_users, update, view_role_users |
-| Member          | delete, manage_role, read, remove_role_users, update, view_role_users                                           |
-
-Here’s an enhanced version of your Role Management documentation with additional explanations and clarity:
+| Built-in Role | Actions                                                                                                                                              |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Admin         | add_role_users, create_computation, create_cvms, delete, disable, enable, manage_role, read, remove_cvms, remove_role_users, update, view_role_users |
 
 ## Role Management
 
@@ -23,9 +20,9 @@ A key constraint in the role system is that **a user can only belong to a single
 
 Builtin roles provide the most basic roles with single actions that can be updated or added depending on the user's requirements.
 
-### Role Purpose in Workspace Manifest
+### Role Purpose in Workspace
 
-Roles are essential in governing who can interact with a workspace and how. In the workspace manifest, assigned roles determine access to various resources, such as CVMs creations. Each role is mapped to a set of predefined actions that enforce security and operational boundaries within a workspace.
+Roles are essential in governing who can interact with a workspace and how. In the workspace, assigned roles determine access to various resources, such as CVMs creations. Each role is mapped to a set of predefined actions that enforce security and operational boundaries within a workspace.
 
 ### Accessing Role Management
 
@@ -44,10 +41,9 @@ Clicking the **Roles** button will display all predefined built-in roles and the
 
 The system provides predefined **built-in roles**, each granting specific access levels. The available built-in roles and their associated actions are:
 
-| Built-in Role       | Actions                                                                                                         | Description                                                             |
-|---------------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| **Admin**           | add_role_users, create_cvms, delete, manage_role, read, remove_cvms, remove_role_users, update, view_role_users | Full control over the workspace, including modifying roles and actions. |
-| **Member**          | delete, manage_role, read, remove_role_users, update, view_role_users                                           | Limited workspace actions.                                              |
+| Built-in Role | Actions                                                                                                                                              | Description                                                             |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| **Admin**     | add_role_users, create_computation, create_cvms, delete, disable, enable, manage_role, read, remove_cvms, remove_role_users, update, view_role_users | Full control over the workspace, including modifying roles and actions. |
 
 ### Explanation of Actions
 
@@ -57,11 +53,14 @@ Each action in a role defines what the user can do:
 - **delete** – Grants the ability to modify workspace properties.
 - **create_cvms** – Enables creation of a CVM.
 - **remove_cvms** – Enables removal of a CVM.
-- **add_role_users** – Allows the user to user roles.
+- **add_role_users** – Allows the user to add user roles.
 - **update** – Grants the ability to modify workspace properties.
 - **view_role_users** – Allows the user to see user roles but not modify them.
 - **remove_role_users** – Allows the user to remove user roles but not modify them.
 - **manage_role** – Allows the user to manage roles such as addition of actions.
+- **create_computation** – Enables creation of a computation.
+- **disable** – Allows the user to disable resources.
+- **enable** – Allows the user to enable resources.
 
 ## Managing Roles
 

@@ -133,7 +133,7 @@ For the UI click enter to log in to workspace with will bring you to the dashboa
 
 ### Creating a CVM
 
-CVMs are used to run computations. We need to create one and start it before we are able to run a computation.
+CVMs are used to run computations. We need to create one before we are able to run a computation. Backend providers are available based on current subscription.
 
 ![Create CVM](../static/img/ui/new_cvm.png)
 
@@ -143,9 +143,9 @@ Please wait as the cvm is being created.
 ```bash
 curl -sSiX POST https://prism.ultraviolet.rs/backends/backend -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
 {
-  "name": "my dell server",
-  "description": "",
-  "address": "192.168.100.4"
+  "name": "test cvm",
+  "backend": "manager",
+  "agent_log_level": "info"
 }
 EOF
 ```
@@ -160,113 +160,12 @@ Date: Thu, 02 May 2024 10:15:35 GMT
 Content-Length: 0
 ```
 
-### Issuing a Certificate
-
-CVMs connect via gRPC secured with mTLS. Certificates are issued at CVM creation.
-When needed new certificates can be issued.
-
-![Issue Certificate](../static/img/ui/issue_cert.png)
-
-```bash
-curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/<backend_id> -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
-{
-  "ip_addresses": []
-}
-EOF
-```
-
-example:
-
-```bash
-curl -sSiX POST https://prism.ultraviolet.rs/certs/issue/backend/fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5 -H "Content-Type: application/json" -H "Authorization: Bearer <user_token>" -d @- << EOF
-{
-  "ip_addresses": ["192.168.100.4"]
-}
-EOF
-```
-
-response:
-
-```bash
-HTTP/1.1 201 Created
-Content-Type: application/json
-Date: Thu, 02 May 2024 11:35:37 GMT
-Content-Length: 59
-
-{"serial_number":"75709155906162784911683514578929321876"}
-```
-
-### Download Certificate
-
-First we'll request a download token:
-
-```bash
-curl -sSiX GET https://prism.ultraviolet.rs/certs/<serial_number>/download/token -H "Authorization: Bearer <user_token>"
-```
-
-![Request Download](../static/img/ui/request_cert.png)
-
-response:
-
-```bash
-HTTP/1.1 200 OK
-Content-Type: application/json
-Date: Thu, 02 May 2024 11:46:11 GMT
-Content-Length: 164
-
-{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTA2NzEsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.4njH2KAz-qxzuaFkVx3WLQNuRTUdoKBTvlbG11oM7Yg"}
-```
-
-With the token we can then download the cert. Please note that the token is short lived and must be used before expiry.
-
-```bash
-curl -L -X GET https://prism.ultraviolet.rs/certs/<serial_number>/download -G -d "token=<download_token>" --output <filename>.zip
-```
-
-example:
-
-```bash
-curl -L -X GET https://prism.ultraviolet.rs/certs/75709155906162784911683514578929321876/download -G -d "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ2NTIzMTYsImlzcyI6IlVsdHJhdmlvbGV0Iiwic3ViIjoiY2VydHMifQ.lvFgVSKAyn2UNeJg1OA4fGxDDZ6pylZTn9UZhrfWR9I" --output certs.zip
-```
-
-![Download Certificate](../static/img/ui/download_cert.png)
-
-This results in three files `ca.pem`, `cert.pem` and `key.pem` which we'll use with CoCo's manager to bring the backend online.
-
-### Connect backend
-
-To connect a backend we need to start manager. Follow the getting started [guide](https://docs.cocos.ultraviolet.rs/getting-started/) on cocos to get up to speed.
-We'll then run manager to connect the backend.
-
-example:
-
-```bash
-MANAGER_GRPC_URL=prism.ultraviolet.rs:7011 MANAGER_LOG_LEVEL=debug MANAGER_QEMU_USE_SUDO=false  MANAGER_QEMU_ENABLE_SEV=false MANAGER_QEMU_SEV_CBITPOS=51 MANAGER_QEMU_OVMF_CODE_FILE=/usr/share/edk2/x64/OVMF_CODE.fd MANAGER_QEMU_OVMF_VARS_FILE=/usr/share/edk2/x64/OVMF_VARS.fd MANAGER_QEMU_ENABLE_SEV_SNP=false MANAGER_GRPC_CLIENT_CERT=cert.pem MANAGER_GRPC_CLIENT_KEY=key.pem MANAGER_GRPC_SERVER_CA_CERTS=ca.pem go run main.go
-```
-
-Once manager is connected we should notice the associated backend marked as active:
-This can be viewed by:
-
-```bash
-curl -sSiX GET https://prism.ultraviolet.rs/backends/<backend_id> -H "Authorization: Bearer <user_token>"
-```
-
-response:
-
-```bash
-HTTP/1.1 200 OK
-Content-Type: application/json
-Date: Thu, 02 May 2024 12:59:15 GMT
-Content-Length: 110
-
-{"id":"fde3263e-70b8-4ce9-9f3c-4a203a0dcdf5","name":"my dell server","address":"192.168.100.4","active":true}
-```
-
-![Active Backend](../static/img/ui/active%20backend.png)
+The cvm will come online in a few minutes.
+![Online CVM](../static/img/cvms/online-cvm.png)
 
 ## Computations
 
-For computation management, we use Computations micorservice. By default, this service will be running on the port `9000`.
+Once the cvm comes online, we can proceed to creating a computation. For computation management, we use Computations microservice.
 
 ### Create Computation
 
@@ -317,7 +216,7 @@ Running a computation requires the following items:
 | :-------------- | :------- | :----------------- | :---------------- | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | Algorithm       | Required | Algorithm Provider | Algorithm         | Required   | Algorithms are required because they will be executed in TEE.                                                        |
 | Dataset         | Optional | Dataset Provider   | Dataset           | Required   | Datasets are optional because some algorithms do not require training datasets.                                      |
-| Result Consumer | Require  | Result Consumer    | -                 | Required   | Result consumers are required because they are the users that can retrieve results after successful computation run. |
+| Result Consumer | Required | Result Consumer    | -                 | Required   | Result consumers are required because they are the users that can retrieve results after successful computation run. |
 
 Public keys are mandatory because they are needed for user identification when uploading algorithm and datasets and when retrieving results. Therefore, users need to generate public/private key pairs and upload their public keys.
 

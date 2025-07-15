@@ -30,7 +30,7 @@ To set up a billing account, follow these steps:
 
 ![alt text](img/billing/available_plans.png)
 
-7. After selecting a plan, you will be prompted to enter your payment details. Fill in the required fields for the payment method you choose (credit card, PayPal, etc.). 
+7. After selecting a plan, you will be prompted to enter your payment details. Fill in the required fields for the payment method you choose (credit card, PayPal, etc.).
 
 ![alt text](img/billing/payment_details.png)
 
@@ -77,4 +77,3 @@ A list of unpaid invoices will be displayed on the workspaces page prior to logg
 To manage your payment methods, go to the billing section and click on the "View Payment Methods" button. Here you can view and remove any payment methods you no longer wish to use.
 
 ![alt text](img/billing/payment_methods.png)
-

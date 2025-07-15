@@ -73,6 +73,13 @@ const sidebars: SidebarsConfig = {
                 'users',
             ],
         },
+        {
+            type: 'category',
+            label: 'Billing',
+            items: [
+                'billing',
+            ],
+        },
     ],
 };
 

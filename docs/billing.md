@@ -61,7 +61,9 @@ To manage your invoices, navigate to the billing section and click on the "Invoi
 
 ![alt text](img/billing/invoice_management.png)
 
-A sample invoice can be found [here](img/invoice/sample_invoice.pdf).
+A sample invoice is shown.
+
+![alt text](img/billing/sample_invoice.png)
 
 #### CVM Billing
 
@@ -74,6 +76,10 @@ Pending payments on any CVMs will prevent you from logging in to the platform. E
 A list of unpaid invoices will be displayed on the workspaces page prior to logging in. Use the link on the invoice to pay it directly, and access the platform once the payment is confirmed.
 
 ![alt text](img/billing/workspace_invoices.png)
+
+A sample CVM invoice is shown below.
+
+![alt text](img/billing/sample_cvm_invoice.png)
 
 ### Payment Methods
 

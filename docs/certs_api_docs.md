@@ -1,7 +1,7 @@
 # Certs
 
 :::note Base URL
-https://prism.ultraviolet.rs/certs
+`https://prism.ultraviolet.rs/certs`
 :::
 
 ---
@@ -10,7 +10,7 @@ https://prism.ultraviolet.rs/certs
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/certs/issue/{entityType}/{entityID}
 ```
 
@@ -31,7 +31,7 @@ curl -X POST "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe07
   -d '{ "ip_addresses": ["10.0.0.1"] }'
 ```
 
-**Response**
+### Response
 
 ```http
 201 Created
@@ -43,7 +43,7 @@ curl -X POST "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe07
 
 ### Endpoint
 
-```
+```http
 PATCH /{domainID}/certs/{serialNumber}/renew
 ```
 
@@ -60,7 +60,7 @@ curl -X PATCH "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe0
 
 ### Endpoint
 
-```
+```http
 PATCH /{domainID}/certs/{serialNumber}/revoke
 ```
 
@@ -77,7 +77,7 @@ curl -X PATCH "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe0
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/certs
 ```
 
@@ -98,7 +98,7 @@ curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071
 
 ### Endpoint
 
-```
+```http
 DELETE /{domainID}/certs
 ```
 
@@ -113,7 +113,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe
   -H "Authorization: Bearer <token>"
 ```
 
-**Response**
+### Response
 
 ```http
 204 No Content
@@ -125,7 +125,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/certs/{serialNumber}/download/token
 ```
 
@@ -148,7 +148,7 @@ curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/certs/{entityID}/download?downloadToken={token}
 ```
 
@@ -173,21 +173,21 @@ curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071
 
 ## Download CA Certificates
 
-**Step 1: Retrieve CA Token**
+### Step 1: Retrieve CA Token
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/certs/certs/get-ca/token" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Step 2: Download CA File**
+### Step 2: Download CA File
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/certs/certs/download-ca?token=ca-token" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Response**
+### Response
 
 ```http
 (binary .zip or .pem file content)

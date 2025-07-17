@@ -1,7 +1,7 @@
 # Computation Logs
 
 :::note Base URL
-https://prism.ultraviolet.rs/computations
+`https://prism.ultraviolet.rs/computations`
 :::
 
 ---
@@ -10,7 +10,7 @@ https://prism.ultraviolet.rs/computations
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}/logs
 ```
 

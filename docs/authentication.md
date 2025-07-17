@@ -1,7 +1,7 @@
 # Authentication & Workspaces
 
 :::note Base URL
-https://prism.ultraviolet.rs
+`https://prism.ultraviolet.rs`
 :::
 
 ---
@@ -10,7 +10,7 @@ https://prism.ultraviolet.rs
 
 ### Endpoint
 
-```
+```http
 POST /users
 ```
 
@@ -70,7 +70,7 @@ curl -X POST https://prism.ultraviolet.rs/users \
 
 ### Endpoint
 
-```
+```http
 POST /users/tokens/issue
 ```
 
@@ -100,7 +100,7 @@ curl -X POST https://prism.ultraviolet.rs/users/tokens/issue \
 
 ### Endpoint
 
-```
+```http
 POST /users/tokens/refresh
 ```
 
@@ -128,7 +128,7 @@ curl -X POST https://prism.ultraviolet.rs/users/tokens/refresh \
 
 ### Endpoint
 
-```
+```http
 GET /users
 ```
 
@@ -169,13 +169,11 @@ curl -X GET https://prism.ultraviolet.rs/users \
 
 ---
 
-# Workspace API
-
 ## Create Workspace
 
 ### Endpoint
 
-```
+```http
 POST /auth/domains
 ```
 

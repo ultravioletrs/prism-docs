@@ -1,7 +1,7 @@
 # Computation Events
 
 :::note Base URL
-https://prism.ultraviolet.rs/computations
+`https://prism.ultraviolet.rs/computations`
 :::
 
 ---
@@ -10,7 +10,7 @@ https://prism.ultraviolet.rs/computations
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}/events
 ```
 
@@ -53,7 +53,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}/status
 ```
 

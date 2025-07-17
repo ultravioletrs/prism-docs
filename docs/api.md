@@ -5,5 +5,5 @@ Prism provides a comprehensive API for developers to interact with its features.
 The API is organized into several categories based on functionality. Each endpoint is documented with its method, path, parameters, and a brief description.
 
 :::tip BASE URL
-https://prism.ultraviolet.rs
+`https://prism.ultraviolet.rs`
 :::

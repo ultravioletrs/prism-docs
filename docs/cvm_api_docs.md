@@ -1,7 +1,7 @@
 # CVMs
 
 :::note Base URL
-https://prism.ultraviolet.rs/backends
+`https://prism.ultraviolet.rs/backends`
 :::
 
 ---
@@ -10,7 +10,7 @@ https://prism.ultraviolet.rs/backends
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/cvms/{provider}/{vcpu}/{cc_platform}
 ```
 
@@ -39,7 +39,7 @@ curl -X POST "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96f
   -d '{"name":"example-cvm", "agent_log_level":"info"}'
 ```
 
-**Response**
+### Response
 
 ```http
 201 Created
@@ -51,11 +51,11 @@ curl -X POST "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96f
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/cvms
 ```
 
-**Optional Query Parameters**
+#### Optional Query Parameters
 
 - `limit`, `offset`, `name`, `status`, `days`, `cc_platform`
 
@@ -101,7 +101,7 @@ curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/cvms/{id}
 ```
 
@@ -140,7 +140,7 @@ curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe
 
 ### Endpoint
 
-```
+```http
 DELETE /{domainID}/cvms/{id}
 ```
 
@@ -151,7 +151,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae9
   -H "Authorization: Bearer <token>"
 ```
 
-**Response**
+### Response
 
 ```http
 204 No Content
@@ -163,7 +163,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae9
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/cvms/{id}/statistics
 ```
 
@@ -205,7 +205,7 @@ curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/cvms/{id}/attestation_policy
 ```
 

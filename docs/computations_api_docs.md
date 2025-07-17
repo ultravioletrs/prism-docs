@@ -1,7 +1,7 @@
 # Computations
 
 :::note Base URL
-https://prism.ultraviolet.rs/computations
+`https://prism.ultraviolet.rs/computations`
 :::
 
 ---
@@ -10,7 +10,7 @@ https://prism.ultraviolet.rs/computations
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/computations
 ```
 
@@ -41,7 +41,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
   -d '{ ... }'
 ```
 
-**Response**
+### Response
 
 ```http
 201 Created
@@ -54,7 +54,7 @@ HX-Location: /computations/{id}
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations
 ```
 
@@ -91,7 +91,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}?peek={true|false}
 ```
 
@@ -108,7 +108,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 PUT /{domainID}/computations/{id}
 ```
 
@@ -145,7 +145,7 @@ curl -X PUT "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 DELETE /{domainID}/computations/{id}
 ```
 
@@ -156,7 +156,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead
   -H "Authorization: Bearer <token>"
 ```
 
-**Response**
+### Response
 
 ```http
 204 No Content
@@ -168,7 +168,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/computations/{id}/run?cvm={cvmID}
 ```
 
@@ -179,7 +179,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
   -H "Authorization: Bearer <token>"
 ```
 
-**Response**
+### Response
 
 ```json
 "run-id-string"
@@ -191,7 +191,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}/run
 ```
 
@@ -208,7 +208,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/runs
 ```
 
@@ -225,7 +225,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/statistics?days=7
 ```
 
@@ -253,7 +253,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/computations/{id}/key
 ```
 
@@ -278,7 +278,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}/key
 ```
 
@@ -295,7 +295,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/computations/{id}/dryrun
 ```
 
@@ -324,7 +324,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}/stop
 ```
 
@@ -341,7 +341,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/computations/{id}/manifest
 ```
 

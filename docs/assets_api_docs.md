@@ -1,11 +1,7 @@
 # Assets
 
 :::note Base URL
-
-```
-https://prism.ultraviolet.rs/computations
-```
-
+`https://prism.ultraviolet.rs/computations`
 :::
 
 ---
@@ -14,7 +10,7 @@ https://prism.ultraviolet.rs/computations
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/assets
 ```
 
@@ -42,7 +38,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
   -d '{ ... }'
 ```
 
-**Response**
+### Response
 
 ```http
 201 Created
@@ -54,7 +50,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/assets
 ```
 
@@ -91,7 +87,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/assets/{id}
 ```
 
@@ -108,7 +104,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 PUT /{domainID}/assets/{id}
 ```
 
@@ -142,7 +138,7 @@ curl -X PUT "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 DELETE /{domainID}/assets/{id}
 ```
 
@@ -153,7 +149,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead
   -H "Authorization: Bearer <token>"
 ```
 
-**Response**
+### Response
 
 ```http
 204 No Content
@@ -165,7 +161,7 @@ curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead
 
 ### Endpoint
 
-```
+```http
 POST /{domainID}/assets/{assetID}/{computationID}
 ```
 
@@ -182,7 +178,7 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ### Endpoint
 
-```
+```http
 GET /{domainID}/assets/{assetID}/computations
 ```
 
@@ -199,7 +195,7 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ### Endpoint
 
-```
+```http
 PUT /{domainID}/assets/{assetID}/{computationID}
 ```
 

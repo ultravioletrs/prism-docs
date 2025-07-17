@@ -1,33 +1,31 @@
 # Computation Events
 
-**Base URL**
-
-```
+:::note Base URL
 https://prism.ultraviolet.rs/computations
-```
+:::
 
 ---
 
 ## List Events for a Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}/events
 ```
 
-**Query Parameters**
+### Query Parameters
 
 - `limit`, `offset`, `from`, `to`, `status`, etc.
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/events?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&limit=10" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -53,20 +51,20 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## View Latest Event for a Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}/status
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/status?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {

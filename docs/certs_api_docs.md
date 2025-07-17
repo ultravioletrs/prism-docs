@@ -1,22 +1,20 @@
 # Certs
 
-**Base URL**
-
-```
+:::note Base URL
 https://prism.ultraviolet.rs/certs
-```
+:::
 
 ---
 
 ## Issue Certificate
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/certs/issue/{entityType}/{entityID}
 ```
 
-**Body**
+### Body
 
 ```json
 {
@@ -24,7 +22,7 @@ POST /{domainID}/certs/issue/{entityType}/{entityID}
 }
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071239/certs/issue/computation/comp-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -43,13 +41,13 @@ curl -X POST "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe07
 
 ## Renew Certificate
 
-**Endpoint**
+### Endpoint
 
 ```
 PATCH /{domainID}/certs/{serialNumber}/renew
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X PATCH "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071239/certs/serial-abc/renew?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -60,13 +58,13 @@ curl -X PATCH "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe0
 
 ## Revoke Certificate
 
-**Endpoint**
+### Endpoint
 
 ```
 PATCH /{domainID}/certs/{serialNumber}/revoke
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X PATCH "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071239/certs/serial-abc/revoke?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -77,17 +75,17 @@ curl -X PATCH "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe0
 
 ## List Certificates
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/certs
 ```
 
-**Query Parameters**
+### Query Parameters
 
 - `limit`, `offset`, `entity_id`
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071239/certs?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&limit=10" \
@@ -98,17 +96,17 @@ curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071
 
 ## Delete Certificates
 
-**Endpoint**
+### Endpoint
 
 ```
 DELETE /{domainID}/certs
 ```
 
-**Query Parameters**
+### Query Parameters
 
 - `entity_id`, `domainID`
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X DELETE "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071239/certs?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&entity_id=comp-123" \
@@ -125,20 +123,20 @@ curl -X DELETE "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe
 
 ## Retrieve Certificate Download Token
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/certs/{serialNumber}/download/token
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071239/certs/serial-abc/download/token?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 { "token": "cert-download-token" }
@@ -148,20 +146,20 @@ curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071
 
 ## Download Certificate Files
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/certs/{entityID}/download?downloadToken={token}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/certs/c1adf32-3dac-4aad-bead-ae96fe071239/certs/comp-123/download?downloadToken=cert-download-token&domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {

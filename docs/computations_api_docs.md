@@ -1,22 +1,20 @@
 # Computations
 
-**Base URL**
-
-```
+:::note Base URL
 https://prism.ultraviolet.rs/computations
-```
+:::
 
 ---
 
 ## Create Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/computations
 ```
 
-**Body**
+### Body
 
 ```json
 {
@@ -34,7 +32,7 @@ POST /{domainID}/computations
 }
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -54,20 +52,20 @@ HX-Location: /computations/{id}
 
 ## List Computations
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&limit=10" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -91,13 +89,13 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Get Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}?peek={true|false}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&peek=true" \
@@ -108,15 +106,31 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Update Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 PUT /{domainID}/computations/{id}
 ```
 
-**Body**: Same as Create
+### Body
 
-**cURL Example**
+```json
+{
+  "name": "experiment-001",
+  "description": "Testing new algorithm",
+  "owner": "user-abc",
+  "agent_config": {
+    "log_level": "info",
+    "cert_file": "cert.pem",
+    "server_key": "key.pem",
+    "server_ca_file": "ca.pem",
+    "client_ca_file": "client-ca.pem",
+    "attested_tls": true
+  }
+}
+```
+
+### cURL Example
 
 ```bash
 curl -X PUT "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -129,13 +143,13 @@ curl -X PUT "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Delete Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 DELETE /{domainID}/computations/{id}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -152,13 +166,13 @@ curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead
 
 ## Run Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/computations/{id}/run?cvm={cvmID}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/run?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&cvm=cvm-123" \
@@ -175,13 +189,13 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ## View Computation Run
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}/run
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/run?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -192,13 +206,13 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Retrieve All Runs
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/runs
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/runs?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -209,20 +223,20 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Computation Stats
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/statistics?days=7
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/statistics?days=7&domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -237,19 +251,19 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Add User Key
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/computations/{id}/key
 ```
 
-**Body**
+### Body
 
 ```json
 { "key": "base64-encoded-ssh-key" }
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/key?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -262,13 +276,13 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ## Check Key Uploaded
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}/key
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/key?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -279,20 +293,20 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Dry Run
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/computations/{id}/dryrun
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/dryrun?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -308,13 +322,13 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ## Stop Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}/stop
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/stop?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -325,13 +339,13 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## View Manifest
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}/manifest
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/manifest?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \

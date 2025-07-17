@@ -1,33 +1,31 @@
 # Computation Logs
 
-**Base URL**
-
-```
+:::note Base URL
 https://prism.ultraviolet.rs/computations
-```
+:::
 
 ---
 
 ## List Logs for a Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/computations/{id}/logs
 ```
 
-**Query Parameters**
+### Query Parameters
 
 - `limit`, `offset`, `from`, `to`, `level`, `message`, etc.
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/computations/comp-123/logs?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&limit=20&level=error" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {

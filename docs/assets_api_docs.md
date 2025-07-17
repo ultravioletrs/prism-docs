@@ -1,22 +1,24 @@
 # Assets
 
-**Base URL**
+:::note Base URL
 
 ```
 https://prism.ultraviolet.rs/computations
 ```
 
+:::
+
 ---
 
 ## Create Asset
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/assets
 ```
 
-**Body**
+### Body
 
 ```json
 {
@@ -31,7 +33,7 @@ POST /{domainID}/assets
 }
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -50,20 +52,20 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ## List Assets
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/assets
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&limit=10" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -87,13 +89,13 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Retrieve Asset
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/assets/{id}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets/asset-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -104,15 +106,28 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Update Asset
 
-**Endpoint**
+### Endpoint
 
 ```
 PUT /{domainID}/assets/{id}
 ```
 
-**Body**: Same as Create
+### Body
 
-**cURL Example**
+```json
+{
+  "asset": {
+    "file_name": "example.csv",
+    "description": "Training data",
+    "asset_type": "dataset",
+    "mime_type": "text/csv",
+    "asset": "base64-encoded-blob",
+    "user_key": "base64-encoded-key"
+  }
+}
+```
+
+### cURL Example
 
 ```bash
 curl -X PUT "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets/asset-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -125,13 +140,13 @@ curl -X PUT "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Delete Asset
 
-**Endpoint**
+### Endpoint
 
 ```
 DELETE /{domainID}/assets/{id}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets/asset-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -148,13 +163,13 @@ curl -X DELETE "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead
 
 ## Associate Asset to Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/assets/{assetID}/{computationID}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets/asset-123/comp-456?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -165,13 +180,13 @@ curl -X POST "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-a
 
 ## Retrieve Asset Computations
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/assets/{assetID}/computations
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets/asset-123/computations?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -182,13 +197,13 @@ curl -X GET "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae
 
 ## Unlink Asset from Computation
 
-**Endpoint**
+### Endpoint
 
 ```
 PUT /{domainID}/assets/{assetID}/{computationID}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X PUT "https://prism.ultraviolet.rs/computations/c1adf32-3dac-4aad-bead-ae96fe071239/assets/asset-123/comp-456?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \

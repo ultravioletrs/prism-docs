@@ -1,16 +1,14 @@
 # CVMs
 
-**Base URL**
-
-```
+:::note Base URL
 https://prism.ultraviolet.rs/backends
-```
+:::
 
 ---
 
 ## Create CVM
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /{domainID}/cvms/{provider}/{vcpu}/{cc_platform}
@@ -23,7 +21,7 @@ The url parameters are as follows:
 - `<vcpu>`: The number of virtual CPUs to allocate for the CVM.
 - `<ccPlatform>`: The cloud platform to use for the CVM, currently supported values are `Intel TDX` and `SEV SN
 
-**Body**
+### Body
 
 ```json
 {
@@ -32,7 +30,7 @@ The url parameters are as follows:
 }
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe071239/cvms/aws/2/sev-snp?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -51,7 +49,7 @@ curl -X POST "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96f
 
 ## List CVMs
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/cvms
@@ -61,14 +59,14 @@ GET /{domainID}/cvms
 
 - `limit`, `offset`, `name`, `status`, `days`, `cc_platform`
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe071239/cvms?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&limit=10" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -101,20 +99,20 @@ curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe
 
 ## View CVM
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/cvms/{id}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe071239/cvms/cvm-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -140,13 +138,13 @@ curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe
 
 ## Delete CVM
 
-**Endpoint**
+### Endpoint
 
 ```
 DELETE /{domainID}/cvms/{id}
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X DELETE "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe071239/cvms/cvm-123?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
@@ -163,24 +161,24 @@ curl -X DELETE "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae9
 
 ## View CVM Statistics
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/cvms/{id}/statistics
 ```
 
-**Query Parameters**
+### Query Parameters
 
 - `days`: duration window to retrieve stats
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe071239/cvms/cvm-123/statistics?domainID=c1adf32-3dac-4aad-bead-ae96fe071239&days=7" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -205,20 +203,20 @@ curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe
 
 ## Fetch Attestation Policy
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /{domainID}/cvms/{id}/attestation_policy
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET "https://prism.ultraviolet.rs/backends/c1adf32-3dac-4aad-bead-ae96fe071239/cvms/cvm-123/attestation_policy?domainID=c1adf32-3dac-4aad-bead-ae96fe071239" \
   -H "Authorization: Bearer <token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {

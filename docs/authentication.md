@@ -1,22 +1,20 @@
 # Authentication & Workspaces
 
-**Base URL**
-
-```
+:::note Base URL
 https://prism.ultraviolet.rs
-```
+:::
 
 ---
 
 ## Register a New User
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /users
 ```
 
-**Body**
+### Body
 
 ```json
 {
@@ -36,7 +34,7 @@ POST /users
 }
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST https://prism.ultraviolet.rs/users \
@@ -44,7 +42,7 @@ curl -X POST https://prism.ultraviolet.rs/users \
   -d '{ ... }'
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -70,13 +68,13 @@ curl -X POST https://prism.ultraviolet.rs/users \
 
 ## Login and Get Access Token
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /users/tokens/issue
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST https://prism.ultraviolet.rs/users/tokens/issue \
@@ -87,7 +85,7 @@ curl -X POST https://prism.ultraviolet.rs/users/tokens/issue \
   }'
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -100,13 +98,13 @@ curl -X POST https://prism.ultraviolet.rs/users/tokens/issue \
 
 ## Refresh Access Token
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /users/tokens/refresh
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST https://prism.ultraviolet.rs/users/tokens/refresh \
@@ -114,7 +112,7 @@ curl -X POST https://prism.ultraviolet.rs/users/tokens/refresh \
   -H "Authorization: Bearer <refresh_token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -128,20 +126,20 @@ curl -X POST https://prism.ultraviolet.rs/users/tokens/refresh \
 
 ## List All Users
 
-**Endpoint**
+### Endpoint
 
 ```
 GET /users
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X GET https://prism.ultraviolet.rs/users \
   -H "Authorization: Bearer <access_token>"
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {
@@ -171,17 +169,17 @@ curl -X GET https://prism.ultraviolet.rs/users \
 
 ---
 
-# 🏢 Workspace API
+# Workspace API
 
 ## Create Workspace
 
-**Endpoint**
+### Endpoint
 
 ```
 POST /auth/domains
 ```
 
-**Body**
+### Body
 
 ```json
 {
@@ -190,7 +188,7 @@ POST /auth/domains
 }
 ```
 
-**cURL Example**
+### cURL Example
 
 ```bash
 curl -X POST https://prism.ultraviolet.rs/auth/domains/ \
@@ -199,7 +197,7 @@ curl -X POST https://prism.ultraviolet.rs/auth/domains/ \
   -d '{ "name": "workspace 1", "alias": "proj1" }'
 ```
 
-**Sample Response**
+### Sample Response
 
 ```json
 {

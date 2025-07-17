@@ -232,7 +232,7 @@ These steps have been explained in the sections below.
 ### Assigning Computation Roles and Permissions
 
 1. Navigate to the roles page from the computation details page.
-![Roles](../static/img/ui/roles.png)
+   ![Roles](../static/img/ui/roles.png)
 
 2. Select a role to which you would like to add a user.
    Please note that this user needs to be invited to a workspace and to have accepted the invitation.

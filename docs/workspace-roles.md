@@ -7,7 +7,7 @@ Workspace roles are used to manage user actions to a workspace. On service start
 The following builtin roles are created on service initialization:
 
 | Built-in Role | Actions                                                                                                                                              |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Admin         | add_role_users, create_computation, create_cvms, delete, disable, enable, manage_role, read, remove_cvms, remove_role_users, update, view_role_users |
 
 ## Role Management
@@ -42,7 +42,7 @@ Clicking the **Roles** button will display all predefined built-in roles and the
 The system provides predefined **built-in roles**, each granting specific access levels. The available built-in roles and their associated actions are:
 
 | Built-in Role | Actions                                                                                                                                              | Description                                                             |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **Admin**     | add_role_users, create_computation, create_cvms, delete, disable, enable, manage_role, read, remove_cvms, remove_role_users, update, view_role_users | Full control over the workspace, including modifying roles and actions. |
 
 ### Explanation of Actions

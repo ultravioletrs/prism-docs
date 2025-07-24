@@ -50,7 +50,7 @@ Prism integrates with CocosAI components that run on TEE-enabled hardware:
    - User defines computation via Prism UI or API
    - Specifies participants, data providers, algorithm providers
    - Sets privacy policies and result distribution rules
-   - Participants provide public keys to be used for identification by agent.
+   - Participants provide public keys to be used for identification by agent
 
 2. **Backend Provisioning**
    - Prism Backends service selects appropriate TEE infrastructure

@@ -121,16 +121,19 @@ Prism integrates with CocosAI components that run on TEE-enabled hardware:
 ## Deployment Architectures
 
 ### Cloud Deployment
+
 - Prism services deployed on major cloud providers (GCP, Azure)
 - CocosAI backends on TEE-enabled cloud instances
 - Managed certificates and load balancing
 
 ### On-Premise Deployment
+
 - Self-hosted Prism services in customer infrastructure
 - Direct control over TEE hardware
 - Air-gapped environments supported
 
 ### Hybrid Deployment
+
 - Prism control plane in cloud
 - TEE compute resources on-premise
 - Secure tunneling for coordination
@@ -138,11 +141,13 @@ Prism integrates with CocosAI components that run on TEE-enabled hardware:
 ## Scalability and Performance
 
 ### Horizontal Scaling
+
 - Microservices architecture enables independent scaling
 - Load balancing across multiple TEE backends
 - Database sharding for multi-tenant workloads
 
 ### Limitations
+
 - **TEE Resource Constraints**: Memory and CPU limitations within enclaves
 - **I/O Overhead**: Encryption/decryption costs for large datasets
 - **Hardware Dependencies**: Requires specific TEE-capable processors
@@ -151,18 +156,21 @@ Prism integrates with CocosAI components that run on TEE-enabled hardware:
 ## Monitoring and Observability
 
 ### System Metrics
+
 - CVM health and resource utilization
 - Computation execution progress and performance
 - Certificate lifecycle and validity status
 - Backend connectivity and availability
 
 ### Security Monitoring
+
 - Attestation verification
 - Certificate validation events
 - Unauthorized access attempts
 - Anomalous computation patterns
 
 ### Audit Trail
+
 - Complete computation lifecycle logging
 - Participant actions and data access
 - Security events and policy violations
@@ -171,6 +179,7 @@ Prism integrates with CocosAI components that run on TEE-enabled hardware:
 ## Integration Points
 
 ### APIs and SDKs
+
 - **REST APIs**: Comprehensive API coverage for all platform operations
 - **CLI Tools**: Command-line interface for automation and scripting
 

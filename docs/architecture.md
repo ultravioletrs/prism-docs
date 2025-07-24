@@ -23,7 +23,7 @@ Prism operates as a cloud-native platform that orchestrates confidential computa
 | Service | Description | Key Responsibilities |
 |---------|-------------|---------------------|
 | **Auth** | Authentication and authorization management | - Policy enforcement for backends, certs, and computations<br />- Role-based access control<br />- API token management |
-| **Users** | User identity and workspace membership | - User registration and authentication<br />- Workspace association and roles<br />- Integration with [Supermq users](https://docs.supermq.abstractmachines.fr/architecture) service |
+| **Users** | User identity and workspace membership | - User registration and authentication<br />- Workspace association and roles<br />- Integration with [SuperMQ users](https://docs.supermq.abstractmachines.fr/architecture) service |
 | **Computations** | Computation lifecycle management | - Computation definition and metadata<br />- Participant coordination<br />- Execution orchestration and monitoring |
 | **Backends** | TEE infrastructure management | - CVM provisioning and lifecycle<br />- Connection to CocosAI agents<br />- Multi-cloud and on-premise support |
 | **Certs** | Certificate Authority services | - mTLS certificate issuance and management<br />- Certificate revocation and renewal<br />- OCSP endpoint for certificate validation |

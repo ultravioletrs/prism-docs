@@ -167,6 +167,8 @@ curl -X GET https://prism.ultraviolet.rs/users \
 }
 ```
 
+For more user related actions see: [magistrala users](https://docs.magistrala.abstractmachines.fr/api/#users)
+
 ---
 
 ## Create Workspace
@@ -210,3 +212,5 @@ curl -X POST https://prism.ultraviolet.rs/auth/domains/ \
 ```
 
 > Use the `id` field from the response as the domain ID for all future API calls scoped to this workspace.
+
+For more domain (workspace) related actions see: [magistrala domains](https://docs.magistrala.abstractmachines.fr/api/#domains)

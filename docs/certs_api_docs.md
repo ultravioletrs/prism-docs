@@ -11,7 +11,7 @@
 ### Endpoint
 
 ```http
-POST /{domainID}/certs/issue/{entityType}/{entityID}
+POST /{domainID}/certs/issue/cvm/{entityID}
 ```
 
 ### Body

@@ -34,35 +34,60 @@ const sidebars: SidebarsConfig = {
         'computation-logs',
     ],*/
 
-  tutorialSidebar: [
-    {
-      type: "category",
-      label: "Getting Started",
-      items: ["intro", "architecture", "getting-started"],
-    },
-    {
-      type: "category",
-      label: "Computations",
-      items: [
-        "computations",
-        "computation-logs",
-        "roles",
-        "assets",
-        "algorithms",
-      ],
-    },
-    {
-      type: "category",
-      label: "Cvms",
-      items: ["cvms", "certs"],
-    },
-    {
-      type: "category",
-      label: "User Management",
-      items: ["access-control", "dashboard", "workspaces", "users"],
-    },
-    "billing",
-  ],
+    tutorialSidebar: [
+        {
+            type: 'category',
+            label: 'Getting Started',
+            items: [
+                'intro',
+                'architecture',
+                'getting-started',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Computations',
+            items: [
+                'computations',
+                'computation-logs',
+                'roles',
+                'assets',
+                'algorithms',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Cvms',
+            items: [
+                'cvms',
+                'certs',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'User Management',
+            items: [
+                'access-control',
+                'dashboard',
+                'workspaces',
+                'users',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'API Reference',
+            items: [
+                'api',
+                'assets_api_docs',
+                'certs_api_docs',
+                'computations_api_docs',
+                'cvm_api_docs',
+                'events_api_docs',
+                'logs_api_docs'
+            ]
+        },
+        "billing"
+    ],
 };
 
 export default sidebars;

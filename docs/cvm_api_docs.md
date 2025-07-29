@@ -19,7 +19,7 @@ The url parameters are as follows:
 - `<workspace_id>`: The ID of the workspace where the CVM will be created.
 - `<provider>`: The backend provider to use for the CVM (supported are `azure`, `gcp`, `external` and `ultraviolet`).
 - `<vcpu>`: The number of virtual CPUs to allocate for the CVM.
-- `<ccPlatform>`: The cloud platform to use for the CVM, currently supported values are `Intel TDX` and `SEV SN
+- `<ccPlatform>`: The cloud platform to use for the CVM, currently supported values are `Intel TDX` and `SEV SNP
 
 ### Body
 

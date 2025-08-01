@@ -1,6 +1,6 @@
 # Access Control
 
-Prism implements a comprehensive role-based access control system that provides fine-grained permissions across the platform. The system is built around three main entities: **Platform**, **Workspaces**, and **Computations**.
+Prism implements a comprehensive role-based access control system that provides fine-grained permissions across the platform. The system is built around two main entities: **Workspaces**, and **Computations**.
 
 ## Workspaces
 

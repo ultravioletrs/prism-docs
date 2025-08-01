@@ -35,7 +35,6 @@ const sidebars: SidebarsConfig = {
                 'computation-logs',
                 'roles',
                 'assets',
-                //'algorithms',
             ],
         },
         {

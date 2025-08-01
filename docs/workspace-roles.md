@@ -1,6 +1,4 @@
-# Roles
-
-## Workspace Roles
+# Workspace Roles
 
 Workspace roles are used to manage user actions to a workspace. On service start, builtin roles are created with their associated actions which can be assigned to a user on a particular workspace. These builtin roles can be updated, deleted, and new ones added.
 

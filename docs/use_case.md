@@ -204,8 +204,8 @@ Once computation completes:
 ```
 
 The response:
-![alt text](img/usecase/downloaded_results.png)
+![Computation results](img/usecase/downloaded_results.png)
 
 This also reflects on ui with an event to indicate the computation is complete:
 
-![alt text](img/usecase/consumed_results.png)
+![Downloaded results](img/usecase/consumed_results.png)

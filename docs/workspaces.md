@@ -21,18 +21,18 @@ On the ui the steps are as follows:
 On the ui the steps are as follows:
 
 1. Click on 'Workspaces' on the navigation panel to view workspace details.
-   ![Workspace Details](../static/img/ui/workspace details.png)
+   ![Workspace Details](../static/img/ui/workspace%20details.png)
 
 2. Click on 'Update Workspace' to navigate to the update workspace page.
 3. Make necessary changes and click 'update'
-   ![Updating an Workspace](../static/img/ui/update workspace.png)
+   ![Updating an Workspace](../static/img/ui/update%20workspace.png)
 
 ## Get workspace
 
 Viewing a workspace's details can be done as follows:
 
 1. Click on 'Workspaces' on the navigation panel to view workspace details.
-   ![Workspace Details](../static/img/ui/workspace details.png)
+   ![Workspace Details](../static/img/ui/workspace%20details.png)
 
 ## Get workspaces
 
@@ -42,22 +42,3 @@ To view workspaces:
    ![user profile](../static/img/ui/user_profile.png)
 2. Workspace page is displayed.
    ![Workspaces](../static/img/ui/workspaces.png)
-
-## Assign
-
-Adding a user to a workspace can be done as follows:
-
-1. From Workspace details page, click on 'Members'. This navigates to Members page.
-   ![Workspace Details](../static/img/ui/proj details members.png)
-
-2. From Member page, click on 'Assign Member'. A modal dialog will appear that allowing member relation assignment.
-   ![Assign Member](../static/img/ui/assign member.png)
-
-## Members
-
-Viewing the workspace members can be done as below
-
-1. From Workspace details page, click on 'Members'. This navigates to Members page.
-   ![Workspace Details](../static/img/ui/proj details members.png)
-2. Workspace members page is displayed.
-   ![Workspace Members](../static/img/ui/members.png)

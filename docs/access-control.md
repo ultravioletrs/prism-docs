@@ -1,76 +1,118 @@
 # Access Control
 
-Prism implements fine grained access control for users having different access to the plaform.
+Prism implements a comprehensive role-based access control system that provides fine-grained permissions across the platform. The system is built around two main entities: **Workspaces**, and **Computations**.
 
 ## Workspaces
 
-Workspaces are organizational units within the platform. They have the following user roles:
+Workspaces are organizational units that contain computations and users. Each workspace has its own set of roles and permissions:
 
-| Role          | Permissions           |
-| ------------- | --------------------- |
-| Administrator | Admin, Member, Delete |
-| Member        | Member                |
+### Workspace Roles
 
-### Workspaces Permissions Explained
+| Role               | Key Permissions                                           |
+| ------------------ | -------------------------------------------------------- |
+| **Administrator**  | Full workspace control, user management, computation creation |
+| **Manager**        | Role management, user assignment                         |
+| **Member**         | Read/update workspace resources                          |
+| **Computation Creator** | Create and manage computations                      |
+| **CVM Manager**    | Create and remove CVMs (Compute Virtual Machines)       |
 
-- **Admin**: Full control over the workspace, including managing users and settings
-- **Member**: Basic access to workspace resources
-- **Delete**: Ability to delete the workspace
+### Workspace Permissions Explained
+
+- **Read**: View workspace details and resources
+- **Update**: Modify workspace settings and configurations
+- **Delete**: Remove the workspace entirely
+- **Enable/Disable**: Control workspace availability
+- **Manage Roles**: Create, modify, and delete custom roles
+- **User Management**: Add, remove, and view workspace users
+- **Create Computations**: Launch new computational tasks
+- **CVM Management**: Provision and manage compute resources
 
 ## Computations
 
-Computations have more complex access control with various user roles:
+Computations have the most granular access control system, designed to support complex multi-party computational scenarios:
 
-| Role             | Permissions                |
-| ---------------- | -------------------------- |
-| Administrator    | Owner, View, Edit, Run     |
-| Viewer           | View                       |
-| Editor           | View, Edit                 |
-| Runner           | View, Run                  |
-| Dataset Provider | View, Edit, Provide Data   |
-| Algo Provider    | View, Edit, Provide Algo   |
-| Result Consumer  | View, Edit, Consume Result |
+### Computation Roles
+
+| Role                | Permissions                           | Use Case                    |
+| ------------------- | ------------------------------------- | --------------------------- |
+| **Administrator**   | Owner, View, Edit, Run               | Full computation control    |
+| **Editor**          | View, Edit                           | Modify computation settings |
+| **Runner**          | View, Run                            | Execute computations        |
+| **Viewer**          | View                                 | Monitor computation status  |
+| **Dataset Provider** | View, Edit, Provide Data            | Supply input datasets       |
+| **Algorithm Provider** | View, Edit, Provide Algorithm     | Contribute algorithms       |
+| **Result Consumer** | View, Edit, Consume Results          | Access computation outputs  |
 
 ### Computation Permissions Explained
 
-- **Owner**: Full control over the computation.
-- **View**: Ability to see computation details
-- **Edit**: Ability to modify computation settings
-- **Run**: Ability to execute the computation
-- **Provide Data**: Ability to input datasets for the computation
-- **Provide Algo**: Ability to provide algorithms for the computation
-- **Consume Result**: Ability to access and use computation results
+- **View**: See computation details, status, and metadata
+- **Edit**: Modify computation parameters and configurations
+- **Run**: Execute the computation
+- **Stop**: Halt running computations
+- **Owner**: Complete control over the computation lifecycle
+- **Provide Data**: Upload and manage input datasets
+- **Provide Algorithm**: Contribute computational algorithms
+- **Consume Results**: Access and download computation outputs
 
-```mermaid
-graph TD
-    U[User] --> D[Workspace]
-    U --> C[Computation]
+## Permission Inheritance
 
-    D --> DA[Administrator]
-    D --> DM[Member]
+The access control system follows a hierarchical permission model:
 
-    C --> CA[Administrator]
-    C --> CV[Viewer]
-    C --> CE[Editor]
-    C --> CR[Runner]
-    C --> CDP[Dataset Provider]
-    C --> CAP[Algo Provider]
-    C --> CRC[Result Consumer]
+1. **Workspace Administrators** have admin permissions for all computations within their workspace
+2. **Workspace Members** inherit basic access to workspace resources
+3. Users can have multiple roles across different entities
 
-    DA --> |Admin, Member, Delete| DP[Workspace Permissions]
-    DM --> |Member| DP
+## Role Management
 
-    CA --> |Owner, View, Edit, Run| CP[Computation Permissions]
-    CV --> |View| CP
-    CE --> |View, Edit| CP
-    CR --> |View, Run| CP
-    CDP --> |View, Edit, Provide Data| CP
-    CAP --> |View, Edit, Provide Algo| CP
-    CRC --> |View, Edit, Consume Result| CP
-```
+### Custom Roles
 
-## Important Notes
+Workspaces can create custom roles with specific permission combinations. Custom roles:
 
-1. Workspace administrators automatically have admin permissions for computations within their workspace.
-2. Platform administrators have admin permissions for all workspaces on the platform.
-3. The access control system is designed to be flexible, allowing for fine-grained control over user permissions.
+- Can be created, modified, and deleted by workspace administrators
+- Allow fine-tuning of access permissions
+- Support complex organizational structures
+
+### Role Assignment
+
+- Workspace administrators can manage roles within their workspace
+- Role managers can add/remove users from specific roles
+- Users can view their assigned roles and permissions
+
+## Security Features
+
+### Role Validation
+
+- Built-in roles cannot be modified or deleted
+- Permission changes are validated against the entity hierarchy
+- Role assignments respect workspace boundaries
+
+### Audit and Monitoring
+
+- All role changes are tracked
+- Permission checks are logged
+- User access patterns can be monitored
+
+## Best Practices
+
+### Workspace Organization
+
+- Use workspace administrators for department heads
+- Assign computation creators to users who need to launch tasks
+- Grant dataset provider roles to data owners
+- Provide result consumer access to stakeholders who need outputs
+
+### Security Guidelines
+
+- Follow the principle of least privilege
+- Regularly review and audit role assignments
+- Use custom roles for specific organizational needs
+- Monitor cross-workspace access patterns
+
+### Multi-Party Computations
+
+For collaborative computations involving multiple organizations:
+
+- Assign dataset provider roles to data contributors
+- Grant algorithm provider roles to algorithm developers
+- Provide result consumer access to all authorized parties
+- Use viewer roles for observers and auditors

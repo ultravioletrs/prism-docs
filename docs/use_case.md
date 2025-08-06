@@ -1,4 +1,4 @@
-# Prism Use Case: Multiparty Computation for COVID-19 Training
+# Multiparty Computation for COVID-19 Training
 
 This document outlines a **real-world example** of using Prism to run a **secure multiparty computation (MPC)**.  
 In this scenario, multiple organizations contribute datasets to jointly run a **COVID-19 training algorithm** while keeping their data private.
@@ -196,20 +196,16 @@ When finished:
 
 Once computation completes:
 
-- Authorized **Result Consumers** can download the output from the UI or via API.
-- Results remain available as long as the computation record is retained.
+- Authorized **Result Consumers** can obtain the results using the CLI.
+- Results can only be consumed once.
 
----
-
-## Summary Workflow
-
-```
-[Workspace Setup] → [Computation Created] → [Assets Prepared] → [CVM Created]
-    → [Algorithm & Datasets Uploaded] → [Computation Runs] → [Results Consumed]
+```bash
+./build/cocos-cli result ./private.pem 
 ```
 
-This workflow ensures:
+The response:
+![alt text](img/usecase/downloaded_results.png)
 
-- **Data privacy** between parties.
-- **Secure execution** in CVMs.
-- **Traceable collaboration** via Prism roles and logs.
+This also reflects on ui with an event to indicate the computation is complete:
+
+![alt text](img/usecase/consumed_results.png)

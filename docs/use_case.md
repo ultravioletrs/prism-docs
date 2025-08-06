@@ -126,7 +126,7 @@ The computation will enter the **waiting** state until the algorithm and dataset
 Export the CVM’s gRPC endpoint so the CLI can communicate with it:
 
 ```bash
-export AGENT_GRPC_URL=109.92.195.153:6110
+export AGENT_GRPC_URL=192.0.2.1:6110
 ```
 
 ---
@@ -142,7 +142,7 @@ Assets are uploaded using the [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli)
 If your algorithm is in **Python** and has dependencies:
 
 ```bash
-export AGENT_GRPC_URL=109.92.195.153:6110
+export AGENT_GRPC_URL=192.0.2.1:6110
 ./build/cocos-cli algo ../ai/covid19/train.py ./private.pem \
   -a python \
   -r ../ai/covid19/requirements.txt

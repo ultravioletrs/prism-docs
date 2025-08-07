@@ -20,7 +20,7 @@ On the ui the steps are as follows:
 
 On the ui the steps are as follows:
 
-1. Click on 'Workspaces' on the navigation panel to view workspace details.
+1. Click on 'Workspace' on the navigation panel to view workspace details.
    ![Workspace Details](../static/img/ui/workspace%20details.png)
 
 2. Click on 'Update Workspace' to navigate to the update workspace page.
@@ -31,7 +31,7 @@ On the ui the steps are as follows:
 
 Viewing a workspace's details can be done as follows:
 
-1. Click on 'Workspaces' on the navigation panel to view workspace details.
+1. Click on 'Workspace' on the navigation panel to view workspace details.
    ![Workspace Details](../static/img/ui/workspace%20details.png)
 
 ## Get workspaces

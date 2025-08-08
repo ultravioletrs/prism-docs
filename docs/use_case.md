@@ -1,211 +1,159 @@
-# Multiparty Computation for COVID-19 Training
+# Secure Multiparty Computation with Prism
 
-This document outlines a **real-world example** of using Prism to run a **secure multiparty computation (MPC)**.  
-In this scenario, multiple organizations contribute datasets to jointly run a **COVID-19 training algorithm** while keeping their data private.
+This document presents a **real-world scenario** where Prism is used to perform a **secure multiparty computation (MPC)** for collaborative training of a COVID-19 prediction model. The use case demonstrates how **confidential data from multiple institutions** can be aggregated and processed without compromising data privacy.
 
----
-
-## Overview
-
-In this example, we will:
-
-1. **Provision the Prism environment** — Set up the workspace, computation, billing, and roles.
-2. **Prepare and register assets** — Upload datasets and algorithms to Prism.
-3. **Create a CVM (Confidential Virtual Machine)** — Secure environment where computations are executed.
-4. **Run the computation** — Trigger the MPC process with all required inputs.
-5. **Consume the results** — Retrieve the computation output.
+While this example is grounded in pandemic response, the underlying approach generalizes to any sensitive, collaborative AI training effort — including applications in **healthcare, finance, and government**.
 
 ---
 
-## 1. Provision the System on Prism
+## 🌐 High-Level Use Case Context
 
-Before running any computation:
+Modern machine learning often requires diverse and high-quality datasets, but privacy, legal, and competitive concerns restrict data sharing. Prism addresses this by enabling **cross-organization AI training using secure enclaves** (Confidential Virtual Machines or CVMs), allowing data to remain private even during processing.
 
-1. **Create a workspace** — A collaborative space for all computation participants.
-2. **Create a computation** — Defines the specific task to run (e.g., COVID-19 prediction).
-3. **Set up a billing account** — Required for usage tracking and payment.
+This COVID-19 use case highlights:
 
-📖 **Reference:** See the [Getting Started guide](/docs/getting-started.md) for step-by-step instructions.
+- **Collaborative AI training** without exposing raw datasets.
+- **Compliance with data protection regulations** (e.g., HIPAA, GDPR).
+- **Deployment of algorithms in secure compute environments**, fully auditable and cryptographically verified.
 
-Once provisioned:
-
-- All participating organizations **must** be registered on Prism.
-- The computation owner sends **workspace invitations** to all parties so they can upload their datasets or algorithms.
+It builds on the COVID-19 training algorithm provided in the [AI repository](https://github.com/ultravioletrs/ai/tree/main/covid19) and executes it securely through Prism and the Cocos framework.
 
 ---
 
-## 2. Creating & Provisioning the Computation
+## Summary Workflow
 
-1. **Create the computation**
-   - On the **Computations** page, click **New Computation**.
-   - Fill in the required fields in the modal form.
-
-   ![New Computation](img/usecase/new_comp.png)
-
-2. **Initial state of a new computation**
-   - No assets, asset providers, or result consumers are linked yet.
-   - These must be **manually added by the computation admin**.
-
-   ![View Computation](img/usecase/view_comp.png)
+1. **Provisioning**: Define a computation and onboard stakeholders.
+2. **Asset Registration**: Upload datasets and algorithms securely.
+3. **CVM Creation**: Set up confidential compute infrastructure.
+4. **Execution**: Trigger and monitor the multiparty computation.
+5. **Result Consumption**: Authorize and download final outputs.
 
 ---
 
-### Computation Roles
+## 1. Provisioning the Prism Environment
 
-Each computation has **default roles** (e.g., Admin, Asset Provider, Result Consumer).
+### Create the Workspace and Computation
 
-- Members must be **assigned to roles** before the computation can run.
-- Roles control **permissions** (who can upload datasets, run computations, view results, etc.).
+- Set up a **workspace** as a secure collaboration boundary.
+- Define a **computation** to encapsulate the training task.
+- Ensure a valid **billing account** is attached for tracking usage.
 
-![Member Roles](img/usecase/member_roles.png)
+📘 Refer to the [Getting Started Guide](/docs/getting-started.md) for setup instructions.
 
----
+### Invite Participating Organizations
 
-### Preparing the Assets
+All participating institutions must:
 
-1. Prepare datasets following the guidelines in the  
-   [AI Docs for COVID-19 testing](https://github.com/ultravioletrs/ai/tree/main/covid19#testing-with-cocos).
+- Be registered on Prism.
+- Accept invitations to the workspace.
+- Be assigned appropriate roles (e.g., **Asset Provider**, **Result Consumer**).
 
-2. Upload each dataset to Prism:
-   - Include the **file checksum** for verification.
-   - Associate it with the computation.
-
-![COVID-19 Assets](img/usecase/datasets.png)
+Each role enforces strict access control policies.
 
 ---
 
-A **fully provisioned computation** looks like this:
+## 2. Registering Assets
 
-![Complete Computation](img/usecase/complete_computation.png)
+### Uploading Datasets
 
----
+Datasets must follow [AI repo guidelines](https://github.com/ultravioletrs/ai/tree/main/covid19#testing-with-cocos). Each dataset should:
 
-### Public & Private Keys
+- Be zipped and verified via checksum.
+- Be uploaded using the CLI and linked to the computation.
 
-Before running the computation:
-
-1. Generate a **public/private key pair**.
-2. Upload the **public key** to Prism.
-3. Use the **private key** when uploading assets to the CVM.
-
-This ensures assets are **securely transmitted**.
-
----
-
-## 3. Create a CVM
-
-**CVMs (Confidential Virtual Machines)** are secure execution environments where computations run.
-
-1. Navigate to the **CVMs** page.
-2. Click **New CVM** and fill in the required details.
-
-![Create CVM](img/usecase/create_cvm.png)
-
-📖 **Reference:** See the [CVM documentation](/docs/cvms.md) for detailed setup instructions.
-
----
-
-## 4. Running the Computation
-
-Once the CVM is **created** and **online**:
-
-1. Go to the **Computations** page.
-2. Click **Run** on your computation.
-3. In the modal, select the CVM you just created.
-
-![Run Computation](img/usecase/run_computation.png)
-
-The computation will enter the **waiting** state until the algorithm and datasets are uploaded.
-
-![Running Computation](img/usecase/running_computation.png)
-
----
-
-### Set CVM Agent URL
-
-Export the CVM’s gRPC endpoint so the CLI can communicate with it:
+Example:
 
 ```bash
-export AGENT_GRPC_URL=192.0.2.1:6110
+./build/cocos-cli data ../ai/covid19/datasets/h1.zip ./private.pem
 ```
 
----
+Repeat for all datasets.
 
-## 5. Uploading Assets
+### Uploading the Algorithm
 
-Assets are uploaded using the [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli).
-
----
-
-### Upload the Algorithm
-
-If your algorithm is in **Python** and has dependencies:
+Python-based training scripts should be uploaded with their dependencies:
 
 ```bash
-export AGENT_GRPC_URL=192.0.2.1:6110
 ./build/cocos-cli algo ../ai/covid19/train.py ./private.pem \
   -a python \
   -r ../ai/covid19/requirements.txt
 ```
 
-Result:
-
-![Upload Algorithm](img/usecase/upload_algo.png)
-
-UI will update to show the transition from **Waiting for Algorithm** → **Waiting for Datasets**.
-
-![Algorithm Received](img/usecase/algo_received.png)
+The algorithm must conform to the Cocos runtime interface (as detailed in the AI repo).
 
 ---
 
-### Upload the Datasets
+## 3. Confidential Compute via CVM
 
-Example: Uploading three COVID-19 datasets:
+CVMs are secure environments where the algorithm executes under **hardware-based encryption** (Intel SGX, AMD SEV, etc.).
+
+Steps:
+
+1. Go to the **CVMs** page and click **New CVM**.
+2. Complete the required configuration.
+
+📘 Detailed setup instructions: [CVM Docs](/docs/cvms.md)
+
+After creation, export the CVM's gRPC endpoint:
 
 ```bash
-./build/cocos-cli data ../ai/covid19/datasets/h1.zip ./private.pem \
-&& ./build/cocos-cli data ../ai/covid19/datasets/h2.zip ./private.pem \
-&& ./build/cocos-cli data ../ai/covid19/datasets/h3.zip ./private.pem
+export AGENT_GRPC_URL=192.0.2.1:6110
 ```
 
-Result:
-
-![Datasets Uploaded](img/usecase/datasets_upload.png)
+This allows CLI interaction with the agent.
 
 ---
 
-## 6. Computation Execution
+## 4. Execution of the Secure Computation
 
-Once all assets are uploaded:
+Once all assets are in place:
 
-- Logs and events appear on the computation’s **UI page** in real-time.
-- Progress updates are sent as the computation runs.
+1. Return to the **Computations** dashboard.
+2. Click **Run** and select the target CVM.
+3. Monitor the computation state in real time.
 
-![Computation Progress](img/usecase/computation_progress.png)
+The computation will transition through:
 
-When finished:
+- **Waiting for Algorithm**
+- **Waiting for Datasets**
+- **Running**
+- **Completed**
 
-- A **Completed** event appears.
-- Results are ready for consumption.
-
-![Completed Computation](img/usecase/completed_computation.png)
+All events and logs are cryptographically signed and verifiable.
 
 ---
 
-## 7. Consuming the Results
+## 5. Result Retrieval and Post-Processing
 
-Once computation completes:
-
-- Authorized **Result Consumers** can obtain the results using the CLI.
-- Results can only be consumed once.
+Authorized users can retrieve results via:
 
 ```bash
 ./build/cocos-cli result ./private.pem 
 ```
 
-The response:
-![Computation results](img/usecase/downloaded_results.png)
+Note: Results are **one-time consumable** and linked to access control lists defined by the computation owner.
 
-This also reflects on ui with an event to indicate the computation is complete:
+---
 
-![Downloaded results](img/usecase/consumed_results.png)
+## 🔍 Broader Real-World Applications
+
+This COVID-19 training use case serves as a **template for broader domains**:
+
+| Domain        | Use Case Example                                                     |
+|---------------|----------------------------------------------------------------------|
+| **Healthcare** | Secure joint training of diagnostic models across hospitals.        |
+| **Finance**    | Fraud detection models using data from multiple banks.              |
+| **Insurance**  | Risk modeling across industry consortia.                            |
+| **Energy**     | Demand forecasting using proprietary utility data.                  |
+| **Public Sector** | Secure census or mobility analysis across government bodies.     |
+
+Prism, powered by [Cocos](https://docs.cocos.ultraviolet.rs), makes **confidential AI collaboration** practical at scale, with cryptographic audit trails and privacy guarantees.
+
+---
+
+## 🔗 References
+
+- [AI COVID-19 Repo](https://github.com/ultravioletrs/ai/tree/main/covid19)
+- [Cocos CLI Docs](https://docs.cocos.ultraviolet.rs/cli)
+- [Prism Getting Started Guide](/docs/getting-started.md)
+- [CVM Reference Manual](/docs/cvms.md)

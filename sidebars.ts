@@ -69,7 +69,8 @@ const sidebars: SidebarsConfig = {
                 'logs_api_docs'
             ]
         },
-        "billing"
+        "billing",
+        "use_case"
     ],
 };
 

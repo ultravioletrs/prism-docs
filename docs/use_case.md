@@ -40,6 +40,8 @@ It builds on the COVID-19 training algorithm provided in the [AI repository](htt
 
 📘 Refer to the [Getting Started Guide](/docs/getting-started.md) for setup instructions.
 
+![New Computation](img/usecase/new_comp.png)
+
 ### Invite Participating Organizations
 
 All participating institutions must:
@@ -49,6 +51,8 @@ All participating institutions must:
 - Be assigned appropriate roles (e.g., **Asset Provider**, **Result Consumer**).
 
 Each role enforces strict access control policies.
+
+![View Computation](img/usecase/view_comp.png)
 
 ---
 
@@ -69,6 +73,8 @@ Example:
 
 Repeat for all datasets.
 
+![COVID-19 Assets](img/usecase/datasets.png)
+
 ### Uploading the Algorithm
 
 Python-based training scripts should be uploaded with their dependencies:
@@ -79,7 +85,11 @@ Python-based training scripts should be uploaded with their dependencies:
   -r ../ai/covid19/requirements.txt
 ```
 
+![Upload Algorithm](img/usecase/upload_algo.png)
+
 The algorithm must conform to the Cocos runtime interface (as detailed in the AI repo).
+
+![Algorithm Received](img/usecase/algo_received.png)
 
 ---
 
@@ -91,6 +101,8 @@ Steps:
 
 1. Go to the **CVMs** page and click **New CVM**.
 2. Complete the required configuration.
+
+![Create CVM](img/usecase/create_cvm.png)
 
 📘 Detailed setup instructions: [CVM Docs](/docs/cvms.md)
 
@@ -119,7 +131,11 @@ The computation will transition through:
 - **Running**
 - **Completed**
 
+![Running Computation](img/usecase/running_computation.png)
+
 All events and logs are cryptographically signed and verifiable.
+
+![Computation Progress](img/usecase/computation_progress.png)
 
 ---
 
@@ -131,7 +147,11 @@ Authorized users can retrieve results via:
 ./build/cocos-cli result ./private.pem 
 ```
 
+![Completed Computation](img/usecase/completed_computation.png)
+
 Note: Results are **one-time consumable** and linked to access control lists defined by the computation owner.
+
+![Downloaded results](img/usecase/consumed_results.png)
 
 ---
 
@@ -153,7 +173,7 @@ Prism, powered by [Cocos](https://docs.cocos.ultraviolet.rs), makes **confidenti
 
 ## 🔗 References
 
-- [AI COVID-19 Repo](https://github.com/ultravioletrs/ai/tree/main/covid19)
+- [AI COVID-19 Training Repo](https://github.com/ultravioletrs/ai/tree/main/covid19)
 - [Cocos CLI Docs](https://docs.cocos.ultraviolet.rs/cli)
 - [Prism Getting Started Guide](/docs/getting-started.md)
 - [CVM Reference Manual](/docs/cvms.md)

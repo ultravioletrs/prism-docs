@@ -20,27 +20,27 @@ Prism operates as a cloud-native platform that orchestrates confidential computa
 
 ### Prism Cloud Services
 
-| Service | Description | Key Responsibilities |
-|---------|-------------|---------------------|
-| **Auth** | Authentication and authorization management | - Policy enforcement for backends, certs, and computations<br />- Role-based access control<br />- API token management |
-| **Users** | User identity and workspace membership | - User registration and authentication<br />- Workspace association and roles<br />- Integration with [SuperMQ users](https://docs.supermq.abstractmachines.fr/architecture) service |
-| **Computations** | Computation lifecycle management | - Computation definition and metadata<br />- Participant coordination<br />- Execution orchestration and monitoring |
-| **Backends** | TEE infrastructure management | - CVM provisioning and lifecycle<br />- Connection to CocosAI agents<br />- Multi-cloud and on-premise support |
-| **Certs** | Certificate Authority services | - mTLS certificate issuance and management<br />- Certificate revocation and renewal<br />- OCSP endpoint for certificate validation |
-| **Billing** | Resource usage and payment management | - Usage tracking and billing<br />- Resource access control based on plans<br />- Multi-tenant cost allocation |
-| **Workspaces** | Tenant isolation and resource organization | - Domain separation and access control<br />- Resource grouping and management |
-| **User Interface** | Web-based platform access | - Visual interface for all platform operations |
+| Service            | Description                                 | Key Responsibilities                                                                                                                                                                 |
+| ------------------ | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Auth**           | Authentication and authorization management | - Policy enforcement for backends, certs, and computations<br />- Role-based access control<br />- API token management                                                              |
+| **Users**          | User identity and workspace membership      | - User registration and authentication<br />- Workspace association and roles<br />- Integration with [SuperMQ users](https://docs.supermq.abstractmachines.fr/architecture) service |
+| **Computations**   | Computation lifecycle management            | - Computation definition and metadata<br />- Participant coordination<br />- Execution orchestration and monitoring                                                                  |
+| **Backends**       | TEE infrastructure management               | - CVM provisioning and lifecycle<br />- Connection to CocosAI agents<br />- Multi-cloud and on-premise support                                                                       |
+| **Certs**          | Certificate Authority services              | - mTLS certificate issuance and management<br />- Certificate revocation and renewal<br />- OCSP endpoint for certificate validation                                                 |
+| **Billing**        | Resource usage and payment management       | - Usage tracking and billing<br />- Resource access control based on plans<br />- Multi-tenant cost allocation                                                                       |
+| **Workspaces**     | Tenant isolation and resource organization  | - Domain separation and access control<br />- Resource grouping and management                                                                                                       |
+| **User Interface** | Web-based platform access                   | - Visual interface for all platform operations                                                                                                                                       |
 
 ### CocosAI TEE Runtime Components
 
 Prism integrates with CocosAI components that run on TEE-enabled hardware:
 
-| Component | Location | Description |
-|-----------|----------|-------------|
-| **Manager** | TEE Host | - CVM provisioning and lifecycle management<br />- IGVM/OVMF firmware configuration<br />- TEE monitoring and secure destruction |
-| **Agent** | Inside CVM/TEE | - Computation execution coordination<br />- Secure data and algorithm ingestion<br />- Remote attestation report generation<br />- Secure result extraction |
-| **EOS** | Inside CVM/TEE | - Lightweight Linux distribution (Buildroot-based)<br />- Minimal attack surface<br />- Container runtime for workloads |
-| **CLI** | Client/Admin | - Administrative interface to TEE operations<br />- Attestation verification<br />- Algorithm and data provisioning |
+| Component   | Location       | Description                                                                                                                                                 |
+| ----------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Manager** | TEE Host       | - CVM provisioning and lifecycle management<br />- IGVM/OVMF firmware configuration<br />- TEE monitoring and secure destruction                            |
+| **Agent**   | Inside CVM/TEE | - Computation execution coordination<br />- Secure data and algorithm ingestion<br />- Remote attestation report generation<br />- Secure result extraction |
+| **EOS**     | Inside CVM/TEE | - Lightweight Linux distribution (Buildroot-based)<br />- Minimal attack surface<br />- Container runtime for workloads                                     |
+| **CLI**     | Client/Admin   | - Administrative interface to TEE operations<br />- Attestation verification<br />- Algorithm and data provisioning                                         |
 
 ## Data Flow and Interaction Patterns
 

@@ -19,7 +19,7 @@ To set up a billing account, follow these steps:
 
 ![alt text](img/billing/update_customer_button.png)
 
-4. This will open a form where you can enter your billing details. Fill in the required fields such as name, email, and address.
+4. This will open a form where you can enter your billing details. Fill in the required fields such as name, email, and address. All fields are compulsory, including the second address line.
 
 ![alt text](img/billing/update_customer_modal.png)
 
@@ -43,15 +43,19 @@ To set up a billing account, follow these steps:
 
 10. If you ever need to change your billing details or update your payment method, you can return to the billing section and click on the "Update Customer Details" button again.
 
-## Viewing Billing History
+## Viewing Subscription Status History
 
-Billing history can be viewed in the billing section. This includes details of past transactions, invoices, and payment methods used.
+Past records of the current workspace's status can be found on the subscription status history page, which can be accessed when the 'Subscription History' button is clicked on the billing page:
+
+![alt text](img/billing/billing_history_button.png)
+
+The subsequent status history page will be opened where all information about the status changes of the subscription will be shown:
 
 ![alt text](img/billing/billing_history.png)
 
 ### Subscription Management
 
-To manage your subscription, go to the billing section and click on the "Manage Subscription" button. From there, you can view your current subscription, pause or resume it, and cancel if needed.
+To manage your subscription, go to the billing section and click on the "Current Subscription" button. From there, you can view your current subscription, pause or resume it, and cancel if needed.
 
 ![alt text](img/billing/manage_subscription.png)
 
@@ -80,12 +84,6 @@ A list of unpaid invoices will be displayed on the workspaces page prior to logg
 A sample CVM invoice is shown below.
 
 ![alt text](img/billing/sample_cvm_invoice.png)
-
-### Payment Methods
-
-To manage your payment methods, go to the billing section and click on the "View Payment Methods" button. Here you can view and remove any payment methods you no longer wish to use.
-
-![alt text](img/billing/payment_methods.png)
 
 ### Audit Logs
 

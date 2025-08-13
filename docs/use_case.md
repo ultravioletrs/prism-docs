@@ -1,4 +1,4 @@
-# Secure Multiparty Computation with Prism
+# Use cases
 
 This document presents a **real-world scenario** where Prism is used to perform a **secure multiparty computation (MPC)** for collaborative training of a COVID-19 prediction model. The use case demonstrates how **confidential data from multiple institutions** can be aggregated and processed without compromising data privacy.
 
@@ -95,7 +95,7 @@ The algorithm must conform to the Cocos runtime interface (as detailed in the AI
 
 ## 3. Confidential Compute via CVM
 
-CVMs are secure environments where the algorithm executes under **hardware-based encryption** (Intel SGX, AMD SEV, etc.).
+CVMs are secure environments where the algorithm executes under **hardware-based encryption** (Intel TDX, AMD SEV, etc.).
 
 Steps:
 
@@ -144,7 +144,7 @@ All events and logs are cryptographically signed and verifiable.
 Authorized users can retrieve results via:
 
 ```bash
-./build/cocos-cli result ./private.pem 
+./build/cocos-cli result ./private.pem
 ```
 
 ![Completed Computation](img/usecase/completed_computation.png)
@@ -159,13 +159,13 @@ Note: Results are **one-time consumable** and linked to access control lists def
 
 This COVID-19 training use case serves as a **template for broader domains**:
 
-| Domain        | Use Case Example                                                     |
-|---------------|----------------------------------------------------------------------|
-| **Healthcare** | Secure joint training of diagnostic models across hospitals.        |
-| **Finance**    | Fraud detection models using data from multiple banks.              |
-| **Insurance**  | Risk modeling across industry consortia.                            |
-| **Energy**     | Demand forecasting using proprietary utility data.                  |
-| **Public Sector** | Secure census or mobility analysis across government bodies.     |
+| Domain                                                                       | Use Case Example                                                                        |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **[Healthcare](https://github.com/ultravioletrs/ai/tree/main/covid19)**      | Secure joint training of diagnostic models across hospitals.                            |
+| **[Finance](https://github.com/ultravioletrs/ai/tree/main/fraud-detection)** | Fraud detection models using data from multiple banks.                                  |
+| **Insurance**                                                                | Risk modeling across industry consortia.                                                |
+| **[Energy](https://github.com/ultravioletrs/ai/tree/main/rul-turbofan)**     | Failure prediction and remaining useful life in turbo engines based on historical data. |
+| **Public Sector**                                                            | Secure census or mobility analysis across government bodies.                            |
 
 Prism, powered by [Cocos](https://docs.cocos.ultraviolet.rs), makes **confidential AI collaboration** practical at scale, with cryptographic audit trails and privacy guarantees.
 

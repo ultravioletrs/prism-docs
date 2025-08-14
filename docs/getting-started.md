@@ -1,139 +1,296 @@
-# Getting Started
+# Getting Started with Prism
 
-The Prism UI gives is the easiest way to use the CoCoS system, giving the ability to use the entire prism system without interacting with the command line.
-It provides a convenient way to log in to the CoCoS system, creation of users, workspaces, computations, computation policies, computation invitations, certs, backends, workspace billing and updating of all this information.
-The UI can be found at [https://prism.ultraviolet.rs](https://prism.ultraviolet.rs). The UI is a web application and can be accessed from any modern web browser.
+Welcome to Prism! This guide will walk you through setting up your first workspace, creating secure compute environments, and running your first computation.
 
-## Login User
+## What is Prism?
 
-In order to login user we need to provide username and password:
+Prism is a confidential computing platform that enables secure multi-party computations using Trusted Execution Environments (TEEs). It allows multiple parties to collaborate on computations without exposing their sensitive data or algorithms.
 
-1. Navigate to the login page:
+## Quick Start Overview
 
-   ![Login](../static/img/ui/login_page.png)
+1. **Account Setup** - Create your account and log in
+2. **Workspace Creation** - Set up your collaborative environment  
+3. **CVM Setup** - Create Confidential Virtual Machines for secure computing
+4. **Computation Management** - Define, configure, and run secure computations
 
-2. Enter your email and password, and click login.
+---
 
-   This will direct you to the workspaces page at which point you can select the workspace to log in to and proceed with using Prism.
+## Account Setup
 
-   ![Workspace login](../static/img/ui/wkslogin.png)
+### Creating Your Account
 
-A user can also register/create an account using the UI by clicking the Register button which prompts the user for a username, email, and password. After which, the user is free to create workspaces and manage their created system.
-![UI login](../static/img/ui/login.png)
+1. Navigate to the Prism UI at [https://prism.ultraviolet.rs](https://prism.ultraviolet.rs)
+2. Click **Register** to create a new account
+3. Provide your username, email, and secure password
+4. Complete registration and verify your email if required
 
-### Create a workspace
+![Registration Process](../static/img/ui/login.png)
 
-The workspaces page gives the user the ability to either create an entirely new workspace or join an existing workspace. The user can also view the workspace they are a part of and the workspace they have created.
+### Logging In
 
-On the ui the steps are as follows:
-![Workspace page](../static/img/ui/newproj.png)
+1. Go to the login page
+2. Enter your email and password
+3. Click **Login**
+
+![Login Page](../static/img/ui/login_page.png)
+
+After successful login, you'll be directed to the workspaces page where you can select or create workspaces.
+
+---
+
+## Workspace Management
+
+### Understanding Workspaces
+
+Workspaces are collaborative environments where teams can:
+
+- Share secure computations
+- Manage user permissions and roles
+- Control access to algorithms and datasets
+- Monitor computation runs and results
+
+### Creating a New Workspace
+
+1. From the workspaces page, click **Create New Workspace**
+2. Provide a descriptive workspace name
+3. Configure initial settings and permissions
+4. Click **Create Workspace**
+
 ![Workspace Creation](../static/img/ui/projcreate.png)
+![Workspace Setup](../static/img/ui/newproj.png)
 
-### Workspace Login
+### Joining an Existing Workspace
 
-To log in to a Workspace click enter to log in to workspace with will bring you to the dashboard.
-![Workspace login](../static/img/ui/wkslogin.png)
+If you've been invited to a workspace:
 
-## CVMs
+1. Check your email for workspace invitation or login to prism
+2. Follow the invitation link
+3. Accept the invitation
+4. The workspace will appear in your workspace list
 
-### Creating a CVM
+### Accessing Your Workspace
 
-CVMs are used to run computations. We need to create one before we are able to run a computation. Backend providers are available based on current subscription.
+1. Select the desired workspace from your list
+2. Click **Enter Workspace** to access the dashboard
+3. You'll now have access to all workspace features
+
+![Workspace Login](../static/img/ui/wkslogin.png)
+
+---
+
+## CVM (Confidential Virtual Machine) Setup
+
+### What are CVMs?
+
+CVMs are secure, isolated computing environments that run inside Trusted Execution Environments (TEEs). They ensure your computations remain confidential even from the cloud provider.
+
+### Creating Your First CVM
+
+> **Prerequisites**: You must have an active subscription with available backend providers (Azure, GCP, Ultraviolet, External).
+
+1. Navigate to **CVMs** section in your workspace
+2. Click **Create New CVM**
+3. Select your preferred backend provider
+4. Configure CVM specifications:
+   - Memory allocation
+   - CPU requirements
+   - TEE type (AMD SEV_SNP/Intel TDX)
+5. Click **Create CVM**
 
 ![Create CVM](../static/img/ui/new_cvm.png)
 
-Please wait as the cvm is being created.
-![CVM_Creating](../static/img/ui/cvm_creating.png)
+### CVM Status Monitoring
 
-The cvm will come online in a few minutes.
-![Online CVM](../static/img/cvms/online-cvm.png)
+After creation, your CVM will go through several states:
 
-## Computations
+- **Creating**: Initial setup in progress
+- **Starting**: CVM is booting up
+- **Online**: Ready for computations
+- **Offline**: Not available for use
 
-Once the cvm comes online, we can proceed to creating a computation. For computation management, we use Computations microservice.
+![CVM Creating](../static/img/ui/cvm_creating.png)
+![CVM Online](../static/img/cvms/online-cvm.png)
 
-### Create Computation
+> **⏱️ Setup Time**: CVMs typically come online within 2-5 minutes after creation or longer ~10 minutes for public cloud CVMs Azure/GCP.
 
-In order to create computation, we can to provide the following content:
+---
 
-![New computation](../static/img/ui/new_computation.png)
-Running a computation requires the following items:
+## Computation Management
 
-| Item            | User     | User Role          | Computation Asset | Public Key | Additional Information                                                                                               |
-| :-------------- | :------- | :----------------- | :---------------- | :--------- | :------------------------------------------------------------------------------------------------------------------- |
-| Algorithm       | Required | Algorithm Provider | Algorithm         | Required   | Algorithms are required because they will be executed in TEE.                                                        |
-| Dataset         | Optional | Dataset Provider   | Dataset           | Required   | Datasets are optional because some algorithms do not require training datasets.                                      |
-| Result Consumer | Required | Result Consumer    | -                 | Required   | Result consumers are required because they are the users that can retrieve results after successful computation run. |
+### Understanding Computations
 
-Public keys are mandatory because they are needed for user identification when uploading algorithm and datasets and when retrieving results. Therefore, users need to generate public/private key pairs and upload their public keys.
+A computation in Prism CoCoS involves multiple parties collaborating securely:
 
-Users invited to a workspace:
+| Component | Role | Required | Description |
+|-----------|------|----------|-------------|
+| **Algorithm** | Algorithm Provider | ✅ Required | The secure code to be executed |
+| **Dataset** | Dataset Provider | ⚪ Optional | Training or input data (if needed) |
+| **Result Consumer** | Result Consumer | ✅ Required | Party authorized to retrieve results |
 
-1. need to be assigned user roles in the computation by the computation owner or admin.
-2. need to create computation assets respective to their roles i.e. an algorithm provider needs to create an algorithm asset.
-3. need to link all the required assets to the computation.
-4. need to their private key for uploading assets and retrieving results.
+### Creating a Computation
 
-These steps have been explained in the sections below.
+1. Navigate to **Computations** in your workspace
+2. Click **New Computation**
+3. Fill in computation details:
+   - **Name**: Descriptive computation name
+   - **Description**: Purpose and expected outcomes
+   - **Agent Configuration**: In enclave agent TLS configurations
 
-### Assigning Computation Roles and Permissions
+![New Computation](../static/img/ui/new_computation.png)
 
-1. Navigate to the roles page from the computation details page.
-   ![Roles](../static/img/ui/roles.png)
+### Setting Up User Roles
 
-2. Select a role to which you would like to add a user.
-   Please note that this user needs to be invited to a workspace and to have accepted the invitation.
-   ![Roles](../static/img/ui/view_role.png)
+#### Step 1: Navigate to Roles
 
-3. Switch to the members tab and click on the Add Members button.
-   ![Roles](../static/img/ui/role_details.png)
+1. Go to your computation's details page
+2. Click on **Roles** tab
 
-4. Search for the user you'd like to assign a role.
+![Roles Tab](../static/img/ui/roles.png)
 
-5. Select the user from the list and click on Add Selected Members button.
-   ![Roles](../static/img/ui/add_user_to_role.png)
+#### Step 2: Assign User Roles
 
-6. Upon successful role assignment, the user will appear on the role details page.
-   ![Roles](../static/img/ui/assigned_user_role.png)
+1. Select the role you want to populate (Algorithm Provider, Dataset Provider, or Result Consumer)
+2. Click **Add Members**
+3. Search for workspace users
+4. Select users and confirm assignment
 
-### Linking Computation Assets
+![Role Assignment](../static/img/ui/view_role.png)
+![Add User to Role](../static/img/ui/add_user_to_role.png)
 
-The assigned users from the previous step need to create and link their respective assets to the computation that they are assigned.
-This can be done as follows:
+> **📝 Note**: Users must already be invited to the workspace before they can be assigned computation roles. A user cannot belong to more than one role, to add permissions you should actions on the required [role](./roles.md).
 
-1. Navigate to assets page and create a new asset.
-   ![Roles](../static/img/ui/new_asset.png)
+### Managing Computation Assets
 
-2. A successfully created asset will appear in the assets page.
-   ![Roles](../static/img/ui/user_assets.png)
+#### Creating Assets
 
-3. Search for the computation by name and link the asset.
-   ![Roles](../static/img/ui/associate_user_asset.png)
+Users assigned to roles must create their respective assets:
 
-4. Repeat the steps for all the assets that are needed to run the computation.
+1. Navigate to **Assets** section
+2. Click **Create New Asset**
+3. Choose asset type (Algorithm, Dataset, etc.)
+4. Upload an optional sample of the asset
 
-### Run Computation
+![New Asset](../static/img/ui/new_asset.png)
+![User Assets](../static/img/ui/user_assets.png)
 
-Next we'll run the computation:
+#### Linking Assets to Computations
 
-Notice the run button is disabled until all the requirements are met:
-![Run computation Disabled](../static/img/ui/run_computation_disabled.png)
+1. From your assets page, find the relevant asset
+2. Click **Link to Computation**
+3. Search and select the target computation
+4. Confirm the association
 
-Once the requirements are satisfied, run computation button is enabled.
-![Run computation](../static/img/ui/run_computation.png)
+![Associate Asset](../static/img/ui/associate_user_asset.png)
 
-Once you click run computation, you will be required to select a CVM on which to run the computation:
+### Running Computations
+
+#### Prerequisites Check
+
+Before running, ensure:
+
+- ✅ All required roles are assigned
+- ✅ All necessary assets are linked
+- ✅ At least one CVM is online
+- ✅ Users have uploaded their public keys
+
+The **Run Computation** button will be disabled until all requirements are met.
+
+![Run Disabled](../static/img/ui/run_computation_disabled.png)
+
+#### Executing the Computation
+
+1. Click **Run Computation** (when enabled)
+2. Select an available online CVM
+3. Confirm execution
+
+![Run Computation](../static/img/ui/run_computation.png)
 ![Select CVM](../static/img/ui/select_cvm.png)
 
-This will result in events and logs from agent and manager visible on the ui.
+### Monitoring Execution
+
+#### Real-time Monitoring
+
+Once started, you can monitor:
+
+- **Events**: High-level computation milestones
+- **Logs**: Detailed execution information from the inenclave agent
+
 ![Events and Logs](../static/img/ui/logsEvents.png)
 
-### Stop Computation Run
+#### Stopping a Running Computation
 
-To stop a computation run at any point, click the **Stop** button on the event's card. The card contains the details and list of events related to the current computation run. Once the run is stopped, the button will be hidden.
+You can stop a computation at any time by:
 
-![Stop Computation Run](../static/img/ui/stop_computation.png)
+1. Clicking the **Stop** button on the events card, or
+2. Using the **Stop** button in the Logs tab
 
-The **Stop** button can also be found in the Logs tab, on each card.
+![Stop Computation](../static/img/ui/stop_computation.png)
+![Stop Computation Run](../static/img/ui/stop_computation_run.png)
 
-![Stop Run](../static/img/ui/stop_computation_run.png)
+---
+
+## Security & Public Keys
+
+### Why Public Keys Matter
+
+Public keys are essential for:
+
+- User identification and authentication
+- Secure asset uploads
+- Encrypted result retrieval
+- Maintaining computation integrity
+
+### Managing Your Keys
+
+1. Generate a public/private key pair using your preferred tool or using [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-keys)
+2. Upload your public key to your Prism profile
+3. Keep your private key secure - you'll need it for:
+   - [Uploading algorithms and datasets](https://docs.cocos.ultraviolet.rs/cli#command-algo)
+   - [Retrieving computation results](https://docs.cocos.ultraviolet.rs/cli#command-data)
+
+> **🔐 Security Best Practice**: Never share your private key. Prism only needs your public key for verification.
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+#### CVM Won't Start
+
+- Check your subscription status and available credits
+- Try creating a new CVM
+- Contact support if the issue persists
+
+#### Can't Run Computation
+
+- Ensure all required assets are linked
+- Verify all roles have assigned users
+- Check that at least one CVM is online
+- Check your subscription status and available credits
+
+#### Asset Upload Failures
+
+- Verify your public key is correctly uploaded
+- Ensure you have proper role permissions
+
+### Getting Help
+
+- **Documentation**: Browse our comprehensive docs
+- **Support**: Contact our support team
+- **Community**: Join our user community forums
+
+---
+
+## Next Steps
+
+Now that you've completed the getting started guide:
+
+1. **Explore Advanced Features**: Learn about [computation roles](./roles.md), advanced security settings
+2. **API Integration**: Discover how to automate workflows using our [API](./api.md)
+3. **Attestation**: Discover our [attestation](https://docs.cocos.ultraviolet.rs/attestation-introduction) implementation
+4. **Community**: Connect with other Prism and [CoCoS](https://docs.cocos.ultraviolet.rs/) users
+
+Ready to dive deeper? Check out our [Computation documentation](../computations) and [API Documentation](../api/).
+
+---

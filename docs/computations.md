@@ -1,269 +1,299 @@
 # Computations
 
-The computations service provides a means to manage computations, with functions such as computation creation, update, deletion, and running.
+## Overview
 
-## Add Computation
+The computations service is the core component of Prism AI that enables secure, confidential AI workloads within Trusted Execution Environments (TEEs). Computations define collaborative AI workflows where multiple parties can contribute data, algorithms, and consume results while maintaining data privacy and security.
 
-On the ui this can be done on this page as shown here
+### What is a Computation?
+
+A computation in Prism represents a secure collaborative AI workflow that includes:
+
+- **Algorithm**: The AI model or processing logic to be executed
+- **Datasets**: Input data from one or more providers  
+- **Participants**: Users with specific roles (data providers, algorithm providers, result consumers)
+- **Security Configuration**: TLS/mTLS settings and attestation policies
+- **Execution Environment**: Virtual machine configuration for secure processing
+
+## Quick Start
+
+### Prerequisites
+
+Before creating a computation, ensure you have:
+
+- Access to a Prism workspace
+- Appropriate user permissions for computation management
+- Generated cryptographic keys for CLI operations (if needed)
+- Required datasets and algorithms uploaded
+
+### Creating Your First Computation
+
+1. **Navigate to Computations**
+   - Access the computations page from the sidebar
+   - Click "Create New Computation"
+
+2. **Configure Basic Details**
+   - Enter computation name and description
+
+3. **Set Security Configuration**
+   - Configure agent security settings (TLS/mTLS/aTLS)
+   - Upload necessary certificates if using TLS
+
+4. **Review and Create**
+   - Verify all settings in the computation manifest
+   - Create the computation
+
+## Computation Management
+
+### Creating Computations
+
+#### Web Interface
+
+Access the computation creation interface through the main navigation:
+
 ![Create computation](../static/img/ui/new_computation.png)
 
-### Agent Configuration
+**Required Information:**
 
-The Agent Config feature allows users to configure TLS (Transport Layer Security) settings and logging levels for computational agents. This configuration is accessible through the Agent Config modal in the New Computation interface.
+- **Name**: Unique identifier for your computation
+- **Description**: Clear explanation of the computation's purpose
 
-#### TLS Configuration Options
+#### Import from File
 
-The system supports four TLS configuration modes:
+Prism supports bulk computation creation through file imports:
+
+**Supported Formats:**
+
+- **JSON**: Complete computation definition with all metadata
+- **CSV**: Multiple computations in tabular format
+
+**Import Process:**
+
+1. Navigate to the computations page
+2. Click the import button
+3. Select your JSON or CSV file
+4. Verify user IDs are valid and correspond to registered workspace users
+
+![Import computations](../static/img/ui/import_computation.png)
+
+**Sample JSON Format:**
+
+```json
+{
+  "id": "185e61f4-2fd1-47c3-b8e7-1bf6a8466b79",
+  "name": "sample_computation",
+  "description": "Sample collaborative AI computation",
+  "owner": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+  "start_time": "0001-01-01T00:00:00Z",
+  "datasets": [
+    {
+      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+      "hash": "171ae99ff0449d52cd37f824eec20f56d4efbe322e022e1df02a89eabc16209c"
+    }
+  ],
+  "algorithm": {
+    "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
+    "hash": "9567a45920974a3261f9e897b3da7e49a391728f607f36f0ad6e8f5ec8a2041b"
+  },
+  "result_consumers": ["f07b7716-2737-4228-9d80-d9df4ab5ee53"],
+  "agent_config": {
+    "log_level": "info",
+    "cert_file": "",
+    "server_key": "",
+    "server_ca_file": "",
+    "client_ca_file": "",
+    "attested_tls": false
+  },
+  "backend_id": "9a8d67b6-9298-4393-81c6-8b7958a8cebf"
+}
+```
+
+### Viewing Computations
+
+#### List View
+
+The computations page displays all computations you have access to:
+
+![List computations](../static/img/ui/list%20computations.png)
+
+**Available Actions:**
+
+- View computation details
+- Delete computations
+
+#### Detailed View
+
+Each computation provides comprehensive information and management options:
+
+![View computation](../static/img/ui/computation.png)
+
+**Key Features:**
+
+- **Computation Status**: Current execution state
+- **Participant Information**: Roles and responsibilities
+- **Configuration Details**: Security and logging settings
+- **Action Buttons**: Run, edit, delete, view logs
+- **Manifest Preview**: Complete computation definition
+
+### Updating Computations
+
+Modify existing computations through the update interface:
+
+![Update computation](../static/img/ui/update%20computation.png)
+
+**Updatable Elements:**
+
+- Basic metadata (name, description)
+- Security configurations
+
+**Important Notes:**
+
+- Some fields cannot be modified after computation execution begins
+- Configuration changes may require re-uploading certificates
+
+### Exporting Computations
+
+Export computations for backup, sharing, or migration:
+
+![Download computation](../static/img/ui/download_computation.png)
+
+**Export Options:**
+
+- **JSON Format**: Complete computation definition with all metadata
+- **Includes**: All configuration settings, participant information, and security policies
+
+**Use Cases:**
+
+- Creating computation templates
+- Backup and disaster recovery  
+- Migrating between environments
+- Sharing computation configurations
+
+## Agent Configuration
+
+The Agent Config feature provides comprehensive security and operational settings for computational agents running in TEEs.
+
+### Security Configuration Options
+
+#### TLS Configuration Modes
+
+Prism supports multiple TLS configurations to meet different security requirements:
 
 1. No TLS
-   - Disables TLS security
-   - No additional configuration required
-   - Should only be used in secure, isolated environments
-   - Not recommended for production deployments
 
-2. TLS
-   - Standard TLS configuration
-   - Required files:
-     - Key File
-     - Certificate File
-   - Suitable for environments requiring encrypted communication without mutual authentication
+   - **Use Case**: Development and testing in isolated environments
+   - **Security**: No encryption - not recommended for production
+   - **Requirements**: None
+   - **When to Use**: Only in completely trusted, air-gapped environments
 
-3. Mutual TLS
-   - Requires bi-directional authentication
-   - Required files:
-     - Key File
-     - Certificate File
-     - Server CA File
-     - Client CA File
-   - Provides highest level of security with mutual authentication
+2. TLS (Transport Layer Security)
 
-4. Attested TLS
-   - Basic TLS configuration with attestation verification during the TLS handshake.
-   - No additional certificate or key files required.
-   - Suitable for environments requiring basic secure communication.
+   - **Use Case**: Standard encrypted communication
+   - **Security**: Server authentication with encrypted channels
+   - **Requirements**: Server certificate and private key
+   - **When to Use**: Basic production deployments with trusted networks
 
-5. Mutual Attested TLS
-   - A combination of Mutual TLS and Attested TLS.
-   - Required files:
-     - Client CA File
+3. Mutual TLS (mTLS)
 
-#### Log Level Configuration
+   - **Use Case**: High-security environments requiring bi-directional authentication
+   - **Security**: Both client and server authentication
+   - **Requirements**: Client and server certificates, CA certificates for both parties
+   - **When to Use**: Production environments with strict security requirements
 
-- **Info**: Standard logging level for general operational information
-  - Logs important events and milestones
-  - Recommended for normal operation
-  - Provides good balance of information without excessive detail
+4. Attested TLS (aTLS)
 
-- **Debug**: Detailed logging for troubleshooting
-  - Includes extensive operation details
-  - Useful during development and debugging
-  - May impact performance
+   - **Use Case**: TEE-based attestation with encrypted communication
+   - **Security**: Hardware-backed attestation during TLS handshake
+   - **Requirements**: Attestation policy file
+   - **When to Use**: Confidential computing environments requiring hardware attestation
 
-- **Warn**: Warning-level messages only
-  - Logs potentially harmful situations
-  - Does not log normal operational information
-  - Useful for monitoring potential issues
+5. Mutual Attested TLS (maTLS)
 
-- **Error**: Critical issues only
-  - Logs only error conditions
-  - May miss important operational information
+   - **Use Case**: Maximum security with mutual authentication and attestation
+   - **Security**: Combines mTLS and aTLS for highest security level
+   - **Requirements**: All mTLS certificates plus attestation policy
+   - **When to Use**: Mission-critical confidential computing workloads
 
-##### Best practices for log levels
-
-- Use Info for normal operations
-- Enable Debug temporarily for troubleshooting
-- Use Error only when minimal logging is required
-
-#### File Requirements
-
-##### Key File
-
-- Required for: Mutual TLS, TLS
-- Format: PEM-encoded private key
-- Purpose: Authentication of the agent
-
-##### Certificate File
-
-- Required for: Mutual TLS, TLS
-- Format: PEM-encoded certificate
-- Purpose: Identity verification of the agent
-
-##### Server CA File
-
-- Required for: Mutual TLS only
-- Format: PEM-encoded CA certificate
-- Purpose: Verification of server certificates
-
-##### Client CA File
-
-- Required for: Mutual TLS and Mutual Attested TLS
-- Format: PEM-encoded CA certificate
-- Purpose: Verification of client certificates
-
-#### Implementation Steps
+### Agent Configuration Interface
 
 ![Agent Config](../static/img/ui/agentconfig.png)
 
-1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
-2. Select appropriate TLS Configuration mode
-3. Set desired Log Level based on operational requirements
-4. For TLS, Mutual TLS or Mutual Attested TLS modes:
-   - Upload required certificate and key files
-   - Verify file formats and permissions
-5. Click "Close" to save configuration
+#### Configuration Steps
 
-#### Troubleshooting
+1. **Access Configuration**
+   - Select appropriate TLS configuration mode on the computation creation/update page
 
-Common issues and solutions:
+2. **Upload Certificates** (if required)
+   - Ensure all files are in PEM format
+   - Verify certificate validity and expiration dates
+   - Confirm proper file permissions
 
-##### Certificate Issues
+3. **Set Logging Level**
+   - Choose appropriate verbosity for your use case
+   - Consider performance impact of debug logging
 
-- Verify certificate chain validity
-- Check certificate expiration dates
-- Ensure proper file permissions
+4. **Save Configuration**
+   - Update or create the computation
 
-##### Connection Problems
+### Certificate Requirements
 
-- Verify all required files are properly uploaded
-- Check network connectivity
-- Confirm firewall rules allow TLS traffic
-- Restart the computation
+#### File Formats and Purposes
 
-##### Authentication Failures
+| File Type | Required For | Format | Purpose |
+|-----------|-------------|---------|----------|
+| Key File | TLS, mTLS | PEM-encoded private key | Agent authentication |
+| Certificate File | TLS, mTLS | PEM-encoded certificate | Agent identity verification |
+| Server CA File | mTLS only | PEM-encoded CA certificate | Server certificate verification |
+| Client CA File | mTLS, maTLS | PEM-encoded CA certificate | Client certificate verification |
 
-- Verify certificate-key pairs match
-- Check CA trust chain
-- Confirm client/server certificate compatibility
+#### Generating Certificates
 
-#### Example: Attestated TLS configuration
-
-Agent can be configured to run with [attested TLS](https://docs.cocos.ultraviolet.rs/attestation/#attested-tls).
-
-1. Set agent tls configuration to aTLS. ![atls config](../static/img/ui/setatlsconfig.png)
-   Click on close to save config and click the update/create button to save the computation.
-2. To confirm aTLS was configured, click on the update computation button.
-   ![atls config](../static/img/ui/confirmatls.png)
-3. Next Run the computation and wait for the virtual machine provisioning to be complete.
-   ![vm provision](../static/img/ui/provisioncomplete.png)
-4. Download the attestation policy. This file is used to set the expected values in the attestation report and is required for validation.
-   ![attestation-policy-download-list](../static/img/ui/attestation-policy-download-list.png)
-   ![download-attestation-list](../static/img/ui/download-policy-download.png)
-
-5. Finally to connect to agent, we need to configure the env variables on cli.
-
-```shell
-export AGENT_GRPC_URL=<backend_host>:<agent_port>
-export AGENT_GRPC_ATTESTED_TLS=true
-export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy_file>
-```
-
-after this configuration you can connect to agent normally using cli and perform [operations](https://docs.cocos.ultraviolet.rs/cli/) on cli such as algo/data upload etc.
-
-##### Calculating measurement manually (optional)
-
-Optionally, you can calculate and confirm the measurement in the attestation report. You'll need the kernel and rootfs file which can be downloaded from cocos releases based on versions.
-
-![svm info](../static/img/ui/svminfo.png)
-
-to calculate the expected measurement:
-
-```shell
-OVMF_CODE=/home/cocosai/danko/test/ovmf/OVMF.fd
-INITRD="/home/sammy/rootfs.cpio.gz"
-KERNEL="/home/sammy/bzImage"
-LINE='"quiet console=null rootfstype=ramfs"'
-./build/cocos-cli sevsnpmeasure --mode snp --vcpus 4 --vcpu-type EPYC-v4 --ovmf $OVMF_CODE --kernel $KERNEL --initrd $INITRD --append "$LINE"
-```
-
-Once calculated this can be replaced on the attestation policy file using:
-
-```shell
-./build/cocos-cli backend measurement <base64-string-of-measurement> <attestation_policy.json file>
-```
-
-##### Calculating the host-data (Optional)
-
-The host data set on the virtual machine is based on the computation mmanifest. The manifest should be downloaded from the computation page. Click on preview manifest and then download the manifest for the specific computation run.
-
-![download-manifest](../static/img/ui/hostdata.png)
-
-The host data value us calculated using the cli as below:
-
-```shell
-./build/cocos-cli checksum <path-to-manifest-json-file> --manifest -b
-```
-
-This can also be edited into the downloaded attestation policy as below:
-
-```shell
-./build/cocos-cli backend hostdata <base64-string-of-measurement> <attestation_policy.json file>
-```
-
-#### Example: mTLS and TLS configuration
-
-To ensure secure communications, prevent unauthorized access, data interception, and man-in-the-middle (MITM) attacks in Prism and COCOS Transport Layer Security (TLS) and Mutual TLS (mTLS) features can be enabled as described above.
-TLS/ mTLS configurations ensures that:
-
-- Algorithms and Datasets uploaded to Agent and Results downloaded from agent through the CLI remains private.
-- The integrity of data is preserved (i.e., no tampering).
-- The Agent's identity is verified through a server certificate either issued by a trusted Certificate Authority (CA) or self-signed
-
-For TLS connection:
-
-1. The CLI connects to the Agent.
-2. Agent shows its certificate to the CLI.
-3. CLI verifies that certificate.
-4. CLI sends data to the Agent in an encrypted communication channel.
-
-![tls_illustration](../static/img/ui/tls.png)
-
-For MTLS connection:
-
-1. CLI connects to the Agent.
-2. Agent shows its certificate to the CLI.
-3. CLI verifies that certificate.
-4. CLI shows its certificate to the Agent.
-5. Agent verifies that certificate and allows the CLI to send requests.
-6. CLI sends data to the Agent in an encrypted communication channel.
-
-![mtls_illustration info](../static/img/ui/mtls.png)
-
-To generate your own certificates for configuring either of the modes:
+For development and testing environments, you can generate self-signed certificates:
 
 ```bash
+# Set variables
 CLIENT_ORG_UNIT="example_prism_cli"
 SERVER_ORG_UNIT="example_prism_agent"
-WORK_DIR=""
+WORK_DIR="/path/to/certificates"
 
 # 1. Generate CA's private key and self-signed certificate
-openssl req -x509 -sha256 -newkey rsa:4096 -days 365 -nodes -keyout  "$WORK_DIR/ca-key.pem" -out "$WORK_DIR/ca-cert.pem" -subj "/CN=Example_Selfsigned_ca/O=ExampleOrg/OU=example_ca/emailAddress=info@example.com"
+openssl req -x509 -sha256 -newkey rsa:4096 -days 365 -nodes \
+    -keyout "$WORK_DIR/ca-key.pem" \
+    -out "$WORK_DIR/ca-cert.pem" \
+    -subj "/CN=Example_CA/O=ExampleOrg/OU=example_ca/emailAddress=info@example.com"
 
-echo "CA's self-signed certificate"
-openssl x509 -in "$WORK_DIR/ca-cert.pem" -noout -text
+# 2. Generate server's private key and certificate signing request
+openssl req -newkey rsa:4096 -sha256 -nodes \
+    -keyout "$WORK_DIR/server-key.pem" \
+    -out "$WORK_DIR/server-req.pem" \
+    -subj "/CN=Example_Server/O=ExampleOrg/OU=$SERVER_ORG_UNIT/emailAddress=info@example.com"
 
-# 2. Generate server's private key and certificate signing request (CSR)
-openssl req -newkey rsa:4096  -sha256 -nodes -keyout  "$WORK_DIR/server-key.pem" -out  "$WORK_DIR/server-req.pem" -subj "/CN=Example_Selfsigned/O=ExampleOrg/OU=$SERVER_ORG_UNIT/emailAddress=info@example.com"
+# 3. Sign server certificate
+openssl x509 -req -in "$WORK_DIR/server-req.pem" -days 365 \
+    -CA "$WORK_DIR/ca-cert.pem" \
+    -CAkey "$WORK_DIR/ca-key.pem" \
+    -CAcreateserial \
+    -out "$WORK_DIR/server-cert.pem" \
+    -extfile "$WORK_DIR/ext/server-ext.cnf" \
+    -extensions v3_req
 
-# 3. Use CA's private key to sign web server's CSR and get back the signed certificate
-openssl x509 -req -in "$WORK_DIR/server-req.pem" -days 365 -CA "$WORK_DIR/ca-cert.pem" -CAkey  "$WORK_DIR/ca-key.pem" -CAcreateserial -out  "$WORK_DIR/server-cert.pem" -extfile "$WORK_DIR/ext/server-ext.cnf" -extensions v3_req
+# 4. Generate client certificates (for mTLS)
+openssl req -newkey rsa:4096 -sha256 -nodes \
+    -keyout "$WORK_DIR/client-key.pem" \
+    -out "$WORK_DIR/client-req.pem" \
+    -subj "/CN=Example_Client/O=ExampleOrg/OU=$CLIENT_ORG_UNIT/emailAddress=info@example.com"
 
-echo "Server's signed certificate"
-openssl x509 -in "$WORK_DIR/server-cert.pem" -noout -text
-
-# For mTLS
-# 4. Generate client's private key and certificate signing request (CSR)
-openssl req -newkey rsa:4096 -sha256 -nodes -keyout "$WORK_DIR/client-key.pem" -out "$WORK_DIR/client-req.pem" -subj "/CN=Example_Selfsigned/O=ExampleOrg/OU=$CLIENT_ORG_UNIT/emailAddress=info@example.com"
-
-# 5. Use CA's private key to sign client's CSR and get back the signed certificate
-openssl x509 -req -in "$WORK_DIR/client-req.pem" -days 365 -CA "$WORK_DIR/ca-cert.pem" -CAkey "$WORK_DIR/ca-key.pem" -CAcreateserial -out "$WORK_DIR/client-cert.pem" -extfile "$WORK_DIR/ext/client-ext.cnf" -extensions v3_req
-
-echo "Client's signed certificate"
-openssl x509 -in "$WORK_DIR/client-cert.pem" -noout -text
+openssl x509 -req -in "$WORK_DIR/client-req.pem" -days 365 \
+    -CA "$WORK_DIR/ca-cert.pem" \
+    -CAkey "$WORK_DIR/ca-key.pem" \
+    -CAcreateserial \
+    -out "$WORK_DIR/client-cert.pem" \
+    -extfile "$WORK_DIR/ext/client-ext.cnf" \
+    -extensions v3_req
 ```
 
-Example extension file:
+**Certificate Extension File Example:**
 
-```text
+```ini
 [req]
 req_extensions = v3_req
 distinguished_name = req_distinguished_name
@@ -277,187 +307,398 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1 = localhost
-DNS.2 = <agent host name>
-
-# IP addresses
-IP.1 = <agent host ip>
+DNS.2 = <agent_hostname>
+IP.1 = <agent_ip_address>
 ```
 
-To configure TLS for agent on the ui:
+### Logging Configuration
 
-1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
-2. Select the TLS option from the TLS Configuration drop down.
+#### Log Levels
 
-![TLS Agent Config](../static/img/ui/tlsconfig.png)
+- Info (Recommended)
 
-To configure mTLS for agent on the ui:
+   - Standard operational information
+   - Important events and milestones
+   - Balanced detail without performance impact
+   - **Best for**: Production environments
 
-1. Access the Agent Config modal through the "Enter Agent Config" button on create/update computation page.
-2. Select the mTLS option from the TLS Configuration drop down.
+- Debug
 
-![mTLS Agent Config](../static/img/ui/mtlsconfig.png)
+   - Detailed operation information
+   - Extensive diagnostic data
+   - May impact performance
+   - **Best for**: Development and troubleshooting
 
-To connect cli to agent, we need to configure the env variables on cli.
+- Warn
 
-For mTLS:
+   - Warning-level messages only
+   - Potentially harmful situations
+   - Minimal operational information
+   - **Best for**: Monitoring potential issues
+
+- Error
+
+   - Critical issues only
+   - Error conditions and failures
+   - Minimal logging overhead
+   - **Best for**: Production with minimal logging requirements
+
+#### Best Practices
+
+- **Production**: Use "Info" level for normal operations
+- **Development**: Enable "Debug" temporarily for troubleshooting
+- **Monitoring**: Use "Warn" to focus on potential issues
+- **Minimal Overhead**: Use "Error" when logging must be minimal
+
+## Security Configuration Examples
+
+### Attested TLS (aTLS) Setup
+
+Attested TLS provides hardware-backed attestation for TEE environments:
+
+#### Configuration Steps
+
+1. **Set aTLS Configuration**
+   ![aTLS config](../static/img/ui/setatlsconfig.png)
+   - Select "Attested TLS" from the TLS Configuration dropdown
+   - No certificate files required
+   - Click "Close" to save
+
+2. **Verify Configuration**
+   ![Confirm aTLS](../static/img/ui/confirmatls.png)
+   - Update/create the computation
+   - Verify aTLS is properly configured
+
+3. **Run Computation**
+   - Create a CVM
+   - Wait for VM provisioning to complete
+   - Start the computation
+
+   ![VM provision](../static/img/ui/provisioncomplete.png)
+
+4. **Download Attestation Policy**
+
+   ![Download policy](../static/img/ui/download-policy-download.png)
+   - Download the attestation policy file from the cvm page
+   - This file contains expected values for attestation verification
+
+5. **Configure CLI Environment**
+
+   ```bash
+   export AGENT_GRPC_URL=<backend_host>:<agent_port>
+   export AGENT_GRPC_ATTESTED_TLS=true
+   export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy_file>
+   ```
+
+#### Advanced aTLS Configuration
+
+**Manual Measurement Calculation** (Optional)
+
+For additional security verification, you can manually calculate and verify measurements:
 
 ```bash
+# Set paths to kernel and rootfs files
+OVMF_CODE=/path/to/ovmf/OVMF.fd
+INITRD="/path/to/rootfs.cpio.gz"
+KERNEL="/path/to/bzImage"
+LINE='"quiet console=null rootfstype=ramfs"'
 
-export AGENT_GRPC_URL=<backend_host>:<agent_port>
-export AGENT_GRPC_CLIENT_CERT=<path_to_generated_client_cert>
-export AGENT_GRPC_CLIENT_KEY=<path_to_generated_client_key>
-export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
+# Calculate expected measurement
+./cocos-cli sevsnpmeasure --mode snp --vcpus 4 --vcpu-type EPYC-v4 \
+    --ovmf $OVMF_CODE --kernel $KERNEL --initrd $INITRD --append "$LINE"
+
+# Update attestation policy with calculated measurement
+./cocos-cli backend measurement <base64-measurement> <attestation_policy.json>
 ```
 
-For TLS:
+### TLS and mTLS Configuration
+
+#### TLS Setup (Server Authentication)
+
+**UI Configuration:**
+
+1. Select "TLS" from TLS Configuration dropdown
+2. Upload server certificate and private key files
+3. Configure CLI environment:
 
 ```bash
 export AGENT_GRPC_URL=<backend_host>:<agent_port>
-export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
+export AGENT_GRPC_SERVER_CA_CERTS=<path_to_ca_cert>
 ```
 
-After this configuration you can connect to agent normally using cli and perform [operations](https://docs.cocos.ultraviolet.rs/cli/) on cli such as algo/data upload etc.
+#### mTLS Setup (Mutual Authentication)
 
-It is important to note that the Agent is the server and cli the client. Therefore, upload server generated cert, key on the UI as shown above and configure certificates generated for client on CLI.
+![mTLS Config](../static/img/ui/mtlsconfig.png)
 
-#### Example: maTLS configuration
+**UI Configuration:**
 
-Mutual Attested TLS works like mTLS with the addition of the attestation report. To configure maTLS follow the steps for mTLS. To connect cli to agent with maTLS, we need to configure the following superset of env variables on cli (mTLS + aTLS env variables).
+1. Select "Mutual TLS" from TLS Configuration dropdown  
+2. Upload all required certificate files:
+   - Server certificate and private key
+   - Client CA certificate
+   - Server CA certificate
+
+**CLI Configuration:**
 
 ```bash
-
 export AGENT_GRPC_URL=<backend_host>:<agent_port>
-export AGENT_GRPC_CLIENT_CERT=<path_to_generated_client_cert>
-export AGENT_GRPC_CLIENT_KEY=<path_to_generated_client_key>
-export AGENT_GRPC_SERVER_CA_CERTS=<path_to_generated_server_ca_cert>
+export AGENT_GRPC_CLIENT_CERT=<path_to_client_cert>
+export AGENT_GRPC_CLIENT_KEY=<path_to_client_key>
+export AGENT_GRPC_SERVER_CA_CERTS=<path_to_server_ca_cert>
+```
+
+#### maTLS Setup (Mutual Attested TLS)
+
+Combines mTLS and aTLS for maximum security:
+
+**CLI Configuration:**
+
+```bash
+# mTLS settings
+export AGENT_GRPC_URL=<backend_host>:<agent_port>
+export AGENT_GRPC_CLIENT_CERT=<path_to_client_cert>
+export AGENT_GRPC_CLIENT_KEY=<path_to_client_key>
+export AGENT_GRPC_SERVER_CA_CERTS=<path_to_server_ca_cert>
+
+# aTLS settings  
 export AGENT_GRPC_ATTESTED_TLS=true
-export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy_file>
+export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy>
 ```
 
-After this configuration you can connect to agent normally using cli and perform operations on cli such as algo/data upload etc.
+### Security Architecture
 
-## Retrieve Computations
+#### TLS Communication Flow
 
-Computations are listed on the computations page, which can be accessed from the sidebar.
+![TLS illustration](../static/img/ui/tls.png)
 
-![List computations](../static/img/ui/list%20computations.png)
+1. CLI connects to Agent
+2. Agent presents server certificate
+3. CLI verifies certificate against CA
+4. Encrypted communication channel established
 
-## Retrieve Computation Information
+#### mTLS Communication Flow
 
-The view computation page appears as below, it also contains buttons to edit, run, delete and view computation logs and events.
-![View computation](../static/img/ui/computation.png)
+![mTLS illustration](../static/img/ui/mtls.png)
 
-## Update Computations Information
+1. CLI connects to Agent
+2. Agent presents server certificate
+3. CLI verifies server certificate
+4. CLI presents client certificate
+5. Agent verifies client certificate
+6. Mutual authentication complete, encrypted channel established
 
-The update computation page appears as below:
-![Update computation](../static/img/ui/update%20computation.png)
+## Computation Operations
 
-## Computation export and import
+### Running Computations
 
-Prism allows users to export and import computations in both JSON and CSV formats. When exporting as JSON, all details of a computation are bundled into a single file, which can later be imported to recreate the computation with the provided data. Alternatively, multiple computations can be uploaded using a CSV file, which contains the relevant details for each computation. You can find a sample CSV file in the Prism repository [here](https://github.com/ultravioletrs/prism/blob/main/sample_computations.csv). When importing computations, ensure that all user IDs included in the file are valid and correspond to registered users in the workspace, including both backend and user IDs.
+#### Prerequisites
 
-A sample computation that can be uploaded as json is shown:
+- Computation must be properly configured
+- Target CVM must be available and ready
+- Proper authentication configured (keys, certificates)
 
-```json
-{
-  "id": "185e61f4-2fd1-47c3-b8e7-1bf6a8466b79",
-  "name": "sample_computation",
-  "description": "sample",
-  "owner": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-  "start_time": "0001-01-01T00:00:00Z",
-  "datasets": [
-    {
-      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-      "hash": "171ae99ff0449d52cd37f824eec20f56d4efbe322e022e1df02a89eabc16209c"
-    },
-    {
-      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-      "hash": "3b8aea5a74d179a445e86ce23d2fc24c8cd65d34f19798cb8852a7bcf945b2ae"
-    },
-    {
-      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-      "hash": "64a6eb1ed400d9b8139d64ef21641e0a930cda8008e21d2b055f1ae91a2c710a"
-    }
-  ],
-  "algorithm": {
-    "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-    "hash": "9567a45920974a3261f9e897b3da7e49a391728f607f36f0ad6e8f5ec8a2041b"
-  },
-  "result_consumers": ["f07b7716-2737-4228-9d80-d9df4ab5ee53"],
-  "agent_config": {
-    "log_level": "debug",
-    "cert_file": "",
-    "server_key": "",
-    "server_ca_file": "",
-    "client_ca_file": "",
-    "attested_tls": false
-  },
-  "backend_id": "9a8d67b6-9298-4393-81c6-8b7958a8cebf"
-}
-```
+#### Execution Process
 
-Upload of computations can be done on the computations page, the files accepted are json and csv.
+1. **Initiate Execution**
+   - Click "Run" button on computation page
+   - Select target virtual machine
+   - Confirm execution parameters
 
-![computation_import](../static/img/ui/import_computation.png)
+2. **Monitor Progress**
+   - Track VM provisioning status
+   - Monitor computation logs for progress
+   - Check for any error conditions
 
-Any computation can be downloaded by clicking the download button when you view the desired computation.
+3. **Handle Results**
+   - Results available to designated consumers
+   - Download through CLI
+   - Verify result integrity
 
-![computation_download](../static/img/ui/download_computation.png)
+#### VM Requirements
 
-## Run Computation
+- **Status**: VM must be in "Ready" state
+- **Resources**: Sufficient CPU, memory, and storage
+- **Network**: Proper connectivity to agent services
+- **Security**: Compatible with computation's security configuration
 
-In order to run a computation, click on the run button on the computation page and select the VM in which you want to run the computation. The VM must be ready to receive the computation run request.
+### Managing Computation Lifecycle
 
-## Remove a Computation
+#### Computation States
 
-In order to delete computation the delete button on the computation page can be clicked. This will remove the computation and this action cannot be undone. The computation can also be deleted from the list of computations by clicking on the delete button on the list page.
+| State | Description | Available Actions |
+|-------|-------------|-------------------|
+| Running | Currently executing | Monitor, View Logs |
+| Completed | Successfully finished | View Results, Download |
+| Failed | Execution failed | View Logs, Retry, Edit |
+| Cancelled | Manually stopped | View Logs, Edit, Retry |
 
-## User Keys
+#### Monitoring and Troubleshooting
 
-Cocos implements a public-key cryptography system for user authentication and role management in its multiparty confidential computing platform. Each user requires only a single public-private key pair per computation, regardless of how many roles they hold in that computation. Private keys are used for [command-line operations](https://docs.cocos.ultraviolet.rs/cli/).
+- Viewing Logs
 
-Cocos supports three types of cryptographic keys:
+   - Access computation logs through the computation detail page
+   - Monitor real-time execution progress
+   - Identify error conditions and debugging information
 
-- RSA
-- ECDSA
-- Ed25519
+- Common Issues and Solutions
+
+| Issue | Symptom | Solution |
+|-------|---------|----------|
+| Certificate Errors | Authentication failures | Verify certificate validity and configuration |
+| Network Issues | Connection timeouts | Check firewall rules and network connectivity |
+| Resource Constraints | Performance issues | Monitor resource usage, scale VM if needed |
+
+### Deleting Computations
+
+**Important Considerations:**
+
+- Deletion is permanent and cannot be undone
+- All associated data and results will be removed
+- Consider exporting important computations before deletion
+
+## User Key Management
+
+### Cryptographic Key System
+
+Prism implements a robust public-key cryptography system for user authentication and role management in multiparty confidential computing.
+
+#### Key Characteristics
+
+- **Single Key Pair**: Each user needs only one public-private key pair per computation
+- **Multi-Role Support**: Same key pair works for all roles within a computation
+- **Security Types**: Support for RSA, ECDSA, and Ed25519 key algorithms
 
 ### Key Usage Workflow
 
 #### Registration Phase
 
-- [User generates one public-private key pair](https://docs.cocos.ultraviolet.rs/cli/#generate-keys)
-- User provides their public key when being assigned to the computation
-  ![Upload user key](../static/img/ui/upload-key.png)
-- System associates the public key with all of the user's designated roles
+1. **Generate Key Pair**
+   - Use CLI tools to generate cryptographic keys
+   - Follow [key generation guide](https://docs.cocos.ultraviolet.rs/cli/#generate-keys)
+
+2. **Register Public Key**
+   ![Upload user key](../static/img/ui/upload-key.png)
+   - Upload public key when assigned to computation
+   - System associates key with all designated roles
+
+3. **Verify Registration**
+   - Check computation manifest for key association
+   - Confirm all roles are properly linked to your key
 
 #### Operation Phase
 
-Users use the same private key for all CLI operations, regardless of role:
+Use the same private key for all CLI operations:
 
 - [Algorithm uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-algorithm)
-- [Data uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-dataset)
+- [Dataset uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-dataset)  
 - [Result retrieval](https://docs.cocos.ultraviolet.rs/cli/#retrieve-result)
 
-### Security Considerations
+### Security Best Practices
 
-#### Private Key Handling
+#### Private Key Management
 
-- Private keys should never be shared
-- Private keys should be stored securely
-- Private keys are only used locally with CLI operations
-- One private key is sufficient for all roles in a computation
+- **Never Share**: Private keys must remain confidential
+- **Secure Storage**: Use encrypted storage and proper file permissions
+- **Backup Strategy**: Maintain secure backups of private keys
+- **Access Control**: Limit access to private key files
 
 #### Public Key Distribution
 
-- Public keys are safe to share and can be viewed in the manifest
-  ![manifest](../static/img/ui/manifest.png)
-- Public key must be registered once before participation
-- Same public key is used for all roles in the computation
+- **Safe to Share**: Public keys can be freely distributed
+- **Manifest Verification**: Check computation manifest to verify key registration
+- **Role Validation**: Ensure all intended roles are associated with your key
 
-#### Best Practices
+![Manifest view](../static/img/ui/manifest.png)
 
-- Keep private keys secure and backed up
-- Register public key once before beginning computation participation
-- Verify all role assignments are associated with your single key pair by viewing the manifest
-- Consider using separate key pairs for different workspaces and computations
+#### Operational Security
+
+- **Key Rotation**: Consider regular key rotation for long-term computations
+- **Workspace Separation**: Use different keys for different workspaces
+- **Computation Isolation**: Consider separate keys for high-security computations
+
+## Troubleshooting
+
+### Common Issues
+
+#### Certificate and TLS Problems
+
+##### Certificate Validation Errors
+
+- **Symptoms**: Authentication failures, TLS handshake errors
+- **Solutions**:
+  - Verify certificate chain validity and expiration dates
+  - Check file permissions and formats (must be PEM)
+  - Ensure certificate-key pair matching
+
+##### Connection Problems
+
+- **Symptoms**: Connection timeouts, network errors
+- **Solutions**:
+  - Verify network connectivity between CLI and agent
+  - Confirm firewall rules allow TLS traffic on required ports
+  - Check agent service status and availability
+  - Restart computation if necessary
+  - Create a new cvm
+
+#### Attestation Issues
+
+##### aTLS Configuration Problems
+
+- **Symptoms**: Attestation verification failures
+- **Solutions**:
+  - Verify attestation policy file is correctly downloaded
+  - Check measurement calculations match expected values
+  - Validate TEE hardware compatibility
+
+#### Computation Execution Issues
+
+##### Data Upload Problems
+
+- **Symptoms**: CLI operations fail, data not accessible
+- **Solutions**:
+  - Verify key configuration and authentication
+  - Check network connectivity to agent
+  - Confirm role permissions for data operations
+
+### Getting Help
+
+#### Log Analysis
+
+- Enable debug logging for detailed troubleshooting information
+- Check computation logs
+- Monitor computation events
+
+#### Support Resources
+
+- [COCOS CLI Documentation](https://docs.cocos.ultraviolet.rs/cli/)
+- [Attestation Guide](https://docs.cocos.ultraviolet.rs/attestation/)
+- Community support and issue tracking
+
+#### Performance Optimization
+
+- Monitor resource usage during computation execution
+- Optimize logging levels for production environments
+- Consider VM scaling for resource-intensive computations
+
+## Best Practices
+
+### Security
+
+- Always use appropriate TLS configuration for your environment
+- Regularly rotate cryptographic keys
+- Monitor and audit computation access
+- Keep certificates and keys secure
+
+### Operations
+
+- Use descriptive names and documentation for computations
+- Implement proper backup and export strategies
+- Monitor computation performance and resource usage
+- Maintain organized workspace and role management
+
+### Development
+
+- Test computations in development environments first
+- Use debug logging during development and testing
+- Validate all configurations before production deployment
+- Implement proper error handling and monitoring

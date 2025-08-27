@@ -75,6 +75,8 @@ Repeat for all datasets.
 
 ![COVID-19 Assets](img/usecase/datasets.png)
 
+Datasets are provided by the separate parties collaborating on the computation. Each party in the SMPC has their own dataset and uploads it to their own profile before associating it to the computation, prior to the computation being run.
+
 ### Uploading the Algorithm
 
 Python-based training scripts should be uploaded with their dependencies:
@@ -152,6 +154,32 @@ Authorized users can retrieve results via:
 Note: Results are **one-time consumable** and linked to access control lists defined by the computation owner.
 
 ![Downloaded results](img/usecase/consumed_results.png)
+
+---
+
+Once the results are available, they can be used to perform inference on test data or any data that is usable by the model.
+
+```bash
+unzip results.zip -d results
+
+python predict.py --model results/model.pth --image datasets/test/COVID/COVID-2.png
+```
+
+This will predict the condition of the image provided:
+
+```bash
+$python predict.py --model results/model.pth --image datasets/test/COVID/COVID-2.png
+The predicted class for the image is: COVID
+Image with prediction saved to ./results/prediction_COVID-2.png   
+```
+
+Or a different image in the test dataset:
+
+```bash
+$python predict.py --model results/model.pth --image datasets/test/Viral\ Pneumonia/Viral\ Pneumonia-1014.png 
+The predicted class for the image is: Viral Pneumonia
+Image with prediction saved to ./results/prediction_Viral Pneumonia-1014.png                         ~6s 
+```
 
 ---
 

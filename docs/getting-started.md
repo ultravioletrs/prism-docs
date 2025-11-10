@@ -165,10 +165,14 @@ A computation in Prism CoCoS involves multiple parties collaborating securely:
 
 Users assigned to roles must create their respective assets:
 
-1. Navigate to **Assets** section
-2. Click **Create New Asset**
-3. Choose asset type (Algorithm, Dataset, etc.)
-4. Upload an optional sample of the asset
+1. Navigate to **Assets** section and click **Create New Asset**
+2. Choose asset type (Algorithm, Dataset, etc.)
+3. Generate a public/private key pair using your preferred tool or using [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-keys)
+4. Upload your public key to your Prism profile. Keep your private key secure - you'll need it for:
+   - Uploading [algorithms](https://docs.cocos.ultraviolet.rs/cli#command-algo) and [datasets](https://docs.cocos.ultraviolet.rs/cli#command-data)
+   - [Retrieving computation results](https://docs.cocos.ultraviolet.rs/cli#command-result)
+
+_Note:_ You need to generate file hash for assets before uploading them. For this, use [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#command-checksum),our command-line tool to help compute the sha3-256 hash of a file.
 
 ![New Asset](../static/img/ui/new_asset.png)
 ![User Assets](../static/img/ui/user_assets.png)
@@ -192,6 +196,8 @@ Before running, ensure:
 - ✅ All necessary assets are linked
 - ✅ At least one CVM is online
 - ✅ Users have uploaded their public keys
+
+_Note:_ You can generate keys for running a computation using [cocos-cli _key_ command](https://docs.cocos.ultraviolet.rs/cli#command-keys).
 
 The **Run Computation** button will be disabled until all requirements are met.
 

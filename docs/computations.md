@@ -9,7 +9,7 @@ The computations service is the core component of Prism AI that enables secure, 
 A computation in Prism represents a secure collaborative AI workflow that includes:
 
 - **Algorithm**: The AI model or processing logic to be executed
-- **Datasets**: Input data from one or more providers  
+- **Datasets**: Input data from one or more providers
 - **Participants**: Users with specific roles (data providers, algorithm providers, result consumers)
 - **Security Configuration**: TLS/mTLS settings and attestation policies
 - **Execution Environment**: Virtual machine configuration for secure processing
@@ -28,13 +28,16 @@ Before creating a computation, ensure you have:
 ### Creating Your First Computation
 
 1. **Navigate to Computations**
+
    - Access the computations page from the sidebar
    - Click "Create New Computation"
 
 2. **Configure Basic Details**
+
    - Enter computation name and description
 
 3. **Set Security Configuration**
+
    - Configure agent security settings (TLS/mTLS/aTLS)
    - Upload necessary certificates if using TLS
 
@@ -69,41 +72,54 @@ Prism supports bulk computation creation through file imports:
 **Import Process:**
 
 1. Navigate to the computations page
-2. Click the import button
-3. Select your JSON or CSV file
-4. Verify user IDs are valid and correspond to registered workspace users
+2. Click the Import button
+3. Select your computation manifest (.json) file
+4. Confirm that all dataset and algorithm hashes correspond to valid assets in the workspace
 
 ![Import computations](../static/img/ui/import_computation.png)
+
+Each computation in Prism is defined using a manifest file.
+The manifest provides all metadata and cryptographic bindings required to reproduce, verify, and execute the computation.
+
+Manifest Structure:
+
+| Field                  | Type              | Description                                      |
+|------------------------|-------------------|--------------------------------------------------|
+| name                   | string            | The name of the computation                      |
+| description            | string            | A short explanation of what the computation does |
+| datasets               | array             | List of datasets involved in the computation     |
+| datasets[].hash        | array of integers | SHA-256 hash of the dataset asset                |
+| datasets[].user_key    | string (PEM)      | Public key of the dataset provider               |
+| datasets[].filename    | string            | Original filename of the dataset                 |
+| algorithm              | object            | Algorithm definition used in the computation     |
+| algorithm.hash         | array of integers | SHA-256 hash of the algorithm asset              |
+| algorithm.user_key     | string (PEM)      | Public key of the algorithm provider             |
 
 **Sample JSON Format:**
 
 ```json
 {
-  "id": "185e61f4-2fd1-47c3-b8e7-1bf6a8466b79",
-  "name": "sample_computation",
-  "description": "Sample collaborative AI computation",
-  "owner": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-  "start_time": "0001-01-01T00:00:00Z",
+  "name": "PRISM",
+  "description": "prism",
   "datasets": [
     {
-      "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-      "hash": "171ae99ff0449d52cd37f824eec20f56d4efbe322e022e1df02a89eabc16209c"
+      "hash": [
+        14, 88, 157, 119, 113, 69, 18, 77, 253, 116, 179, 236, 28, 193, 208,
+        202, 172, 66, 70, 24, 92, 237, 236, 227, 219, 112, 231, 179, 140, 25,
+        192, 117
+      ],
+      "user_key": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv14Q8n2U1p0p0HgCq8YnbyMywT21XgZDtpTjDJ1lBFIBVP3ww9jTnuw18vqjDqj8zrpMgLFk7y3Rs1mLOy4vKGXz7GszhVJYcl89XiemzBzxjuAtl3cvCQ+EaKyzQLY46viiAVlkRxqYd+nvZI4eJZ9B/+HuYjfEYxm7Kdife0quYAubKykQDpKwAwz18JV3tTbHy8AmBn+Ngo3g1aYBORhR06wjc2GL+t1sbjnMvKZMiqMmNYguZ97Uq6G4G8CiLJa8Mbk/WCXwefM2DhTgMbRdHQY0NcWn88UNWUgLzvHxHBI38FBAZX7eoX5Na5dQC6JvTREk72w1eNBiPPgDoMQvIbXhEhrrEdCTTxYMGeIrZl6x1DCE+U2Ayqh2x8JHXG+6bGND+rP6PMAysQEI3SAPotex90TW0Z9D6Y8mX2sj8IfJ0d7UVGrn14+/ZOU4WBHAggTaeXB+tpNNkSJI42b6EH9FcEL80Ngwt5J1v9XjxmvarItbmMlRk1IZeHfDqQ5IbmvumS4iihQvifKjsuqklHluAq733K6x4Rn4VUQ1aF1mUtwmDK8NEc6FfCT9JXySaoQbri4f0jlhg8vLzrLGD9WxeRKO3G7HFmAGWoEz/u8rBImlvY1xVHkB6phsvlB4AsWVP1MVMZ81jNY7kLRECAwEAAQ==",
+      "filename": "creditcard.csv"
     }
   ],
   "algorithm": {
-    "provider": "f07b7716-2737-4228-9d80-d9df4ab5ee53",
-    "hash": "9567a45920974a3261f9e897b3da7e49a391728f607f36f0ad6e8f5ec8a2041b"
-  },
-  "result_consumers": ["f07b7716-2737-4228-9d80-d9df4ab5ee53"],
-  "agent_config": {
-    "log_level": "info",
-    "cert_file": "",
-    "server_key": "",
-    "server_ca_file": "",
-    "client_ca_file": "",
-    "attested_tls": false
-  },
-  "backend_id": "9a8d67b6-9298-4393-81c6-8b7958a8cebf"
+    "hash": [
+      30, 169, 221, 205, 136, 158, 196, 245, 237, 157, 191, 60, 169, 197, 167,
+      94, 189, 231, 220, 145, 23, 247, 114, 128, 228, 62, 220, 146, 35, 162,
+      248, 6
+    ],
+    "user_key": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv14Q8n2U1p0p0HgCq8YnbyMywT21XgZDtpTjDJ1lBFIBVP3ww9jTnuw18vqjDqj8zrpMgLFk7y3Rs1mLOy4vKGXz7GszhVJYcl89XiemzBzxjuAtl3cvCQ+EaKyzQLY46viiAVlkRxqYd+nvZI4eJZ9B/+HuYjfEYxm7Kdife0quYAubKykQDpKwAwz18JV3tTbHy8AmBn+Ngo3g1aYBORhR06wjc2GL+t1sbjnMvKZMiqMmNYguZ97Uq6G4G8CiLJa8Mbk/WCXwefM2DhTgMbRdHQY0NcWn88UNWUgLzvHxHBI38FBAZX7eoX5Na5dQC6JvTREk72w1eNBiPPgDoMQvIbXhEhrrEdCTTxYMGeIrZl6x1DCE+U2Ayqh2x8JHXG+6bGND+rP6PMAysQEI3SAPotex90TW0Z9D6Y8mX2sj8IfJ0d7UVGrn14+/ZOU4WBHAggTaeXB+tpNNkSJI42b6EH9FcEL80Ngwt5J1v9XjxmvarItbmMlRk1IZeHfDqQ5IbmvumS4iihQvifKjsuqklHluAq733K6x4Rn4VUQ1aF1mUtwmDK8NEc6FfCT9JXySaoQbri4f0jlhg8vLzrLGD9WxeRKO3G7HFmAGWoEz/u8rBImlvY1xVHkB6phsvlB4AsWVP1MVMZ81jNY7kLRECAwEAAQ=="
+  }
 }
 ```
 
@@ -164,7 +180,7 @@ Export computations for backup, sharing, or migration:
 **Use Cases:**
 
 - Creating computation templates
-- Backup and disaster recovery  
+- Backup and disaster recovery
 - Migrating between environments
 - Sharing computation configurations
 
@@ -220,14 +236,17 @@ Prism supports multiple TLS configurations to meet different security requiremen
 #### Configuration Steps
 
 1. **Access Configuration**
+
    - Select appropriate TLS configuration mode on the computation creation/update page
 
 2. **Upload Certificates** (if required)
+
    - Ensure all files are in PEM format
    - Verify certificate validity and expiration dates
    - Confirm proper file permissions
 
 3. **Set Logging Level**
+
    - Choose appropriate verbosity for your use case
    - Consider performance impact of debug logging
 
@@ -238,12 +257,12 @@ Prism supports multiple TLS configurations to meet different security requiremen
 
 #### File Formats and Purposes
 
-| File Type | Required For | Format | Purpose |
-|-----------|-------------|---------|----------|
-| Key File | TLS, mTLS | PEM-encoded private key | Agent authentication |
-| Certificate File | TLS, mTLS | PEM-encoded certificate | Agent identity verification |
-| Server CA File | mTLS only | PEM-encoded CA certificate | Server certificate verification |
-| Client CA File | mTLS, maTLS | PEM-encoded CA certificate | Client certificate verification |
+| File Type        | Required For | Format                     | Purpose                         |
+| ---------------- | ------------ | -------------------------- | ------------------------------- |
+| Key File         | TLS, mTLS    | PEM-encoded private key    | Agent authentication            |
+| Certificate File | TLS, mTLS    | PEM-encoded certificate    | Agent identity verification     |
+| Server CA File   | mTLS only    | PEM-encoded CA certificate | Server certificate verification |
+| Client CA File   | mTLS, maTLS  | PEM-encoded CA certificate | Client certificate verification |
 
 #### Generating Certificates
 
@@ -317,31 +336,31 @@ IP.1 = <agent_ip_address>
 
 - Info (Recommended)
 
-   - Standard operational information
-   - Important events and milestones
-   - Balanced detail without performance impact
-   - **Best for**: Production environments
+  - Standard operational information
+  - Important events and milestones
+  - Balanced detail without performance impact
+  - **Best for**: Production environments
 
 - Debug
 
-   - Detailed operation information
-   - Extensive diagnostic data
-   - May impact performance
-   - **Best for**: Development and troubleshooting
+  - Detailed operation information
+  - Extensive diagnostic data
+  - May impact performance
+  - **Best for**: Development and troubleshooting
 
 - Warn
 
-   - Warning-level messages only
-   - Potentially harmful situations
-   - Minimal operational information
-   - **Best for**: Monitoring potential issues
+  - Warning-level messages only
+  - Potentially harmful situations
+  - Minimal operational information
+  - **Best for**: Monitoring potential issues
 
 - Error
 
-   - Critical issues only
-   - Error conditions and failures
-   - Minimal logging overhead
-   - **Best for**: Production with minimal logging requirements
+  - Critical issues only
+  - Error conditions and failures
+  - Minimal logging overhead
+  - **Best for**: Production with minimal logging requirements
 
 #### Best Practices
 
@@ -360,16 +379,19 @@ Attested TLS provides hardware-backed attestation for TEE environments:
 
 1. **Set aTLS Configuration**
    ![aTLS config](../static/img/ui/setatlsconfig.png)
+
    - Select "Attested TLS" from the TLS Configuration dropdown
    - No certificate files required
    - Click "Close" to save
 
 2. **Verify Configuration**
    ![Confirm aTLS](../static/img/ui/confirmatls.png)
+
    - Update/create the computation
    - Verify aTLS is properly configured
 
 3. **Run Computation**
+
    - Create a CVM
    - Wait for VM provisioning to complete
    - Start the computation
@@ -379,7 +401,8 @@ Attested TLS provides hardware-backed attestation for TEE environments:
 4. **Download Attestation Policy**
 
    ![Download policy](../static/img/ui/download-policy-download.png)
-   - Download the attestation policy file from the cvm page
+
+   - Download the attestation policy file from the cvm page (You can also use [CLI commands](https://docs.cocos.ultraviolet.rs/cli#command-policy)) to download the attestation policy.
    - This file contains expected values for attestation verification
 
 5. **Configure CLI Environment**
@@ -394,7 +417,7 @@ Attested TLS provides hardware-backed attestation for TEE environments:
 
 **Manual Measurement Calculation** (Optional)
 
-For additional security verification, you can manually calculate and verify measurements:
+For additional security verification, you can manually calculate and verify measurements.
 
 ```bash
 # Set paths to kernel and rootfs files
@@ -408,8 +431,11 @@ LINE='"quiet console=null rootfstype=ramfs"'
     --ovmf $OVMF_CODE --kernel $KERNEL --initrd $INITRD --append "$LINE"
 
 # Update attestation policy with calculated measurement
-./cocos-cli backend measurement <base64-measurement> <attestation_policy.json>
+./cocos-cli policy measurement <base64-measurement> <attestation_policy.json>
+
 ```
+
+More docs on CLI commands used: [sevsnpmeasure](https://docs.cocos.ultraviolet.rs/cli#command-sevsnpmeasure) and [measurement](https://docs.cocos.ultraviolet.rs/cli#subcommand-policy-measurement).
 
 ### TLS and mTLS Configuration
 
@@ -432,7 +458,7 @@ export AGENT_GRPC_SERVER_CA_CERTS=<path_to_ca_cert>
 
 **UI Configuration:**
 
-1. Select "Mutual TLS" from TLS Configuration dropdown  
+1. Select "Mutual TLS" from TLS Configuration dropdown
 2. Upload all required certificate files:
    - Server certificate and private key
    - Client CA certificate
@@ -460,7 +486,7 @@ export AGENT_GRPC_CLIENT_CERT=<path_to_client_cert>
 export AGENT_GRPC_CLIENT_KEY=<path_to_client_key>
 export AGENT_GRPC_SERVER_CA_CERTS=<path_to_server_ca_cert>
 
-# aTLS settings  
+# aTLS settings
 export AGENT_GRPC_ATTESTED_TLS=true
 export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy>
 ```
@@ -495,23 +521,27 @@ export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy>
 
 - Computation must be properly configured
 - Target CVM must be available and ready
-- Proper authentication configured (keys, certificates)
+- Proper authentication configured (keys, certificates).
+
+_Note:_ You can generate keys using [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#command-keys), our command-line tool for computation management.
 
 #### Execution Process
 
 1. **Initiate Execution**
+
    - Click "Run" button on computation page
    - Select target virtual machine
    - Confirm execution parameters
 
 2. **Monitor Progress**
+
    - Track VM provisioning status
    - Monitor computation logs for progress
    - Check for any error conditions
 
 3. **Handle Results**
    - Results available to designated consumers
-   - Download through CLI
+   - Download through [cocos-cli](https://docs.cocos.ultraviolet.rs/cli#command-result)
    - Verify result integrity
 
 #### VM Requirements
@@ -525,28 +555,28 @@ export AGENT_GRPC_ATTESTATION_POLICY=<path_to_attestation_policy>
 
 #### Computation States
 
-| State | Description | Available Actions |
-|-------|-------------|-------------------|
-| Running | Currently executing | Monitor, View Logs |
+| State     | Description           | Available Actions      |
+| --------- | --------------------- | ---------------------- |
+| Running   | Currently executing   | Monitor, View Logs     |
 | Completed | Successfully finished | View Results, Download |
-| Failed | Execution failed | View Logs, Retry, Edit |
-| Cancelled | Manually stopped | View Logs, Edit, Retry |
+| Failed    | Execution failed      | View Logs, Retry, Edit |
+| Cancelled | Manually stopped      | View Logs, Edit, Retry |
 
 #### Monitoring and Troubleshooting
 
 - Viewing Logs
 
-   - Access computation logs through the computation detail page
-   - Monitor real-time execution progress
-   - Identify error conditions and debugging information
+  - Access computation logs through the computation detail page
+  - Monitor real-time execution progress
+  - Identify error conditions and debugging information
 
 - Common Issues and Solutions
 
-| Issue | Symptom | Solution |
-|-------|---------|----------|
-| Certificate Errors | Authentication failures | Verify certificate validity and configuration |
-| Network Issues | Connection timeouts | Check firewall rules and network connectivity |
-| Resource Constraints | Performance issues | Monitor resource usage, scale VM if needed |
+| Issue                | Symptom                 | Solution                                      |
+| -------------------- | ----------------------- | --------------------------------------------- |
+| Certificate Errors   | Authentication failures | Verify certificate validity and configuration |
+| Network Issues       | Connection timeouts     | Check firewall rules and network connectivity |
+| Resource Constraints | Performance issues      | Monitor resource usage, scale VM if needed    |
 
 ### Deleting Computations
 
@@ -573,11 +603,13 @@ Prism implements a robust public-key cryptography system for user authentication
 #### Registration Phase
 
 1. **Generate Key Pair**
+
    - Use CLI tools to generate cryptographic keys
    - Follow [key generation guide](https://docs.cocos.ultraviolet.rs/cli/#generate-keys)
 
 2. **Register Public Key**
    ![Upload user key](../static/img/ui/upload-key.png)
+
    - Upload public key when assigned to computation
    - System associates key with all designated roles
 
@@ -590,7 +622,7 @@ Prism implements a robust public-key cryptography system for user authentication
 Use the same private key for all CLI operations:
 
 - [Algorithm uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-algorithm)
-- [Dataset uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-dataset)  
+- [Dataset uploads](https://docs.cocos.ultraviolet.rs/cli/#upload-dataset)
 - [Result retrieval](https://docs.cocos.ultraviolet.rs/cli/#retrieve-result)
 
 ### Security Best Practices

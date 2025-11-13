@@ -167,12 +167,35 @@ Users assigned to roles must create their respective assets:
 
 1. Navigate to **Assets** section and click **Create New Asset**
 2. Choose asset type (Algorithm, Dataset, etc.)
-3. Generate a public/private key pair using your preferred tool or using [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-keys)
+3. Generate a public/private key pair using your preferred tool or using [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-keys):
+
+```code
+./build/cocos-cli keys -k rsa
+```
+
+This will generate a key pair of type rsa. Different key types can be generated using the -k flag. Currently supported types on cocos are rsa, ecdsa and ed25519. For example:
+![Generated keys](../static/img/getting_started_keys.png)
+
 4. Upload your public key to your Prism profile. Keep your private key secure - you'll need it for:
    - Uploading [algorithms](https://docs.cocos.ultraviolet.rs/cli#command-algo) and [datasets](https://docs.cocos.ultraviolet.rs/cli#command-data)
+
+```code
+./build/cocos-cli algo <algo_file> <private_key_file_path>
+
+./build/cocos-cli data <dataset_path> <private_key_file_path>
+```
+
    - [Retrieving computation results](https://docs.cocos.ultraviolet.rs/cli#command-result)
 
+```code
+./build/cocos-cli result <private_key_file_path> <optional_file_name.zip>
+```
+
 _Note:_ You need to generate file hash for assets before uploading them. For this, use [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#command-checksum),our command-line tool to help compute the sha3-256 hash of a file.
+
+```code
+./build/cocos-cli checksum <file>
+```
 
 ![New Asset](../static/img/ui/new_asset.png)
 ![User Assets](../static/img/ui/user_assets.png)
@@ -198,6 +221,10 @@ Before running, ensure:
 - ✅ Users have uploaded their public keys
 
 _Note:_ You can generate keys for running a computation using [cocos-cli _key_ command](https://docs.cocos.ultraviolet.rs/cli#command-keys).
+
+```code
+./build/cocos-cli keys -k rsa
+```
 
 The **Run Computation** button will be disabled until all requirements are met.
 
@@ -253,6 +280,15 @@ Public keys are essential for:
 3. Keep your private key secure - you'll need it for:
    - [Uploading algorithms and datasets](https://docs.cocos.ultraviolet.rs/cli#command-algo)
    - [Retrieving computation results](https://docs.cocos.ultraviolet.rs/cli#command-data)
+
+   ```code
+
+   ./build/cocos-cli keys -k rsa
+
+   ./build/cocos-cli algo <algo_path> <private_key_file_path>
+
+   ./build/cocos-cli data <dataset_path> <private_key_file_path>
+   ```
 
 > **🔐 Security Best Practice**: Never share your private key. Prism only needs your public key for verification.
 

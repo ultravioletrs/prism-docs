@@ -62,7 +62,7 @@ Access the computation creation interface through the main navigation:
 
 #### Import from File
 
-Prism supports bulk computation creation through file imports:
+You can import previously exported computations or create new computations from formatted files.
 
 **Supported Formats:**
 
@@ -71,17 +71,204 @@ Prism supports bulk computation creation through file imports:
 
 **Import Process:**
 
-1. Navigate to the computations page
-2. Click the Import button
-3. Select your computation manifest (.json) file
-4. Confirm that all dataset and algorithm hashes correspond to valid assets in the workspace
+1. **Navigate to the computations page** in the Prism UI
+2. **Click the "Import" button** (usually found in the top toolbar)
+3. **Select your computation export file** (.json format)
+4. **Review the import preview** - Prism will show you:
+   - Which computations will be created
+   - Which assets (datasets and algorithms) are required
+   - Any missing dependencies
+5. **Verify asset availability** - Ensure all referenced datasets and algorithms already exist in your workspace
+6. **Confirm the import** to create the computation(s)
 
 ![Import computations](../static/img/ui/import_computation.png)
 
-Each computation in Prism is defined using a manifest file.
-The manifest provides all metadata and cryptographic bindings required to reproduce, verify, and execute the computation.
+> **Important:** Before importing, make sure all datasets and algorithms referenced in the export file have been uploaded to your Prism workspace. The import will fail if required assets are missing.
 
-Manifest Structure:
+**Understanding Computation Data Formats**
+Prism uses two distinct data formats for different purposes:
+
+#### 1. Export/Import Format (For Storage and Transfer)
+
+This is the format you'll work with when using the Import/Export features in the Prism UI. When you click "Export," Prism creates this comprehensive JSON file that you can save, share, or use to restore the computation later.
+
+The export/import format is a complete backup file for your work in Prism. It’s used when you want to save a copy, share your work, move it to another system, or create several similar projects. This file includes everything — your settings, data, permissions, and history — so Prism can fully recreate your work later.
+
+![Import computations](../static/img/ui/computation_import_export.png)
+
+This detailed table shows all the fields in an export file and what they mean:
+
+| Field                                  | Type              | Description                                                    |
+|----------------------------------------|-------------------|----------------------------------------------------------------|
+| computation                            | object            | Core computation metadata                                      |
+| computation.name                       | string            | The name of the computation                                    |
+| computation.description                | string            | A short explanation of what the computation does               |
+| computation.start_time                 | string (ISO 8601) | Computation start timestamp                                    |
+| computation.end_time                   | string (ISO 8601) | Computation end timestamp                                      |
+| computation.agent_config               | object            | Agent configuration settings                                   |
+| computation.agent_config.log_level     | string            | Logging verbosity level                                        |
+| computation.agent_config.cert_file     | string            | Path to certificate file                                       |
+| computation.agent_config.server_key    | string            | Server private key path                                        |
+| computation.agent_config.server_ca_file| string            | Server CA certificate path                                     |
+| computation.agent_config.client_ca_file| string            | Client CA certificate path                                     |
+| computation.agent_config.attested_tls  | boolean           | Whether attested TLS is enabled                                |
+| computation.created_at                 | string (ISO 8601) | Computation creation timestamp                                 |
+| roles                                  | array             | List of role definitions for access control                    |
+| roles[].role_name                      | string            | Name of the role (e.g., "owner", "viewer")                     |
+| roles[].actions                        | array of strings  | Permissions granted to this role                               |
+| roles[].members                        | array of strings  | User IDs assigned to this role                                 |
+| assets                                 | array             | List of all assets (datasets and algorithms)                   |
+| assets[].file_name                     | string            | Original filename of the asset                                 |
+| assets[].id                            | string (UUID)     | Unique identifier for the asset                                |
+| assets[].UserID                        | string (UUID)     | ID of the user who owns the asset                              |
+| assets[].description                   | string            | Description of the asset                                       |
+| assets[].asset_type                    | string            | Type of asset ("algorithm" or "dataset")                       |
+| assets[].asset                         | string (base64)   | Base64-encoded content of the asset                            |
+| assets[].created_at                    | string (ISO 8601) | Asset creation timestamp                                       |
+| assets[].Checksum                      | string (hex)      | SHA-256 checksum of the asset                                  |
+| assets[].mime_type                     | string            | MIME type of the asset                                         |
+| assets[].Computations                  | array             | List of computations using this asset                          |
+| assets[].UserKey                       | string            | User's public key (if applicable)                              |
+| asset_links                            | array             | Links between assets and computations                          |
+| asset_links[].asset_id                 | string (UUID)     | ID of the asset                                                |
+| asset_links[].computation_id           | string (UUID)     | ID of the associated computation                               |
+
+**Sample Import/Export Computation JSON:**
+This example shows what an imported/exported computation looks like. Notice how it only contains workspace data
+
+```json
+[
+  {
+    "computation": {
+      "name": "User1",
+      "description": "testing",
+      "start_time": "0001-01-01T00:00:00Z",
+      "end_time": "0001-01-01T00:00:00Z",
+      "agent_config": {
+        "log_level": "",
+        "cert_file": "",
+        "server_key": "",
+        "server_ca_file": "",
+        "client_ca_file": "",
+        "attested_tls": false
+      },
+      "created_at": "2025-11-12T14:00:01.654562Z"
+    },
+    "roles": [
+      {
+        "role_name": "algo_provider",
+        "actions": [
+          "view",
+          "algo_provider"
+        ],
+        "members": null
+      },
+      {
+        "role_name": "dataset_provider",
+        "actions": [
+          "view",
+          "dataset_provider"
+        ],
+        "members": null
+      },
+      {
+        "role_name": "owner",
+        "actions": [
+          "view",
+          "edit",
+          "run",
+          "administrator",
+          "dataset_provider",
+          "algo_provider",
+          "result_consumer"
+        ],
+        "members": [
+          "10c209f4-6fba-4447-9194-3e61e4c2bb11"
+        ]
+      },
+      {
+        "role_name": "viewer",
+        "actions": [
+          "view"
+        ],
+        "members": null
+      },
+      {
+        "role_name": "editor",
+        "actions": [
+          "view",
+          "edit"
+        ],
+        "members": null
+      },
+      {
+        "role_name": "runner",
+        "actions": [
+          "view",
+          "run"
+        ],
+        "members": null
+      },
+      {
+        "role_name": "result_consumer",
+        "actions": [
+          "view",
+          "result_consumer"
+        ],
+        "members": null
+      }
+    ],
+    "assets": [
+      {
+        "file_name": "addition",
+        "id": "a4b34c5f-f400-4288-9753-f44cb708fc1b",
+        "UserID": "10c209f4-6fba-4447-9194-3e61e4c2bb11",
+        "description": "Algo",
+        "asset_type": "algorithm",
+        "asset": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv...",
+        "created_at": "2025-11-12T14:04:34.735495Z",
+        "Checksum": "a7e107aa899725cc81a137a0d0b61163cf46b4721d459f2b212dbb9f65e7d57c",
+        "mime_type": "text/plain",
+        "Computations": null,
+        "UserKey": ""
+      },
+      {
+        "file_name": "iris.csv",
+        "id": "5e99ab96-d453-4e8d-b5c1-18488afc124c",
+        "UserID": "10c209f4-6fba-4447-9194-3e61e4c2bb11",
+        "description": "Dataset",
+        "asset_type": "dataset",
+        "asset": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv...",
+        "created_at": "2025-11-12T14:03:50.719343Z",
+        "Checksum": "a9a96ff672cde7f6b2badcc4eb13b95afe59255650abfcbd9f73d34fc61480ad",
+        "mime_type": "text/csv",
+        "Computations": null,
+        "UserKey": ""
+      }
+    ],
+    "asset_links": [
+      {
+        "asset_id": "a4b34c5f-f400-4288-9753-f44cb708fc1b",
+        "computation_id": ""
+      },
+      {
+        "asset_id": "5e99ab96-d453-4e8d-b5c1-18488afc124c",
+        "computation_id": ""
+      }
+    ]
+  }
+]
+```
+
+#### 2. Manifest Format (For Runtime Verification)
+
+The manifest is automatically generated by Prism when you run a computation. You typically don't need to create or edit manifests manually. The agent uses it behind the scenes to verify that the correct, unmodified datasets and algorithms are being used.
+
+![Import computations](../static/img/ui/computation_agent_manifest.png)
+
+The manifest is a lightweight reference file that the Prism agent downloads and uses during computation execution. It is used by PCR 16 for cryptographic verification to ensure data integrity and authenticity
+
+**Manifest Structure:**
 
 | Field                  | Type              | Description                                      |
 |------------------------|-------------------|--------------------------------------------------|
@@ -95,7 +282,9 @@ Manifest Structure:
 | algorithm.hash         | array of integers | SHA-256 hash of the algorithm asset              |
 | algorithm.user_key     | string (PEM)      | Public key of the algorithm provider             |
 
-**Sample JSON Format:**
+**Sample Manifest JSON:**
+
+This example shows what a manifest looks like. Notice how it only contains hashes (cryptographic fingerprints) and references, not the actual data:
 
 ```json
 {
@@ -108,7 +297,7 @@ Manifest Structure:
         202, 172, 66, 70, 24, 92, 237, 236, 227, 219, 112, 231, 179, 140, 25,
         192, 117
       ],
-      "user_key": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv14Q8n2U1p0p0HgCq8YnbyMywT21XgZDtpTjDJ1lBFIBVP3ww9jTnuw18vqjDqj8zrpMgLFk7y3Rs1mLOy4vKGXz7GszhVJYcl89XiemzBzxjuAtl3cvCQ+EaKyzQLY46viiAVlkRxqYd+nvZI4eJZ9B/+HuYjfEYxm7Kdife0quYAubKykQDpKwAwz18JV3tTbHy8AmBn+Ngo3g1aYBORhR06wjc2GL+t1sbjnMvKZMiqMmNYguZ97Uq6G4G8CiLJa8Mbk/WCXwefM2DhTgMbRdHQY0NcWn88UNWUgLzvHxHBI38FBAZX7eoX5Na5dQC6JvTREk72w1eNBiPPgDoMQvIbXhEhrrEdCTTxYMGeIrZl6x1DCE+U2Ayqh2x8JHXG+6bGND+rP6PMAysQEI3SAPotex90TW0Z9D6Y8mX2sj8IfJ0d7UVGrn14+/ZOU4WBHAggTaeXB+tpNNkSJI42b6EH9FcEL80Ngwt5J1v9XjxmvarItbmMlRk1IZeHfDqQ5IbmvumS4iihQvifKjsuqklHluAq733K6x4Rn4VUQ1aF1mUtwmDK8NEc6FfCT9JXySaoQbri4f0jlhg8vLzrLGD9WxeRKO3G7HFmAGWoEz/u8rBImlvY1xVHkB6phsvlB4AsWVP1MVMZ81jNY7kLRECAwEAAQ==",
+      "user_key": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv...",
       "filename": "creditcard.csv"
     }
   ],
@@ -118,7 +307,7 @@ Manifest Structure:
       94, 189, 231, 220, 145, 23, 247, 114, 128, 228, 62, 220, 146, 35, 162,
       248, 6
     ],
-    "user_key": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv14Q8n2U1p0p0HgCq8YnbyMywT21XgZDtpTjDJ1lBFIBVP3ww9jTnuw18vqjDqj8zrpMgLFk7y3Rs1mLOy4vKGXz7GszhVJYcl89XiemzBzxjuAtl3cvCQ+EaKyzQLY46viiAVlkRxqYd+nvZI4eJZ9B/+HuYjfEYxm7Kdife0quYAubKykQDpKwAwz18JV3tTbHy8AmBn+Ngo3g1aYBORhR06wjc2GL+t1sbjnMvKZMiqMmNYguZ97Uq6G4G8CiLJa8Mbk/WCXwefM2DhTgMbRdHQY0NcWn88UNWUgLzvHxHBI38FBAZX7eoX5Na5dQC6JvTREk72w1eNBiPPgDoMQvIbXhEhrrEdCTTxYMGeIrZl6x1DCE+U2Ayqh2x8JHXG+6bGND+rP6PMAysQEI3SAPotex90TW0Z9D6Y8mX2sj8IfJ0d7UVGrn14+/ZOU4WBHAggTaeXB+tpNNkSJI42b6EH9FcEL80Ngwt5J1v9XjxmvarItbmMlRk1IZeHfDqQ5IbmvumS4iihQvifKjsuqklHluAq733K6x4Rn4VUQ1aF1mUtwmDK8NEc6FfCT9JXySaoQbri4f0jlhg8vLzrLGD9WxeRKO3G7HFmAGWoEz/u8rBImlvY1xVHkB6phsvlB4AsWVP1MVMZ81jNY7kLRECAwEAAQ=="
+    "user_key": "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAx5NXEAwBVVxCUaWmo3Vv..."
   }
 }
 ```

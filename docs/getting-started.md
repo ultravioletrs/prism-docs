@@ -11,11 +11,13 @@ Prism is a confidential computing platform that enables secure multi-party compu
 1. **Account Setup** - Create your account and log in
 2. **Workspace Creation** - Set up your collaborative environment  
 3. **CVM Setup** - Create Confidential Virtual Machines for secure computing
-4. **Computation Management** - Define, configure, and run secure computations
+4. **Computation Management** - Define, configure, and run secure computations.
+
+![Quick Setup](../static/img/ui/Setup.png)
 
 ---
 
-## Account Setup
+## 1. Account Setup
 
 ### Creating Your Account
 
@@ -38,7 +40,7 @@ After successful login, you'll be directed to the workspaces page where you can 
 
 ---
 
-## Workspace Management
+## 2. Workspace Management
 
 ### Understanding Workspaces
 
@@ -78,7 +80,46 @@ If you've been invited to a workspace:
 
 ---
 
-## CVM (Confidential Virtual Machine) Setup
+## 3. Set Up Your Keys
+
+Keys enable secure, encrypted collaboration in Prism. They ensure only you can upload your assets and only you can decrypt your results—even Prism can't access your private data.
+
+### Why Two Keys?
+
+Prism uses **asymmetric cryptography** with a public/private key pair:
+
+- **Public key** (shareable): Others use this to encrypt data *for you* and verify *you* signed something
+- **Private key** (secret): Only you use this to decrypt data *meant for you* and sign data *from you*
+
+### Generate Your Key Pair
+
+Use our [CLI tool](https://docs.cocos.ultraviolet.rs/cli#command-keys):
+
+```bash
+./build/cocos-cli keys -k rsa
+```
+
+This will generate a key pair of type rsa.
+
+![Generated keys](../static/img/getting_started_keys.png)
+
+**Supported types:** `rsa`, `ecdsa`, `ed25519`
+
+This creates:
+
+- `public_key.pem` → Upload to Prism when creating assets
+- `private_key.pem` → Keep secret on your machine
+
+> **Note:** You'll upload your public key when creating computation assets (next steps), not to your profile. Generate your keys now so they're ready.
+
+**Secure Your Private Key as you'll need it to:**
+
+- Upload algorithms/datasets (proves you authorized the upload)
+- Download results (decrypts output meant for you)
+
+> **Prism never sees your private key.** All signing and decryption happens locally on your machine—this is zero-trust security.
+
+## 4. CVM (Confidential Virtual Machine) Setup
 
 ### What are CVMs?
 
@@ -115,17 +156,35 @@ After creation, your CVM will go through several states:
 
 ---
 
-## Computation Management
+## 5. Computation Management
 
-### Understanding Computations
+A computation is a secure collaborative task in Prism. It brings together an algorithm and data from different parties, runs them in an encrypted environment, and delivers results—all without any party seeing the other's sensitive information.
 
-A computation in Prism CoCoS involves multiple parties collaborating securely:
+### The Problem It Solves
 
-| Component | Role | Required | Description |
-|-----------|------|----------|-------------|
-| **Algorithm** | Algorithm Provider | ✅ Required | The secure code to be executed |
-| **Dataset** | Dataset Provider | ⚪ Optional | Training or input data (if needed) |
-| **Result Consumer** | Result Consumer | ✅ Required | Party authorized to retrieve results |
+**Problem**: One party has valuable data they can't share (due to privacy, regulations, or competitive reasons), and another party has an algorithm they want to keep proprietary. Normally, collaboration is difficult.
+**Prism's solution**: The algorithm runs on the data inside an encrypted environment. The data owner never sees the algorithm, the algorithm owner never sees the data, and the platform can't access either. Only the designated party receives the encrypted results.
+This enables secure collaboration that would otherwise be legally or commercially impossible.
+
+Every computation involves these roles:
+
+- **Algorithm Provider** – Supplies the code or model to be executed (e.g., a data scientist with a predictive model)
+- **Dataset Provider** – Supplies the input data for processing (e.g., a company with proprietary customer data)
+- **Result Consumer** – Receives the encrypted computation output (e.g., the company receiving predictions)
+
+Note: The same person or organization can hold multiple roles, or each role can be filled by different parties—the structure adapts to your collaboration needs.
+
+### What You'll Set Up
+
+To create a computation:
+
+1. **Define the computation** – Name it and describe what it does
+2. **Assign roles** – Choose which workspace members fill each role
+3. **Link assets** – Connect the specific algorithm and dataset to use
+4. **Select a CVM** – Pick where the secure computation will run
+5. **Execute** – Run the computation and monitor progress
+
+Let's walk through these steps.
 
 ### Creating a Computation
 
@@ -138,7 +197,25 @@ A computation in Prism CoCoS involves multiple parties collaborating securely:
 
 ![New Computation](../static/img/ui/new_computation.png)
 
-### Setting Up User Roles
+### Understanding Roles
+
+Every computation has three required roles that represent different parties in the secure collaboration:
+
+| Role | What They Provide | Required? |
+|------|-------------------|-----------|
+| **Algorithm Provider** | The code to run | ✅ Yes |
+| **Dataset Provider** | Input data | ⚪ Optional |
+| **Result Consumer** | Gets the results | ✅ Yes |
+
+> **Example**: Company A provides a fraud-detection algorithm, Company B provides transaction data, Company C receives the fraud report.
+
+Important constraints:
+
+- One role per user: Each user can only be assigned to one role per computation
+- Need multiple permissions? You can create custom roles or update existing ones to combine actions (e.g., a role that's both Algorithm Provider and Result Consumer)
+- Other built-in roles exist: Owner, Viewer, Editor, Runner—for different access levels beyond the core computation roles
+
+Each role has specific actions that determine what users can do—like `view`, `edit`, `run`, `algo_provider`, `dataset_provider`, or `result_consumer`. [Learn more about managing roles and permissions](./roles.md).
 
 #### Step 1: Navigate to Roles
 
@@ -163,47 +240,82 @@ A computation in Prism CoCoS involves multiple parties collaborating securely:
 
 #### Creating Assets
 
-Users assigned to roles must create their respective assets:
+Each role owner needs to create their asset (algorithm, dataset, etc.) and link it to the computation. Assets are cryptographically verified using file hashes and secured using your public/private key pair.
 
-1. Navigate to **Assets** section and click **Create New Asset**
-2. Choose asset type (Algorithm, Dataset, etc.)
-3. Generate a public/private key pair using your preferred tool or using [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-keys):
+Note: While you can create and link assets through the Prism web interface, certain operations like uploading files and retrieving results require the [Cocos CLI tool](https://github.com/ultravioletrs/cocos/blob/main/cli/README.md). Make sure you have it installed before proceeding.
 
-```code
-./build/cocos-cli keys -k rsa
-```
+1. Navigate to **Assets** → **Create New Asset**
+2. Choose your asset type (Algorithm or Dataset)
+3. Generate the file hash of your algorithm or dataset file using the [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-checksum):
 
-This will generate a key pair of type rsa. Different key types can be generated using the -k flag. Currently supported types on cocos are rsa, ecdsa and ed25519. For example:
-![Generated keys](../static/img/getting_started_keys.png)
+   ```bash
+   ./build/cocos-cli checksum <your_file>
+   ```
 
-4. Upload your public key to your Prism profile. Keep your private key secure - you'll need it for:
-   - Uploading [algorithms](https://docs.cocos.ultraviolet.rs/cli#command-algo) and [datasets](https://docs.cocos.ultraviolet.rs/cli#command-data)
+   > The `checksum` command creates a hash—a unique digital fingerprint of your file. This ensures the exact same file is used in the computation and hasn't been modified.
 
-```code
+4. Fill in the asset details, including:
+   - Asset name and description
+   - File hash from step 3
+
+6. Click **Create Asset**
+
+![New Asset](../static/img/ui/new_asset.png)
+
+#### Upload Your Files to the CVM
+
+After creating the asset metadata in Prism, upload the actual files to the Confidential Virtual Machine (CVM) using the [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-data) with your **private key**:
+
+```bash
+# For algorithms
 ./build/cocos-cli algo <algo_file> <private_key_file_path>
 
+# For datasets
 ./build/cocos-cli data <dataset_path> <private_key_file_path>
 ```
 
-   - [Retrieving computation results](https://docs.cocos.ultraviolet.rs/cli#command-result)
+> The CLI encrypts your files before uploading them to the CVM, where they remain protected throughout the computation. Your private key ensures only you can perform this upload.
 
-```code
-./build/cocos-cli result <private_key_file_path> <optional_file_name.zip>
-```
-
-_Note:_ You need to generate file hash for assets before uploading them. For this, use [cocos-cli](https://docs.cocos.ultraviolet.rs/cli/#command-checksum),our command-line tool to help compute the sha3-256 hash of a file.
-
-```code
-./build/cocos-cli checksum <file>
-```
-
-![New Asset](../static/img/ui/new_asset.png)
 ![User Assets](../static/img/ui/user_assets.png)
+
+#### Upload Your Files to the CVM
+
+After creating the asset metadata in Prism, upload the actual files to the Confidential Virtual Machine (CVM) using the [Cocos CLI tool](https://github.com/ultravioletrs/cocos/blob/main/cli/README.md) with your **private key**.
+
+First, export the agent's gRPC URL to connect to the CVM:
+
+```bash
+export AGENT_GRPC_URL=<agent_ip>:<port>
+# Example: export AGENT_GRPC_URL=199.92.195.153:61088
+```
+
+You can find the AGENT_GRPC_URL on the computations page as shown:
+![Agent URL](../static/img/ui/agent_url.png)
+
+Then upload your files:
+
+```bash
+# For algorithms
+./build/cocos-cli algo -p <algo_file> <private_key_file_path> -r <requirements_file>
+
+# For datasets
+./build/cocos-cli data <dataset_path> <private_key_file_path>
+```
+
+The CLI connects to the agent via gRPC and encrypts your files before uploading them to the CVM, where they remain protected throughout the computation. Your private key ensures only you can perform this upload and later decrypt the results.
+
+More documentation on: [algo](https://docs.cocos.ultraviolet.rs/cli/#command-algo) and [data](https://docs.cocos.ultraviolet.rs/cli/#command-data)
+
+**Example output:**
+![Sample Upload](../static/img/sample_upload.png)
 
 #### Linking Assets to Computations
 
 1. From your assets page, find the relevant asset
-2. Click **Link to Computation**
+
+![User Assets](../static/img/ui/user_assets.png)
+
+2. Click **Associate**
 3. Search and select the target computation
 4. Confirm the association
 
@@ -219,12 +331,6 @@ Before running, ensure:
 - ✅ All necessary assets are linked
 - ✅ At least one CVM is online
 - ✅ Users have uploaded their public keys
-
-_Note:_ You can generate keys for running a computation using [cocos-cli _key_ command](https://docs.cocos.ultraviolet.rs/cli#command-keys).
-
-```code
-./build/cocos-cli keys -k rsa
-```
 
 The **Run Computation** button will be disabled until all requirements are met.
 
@@ -260,37 +366,30 @@ You can stop a computation at any time by:
 ![Stop Computation](../static/img/ui/stop_computation.png)
 ![Stop Computation Run](../static/img/ui/stop_computation_run.png)
 
----
+#### Retrieve Your Computation Results
 
-## Security & Public Keys
+First, export the agent's gRPC URL to connect to the CVM:
 
-### Why Public Keys Matter
+```bash
+export AGENT_GRPC_URL=<agent_ip>:<port>
+# Example: export AGENT_GRPC_URL=199.92.195.153:61088
+```
 
-Public keys are essential for:
+You can find the AGENT_GRPC_URL on the computations page as shown:
+![Agent URL](../static/img/ui/agent_url.png)
 
-- User identification and authentication
-- Secure asset uploads
-- Encrypted result retrieval
-- Maintaining computation integrity
+Once the computation completes, download and decrypt your results using the [Cocos CLI tool](https://docs.cocos.ultraviolet.rs/cli/#command-result) with your **private key**:
 
-### Managing Your Keys
+```bash
+./build/cocos-cli result <private_key_file_path> <output_file_name>
+```
 
-1. Generate a public/private key pair using your preferred tool or using [Cocos CLI](https://docs.cocos.ultraviolet.rs/cli#command-keys)
-2. Upload your public key to your Prism profile
-3. Keep your private key secure - you'll need it for:
-   - [Uploading algorithms and datasets](https://docs.cocos.ultraviolet.rs/cli#command-algo)
-   - [Retrieving computation results](https://docs.cocos.ultraviolet.rs/cli#command-data)
+> The CLI connects to the agent, retrieves the encrypted computation result, and decrypts it using your private key. Only you can decrypt results meant for your role.
 
-   ```code
+**Example output:**
+![Stop Computation](../static/img/computation_Results.png)
 
-   ./build/cocos-cli keys -k rsa
-
-   ./build/cocos-cli algo <algo_path> <private_key_file_path>
-
-   ./build/cocos-cli data <dataset_path> <private_key_file_path>
-   ```
-
-> **🔐 Security Best Practice**: Never share your private key. Prism only needs your public key for verification.
+The decrypted results will be saved to your specified output file, ready for analysis.
 
 ---
 

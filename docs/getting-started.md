@@ -213,11 +213,11 @@ Let's walk through these steps.
 
 Every computation has three required roles that represent different parties in the secure collaboration:
 
-| Role | What They Provide | Required? |
-|------|-------------------|-----------|
-| **Algorithm Provider** | The code to run | ✅ Yes |
-| **Dataset Provider** | Input data | ⚪ Optional |
-| **Result Consumer** | Gets the results | ✅ Yes |
+| Role                   | What They Provide | Required?  |
+|------------------------|-------------------|------------|
+| **Algorithm Provider** | The code to run   | ✅ Yes.     |
+| **Dataset Provider**   | Input data        | ⚪ Optional |
+| **Result Consumer**    | Gets the results  | ✅ Yes      |
 
 > **Example**: Company A provides a fraud-detection algorithm, Company B provides transaction data, Company C receives the fraud report.
 

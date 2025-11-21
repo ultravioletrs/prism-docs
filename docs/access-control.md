@@ -8,13 +8,13 @@ Workspaces are organizational units that contain computations and users. Each wo
 
 ### Workspace Roles
 
-| Role               | Key Permissions                                           |
-| ------------------ | -------------------------------------------------------- |
-| **Administrator**  | Full workspace control, user management, computation creation |
-| **Manager**        | Role management, user assignment                         |
-| **Member**         | Read/update workspace resources                          |
-| **Computation Creator** | Create and manage computations                      |
-| **CVM Manager**    | Create and remove CVMs (Compute Virtual Machines)       |
+| Role                    | Key Permissions                                               |
+| ------------------------| --------------------------------------------------------------|
+| **Administrator**       | Full workspace control, user management, computation creation |
+| **Manager**             | Role management, user assignment                              |
+| **Member**              | Read/update workspace resources                               |
+| **Computation Creator** | Create and manage computations                                |
+| **CVM Manager**         | Create and remove CVMs (Compute Virtual Machines)             |
 
 ### Workspace Permissions Explained
 
@@ -33,15 +33,15 @@ Computations have the most granular access control system, designed to support c
 
 ### Computation Roles
 
-| Role                | Permissions                           | Use Case                    |
-| ------------------- | ------------------------------------- | --------------------------- |
-| **Administrator**   | Owner, View, Edit, Run               | Full computation control    |
-| **Editor**          | View, Edit                           | Modify computation settings |
-| **Runner**          | View, Run                            | Execute computations        |
-| **Viewer**          | View                                 | Monitor computation status  |
-| **Dataset Provider** | View, Edit, Provide Data            | Supply input datasets       |
-| **Algorithm Provider** | View, Edit, Provide Algorithm     | Contribute algorithms       |
-| **Result Consumer** | View, Edit, Consume Results          | Access computation outputs  |
+| Role                   | Permissions                           | Use Case                    |
+| ---------------------- | ------------------------------------- | --------------------------- |
+| **Administrator**      | Owner, View, Edit, Run                | Full computation control    |
+| **Editor**             | View, Edit                            | Modify computation settings |
+| **Runner**             | View, Run                             | Execute computations        |
+| **Viewer**             | View                                  | Monitor computation status  |
+| **Dataset Provider**   | View, Edit, Provide Data              | Supply input datasets       |
+| **Algorithm Provider** | View, Edit, Provide Algorithm         | Contribute algorithms       |
+| **Result Consumer**    | View, Edit, Consume Results           | Access computation outputs  |
 
 ### Computation Permissions Explained
 

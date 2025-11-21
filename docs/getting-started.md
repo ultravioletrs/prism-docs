@@ -8,7 +8,7 @@ Prism is a confidential computing platform that enables secure multi-party compu
 
 ## What You'll Build
 
-In this guide, you'll run a **simple addition computation** that adds numbers from a dataset. This demonstrates how one party can provide an algorithm while another provides data, with results going to a third party—all without anyone seeing each other's sensitive information.
+In this guide, you'll run a **machine learning model to classify iris flowers**. This demonstrates how one party can provide an algorithm while another provides data, with results going to a third party—all without anyone seeing each other's sensitive information.
 
 **The Scenario:**
 
@@ -296,7 +296,8 @@ A public key is needed for every computation.
 
 Each role owner needs to create their asset (algorithm, dataset, etc.) and link it to the computation. Assets are cryptographically verified using file hashes and secured using your public/private key pair.
 
-> Note: While you create and link assets through the Prism web interface, you require the [Cocos CLI tool](https://github.com/ultravioletrs/cocos/releases) to perform certain operations like uploading files and retrieving results. As this connects you to the CVM and enclave agent via the enclave agent url. Make sure you have the Cocos CLI [installed](#prerequisites) before proceeding.
+> Note: Prism UI only creates asset metadata.Actual files are not uploaded to Prism.
+Algorithms and datasets must be uploaded directly to the CVM using the Cocos CLI (via AGENT_GRPC_URL).The CLI is required for uploading files and retrieving results.
 
 ---
 

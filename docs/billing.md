@@ -13,33 +13,33 @@ To set up a billing account, follow these steps:
 
 2. The workspace settings page will look as shown below since no billing account has been set up yet.
 
-![alt text](img/billing/billing_page_no_account.png)
+![Billing Landing](img/billing/billing_no_account.png)
 
 3. To set up a billing account, click on the "Update Customer Details" button on the top right corner of the page.
 
-![alt text](img/billing/update_customer_button.png)
+![Billing Update Customer Details](img/billing/billing_update_customer_details.png)
 
 4. This will open a form where you can enter your billing details. Fill in the required fields such as name, email, and address. All fields are compulsory, including the second address line.
 
-![alt text](img/billing/update_customer_modal.png)
+![Billing Update Customer Details Modal](img/billing/Update_Customer_Details_Pop.png)
 
 5. After filling in the details, click on the "Update" button to create your billing account. Available plans will be displayed on the page for the logged in user to choose from.
 
-![alt text](img/billing/billing_page_with_account.png)
+![Billing plans](img/billing/billing_page_with_plans.png)
 
 6. By default, the "Free" plan is selected. To change the plan, click on a different plan among the ones listed on the billing page.
 
-![alt text](img/billing/available_plans.png)
+![Select Plan](img/billing/billing_select_plan.jpg)
 
 7. After selecting a plan, you will be prompted to enter your payment details. Fill in the required fields for the payment method you choose (credit card, PayPal, etc.).
 
-![alt text](img/billing/payment_details.png)
+![Payment Details](img/billing/checkout_billing.png)
 
 8. Once you have entered your payment details, click on the "Subscribe Now" button to activate your subscription.
 
 9. This should send you an email confirming your subscription. You can now use the platform with the selected plan.
 
-![alt text](img/billing/transaction_complete.png)
+![Transaction complete](img/billing/checkout_complete.png)
 
 10. If you ever need to change your billing details or update your payment method, you can return to the billing section and click on the "Update Customer Details" button again.
 
@@ -47,37 +47,39 @@ To set up a billing account, follow these steps:
 
 Past records of the current workspace's status can be found on the subscription status history page, which can be accessed when the 'Subscription History' button is clicked on the billing page:
 
-![alt text](img/billing/billing_history_button.png)
+![Billing history button](img/billing/billing_history_button.png)
 
 The subsequent status history page will be opened where all information about the status changes of the subscription will be shown:
 
-![alt text](img/billing/billing_history.png)
-
-### Subscription Management
-
-To manage your subscription, go to the billing section and click on the "Current Subscription" button. From there, you can view your current subscription, pause or resume it, and cancel if needed.
-
-![alt text](img/billing/manage_subscription.png)
+![Billing history](img/billing/billing_history.png)
 
 ### Invoice Management
 
 To manage your invoices, navigate to the billing section and click on the "Invoices" tab. Here you can view all your past invoices, download them as PDFs, and check the status of each invoice.
 
-![alt text](img/billing/invoice_management.png)
+![Billing Invoice](img/billing/billing_invoices.png)
 
 A sample invoice is shown.
 
-![alt text](img/billing/sample_invoice.png)
+![Sample Invoice](img/billing/sample_invoice.png)
 
 #### CVM Billing
 
 Invoices for CVMs will be automatically generated and sent once each month. You can view these invoices in the "Invoices" tab of the billing section. Each invoice will detail the usage of CVMs and any associated costs.
 
-Estimates of accrued costs for CVMs can be viewed in the CVMs page on the details of each CVM. This will give you an idea of the expected costs before the invoice is generated.
+- **GCP and Azure CVMs** are charged based on usage
+- **Other CVMs** are free of charge
+- You will only be billed if you use GCP or Azure CVMs
+
+Estimates of accrued costs for CVMs can be viewed on the CVMs page in the details section of each CVM. This will give you an idea of the expected costs before the monthly invoice is generated.
 
 Pending payments on any CVMs will prevent you from logging in to the platform. Ensure that all invoices are paid to maintain access.
 
 A list of unpaid invoices will be displayed on the workspaces page prior to logging in. Use the link on the invoice to pay it directly, and access the platform once the payment is confirmed.
+
+---
+
+**Note:** Billing is monthly. If you're on a plan with GCP or Azure CVMs and you use those CVMs, you will be billed for them. If you do not use GCP or Azure CVMs, you will not be billed for them.
 
 ![alt text](img/billing/workspace_invoices.png)
 

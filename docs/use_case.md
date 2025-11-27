@@ -4,11 +4,11 @@ This document presents a **real-world scenario** where Prism is used to perform 
 
 While this example is grounded in pandemic response, the underlying approach generalizes to any sensitive, collaborative AI training effort — including applications in **healthcare, finance, and government**.
 
-If you have not used Prism before, it helps to first skim the [Getting Started Guide](/docs/getting-started.md) to familiarize yourself with workspaces, CVMs, and computations in the UI. This use case then shows how the same building blocks are combined for a concrete privacy‑preserving AI workflow.
+If you are new to Prism, read the [Getting Started Guide](/docs/getting-started.md) first to learn about workspaces, CVMs and computations in the UI. This use case then walks through how to use them together for training a COVID‑19 model.
 
 ---
 
-## High-Level Use Case Context
+## Use Case Context
 
 Modern machine learning often requires diverse and high-quality datasets, but privacy, legal, and competitive concerns restrict data sharing. Prism addresses this by enabling **cross-organization AI workloads using secure enclaves** (Confidential Virtual Machines or CVMs), allowing data to remain private even during processing.
 
@@ -26,7 +26,7 @@ The walkthrough builds on the COVID-19 training algorithm provided in the [AI re
 
 ## Summary Workflow
 
-At a high level, the COVID‑19 training workflow in Prism looks like this:
+The COVID‑19 training workflow in Prism consists of the following steps:
 
 1. **Provisioning**: Define a workspace and computation, and onboard stakeholders.
 2. **Asset Registration**: Register and upload datasets and algorithms.
@@ -34,7 +34,7 @@ At a high level, the COVID‑19 training workflow in Prism looks like this:
 4. **Execution**: Run and monitor the multiparty computation.
 5. **Result Consumption**: Authorize, download, and use the final model.
 
-The sections below walk through each step in more detail, combining the UI‑based flow from the [Getting Started Guide](/docs/getting-started.md) with the additional CLI commands required for data and algorithm upload.
+The sections below describe each step in more detail.
 
 ---
 
@@ -52,7 +52,7 @@ Within that workspace:
 - Give it a meaningful name and description so collaborators can easily find it.
 - Ensure a valid **billing account** is attached for tracking usage.
 
-Conceptually, the workspace is the secure boundary for collaboration, and the computation is the specific “project” that will collect datasets, algorithms, and results.
+The workspace is the secure boundary for collaboration, and the computation is the specific project that will collect datasets, algorithms and results.
 
 ![New Computation](img/usecase/new_comp.png)
 
@@ -81,7 +81,7 @@ From the Prism UI, follow the same flow described in the _CVMs_ section of the [
 
 ![Create CVM](img/usecase/create_cvm.png)
 
-📘 Detailed setup instructions: [CVM Docs](/docs/cvms.md)
+For more details, see [CVM Docs](/docs/cvms.md).
 
 After the CVM is online, you can interact with it from the CLI. First, export the CVM's gRPC endpoint so the Cocos CLI knows where to connect:
 
@@ -176,7 +176,7 @@ Authorized users can retrieve results via:
 
 ![Completed Computation](img/usecase/completed_computation.png)
 
-Note: Results are **one-time consumable** and linked to access control lists defined by the computation owner. This ensures that even after the model has been produced, access to it is tightly controlled and auditable.
+Note: Results are **one-time consumable** and linked to access control lists defined by the computation owner.
 
 ![Downloaded results](img/usecase/consumed_results.png)
 
@@ -224,7 +224,7 @@ Prism, powered by [Cocos](https://docs.cocos.ultraviolet.rs), makes **confidenti
 
 ---
 
-## 🔗 References
+## References
 
 - [AI COVID-19 Training Repo](https://github.com/ultravioletrs/ai/tree/main/covid19)
 - [Cocos CLI Docs](https://docs.cocos.ultraviolet.rs/cli)

@@ -234,8 +234,8 @@ In this guide, we'll demonstrate the complete workflow using a practical example
 
 Every computation has three required roles that represent different parties in the secure collaboration:
 
-| Role                   | What They Provide | Required?  |
-|------------------------|-------------------|------------|
+| Role                   | What They Provide | Required?   |
+|------------------------|-------------------|-------------|
 | **Algorithm Provider** | The code to run   | ✅ Yes.     |
 | **Dataset Provider**   | Input data        | ⚪ Optional |
 | **Result Consumer**    | Gets the results  | ✅ Yes      |

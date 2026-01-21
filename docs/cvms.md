@@ -103,5 +103,6 @@ If a CVM is no longer needed, it can be removed using the following steps:
 - Once a CVM is removed, its resources are deallocated, and it cannot be recovered.
 - For Azure and GCP CVMs, compute resources should be selected carefully based on workload requirements to optimize cost and performance.
 - Regularly update certificates to maintain secure connections.
+- Backend CVMs server runs on port 7018 accessible at cvms.prism.ultraviolet.rs:7018
 
 By following these guidelines, users can efficiently manage their Confidential Virtual Machines while maintaining a high level of security and performance.

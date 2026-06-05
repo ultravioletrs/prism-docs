@@ -1,6 +1,12 @@
 # Prism Docs
 
-This is the source code for the Prism documentation site, built with [Next.js](https://nextjs.org/) and [Fumadocs](https://fumadocs.dev/).
+This is the source code for the Prism AI documentation site, built with [Next.js](https://nextjs.org/) and [Fumadocs](https://fumadocs.dev/).
+
+The site is configured to live under:
+
+```txt
+https://www.ultraviolet.rs/docs/prism-ai
+```
 
 ## Getting Started
 
@@ -15,7 +21,7 @@ This is the source code for the Prism documentation site, built with [Next.js](h
 pnpm install
 ```
 
-### Development
+### Develop
 
 Run the development server:
 
@@ -23,19 +29,49 @@ Run the development server:
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/docs/prism-ai](http://localhost:3000/docs/prism-ai) with your browser to see the docs.
+
+### Validate
+
+```bash
+pnpm run lint
+pnpm run types:check
+```
+
+Biome is used for code linting and formatting:
+
+```bash
+pnpm run lint:fix
+pnpm run format
+```
+
+### Build
+
+```bash
+pnpm run build
+```
+
+The build exports static assets to `out/`, then nests the export under `out/docs/prism-ai` so Cloudflare Workers can serve the docs at the configured base path.
 
 ## Project Structure
 
 - `app/`: Next.js app router pages and layouts.
-- `content/docs/`: Documentation content in MDX format.
-- `components/`: Reusable React components.
+- `content/docs/`: Documentation content in Markdown and MDX.
 - `lib/`: Utility functions and Fumadocs configuration.
+- `public/`: Static assets, Cloudflare `_headers`, `_redirects`, and `robots.txt`.
+- `scripts/nest-static-export.mjs`: Moves the static export under `out/docs/prism-ai`.
+- `wrangler.jsonc`: Cloudflare Workers assets deployment config.
 
-### Deploy
+## Deploy
 
-The site is exported as static assets and deployed to Cloudflare Workers with Wrangler:
+The site is exported as static assets and can be deployed to Cloudflare Workers with Wrangler:
 
 ```bash
 pnpm run deploy
+```
+
+To upload a version without deploying it immediately:
+
+```bash
+pnpm run upload
 ```

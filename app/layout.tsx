@@ -1,11 +1,10 @@
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
-import { RootProvider } from "fumadocs-ui/provider/next";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Provider } from "@/components/provider";
 import { baseOptions } from "@/lib/layout.shared";
 import { baseUrl, createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
-import { Provider } from "@/components/provider";
 import "./global.css";
 
 export const metadata: Metadata = createMetadata({

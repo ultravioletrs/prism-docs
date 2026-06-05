@@ -1,0 +1,11 @@
+{
+  "title": "User Management",
+  "pages": [
+    "access-control",
+    "dashboard",
+    "workspaces",
+    "workspace-roles",
+    "users",
+    "invitations"
+  ]
+}

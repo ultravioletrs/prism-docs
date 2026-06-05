@@ -1,36 +1,77 @@
 # Prism Docs
 
-This repo collects the collaborative work on Prism documentation.
-Official documentation is hosted at [Prism Docs page][docs].
+This is the source code for the Prism AI documentation site, built with [Next.js](https://nextjs.org/) and [Fumadocs](https://fumadocs.dev/).
 
-Documentation is auto-generated from Markdown files in this repo.
+The site is configured to live under:
 
-## Installation
+```txt
+https://www.ultraviolet.rs/docs/prism-ai
+```
 
-Doc repo can be fetched from GitHub:
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v20 or newer)
+- [pnpm](https://pnpm.io/) (v10 or newer)
+
+### Installation
 
 ```bash
-git clone git@github.com:ultravioletrs/prism-docs.git
+pnpm install
 ```
 
-``` bash
-yarn
+### Develop
+
+Run the development server:
+
+```bash
+pnpm dev
 ```
 
-### Local Development
+Open [http://localhost:3000/docs/prism-ai](http://localhost:3000/docs/prism-ai) with your browser to see the docs.
 
-```
-$ yarn start
+### Validate
+
+```bash
+pnpm run lint
+pnpm run types:check
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Biome is used for code linting and formatting:
+
+```bash
+pnpm run lint:fix
+pnpm run format
+```
 
 ### Build
 
-```
-$ yarn build
+```bash
+pnpm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+The build exports static assets to `out/`, then nests the export under `out/docs/prism-ai` so Cloudflare Workers can serve the docs at the configured base path.
 
-[docs]: https://docs.prism.ultraviolet.rs
+## Project Structure
+
+- `app/`: Next.js app router pages and layouts.
+- `content/docs/`: Documentation content in Markdown and MDX.
+- `lib/`: Utility functions and Fumadocs configuration.
+- `public/`: Static assets, Cloudflare `_headers`, `_redirects`, and `robots.txt`.
+- `scripts/nest-static-export.mjs`: Moves the static export under `out/docs/prism-ai`.
+- `wrangler.jsonc`: Cloudflare Workers assets deployment config.
+
+## Deploy
+
+The site is exported as static assets and can be deployed to Cloudflare Workers with Wrangler:
+
+```bash
+pnpm run deploy
+```
+
+To upload a version without deploying it immediately:
+
+```bash
+pnpm run upload
+```

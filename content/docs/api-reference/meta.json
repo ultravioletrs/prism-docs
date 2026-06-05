@@ -1,0 +1,12 @@
+{
+  "title": "API Reference",
+  "pages": [
+    "api",
+    "assets_api_docs",
+    "certs_api_docs",
+    "computations_api_docs",
+    "cvm_api_docs",
+    "events_api_docs",
+    "logs_api_docs"
+  ]
+}

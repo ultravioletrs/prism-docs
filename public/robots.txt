@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://www.ultraviolet.rs/docs/prism-ai/sitemap.xml

@@ -1,36 +1,41 @@
 # Prism Docs
 
-This repo collects the collaborative work on Prism documentation.
-Official documentation is hosted at [Prism Docs page][docs].
+This is the source code for the Prism documentation site, built with [Next.js](https://nextjs.org/) and [Fumadocs](https://fumadocs.dev/).
 
-Documentation is auto-generated from Markdown files in this repo.
+## Getting Started
 
-## Installation
+### Prerequisites
 
-Doc repo can be fetched from GitHub:
+- [Node.js](https://nodejs.org/) (v20 or newer)
+- [pnpm](https://pnpm.io/) (v10 or newer)
+
+### Installation
 
 ```bash
-git clone git@github.com:ultravioletrs/prism-docs.git
+pnpm install
 ```
 
-``` bash
-yarn
+### Development
+
+Run the development server:
+
+```bash
+pnpm dev
 ```
 
-### Local Development
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Project Structure
+
+- `app/`: Next.js app router pages and layouts.
+- `content/docs/`: Documentation content in MDX format.
+- `components/`: Reusable React components.
+- `lib/`: Utility functions and Fumadocs configuration.
+
+### Deploy
+
+The site is exported as static assets and deployed to Cloudflare Workers with Wrangler:
+
+```bash
+pnpm run deploy
 ```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-[docs]: https://docs.prism.ultraviolet.rs

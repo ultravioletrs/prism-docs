@@ -16,12 +16,15 @@
     "lint:md": "markdownlint --disable MD013 MD033 MD007 MD029 MD059 MD024 MD025 -- content/docs"
   },
   "dependencies": {
+    "@orama/orama": "^3.1.18",
     "@types/unist": "^3.0.3",
     "clsx": "^2.1.1",
     "fumadocs-core": "16.5.2",
     "fumadocs-mdx": "^14.2.7",
     "fumadocs-ui": "16.5.2",
+    "mermaid": "^11.12.2",
     "next": "16.1.6",
+    "next-themes": "^0.4.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "remark-directive": "^4.0.0",

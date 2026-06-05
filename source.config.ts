@@ -16,11 +16,15 @@ export const docs = defineDocs({
   },
 });
 
-import remarkDirective from "remark-directive";
-import { remarkAdmonitions } from "@/lib/remark-admonitions";
-
 export default defineConfig({
   mdxOptions: {
-    remarkPlugins: [remarkDirective, remarkAdmonitions],
+    rehypeCodeOptions: {
+      themes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+      langs: ["bash", "go"],
+    },
+    // MDX options
   },
 });

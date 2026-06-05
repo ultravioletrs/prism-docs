@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { baseOptions } from "@/lib/layout.shared";
 import { baseUrl, createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
+import { Provider } from "@/components/provider";
 import "./global.css";
 
 export const metadata: Metadata = createMetadata({
@@ -22,11 +23,11 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen bg-background text-foreground font-body">
-        <RootProvider>
+        <Provider>
           <DocsLayout tree={source.getPageTree()} {...baseOptions()}>
             {children}
           </DocsLayout>
-        </RootProvider>
+        </Provider>
       </body>
     </html>
   );

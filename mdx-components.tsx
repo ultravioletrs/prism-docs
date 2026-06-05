@@ -1,6 +1,7 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { Mermaid } from "@/components/mdx/mermaid";
 import { assetPath } from "@/lib/base-path";
 
 const DefaultImage = defaultMdxComponents.img as
@@ -17,6 +18,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       if (DefaultImage) return <DefaultImage {...props} src={src} />;
       return null;
     },
+    Mermaid,
     ...components,
   };
 }

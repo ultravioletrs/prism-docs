@@ -60,7 +60,15 @@ The build exports static assets to `out/`, then nests the export under `out/docs
 - `lib/`: Utility functions and Fumadocs configuration.
 - `public/`: Static assets, Cloudflare `_headers`, `_redirects`, and `robots.txt`.
 - `scripts/nest-static-export.mjs`: Moves the static export under `out/docs/prism-ai`.
-- `wrangler.jsonc`: Cloudflare Workers assets deployment config.
+- `worker.ts`: Cloudflare Worker that serves images from R2 on top of the static export (see [Images](#images)).
+- `wrangler.jsonc`: Cloudflare Workers assets + R2 binding deployment config.
+
+## Images
+
+Images are served from Cloudflare R2 (not committed to this repo) via `worker.ts`, which
+keeps existing `/img/...` URLs (under this site's `/docs/prism-ai` basePath) working
+unchanged. Maintainers publishing new/updated images: see
+[scripts/README.md](scripts/README.md).
 
 ## Deploy
 

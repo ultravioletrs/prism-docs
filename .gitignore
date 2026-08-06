@@ -24,3 +24,6 @@ yarn-error.log*
 .env*.local
 .vercel
 next-env.d.ts
+
+# publish-image script credentials (see scripts/README.md)
+scripts/.env.publish-image
